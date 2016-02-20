@@ -63,13 +63,13 @@ namespace StatisticsRomania.Views
 
             await LoadData();
 
-            var degAverageGrosSalary = new GridControl();
-            degAverageGrosSalary.IsReadOnly = true;
-            degAverageGrosSalary.HorizontalOptions = LayoutOptions.FillAndExpand;
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Year", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Month", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Value", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.ItemsSource = _viewModel.ChapterData;
+            var degChapterData = new GridControl();
+            degChapterData.IsReadOnly = true;
+            degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
+            degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
+            degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degChapterData.Columns.Add(new TextColumn() { Caption = "Valoare", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degChapterData.ItemsSource = _viewModel.ChapterData;
 
             this.Content = new StackLayout
             {
@@ -98,7 +98,7 @@ namespace StatisticsRomania.Views
                                 lblChapter, _pickerChapters
                             }
                     },
-                    degAverageGrosSalary,
+                    degChapterData,
                 }
             };
 

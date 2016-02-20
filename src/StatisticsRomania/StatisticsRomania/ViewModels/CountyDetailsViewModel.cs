@@ -10,13 +10,12 @@ using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.ViewModels
 {
-    public class CountyDetailsViewModel
+    public class CountyDetailsViewModel : BaseViewModel
     {
-        private readonly IRepository<County> _chapterRepository;
+        private readonly IRepository<County> _countyRepository;
         readonly ObservableCollection<Data> _chapterData;
 
         public Dictionary<string, int> CountyList { get; set; }
-        public Dictionary<string, Type> ChapterList { get; set; }
 
         public ObservableCollection<Data> ChapterData
         {
@@ -25,22 +24,13 @@ namespace StatisticsRomania.ViewModels
 
         public CountyDetailsViewModel()
         {
-            _chapterRepository = new Repository<County>(App.AsyncDb);
+            _countyRepository = new Repository<County>(App.AsyncDb);
             _chapterData = new ObservableCollection<Data>();
         }
 
         public async Task GetCounties()
         {
-            CountyList = (await _chapterRepository.GetAll()).ToDictionary(x => x.Name, x => x.Id);
-        }
-
-        public void GetChapters()
-        {
-            ChapterList = new Dictionary<string, Type>()
-                              {
-                                  { "Castigul salarial mediu brut", typeof(AverageGrossSalary) },
-                                  { "Castigul salarial mediu net", typeof(AverageNetSalary) }
-                              };
+            CountyList = (await _countyRepository.GetAll()).ToDictionary(x => x.Name, x => x.Id);
         }
 
         public async Task GetChapterData(int countyId, string chapter)
