@@ -101,6 +101,9 @@ namespace StatisticsRomania.Views
                     degAverageGrosSalary,
                 }
             };
+
+            _pickerCounties.SelectedIndex = 0;
+            _pickerChapters.SelectedIndex = 0;
         }
 
         private async Task LoadData()
