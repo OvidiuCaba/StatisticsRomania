@@ -5,7 +5,7 @@ using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Interop;
 using StatisticsRomania.BusinessObjects;
-using StatisticsRomania.Repository.Seeders;
+using Seeders = StatisticsRomania.Repository.Seeders;
 
 namespace StatisticsRomania.Repository
 {
@@ -41,11 +41,13 @@ namespace StatisticsRomania.Repository
 
         private void SeedDatabase()
         {
-            var counties = CountiesSeeder.GetData();
+            var counties = Seeders.CountiesSeeder.GetData();
 
             _db.InsertOrReplaceAll(counties);
 
-            var averageGrossSalaries = AverageGrossSalarySeeder.GetData();
+            var averageGrossSalaries = Seeders.Alba.AverageGrossSalarySeeder.GetData();
+            averageGrossSalaries.AddRange(Seeders.Arad.AverageGrossSalarySeeder.GetData());
+            averageGrossSalaries.AddRange(Seeders.Arges.AverageGrossSalarySeeder.GetData());
 
             _db.DeleteAll<AverageGrossSalary>();
             _db.InsertAll(averageGrossSalaries);

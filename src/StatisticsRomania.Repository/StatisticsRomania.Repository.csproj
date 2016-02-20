@@ -33,11 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Seeders\AverageGrossSalarySeeder.cs" />
+    <Compile Include="Seeders\Alba\AverageGrossSalarySeeder.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seeders\Arad\AverageGrossSalarySeeder.cs" />
+    <Compile Include="Seeders\Arges\AverageGrossSalarySeeder.cs" />
     <Compile Include="Seeders\CountiesSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
