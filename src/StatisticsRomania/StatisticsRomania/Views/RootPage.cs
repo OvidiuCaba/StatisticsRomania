@@ -12,20 +12,7 @@ namespace StatisticsRomania.Views
         public RootPage()
         {
             this.Title = "Romania - Statistici";
-            this.Children.Add(new ContentPage
-            {
-                Title = "Statistici judenete",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-						new Label {
-							XAlign = TextAlignment.Center,
-							Text = "We're going to display county details!"
-						}
-					}
-                }
-            });
+            this.Children.Add(new CountyDetailsView());
             this.Children.Add(new ContentPage
             {
                 Title = "Clasamente",
