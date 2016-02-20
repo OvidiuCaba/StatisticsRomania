@@ -123,14 +123,14 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndex = 0;
         }
 
-        void _pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
+        private async void _pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            await LoadData();
         }
 
-        void _pickerYears_SelectedIndexChanged(object sender, EventArgs e)
+        private async void _pickerYears_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            await LoadData();
         }
 
         private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,7 +144,11 @@ namespace StatisticsRomania.Views
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;
 
-            await _viewModel.GetStandings(selectedChapter);
+            var selectedYear = _pickerYears.SelectedIndex >= 0 ? int.Parse(_pickerYears.Items[_pickerYears.SelectedIndex]) : -1;
+
+            var selectedYearFraction = _pickerYearFractions.SelectedIndex >= 0 ? int.Parse(_pickerYearFractions.Items[_pickerYearFractions.SelectedIndex]) : -1;
+
+            await _viewModel.GetStandings(selectedChapter, selectedYear, selectedYearFraction);
         }
     }
 }

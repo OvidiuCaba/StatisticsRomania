@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StatisticsRomania.Lib;
 
 namespace StatisticsRomania.ViewModels
 {
@@ -21,12 +22,22 @@ namespace StatisticsRomania.ViewModels
 
         public CountyStandingsViewModel()
         {
-            
+            _standings = new ObservableCollection<StandingItem>();
         }
 
-        public Task GetStandings(string selectedChapter)
+        public async Task GetStandings(string chapter, int year, int yearFraction)
         {
-            return Task.FromResult(0);
+            Standings.Clear();
+
+            if (!ChapterList.ContainsKey(chapter))
+                return;
+
+            var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
+
+            foreach (var item in data)
+            {
+                Standings.Add(item);
+            }
         }
 
         internal void GetYears()

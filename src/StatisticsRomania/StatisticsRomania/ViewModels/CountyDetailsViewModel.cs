@@ -40,7 +40,7 @@ namespace StatisticsRomania.ViewModels
             if (!ChapterList.ContainsKey(chapter) || countyId < 1)
                 return;
 
-            var data = await DataProvider.GetData(countyId, ChapterList[chapter]);
+            var data = await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]);
 
             foreach (var item in data)
             {

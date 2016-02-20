@@ -1,4 +1,5 @@
 ﻿using SQLite.Net.Async;
+using SQLiteNetExtensionsAsync.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,6 +94,11 @@ namespace StatisticsRomania.Repository
         public async Task<int> Delete(T entity)
         {
             return await db.DeleteAsync(entity);
+        }
+
+        public async Task GetChild(T entity, Expression<Func<T, object>> propertyExpression)
+        {
+            await db.GetChildAsync(entity, propertyExpression);
         }
     }
 }

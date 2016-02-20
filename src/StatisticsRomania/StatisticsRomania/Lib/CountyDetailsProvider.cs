@@ -8,7 +8,7 @@ using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.Lib
 {
-    public static class DataProvider
+    public static class CountyDetailsProvider
     {
         public static async Task<List<Data>> GetData(int countyId, Type chapter)
         {
