@@ -18,40 +18,43 @@ namespace StatisticsRomania.Lib
                 var repo = new Repository<AverageGrossSalary>(App.AsyncDb);
                 var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
                     .OrderByDescending(x => x.Value)
+                    .Cast<Data>()
                     .ToList();
 
-                var data = new List<StandingItem>();
-                var index = 1;
-                foreach (var item in rawData)
-                {
-                    await repo.GetChild(item, x => x.County);
-
-                    var standingItem = new StandingItem() { Position = index++, County = item.County.Name, Value = item.Value };
-                    data.Add(standingItem);
-                }
+                var data = await ProcessRawData(rawData, repo);
 
                 return data;
             }
-            else if (chapter == typeof(AverageNetSalary))
+            
+            if (chapter == typeof(AverageNetSalary))
             {
                 var repo = new Repository<AverageNetSalary>(App.AsyncDb);
-                var data = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
-                    .OrderByDescending(x => x.Value)
-                    .Select(x => new StandingItem() { County = x.County.Name, Value = x.Value })
-                    .ToList();
+                var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
+                     .OrderByDescending(x => x.Value)
+                     .Cast<Data>()
+                     .ToList();
 
-                var index = 1;
-                foreach (var item in data)
-                {
-                    item.Position = index++;
-                }
+                var data = await ProcessRawData(rawData, repo);
 
                 return data;
             }
-            else
+
+            return null;
+        }
+
+        private static async Task<List<StandingItem>> ProcessRawData<T>(List<Data> rawData, Repository<T> repo)
+            where T : Data, new()
+        {
+            var data = new List<StandingItem>();
+            var index = 1;
+            foreach (var item in rawData)
             {
-                return null;
+                await repo.GetChild((T) item, x => x.County);
+
+                var standingItem = new StandingItem() {Position = index++, County = item.County.Name, Value = item.Value};
+                data.Add(standingItem);
             }
+            return data;
         }
     }
 }
