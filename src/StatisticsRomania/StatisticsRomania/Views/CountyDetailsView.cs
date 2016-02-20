@@ -24,8 +24,8 @@ namespace StatisticsRomania.Views
         private async Task Init()
         {
             _viewModel = new CountyDetailsViewModel();
-            //BindingContext = _viewModel;
             await _viewModel.GetCounties();
+            _viewModel.GetChapters();
 
             var lblCounty = new Label
             {
@@ -40,6 +40,21 @@ namespace StatisticsRomania.Views
             foreach (var county in _viewModel.CountyList)
             {
                 pickerCounties.Items.Add(county.Key);
+            }
+
+            var lblChapter = new Label
+            {
+                VerticalOptions = LayoutOptions.Center,
+                Text = "Indicator:"
+            };
+
+            var pickerChapters = new Picker()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+            foreach (var chapter in _viewModel.ChapterList)
+            {
+                pickerChapters.Items.Add(chapter);
             }
 
             await _viewModel.GetAverageGrossSalaries();
@@ -61,15 +76,24 @@ namespace StatisticsRomania.Views
                     top: Device.OnPlatform(iOS: 20, Android: 0, WinPhone: 0)),
                 Children = { 
                     new StackLayout()
-                        {
-                            HorizontalOptions = LayoutOptions.FillAndExpand,
-                            Orientation = StackOrientation.Horizontal,
-                            Children =
-                                {
-                                    lblCounty, pickerCounties
-                                }
-                        },
-                        degAverageGrosSalary,
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Orientation = StackOrientation.Horizontal,
+                        Children =
+                            {
+                                lblCounty, pickerCounties
+                            }
+                    },
+                    new StackLayout()
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Orientation = StackOrientation.Horizontal,
+                        Children =
+                            {
+                                lblChapter, pickerChapters
+                            }
+                    },
+                    degAverageGrosSalary,
                 }
             };
         }

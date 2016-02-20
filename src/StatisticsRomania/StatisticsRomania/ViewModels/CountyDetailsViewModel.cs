@@ -15,6 +15,7 @@ namespace StatisticsRomania.ViewModels
         readonly ObservableCollection<AverageGrossSalary> _averageGrossSalaryCollection;
 
         public Dictionary<string, int> CountyList { get; set; }
+        public List<string> ChapterList { get; set; }
 
         public ObservableCollection<AverageGrossSalary> AverageGrossSalaryCollection
         {
@@ -35,6 +36,15 @@ namespace StatisticsRomania.ViewModels
         public async Task GetCounties()
         {
             CountyList = (await _chapterRepository.Get()).ToDictionary(x => x.Name, x => x.Id);
+        }
+
+        public void GetChapters()
+        {
+            ChapterList = new List<string>()
+                              {
+                                  "Castigul salarial mediu brut",
+                                  "Castigul salarial mediu net",
+                              };
         }
 
         public async Task GetAverageGrossSalaries()
