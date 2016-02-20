@@ -25,10 +25,14 @@ namespace StatisticsRomania.Views
             await _viewModel.GetCounties();
 
             var lblCounty = new Label
-                                {
-                                    Text = "Judet:"
-                                };
-            var pickerCounties = new Picker();
+            {
+                VerticalOptions = LayoutOptions.Center,
+                Text = "Judet:"
+            };
+            var pickerCounties = new Picker()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
             foreach (var county in _viewModel.CountyList)
             {
                 pickerCounties.Items.Add(county.Key);
@@ -43,16 +47,15 @@ namespace StatisticsRomania.Views
                     bottom: 0,
                     top: Device.OnPlatform(iOS: 20, Android: 0, WinPhone: 0)),
                 Children = { 
-                    new Frame()
+                    new StackLayout()
                         {
-                            Content = lblCounty,
-                            Padding = new Thickness(10, 6, 10, 2)
+                            HorizontalOptions = LayoutOptions.FillAndExpand,
+                            Orientation = StackOrientation.Horizontal,
+                            Children =
+                                {
+                                    lblCounty, pickerCounties
+                                }
                         },
-                    new Frame()
-                    {
-                        Content = pickerCounties,
-                        Padding = new Thickness(10, 2),
-                    },
                 }
             };
         }
