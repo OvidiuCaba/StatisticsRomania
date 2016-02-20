@@ -19,6 +19,8 @@ namespace StatisticsRomania.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+            DevExpress.Mobile.Forms.Init();
+
             var database = new Database
             {
                 SqlitePlatform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(),

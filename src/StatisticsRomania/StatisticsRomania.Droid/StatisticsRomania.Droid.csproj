@@ -46,6 +46,12 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Mobile.Core.Android.v15.2">
+      <HintPath>..\..\Components\devexpress-grid-15.2.4.0\lib\android\DevExpress.Mobile.Core.Android.v15.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mobile.Grid.Android.v15.2">
+      <HintPath>..\..\Components\devexpress-grid-15.2.4.0\lib\android\DevExpress.Mobile.Grid.Android.v15.2.dll</HintPath>
+    </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.0.1.6505\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
       <Private>True</Private>
@@ -137,6 +143,12 @@
     <ProjectReference Include="..\StatisticsRomania\StatisticsRomania.csproj">
       <Name>StatisticsRomania</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="devexpress-grid">
+      <Visible>False</Visible>
+      <Version>15.2.4.0</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

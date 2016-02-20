@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.Utils;
 using StatisticsRomania.ViewModels;
 using Xamarin.Forms;
+using DevExpress.Mobile.DataGrid;
 
 namespace StatisticsRomania.Views
 {
@@ -22,6 +24,7 @@ namespace StatisticsRomania.Views
         private async Task Init()
         {
             _viewModel = new CountyDetailsViewModel();
+            //BindingContext = _viewModel;
             await _viewModel.GetCounties();
 
             var lblCounty = new Label
@@ -29,6 +32,7 @@ namespace StatisticsRomania.Views
                 VerticalOptions = LayoutOptions.Center,
                 Text = "Judet:"
             };
+
             var pickerCounties = new Picker()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
@@ -37,6 +41,15 @@ namespace StatisticsRomania.Views
             {
                 pickerCounties.Items.Add(county.Key);
             }
+
+            await _viewModel.GetAverageGrossSalaries();
+            var degAverageGrosSalary = new GridControl();
+            degAverageGrosSalary.IsReadOnly = true;
+            degAverageGrosSalary.HorizontalOptions = LayoutOptions.FillAndExpand;
+            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Year", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
+            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Month", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Value", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degAverageGrosSalary.ItemsSource = _viewModel.AverageGrossSalaryCollection;
 
             this.Content = new StackLayout
             {
@@ -56,6 +69,7 @@ namespace StatisticsRomania.Views
                                     lblCounty, pickerCounties
                                 }
                         },
+                        degAverageGrosSalary,
                 }
             };
         }
