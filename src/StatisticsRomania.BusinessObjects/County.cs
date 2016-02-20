@@ -11,7 +11,7 @@ namespace StatisticsRomania.BusinessObjects
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
-        [MaxLength(8)]
+        [MaxLength(20)]
         public string Name { get; set; }
     }
 }
