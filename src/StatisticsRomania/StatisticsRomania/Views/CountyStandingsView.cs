@@ -14,6 +14,8 @@ namespace StatisticsRomania.Views
     {
         private CountyStandingsViewModel _viewModel;
         private Picker _pickerChapters;
+        private Picker _pickerYears;
+        private Picker _pickerYearFractions;
 
         public CountyStandingsView()
         {
@@ -26,6 +28,8 @@ namespace StatisticsRomania.Views
         {
             _viewModel = new CountyStandingsViewModel();
             _viewModel.GetChapters();
+            _viewModel.GetYears();
+            _viewModel.GetYearFractions();
 
             var lblChapter = new Label
             {
@@ -43,14 +47,46 @@ namespace StatisticsRomania.Views
             }
             _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
+            var lblYear = new Label
+            {
+                VerticalOptions = LayoutOptions.Center,
+                Text = "An:"
+            };
+
+            _pickerYears = new Picker()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+            foreach (var year in _viewModel.YearList)
+            {
+                _pickerYears.Items.Add(year);
+            }
+            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
+
+            var lblYearFraction = new Label
+            {
+                VerticalOptions = LayoutOptions.Center,
+                Text = "Luna / semestru / trimestru:"
+            };
+
+            _pickerYearFractions = new Picker()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            };
+            foreach (var yearFraction in _viewModel.YearFractionList)
+            {
+                _pickerYearFractions.Items.Add(yearFraction);
+            }
+            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+
             await LoadData();
 
             var degAverageGrosSalary = new GridControl();
             degAverageGrosSalary.IsReadOnly = true;
             degAverageGrosSalary.HorizontalOptions = LayoutOptions.FillAndExpand;
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Year", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Month", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Value", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Valoare", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degAverageGrosSalary.ItemsSource = _viewModel.Standings;
 
             this.Content = new StackLayout
@@ -71,11 +107,35 @@ namespace StatisticsRomania.Views
                                 lblChapter, _pickerChapters
                             }
                     },
+                    new StackLayout()
+                    {
+                        HorizontalOptions = LayoutOptions.FillAndExpand,
+                        Orientation = StackOrientation.Horizontal,
+                        Children =
+                            {
+                                lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
+                            }
+                    },
                     degAverageGrosSalary,
                 }
             };
 
             _pickerChapters.SelectedIndex = 0;
+        }
+
+        void _pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        void _pickerYears_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadData();
         }
 
         private async Task LoadData()
@@ -85,11 +145,6 @@ namespace StatisticsRomania.Views
                                       : string.Empty;
 
             await _viewModel.GetStandings(selectedChapter);
-        }
-
-        private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
         }
     }
 }

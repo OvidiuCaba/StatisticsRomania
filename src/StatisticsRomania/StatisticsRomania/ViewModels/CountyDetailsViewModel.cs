@@ -13,7 +13,7 @@ namespace StatisticsRomania.ViewModels
     public class CountyDetailsViewModel : BaseViewModel
     {
         private readonly IRepository<County> _countyRepository;
-        readonly ObservableCollection<Data> _chapterData;
+        private readonly ObservableCollection<Data> _chapterData;
 
         public Dictionary<string, int> CountyList { get; set; }
 
