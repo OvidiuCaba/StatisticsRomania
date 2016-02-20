@@ -8,7 +8,7 @@ namespace StatisticsRomania.BusinessObjects
 {
     public class County
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         public int Id { get; set; }
 
         [MaxLength(20)]

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite.Net;
@@ -46,6 +44,11 @@ namespace StatisticsRomania.Repository
             var counties = CountiesSeeder.GetData();
 
             _db.InsertOrReplaceAll(counties);
+
+            var averageGrossSalaries = AverageGrossSalarySeeder.GetData();
+
+            _db.DeleteAll<AverageGrossSalary>();
+            _db.InsertAll(averageGrossSalaries);
         }
     }
 }

@@ -10,10 +10,11 @@ namespace StatisticsRomania.Repository
 {
     public interface IRepository<T> where T : class, new()
     {
-        Task<List<T>> Get();
+        Task<List<T>> GetAll();
         Task<T> Get(int id);
 
-        Task<List<T>> Get<TValue>(Expression<Func<T, bool>> predicate = null, Expression<Func<T, TValue>> orderBy = null, Expression<Func<T, TValue>> orderByDesc = null);
+        Task<List<T>> GetAll<TValue>(Expression<Func<T, bool>> predicate = null, Expression<Func<T, TValue>> orderBy = null, Expression<Func<T, TValue>> orderByDesc = null);
+        Task<List<T>> GetAll(Expression<Func<T, bool>> predicate);
         Task<T> Get(Expression<Func<T, bool>> predicate);
         Task<List<T>> QueryAsync(string sql, params object[] args);
         AsyncTableQuery<T> AsQueryable();

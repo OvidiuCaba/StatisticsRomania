@@ -13,6 +13,8 @@ namespace StatisticsRomania.Views
     public class CountyDetailsView : ContentPage
     {
         private CountyDetailsViewModel _viewModel;
+        private Picker _pickerChapters;
+        private Picker _pickerCounties;
 
         public CountyDetailsView()
         {
@@ -33,14 +35,15 @@ namespace StatisticsRomania.Views
                 Text = "Judet:"
             };
 
-            var pickerCounties = new Picker()
+            _pickerCounties = new Picker()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             foreach (var county in _viewModel.CountyList)
             {
-                pickerCounties.Items.Add(county.Key);
+                _pickerCounties.Items.Add(county.Key);
             }
+            _pickerCounties.SelectedIndexChanged += pickerCounties_SelectedIndexChanged;
 
             var lblChapter = new Label
             {
@@ -48,23 +51,25 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            var pickerChapters = new Picker()
+            _pickerChapters = new Picker()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
             foreach (var chapter in _viewModel.ChapterList)
             {
-                pickerChapters.Items.Add(chapter);
+                _pickerChapters.Items.Add(chapter.Key);
             }
+            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
-            await _viewModel.GetAverageGrossSalaries();
+            await LoadData();
+
             var degAverageGrosSalary = new GridControl();
             degAverageGrosSalary.IsReadOnly = true;
             degAverageGrosSalary.HorizontalOptions = LayoutOptions.FillAndExpand;
             degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Year", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
             degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Month", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Value", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.ItemsSource = _viewModel.AverageGrossSalaryCollection;
+            degAverageGrosSalary.ItemsSource = _viewModel.ChapterData;
 
             this.Content = new StackLayout
             {
@@ -81,7 +86,7 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblCounty, pickerCounties
+                                lblCounty, _pickerCounties
                             }
                     },
                     new StackLayout()
@@ -90,12 +95,34 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblChapter, pickerChapters
+                                lblChapter, _pickerChapters
                             }
                     },
                     degAverageGrosSalary,
                 }
             };
+        }
+
+        private async Task LoadData()
+        {
+            var selectedCounty = _pickerCounties.SelectedIndex >= 0
+                                     ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]]
+                                     : -1;
+            var selectedChapter = _pickerChapters.SelectedIndex >= 0
+                                      ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
+                                      : string.Empty;
+
+            await _viewModel.GetChapterData(selectedCounty, selectedChapter);
+        }
+
+        private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadData();
+        }
+
+        private async void pickerCounties_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadData();
         }
     }
 }

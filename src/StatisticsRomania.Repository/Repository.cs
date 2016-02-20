@@ -5,14 +5,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository
 {
-    public class Repostory<T> : IRepository<T> where T : class, new()
+    public class Repository<T> : IRepository<T>
+        where T : class, new()
     {
-        private SQLiteAsyncConnection db;
+        private readonly SQLiteAsyncConnection db;
 
-        public Repostory(SQLiteAsyncConnection db)
+        public Repository(SQLiteAsyncConnection db)
         {
             this.db = db;
         }
@@ -27,12 +29,12 @@ namespace StatisticsRomania.Repository
             return db.Table<T>();
         }
 
-        public async Task<List<T>> Get()
+        public async Task<List<T>> GetAll()
         {
             return await db.Table<T>().ToListAsync();
         }
 
-        public async Task<List<T>> Get<TValue>(Expression<Func<T, bool>> predicate = null,
+        public async Task<List<T>> GetAll<TValue>(Expression<Func<T, bool>> predicate = null,
                                                Expression<Func<T, TValue>> orderBy = null,
                                                Expression<Func<T, TValue>> orderByDesc = null)
         {
@@ -49,6 +51,18 @@ namespace StatisticsRomania.Repository
             if (orderByDesc != null)
             {
                 query = query.OrderByDescending(orderByDesc);
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<T>> GetAll(Expression<Func<T, bool>> predicate)
+        {
+            var query = db.Table<T>();
+
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
             }
 
             return await query.ToListAsync();

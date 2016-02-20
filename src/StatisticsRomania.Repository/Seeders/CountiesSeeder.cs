@@ -7,11 +7,11 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    public static class CountiesSeeder
+    internal static class CountiesSeeder
     {
-        public static List<County> GetData()
+        internal static List<County> GetData()
         {
-            var counties = new List<County>
+            var items = new List<County>
                                {
                                    new County {Id = 1, Name = "Alba"},
                                    new County {Id = 2, Name = "Arad"},
@@ -56,7 +56,7 @@ namespace StatisticsRomania.Repository.Seeders
                                    new County {Id = 41, Name = "Vrancea"},
                                    new County {Id = 42, Name = "Bucuresti"},
                                };
-            return counties;
+            return items;
         }
     }
 }
