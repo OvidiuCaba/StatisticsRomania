@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="AverageGrossSalary.cs" />
     <Compile Include="AverageNetSalary.cs" />
+    <Compile Include="CountryIds.cs" />
     <Compile Include="County.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

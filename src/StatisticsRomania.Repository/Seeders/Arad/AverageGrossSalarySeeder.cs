@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
 {
     /// <summary>
     /// Note: formula for generating seeding:
-    /// ="new AverageGrossSalary { Subchapter = ""Total judet"", CountyId = 2, Year = 2014, YearFraction = " & B2 & ", Value = " & B3 & "},"
+    /// ="new AverageGrossSalary { Subchapter = ""Total judet"", CountyId = CountryIds.Arad, Year = 2014, YearFraction = " & B2 & ", Value = " & B3 & "},"
     /// </summary>
     internal static class AverageGrossSalarySeeder
     {
@@ -16,7 +16,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2014,
                                         YearFraction = 10,
                                         Value = 2128
@@ -24,7 +24,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2014,
                                         YearFraction = 11,
                                         Value = 2202
@@ -32,7 +32,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2014,
                                         YearFraction = 12,
                                         Value = 2275
@@ -40,7 +40,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 1,
                                         Value = 2138
@@ -48,7 +48,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 2,
                                         Value = 2152
@@ -56,7 +56,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 3,
                                         Value = 2217
@@ -64,7 +64,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 4,
                                         Value = 2201
@@ -72,7 +72,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 5,
                                         Value = 2162
@@ -80,7 +80,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 6,
                                         Value = 2256
@@ -88,7 +88,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 7,
                                         Value = 2337
@@ -96,7 +96,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 8,
                                         Value = 2210
@@ -104,7 +104,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 9,
                                         Value = 2290
@@ -112,7 +112,7 @@ namespace StatisticsRomania.Repository.Seeders.Arad
                                 new AverageGrossSalary
                                     {
                                         Subchapter = "Total judet",
-                                        CountyId = 2,
+                                        CountyId = CountryIds.Arad,
                                         Year = 2015,
                                         YearFraction = 10,
                                         Value = 2328
