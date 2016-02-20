@@ -40,6 +40,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CountyDetailsViewModel.cs" />
     <Compile Include="ViewModels\CountyStandingsViewModel.cs" />
+    <Compile Include="ViewModels\StandingItem.cs" />
     <Compile Include="Views\CountyDetailsView.cs" />
     <Compile Include="Views\CountyStandingsView.cs" />
     <Compile Include="Views\RootPage.cs" />

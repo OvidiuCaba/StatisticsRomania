@@ -50,11 +50,4 @@ namespace StatisticsRomania.ViewModels
             YearFractionList = Enumerable.Range(1, 12).Select(x => x.ToString()).ToList();
         }
     }
-
-    public class StandingItem
-    {
-        public int Position { get; set; }
-        public string County { get; set; }
-        public float Value { get; set; }
-    }
 }
