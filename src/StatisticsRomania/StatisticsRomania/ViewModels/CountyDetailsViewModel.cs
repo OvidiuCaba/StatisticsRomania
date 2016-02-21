@@ -49,6 +49,7 @@ namespace StatisticsRomania.ViewModels
             ValueColumnCaption = "Lei";
 
             ChapterData.Clear();
+            ChapterDataReversed.Clear();
 
             if (!ChapterList.ContainsKey(chapter) || countyId < 1)
                 return;
