@@ -50,13 +50,8 @@ namespace StatisticsRomania.Repository
             averageGrossSalaries.AddRange(Seeders.Arges.AverageGrossSalarySeeder.GetData());
             averageGrossSalaries.AddRange(Seeders.AverageGrossSalarySeeder.GetData());
 
-            var zzz = averageGrossSalaries.Where(x => x.CountyId == 5).ToList();
-            var a = _db.Table<AverageGrossSalary>().ToList().Where(x => x.CountyId == 5).ToList();
-
             _db.DeleteAll<AverageGrossSalary>();
             _db.InsertAll(averageGrossSalaries);
-
-            var aa = _db.Table<AverageGrossSalary>().ToList().Where(x => x.CountyId == 5).ToList();
         }
     }
 }
