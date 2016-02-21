@@ -182,7 +182,16 @@ namespace StatisticsRomania.Views
             dtAxis.Position = AxisPosition.Bottom;
             dtAxis.IntervalType = DateTimeIntervalType.Months;
             dtAxis.StringFormat = "yyyy-MM";
+            dtAxis.IsPanEnabled = false;
+            dtAxis.IsZoomEnabled = false;
+
+            var verticalAxis = new LinearAxis();
+            verticalAxis.Position = AxisPosition.Left;
+            verticalAxis.IsPanEnabled = false;
+            verticalAxis.IsZoomEnabled = false;
+
             plotView.Model.Axes.Add(dtAxis);
+            plotView.Model.Axes.Add(verticalAxis);
 
             var series = new LineSeries();
             series.ItemsSource = _viewModel.ChapterData;
