@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DevExpress.Utils;
+using OxyPlot;
+using OxyPlot.Axes;
 using StatisticsRomania.ViewModels;
 using Xamarin.Forms;
 using DevExpress.Mobile.DataGrid;
+using OxyPlot.Xamarin.Forms;
+using OxyPlot.Series;
 
 namespace StatisticsRomania.Views
 {
@@ -15,6 +19,8 @@ namespace StatisticsRomania.Views
         private CountyDetailsViewModel _viewModel;
         private Picker _pickerChapters;
         private Picker _pickerCounties;
+
+        private PlotView plotView;
 
         public CountyDetailsView()
         {
@@ -71,6 +77,14 @@ namespace StatisticsRomania.Views
             degChapterData.Columns.Add(new TextColumn() { Caption = "Valoare", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degChapterData.ItemsSource = _viewModel.ChapterData;
 
+            plotView = new PlotView();
+            plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
+            plotView.VerticalOptions = LayoutOptions.FillAndExpand;
+            plotView.Model = new PlotModel();
+            var series = new LineSeries();
+            series.ItemsSource = _viewModel.ChapterData;
+            plotView.Model.Series.Add(series);
+
             this.Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -98,7 +112,8 @@ namespace StatisticsRomania.Views
                                 lblChapter, _pickerChapters
                             }
                     },
-                    degChapterData,
+                    //degChapterData,
+                    plotView
                 }
             };
 
@@ -116,6 +131,29 @@ namespace StatisticsRomania.Views
                                       : string.Empty;
 
             await _viewModel.GetChapterData(selectedCounty, selectedChapter);
+
+            if (plotView == null)
+                return;
+
+            plotView.Model = new PlotModel();
+
+            plotView.Model.TextColor = OxyColors.Aqua;
+
+            var dtAxis = new DateTimeAxis();
+            dtAxis.Position = AxisPosition.Bottom;
+            dtAxis.IntervalType = DateTimeIntervalType.Months;
+            dtAxis.StringFormat = "yyyy-MM";
+            plotView.Model.Axes.Add(dtAxis);
+
+            var series = new LineSeries();
+            series.ItemsSource = _viewModel.ChapterData;
+            series.DataFieldX = "TimeStamp";
+            series.DataFieldY = "Value";
+
+            plotView.Model.Series.Clear();
+            plotView.Model.Series.Add(series);
+
+            plotView.Model.InvalidatePlot(true);
         }
 
         private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)

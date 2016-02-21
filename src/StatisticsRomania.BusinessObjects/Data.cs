@@ -28,5 +28,11 @@ namespace StatisticsRomania.BusinessObjects
 
         [ManyToOne(ReadOnly = true)]
         public County County { get; set; }
+
+        [Ignore]
+        public DateTime TimeStamp
+        {
+            get { return new DateTime(Year, YearFraction, 1); }
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace StatisticsRomania.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             DevExpress.Mobile.Forms.Init();
+            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
 
             var database = new Database
             {
