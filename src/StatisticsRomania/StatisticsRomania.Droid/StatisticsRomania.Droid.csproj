@@ -148,6 +148,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -163,6 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\splash.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\splash.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\splash.png" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\StatisticsRomania.Repository\StatisticsRomania.Repository.csproj">

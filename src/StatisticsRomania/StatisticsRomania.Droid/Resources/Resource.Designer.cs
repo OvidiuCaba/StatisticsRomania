@@ -8010,8 +8010,8 @@ namespace StatisticsRomania.Droid
 			// aapt resource value: 0x7f020062
 			public const int mr_ic_settings_light = 2130837602;
 			
-			// aapt resource value: 0x7f02008f
-			public const int notification_template_icon_bg = 2130837647;
+			// aapt resource value: 0x7f020090
+			public const int notification_template_icon_bg = 2130837648;
 			
 			// aapt resource value: 0x7f020063
 			public const int segment_grey = 2130837603;
@@ -8122,28 +8122,31 @@ namespace StatisticsRomania.Droid
 			public const int segment_white_press = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int theme_dark_segment_button = 2130837639;
+			public const int splash = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int theme_dark_segment_radio_left = 2130837640;
+			public const int theme_dark_segment_button = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int theme_dark_segment_radio_middle = 2130837641;
+			public const int theme_dark_segment_radio_left = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int theme_dark_segment_radio_right = 2130837642;
+			public const int theme_dark_segment_radio_middle = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int theme_default_segment_button = 2130837643;
+			public const int theme_dark_segment_radio_right = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int theme_default_segment_radio_left = 2130837644;
+			public const int theme_default_segment_button = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int theme_default_segment_radio_middle = 2130837645;
+			public const int theme_default_segment_radio_left = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int theme_default_segment_radio_right = 2130837646;
+			public const int theme_default_segment_radio_middle = 2130837646;
+			
+			// aapt resource value: 0x7f02008f
+			public const int theme_default_segment_radio_right = 2130837647;
 			
 			static Drawable()
 			{
@@ -9616,6 +9619,9 @@ namespace StatisticsRomania.Droid
 			
 			// aapt resource value: 0x7f070001
 			public const int Theme_MediaRouter_Light = 2131165185;
+			
+			// aapt resource value: 0x7f07014c
+			public const int Theme_Splash = 2131165516;
 			
 			// aapt resource value: 0x7f0700ee
 			public const int ThemeOverlay_AppCompat = 2131165422;
