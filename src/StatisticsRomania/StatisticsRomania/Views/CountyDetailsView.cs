@@ -157,8 +157,6 @@ namespace StatisticsRomania.Views
                 plotView.WidthRequest = width / 2;
                 dataControls.Orientation = StackOrientation.Horizontal;
             }
-
-            await LoadData();
         }
 
         private async Task LoadData()
