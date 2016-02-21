@@ -141,7 +141,7 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndex = 0;
         }
 
-        protected override void OnSizeAllocated(double width, double height)
+        protected async override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
 
@@ -158,8 +158,7 @@ namespace StatisticsRomania.Views
                 dataControls.Orientation = StackOrientation.Horizontal;
             }
 
-            plotView.Model.InvalidatePlot(true);
-            degChapterData.Redraw(true);
+            await LoadData();
         }
 
         private async Task LoadData()
