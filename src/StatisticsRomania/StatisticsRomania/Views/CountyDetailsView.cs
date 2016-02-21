@@ -80,12 +80,10 @@ namespace StatisticsRomania.Views
             degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
                                   {
-                                      //Caption = "Valoare",
                                       FieldName = "Value",
                                       IsReadOnly = true,
                                       AllowSort = DefaultBoolean.False
                                   };
-            //valueColumn.BindingContext = _viewModel;
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             degChapterData.Columns.Add(valueColumn);
             degChapterData.ItemsSource = _viewModel.ChapterDataReversed;
