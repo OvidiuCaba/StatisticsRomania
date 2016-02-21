@@ -14,6 +14,7 @@ namespace StatisticsRomania.ViewModels
     {
         private readonly IRepository<County> _countyRepository;
         private readonly ObservableCollection<Data> _chapterData;
+        private readonly ObservableCollection<Data> _chapterDataReversed;
 
         public Dictionary<string, int> CountyList { get; set; }
 
@@ -22,10 +23,16 @@ namespace StatisticsRomania.ViewModels
             get { return _chapterData; }
         }
 
+        public ObservableCollection<Data> ChapterDataReversed
+        {
+            get { return _chapterDataReversed; }
+        }
+
         public CountyDetailsViewModel()
         {
             _countyRepository = new Repository<County>(App.AsyncDb);
             _chapterData = new ObservableCollection<Data>();
+            _chapterDataReversed = new ObservableCollection<Data>();
         }
 
         public async Task GetCounties()
@@ -45,6 +52,7 @@ namespace StatisticsRomania.ViewModels
             foreach (var item in data)
             {
                 ChapterData.Add(item);
+                ChapterDataReversed.Insert(0, item);
             }
         }
     }

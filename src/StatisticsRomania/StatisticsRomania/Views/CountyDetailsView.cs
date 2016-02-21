@@ -78,7 +78,7 @@ namespace StatisticsRomania.Views
             degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
             degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degChapterData.Columns.Add(new TextColumn() { Caption = "Valoare", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degChapterData.ItemsSource = _viewModel.ChapterData;
+            degChapterData.ItemsSource = _viewModel.ChapterDataReversed;
 
             plotView = new PlotView();
             plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
