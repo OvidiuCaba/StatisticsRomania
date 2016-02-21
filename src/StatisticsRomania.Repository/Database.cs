@@ -52,6 +52,10 @@ namespace StatisticsRomania.Repository
 
             _db.DeleteAll<AverageGrossSalary>();
             _db.InsertAll(averageGrossSalaries);
+
+            var averageNetSalaries = Seeders.AverageNetSalarySeeder.GetData();
+            _db.DeleteAll<AverageNetSalary>();
+            _db.InsertAll(averageNetSalaries);
         }
     }
 }

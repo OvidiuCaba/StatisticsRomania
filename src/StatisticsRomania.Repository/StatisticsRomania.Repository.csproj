@@ -41,6 +41,7 @@
     <Compile Include="Seeders\Arad\AverageGrossSalarySeeder.cs" />
     <Compile Include="Seeders\Arges\AverageGrossSalarySeeder.cs" />
     <Compile Include="Seeders\AverageGrossSalarySeeder.cs" />
+    <Compile Include="Seeders\AverageNetSalarySeeder.cs" />
     <Compile Include="Seeders\CountiesSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
