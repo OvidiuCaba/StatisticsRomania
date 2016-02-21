@@ -4,12 +4,14 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyChanged;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Lib;
 using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.ViewModels
 {
+    [ImplementPropertyChanged]
     public class CountyDetailsViewModel : BaseViewModel
     {
         private readonly IRepository<County> _countyRepository;
@@ -28,6 +30,8 @@ namespace StatisticsRomania.ViewModels
             get { return _chapterDataReversed; }
         }
 
+        public string ValueColumnCaption { get; set; }
+
         public CountyDetailsViewModel()
         {
             _countyRepository = new Repository<County>(App.AsyncDb);
@@ -42,6 +46,8 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetChapterData(int countyId, string chapter)
         {
+            ValueColumnCaption = "Lei";
+
             ChapterData.Clear();
 
             if (!ChapterList.ContainsKey(chapter) || countyId < 1)
