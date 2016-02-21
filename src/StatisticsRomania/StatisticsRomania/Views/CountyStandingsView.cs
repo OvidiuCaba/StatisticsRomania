@@ -86,7 +86,14 @@ namespace StatisticsRomania.Views
             degAverageGrosSalary.HorizontalOptions = LayoutOptions.FillAndExpand;
             degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Valoare", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            var valueColumn = new TextColumn()
+            {
+                FieldName = "Value",
+                IsReadOnly = true,
+                AllowSort = DefaultBoolean.False
+            };
+            valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
+            degAverageGrosSalary.Columns.Add(valueColumn);
             degAverageGrosSalary.ItemsSource = _viewModel.Standings;
 
             this.Content = new StackLayout

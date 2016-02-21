@@ -4,10 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyChanged;
 using StatisticsRomania.Lib;
 
 namespace StatisticsRomania.ViewModels
 {
+    [ImplementPropertyChanged]
     public class CountyStandingsViewModel : BaseViewModel
     {
         private readonly ObservableCollection<StandingItem> _standings;
@@ -20,6 +22,8 @@ namespace StatisticsRomania.ViewModels
             get { return _standings; }
         }
 
+        public string ValueColumnCaption { get; set; }
+
         public CountyStandingsViewModel()
         {
             _standings = new ObservableCollection<StandingItem>();
@@ -27,6 +31,8 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetStandings(string chapter, int year, int yearFraction)
         {
+            ValueColumnCaption = "Lei";
+
             Standings.Clear();
 
             if (!ChapterList.ContainsKey(chapter))
