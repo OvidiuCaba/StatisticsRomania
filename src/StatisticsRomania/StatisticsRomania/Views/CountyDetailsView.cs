@@ -145,6 +145,11 @@ namespace StatisticsRomania.Views
         {
             base.OnSizeAllocated(width, height);
 
+            if (plotView == null || dataControls == null)
+            {
+                return;
+            }
+
             if (height > width) // portrait
             {
                 plotView.HeightRequest = height/3;
@@ -196,7 +201,7 @@ namespace StatisticsRomania.Views
             series.ItemsSource = _viewModel.ChapterData;
             series.DataFieldX = "TimeStamp";
             series.DataFieldY = "Value";
-
+            //series.Smooth = true;     // TODO: smooth or not?
             plotView.Model.Series.Clear();
             plotView.Model.Series.Add(series);
 
