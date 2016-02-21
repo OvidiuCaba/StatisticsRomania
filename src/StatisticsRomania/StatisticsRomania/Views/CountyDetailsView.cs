@@ -22,6 +22,8 @@ namespace StatisticsRomania.Views
 
         private PlotView plotView;
 
+        private StackLayout dataControls;
+
         public CountyDetailsView()
         {
             Title = "Statistici judenete";
@@ -72,6 +74,7 @@ namespace StatisticsRomania.Views
             var degChapterData = new GridControl();
             degChapterData.IsReadOnly = true;
             degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
+            degChapterData.VerticalOptions = LayoutOptions.StartAndExpand;
             degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
             degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degChapterData.Columns.Add(new TextColumn() { Caption = "Valoare", FieldName = "Value", IsReadOnly = true, AllowSort = DefaultBoolean.False });
@@ -79,11 +82,19 @@ namespace StatisticsRomania.Views
 
             plotView = new PlotView();
             plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
-            plotView.VerticalOptions = LayoutOptions.FillAndExpand;
+            plotView.VerticalOptions = LayoutOptions.EndAndExpand;
             plotView.Model = new PlotModel();
             var series = new LineSeries();
             series.ItemsSource = _viewModel.ChapterData;
             plotView.Model.Series.Add(series);
+
+            dataControls = new StackLayout()
+                               {
+                                   Orientation = StackOrientation.Vertical,
+                                   HorizontalOptions = LayoutOptions.FillAndExpand,
+                                   VerticalOptions = LayoutOptions.FillAndExpand,
+                                   Children = {degChapterData, plotView}
+                               };
 
             this.Content = new StackLayout
             {
@@ -113,12 +124,31 @@ namespace StatisticsRomania.Views
                             }
                     },
                     //degChapterData,
-                    plotView
+                    //plotView
+                    dataControls
                 }
             };
 
             _pickerCounties.SelectedIndex = 0;
             _pickerChapters.SelectedIndex = 0;
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (height > width) // portrait
+            {
+                plotView.HeightRequest = height/3;
+                plotView.WidthRequest = -1;
+                dataControls.Orientation = StackOrientation.Vertical;
+            }
+            else
+            {
+                plotView.HeightRequest = -1;
+                plotView.WidthRequest = width / 2;
+                dataControls.Orientation = StackOrientation.Horizontal;
+            }
         }
 
         private async Task LoadData()
