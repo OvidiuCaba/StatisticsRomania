@@ -20,6 +20,7 @@ namespace StatisticsRomania.Views
         private Picker _pickerChapters;
         private Picker _pickerCounties;
 
+        private GridControl degChapterData;
         private PlotView plotView;
 
         private StackLayout dataControls;
@@ -71,7 +72,7 @@ namespace StatisticsRomania.Views
 
             await LoadData();
 
-            var degChapterData = new GridControl();
+            degChapterData = new GridControl();
             degChapterData.IsReadOnly = true;
             degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
             degChapterData.VerticalOptions = LayoutOptions.StartAndExpand;
@@ -160,6 +161,7 @@ namespace StatisticsRomania.Views
             }
 
             plotView.Model.InvalidatePlot(true);
+            degChapterData.Redraw(true);
         }
 
         private async Task LoadData()
