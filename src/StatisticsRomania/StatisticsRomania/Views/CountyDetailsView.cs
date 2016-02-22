@@ -141,6 +141,7 @@ namespace StatisticsRomania.Views
 
             _pickerCounties.SelectedIndex = 0;
             _pickerChapters.SelectedIndex = 0;
+            degChapterData.SelectedRowHandle = -1;
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)
