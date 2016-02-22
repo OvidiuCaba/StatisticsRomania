@@ -154,7 +154,7 @@ namespace StatisticsRomania.Views
             }
         }
 
-        protected async override void OnSizeAllocated(double width, double height)
+        protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
 
@@ -171,9 +171,10 @@ namespace StatisticsRomania.Views
             }
             else
             {
+                dataControls.Orientation = StackOrientation.Horizontal;
                 plotView.HeightRequest = -1;
                 plotView.WidthRequest = width / 2;
-                dataControls.Orientation = StackOrientation.Horizontal;
+                degChapterData.ForceLayout();
             }
         }
 
