@@ -3,6 +3,7 @@
 Aplicatia permite accesarea facila a unor indicatori statistici la nivelul judetelor Romaniei.
 
 Functionalitati:
+
 1. Date statistice la nivelul fiecarui judet.
 2. Clasamentul judetelor pentru fiecare indicator statistic disponibil in aplicatie
 
@@ -12,4 +13,4 @@ http://www.insse.ro/cms/ro/content/buletine-statistice
 
 Tehnologii utilizate:
 
-Xamarin, .NEt 4.5, C# 5
+Xamarin, .NET 4.5, C# 5
