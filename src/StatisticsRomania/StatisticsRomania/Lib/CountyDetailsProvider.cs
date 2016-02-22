@@ -14,29 +14,29 @@ namespace StatisticsRomania.Lib
         {
             if (chapter == typeof(AverageGrossSalary))
             {
-                var repo = new Repository<AverageGrossSalary>(App.AsyncDb);
-                var data = await repo.GetAll(x => x.CountyId == countyId);
+                return await GetData<AverageGrossSalary>(countyId);
+            }
 
-                return data.Cast<Data>().ToList();
-            }
-            else if (chapter == typeof(AverageNetSalary))
+            if (chapter == typeof(AverageNetSalary))
             {
-                var repo = new Repository<AverageNetSalary>(App.AsyncDb);
-                var data = await repo.GetAll(x => x.CountyId == countyId);
+                return await GetData<AverageNetSalary>(countyId);
+            }
 
-                return data.Cast<Data>().ToList();
-            }
-            else if (chapter == typeof(NumberOfTourists))
+            if (chapter == typeof(NumberOfTourists))
             {
-                var repo = new Repository<NumberOfTourists>(App.AsyncDb);
-                var data = await repo.GetAll(x => x.CountyId == countyId);
+                return await GetData<NumberOfTourists>(countyId);
+            }
 
-                return data.Cast<Data>().ToList();
-            }
-            else
-            {
-                return null;
-            }
+            return null;
+        }
+
+        private static async Task<List<Data>> GetData<T>(int countyId)
+            where T : Data, new()
+        {
+            var repo = new Repository<T>(App.AsyncDb);
+            var data = (await repo.GetAll(x => x.CountyId == countyId))
+                .Cast<Data>().ToList();
+            return data;
         }
     }
 }
