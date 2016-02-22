@@ -26,6 +26,13 @@ namespace StatisticsRomania.Lib
 
                 return data.Cast<Data>().ToList();
             }
+            else if (chapter == typeof(NumberOfTourists))
+            {
+                var repo = new Repository<NumberOfTourists>(App.AsyncDb);
+                var data = await repo.GetAll(x => x.CountyId == countyId);
+
+                return data.Cast<Data>().ToList();
+            }
             else
             {
                 return null;

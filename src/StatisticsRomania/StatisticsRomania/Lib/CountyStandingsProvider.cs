@@ -15,38 +15,41 @@ namespace StatisticsRomania.Lib
         {
             if (chapter == typeof(AverageGrossSalary))
             {
-                var repo = new Repository<AverageGrossSalary>(App.AsyncDb);
-                var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
-                    .OrderByDescending(x => x.Value)
-                    .Cast<Data>()
-                    .ToList();
-
-                var data = await ProcessRawData(rawData, repo);
-
-                return data;
+                return await GetData<AverageGrossSalary>(year, yearFraction);
             }
             
             if (chapter == typeof(AverageNetSalary))
             {
-                var repo = new Repository<AverageNetSalary>(App.AsyncDb);
-                var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
-                     .OrderByDescending(x => x.Value)
-                     .Cast<Data>()
-                     .ToList();
+                return await GetData<AverageNetSalary>(year, yearFraction);
+            }
 
-                var data = await ProcessRawData(rawData, repo);
-
-                return data;
+            if (chapter == typeof(NumberOfTourists))
+            {
+                return await GetData<NumberOfTourists>(year, yearFraction);
             }
 
             return null;
         }
 
-        private static async Task<List<StandingItem>> ProcessRawData<T>(List<Data> rawData, Repository<T> repo)
+        private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction)
+            where T : Data, new()
+        {
+            var repo = new Repository<T>(App.AsyncDb);
+
+            var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
+                .OrderByDescending(x => x.Value);
+
+            var data = await ProcessRawData(rawData, repo);
+
+            return data;
+        }
+
+        private static async Task<List<StandingItem>> ProcessRawData<T>(IEnumerable<Data> rawData, Repository<T> repo)
             where T : Data, new()
         {
             var data = new List<StandingItem>();
             var index = 1;
+
             foreach (var item in rawData)
             {
                 await repo.GetChild((T) item, x => x.County);
@@ -54,6 +57,7 @@ namespace StatisticsRomania.Lib
                 var standingItem = new StandingItem() {Position = index++, County = item.County.Name, Value = item.Value};
                 data.Add(standingItem);
             }
+
             return data;
         }
     }

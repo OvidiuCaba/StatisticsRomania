@@ -17,7 +17,8 @@ namespace StatisticsRomania.ViewModels
             ChapterList = new Dictionary<string, Type>()
                               {
                                   { "Castigul salarial mediu brut", typeof(AverageGrossSalary) },
-                                  { "Castigul salarial mediu net", typeof(AverageNetSalary) }
+                                  { "Castigul salarial mediu net", typeof(AverageNetSalary) },
+                                  { "Sosiri in structurile de primire turistica", typeof(NumberOfTourists) },
                               };
         }
     }
