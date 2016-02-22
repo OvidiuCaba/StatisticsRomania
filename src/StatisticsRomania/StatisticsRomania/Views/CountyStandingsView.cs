@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StatisticsRomania.Controls;
 using StatisticsRomania.ViewModels;
 using Xamarin.Forms;
 using DevExpress.Mobile.DataGrid;
@@ -13,9 +14,9 @@ namespace StatisticsRomania.Views
     public class CountyStandingsView : ContentPage
     {
         private CountyStandingsViewModel _viewModel;
-        private Picker _pickerChapters;
-        private Picker _pickerYears;
-        private Picker _pickerYearFractions;
+        private PickerWithNoSpellCheck _pickerChapters;
+        private PickerWithNoSpellCheck _pickerYears;
+        private PickerWithNoSpellCheck _pickerYearFractions;
 
         public CountyStandingsView()
         {
@@ -37,7 +38,7 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            _pickerChapters = new Picker()
+            _pickerChapters = new PickerWithNoSpellCheck()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
@@ -53,7 +54,7 @@ namespace StatisticsRomania.Views
                 Text = "An:"
             };
 
-            _pickerYears = new Picker()
+            _pickerYears = new PickerWithNoSpellCheck()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
@@ -69,7 +70,7 @@ namespace StatisticsRomania.Views
                 Text = "Luna / semestru / trimestru:"
             };
 
-            _pickerYearFractions = new Picker()
+            _pickerYearFractions = new PickerWithNoSpellCheck()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };

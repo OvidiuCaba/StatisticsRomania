@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DevExpress.Utils;
 using OxyPlot;
 using OxyPlot.Axes;
+using StatisticsRomania.Controls;
 using StatisticsRomania.ViewModels;
 using Xamarin.Forms;
 using DevExpress.Mobile.DataGrid;
@@ -17,8 +18,8 @@ namespace StatisticsRomania.Views
     public class CountyDetailsView : ContentPage
     {
         private CountyDetailsViewModel _viewModel;
-        private Picker _pickerChapters;
-        private Picker _pickerCounties;
+        private PickerWithNoSpellCheck _pickerChapters;
+        private PickerWithNoSpellCheck _pickerCounties;
 
         private GridControl degChapterData;
         private PlotView plotView;
@@ -44,7 +45,7 @@ namespace StatisticsRomania.Views
                 Text = "Judet:"
             };
 
-            _pickerCounties = new Picker()
+            _pickerCounties = new PickerWithNoSpellCheck()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
@@ -60,7 +61,7 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            _pickerChapters = new Picker()
+            _pickerChapters = new PickerWithNoSpellCheck()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
