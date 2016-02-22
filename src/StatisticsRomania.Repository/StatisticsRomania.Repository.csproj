@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Seeders\NumberOfTouristsSeeder.cs" />
     <Compile Include="Seeders\Alba\AverageGrossSalarySeeder.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Repository.cs" />
