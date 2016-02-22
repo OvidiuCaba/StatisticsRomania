@@ -82,11 +82,11 @@ namespace StatisticsRomania.Views
 
             await LoadData();
 
-            var degAverageGrosSalary = new GridControl();
-            degAverageGrosSalary.IsReadOnly = true;
-            degAverageGrosSalary.HorizontalOptions = LayoutOptions.FillAndExpand;
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degAverageGrosSalary.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            var degStandings = new GridControl();
+            degStandings.IsReadOnly = true;
+            degStandings.HorizontalOptions = LayoutOptions.FillAndExpand;
+            degStandings.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            degStandings.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
             {
                 FieldName = "Value",
@@ -94,9 +94,9 @@ namespace StatisticsRomania.Views
                 AllowSort = DefaultBoolean.False
             };
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
-            degAverageGrosSalary.Columns.Add(valueColumn);
-            degAverageGrosSalary.ItemsSource = _viewModel.Standings;
-            degAverageGrosSalary.RowTap += degAverageGrosSalary_RowTap;
+            degStandings.Columns.Add(valueColumn);
+            degStandings.ItemsSource = _viewModel.Standings;
+            degStandings.RowTap += degAverageGrosSalary_RowTap;
 
             this.Content = new StackLayout
             {
@@ -125,7 +125,7 @@ namespace StatisticsRomania.Views
                                 lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
                             }
                     },
-                    degAverageGrosSalary,
+                    degStandings,
                 }
             };
 
