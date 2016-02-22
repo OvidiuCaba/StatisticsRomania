@@ -130,6 +130,8 @@ namespace StatisticsRomania.Views
             };
 
             _pickerChapters.SelectedIndex = 0;
+            _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(App.LastYearAvailableData.ToString());
+            _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
         }
 
         void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)

@@ -13,6 +13,10 @@ namespace StatisticsRomania
         public static string SqliteFilename = "database.db3";
         public static SQLiteAsyncConnection AsyncDb;
 
+        // Note: change the values when new data is added [in the future we might automatically get the data from API, so no rush to optimize here]
+        public static int LastYearAvailableData = 2015;
+        public static int LastMonthAvailableData = 10;
+
         public App()
         {
             // The root page of your application
