@@ -88,6 +88,7 @@ namespace StatisticsRomania.Views
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             degChapterData.Columns.Add(valueColumn);
             degChapterData.ItemsSource = _viewModel.ChapterDataReversed;
+            degChapterData.RowTap += degChapterData_RowTap;
 
             plotView = new PlotView();
             plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -140,6 +141,16 @@ namespace StatisticsRomania.Views
 
             _pickerCounties.SelectedIndex = 0;
             _pickerChapters.SelectedIndex = 0;
+        }
+
+        void degChapterData_RowTap(object sender, RowTapEventArgs e)
+        {
+            // Disable row selection on row tapping
+            var grid = sender as GridControl;
+            if (grid.SelectedRowHandle > -1)
+            {
+                grid.SelectedRowHandle = -1;
+            }
         }
 
         protected async override void OnSizeAllocated(double width, double height)

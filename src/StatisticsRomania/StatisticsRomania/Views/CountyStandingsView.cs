@@ -96,6 +96,7 @@ namespace StatisticsRomania.Views
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             degAverageGrosSalary.Columns.Add(valueColumn);
             degAverageGrosSalary.ItemsSource = _viewModel.Standings;
+            degAverageGrosSalary.RowTap += degAverageGrosSalary_RowTap;
 
             this.Content = new StackLayout
             {
@@ -129,6 +130,16 @@ namespace StatisticsRomania.Views
             };
 
             _pickerChapters.SelectedIndex = 0;
+        }
+
+        void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
+        {
+            // Disable row selection on row tapping
+            var grid = sender as GridControl;
+            if (grid.SelectedRowHandle > -1)
+            {
+                grid.SelectedRowHandle = -1;
+            }
         }
 
         private async void _pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
