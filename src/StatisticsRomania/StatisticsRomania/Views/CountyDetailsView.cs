@@ -27,7 +27,7 @@ namespace StatisticsRomania.Views
 
         public CountyDetailsView()
         {
-            Title = "Statistici judenete";
+            Title = "Statistici judetene";
 
             Init();
         }
