@@ -34,12 +34,12 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetStandings(string chapter, int year, int yearFraction)
         {
-            ValueColumnCaption = "Lei";
-
             Standings.Clear();
 
             if (!ChapterList.ContainsKey(chapter))
                 return;
+
+            ValueColumnCaption = UnitOfMeasureList[chapter];
 
             var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
 

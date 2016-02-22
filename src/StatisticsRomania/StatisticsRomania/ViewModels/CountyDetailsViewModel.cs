@@ -46,13 +46,13 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetChapterData(int countyId, string chapter)
         {
-            ValueColumnCaption = "Lei";
-
             ChapterData.Clear();
             ChapterDataReversed.Clear();
 
             if (!ChapterList.ContainsKey(chapter) || countyId < 1)
                 return;
+
+            ValueColumnCaption = UnitOfMeasureList[chapter];
 
             var data = await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]);
 

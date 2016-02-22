@@ -10,16 +10,29 @@ namespace StatisticsRomania.ViewModels
 {
     public abstract class BaseViewModel
     {
+        protected Dictionary<string, string> UnitOfMeasureList;
+
         public Dictionary<string, Type> ChapterList { get; set; }
+
+        private const string CastigulSalarialMediuBrut = "Castigul salarial mediu brut";
+        private const string CastigulSalarialMediuNet = "Castigul salarial mediu net";
+        private const string SosiriInStructurileDePrimireTuristica = "Sosiri in structurile de primire turistica";
 
         public void GetChapters()
         {
             ChapterList = new Dictionary<string, Type>()
-                              {
-                                  { "Castigul salarial mediu brut", typeof(AverageGrossSalary) },
-                                  { "Castigul salarial mediu net", typeof(AverageNetSalary) },
-                                  { "Sosiri in structurile de primire turistica", typeof(NumberOfTourists) },
-                              };
+            {
+                { CastigulSalarialMediuBrut, typeof(AverageGrossSalary) },
+                { CastigulSalarialMediuNet, typeof(AverageNetSalary) },
+                { SosiriInStructurileDePrimireTuristica, typeof(NumberOfTourists) },
+            };
+
+            UnitOfMeasureList = new Dictionary<string, string>()
+            {
+                { CastigulSalarialMediuBrut, "Lei" },
+                { CastigulSalarialMediuNet, "Lei" },
+                { SosiriInStructurileDePrimireTuristica, "Numar turisti" },
+            };
         }
     }
 }
