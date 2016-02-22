@@ -24,6 +24,9 @@ namespace StatisticsRomania.ViewModels
 
         public string ValueColumnCaption { get; set; }
 
+        public bool HasData { get; set; }
+        public bool DoesNotHaveData { get; set; }
+
         public CountyStandingsViewModel()
         {
             _standings = new ObservableCollection<StandingItem>();
@@ -44,6 +47,9 @@ namespace StatisticsRomania.ViewModels
             {
                 Standings.Add(item);
             }
+
+            HasData = data.Count > 0;
+            DoesNotHaveData = !HasData;
         }
 
         internal void GetYears()

@@ -28,6 +28,9 @@ namespace StatisticsRomania.Views
         private async Task Init()
         {
             _viewModel = new CountyStandingsViewModel();
+
+            BindingContext = _viewModel;
+
             _viewModel.GetChapters();
             _viewModel.GetYears();
             _viewModel.GetYearFractions();
@@ -97,6 +100,15 @@ namespace StatisticsRomania.Views
             degStandings.Columns.Add(valueColumn);
             degStandings.ItemsSource = _viewModel.Standings;
             degStandings.RowTap += degAverageGrosSalary_RowTap;
+            degStandings.SetBinding(GridControl.IsVisibleProperty, "HasData");
+
+            var lblNoData = new Label()
+                                  {
+                                      HorizontalOptions = LayoutOptions.FillAndExpand,
+                                      VerticalOptions = LayoutOptions.FillAndExpand,
+                                      Text = "Nu exista date disponibile pentru intervalul selectat"
+                                  };
+            lblNoData.SetBinding(Label.IsVisibleProperty, "DoesNotHaveData");
 
             this.Content = new StackLayout
             {
@@ -126,6 +138,7 @@ namespace StatisticsRomania.Views
                             }
                     },
                     degStandings,
+                    lblNoData
                 }
             };
 
