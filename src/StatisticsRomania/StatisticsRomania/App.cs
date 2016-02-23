@@ -8,6 +8,10 @@ using SQLite.Net.Async;
 
 namespace StatisticsRomania
 {
+    // TODO: new functionalities:
+    //  - export data
+    //  - fix issues on rotating
+
     public class App : Application
     {
         public static string SqliteFilename = "database.db3";
