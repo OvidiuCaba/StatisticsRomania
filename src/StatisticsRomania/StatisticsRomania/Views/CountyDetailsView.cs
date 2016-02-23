@@ -116,12 +116,13 @@ namespace StatisticsRomania.Views
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    top: Device.OnPlatform(iOS: 20, Android: 6, WinPhone: 0)),
+                    top: Device.OnPlatform(iOS: 20, Android: 5, WinPhone: 0)),
                 Children = { 
                     new StackLayout()
                     {
                         HorizontalOptions = LayoutOptions.FillAndExpand,
                         Orientation = StackOrientation.Horizontal,
+                        Padding = new Thickness(0, 2),
                         Children =
                             {
                                 lblCounty, _pickerCounties
