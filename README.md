@@ -14,3 +14,7 @@ http://www.insse.ro/cms/ro/content/buletine-statistice
 Tehnologii utilizate:
 
 Xamarin, .NET 4.5, C# 5
+
+Aplicatia poata fi descarcata accesand linkul urmator:
+
+https://play.google.com/store/apps/details?id=com.statisticiromania.app
