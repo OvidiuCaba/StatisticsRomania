@@ -70,7 +70,7 @@ namespace StatisticsRomania.Views
             var lblYearFraction = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
-                Text = "Luna / semestru / trimestru:"
+                Text = "Luna:"
             };
 
             _pickerYearFractions = new PickerWithNoSpellCheck()
