@@ -97,12 +97,15 @@ namespace StatisticsRomania.Views
             var series = new LineSeries();
             series.ItemsSource = _viewModel.ChapterData;
             plotView.Model.Series.Add(series);
+            plotView.Model.Title = "Evolutie indicator";
+            plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
             dataControls = new StackLayout()
                                {
                                    Orientation = StackOrientation.Vertical,
                                    HorizontalOptions = LayoutOptions.FillAndExpand,
                                    VerticalOptions = LayoutOptions.FillAndExpand,
+                                   Spacing = 0,
                                    Children = {degChapterData, plotView}
                                };
 
@@ -193,8 +196,9 @@ namespace StatisticsRomania.Views
                 return;
 
             plotView.Model = new PlotModel();
+            plotView.Model.Title = "Evolutie indicator";
 
-            plotView.Model.TextColor = OxyColors.Aqua;
+            plotView.Model.TextColor = OxyColors.LightGray;
 
             var dtAxis = new DateTimeAxis();
             dtAxis.Position = AxisPosition.Bottom;
