@@ -11,6 +11,7 @@ namespace StatisticsRomania
     // TODO: new functionalities:
     //  - export data
     //  - fix issues on rotating
+    //  - forecast: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
 
     public class App : Application
     {
