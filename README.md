@@ -1,4 +1,4 @@
-# StatisticsRomania
+# Statistici Romania
 
 Aplicatia permite accesarea facila a unor indicatori statistici la nivelul judetelor Romaniei.
 
