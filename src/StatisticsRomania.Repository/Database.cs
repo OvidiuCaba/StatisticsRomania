@@ -5,7 +5,7 @@ using SQLite.Net;
 using SQLite.Net.Async;
 using SQLite.Net.Interop;
 using StatisticsRomania.BusinessObjects;
-using Seeders = StatisticsRomania.Repository.Seeders;
+using StatisticsRomania.Repository.Seeders;
 
 namespace StatisticsRomania.Repository
 {
@@ -43,27 +43,22 @@ namespace StatisticsRomania.Repository
 
         private void SeedDatabase()
         {
-            var counties = Seeders.CountiesSeeder.GetData();
-
+            var counties = CountiesSeeder.GetData();
             _db.InsertOrReplaceAll(counties);
 
-            var averageGrossSalaries = Seeders.Alba.AverageGrossSalarySeeder.GetData();
-            averageGrossSalaries.AddRange(Seeders.Arad.AverageGrossSalarySeeder.GetData());
-            averageGrossSalaries.AddRange(Seeders.Arges.AverageGrossSalarySeeder.GetData());
-            averageGrossSalaries.AddRange(Seeders.AverageGrossSalarySeeder.GetData());
-
+            var averageGrossSalaries = AverageGrossSalarySeeder.GetData();
             _db.DeleteAll<AverageGrossSalary>();
             _db.InsertAll(averageGrossSalaries);
 
-            var averageNetSalaries = Seeders.AverageNetSalarySeeder.GetData();
+            var averageNetSalaries = AverageNetSalarySeeder.GetData();
             _db.DeleteAll<AverageNetSalary>();
             _db.InsertAll(averageNetSalaries);
 
-            var numberOfTourists = Seeders.NumberOfTouristsSeeder.GetData();
+            var numberOfTourists = NumberOfTouristsSeeder.GetData();
             _db.DeleteAll<NumberOfTourists>();
             _db.InsertAll(numberOfTourists);
 
-            var numberOfNights = Seeders.NumberOfNightsSeeder.GetData();
+            var numberOfNights = NumberOfNightsSeeder.GetData();
             _db.DeleteAll<NumberOfNights>();
             _db.InsertAll(numberOfNights);
         }
