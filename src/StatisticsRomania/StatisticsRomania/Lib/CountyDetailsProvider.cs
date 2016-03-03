@@ -27,6 +27,11 @@ namespace StatisticsRomania.Lib
                 return await GetData<NumberOfTourists>(countyId);
             }
 
+            if (chapter == typeof(NumberOfNights))
+            {
+                return await GetData<NumberOfNights>(countyId);
+            }
+
             return null;
         }
 

@@ -14,9 +14,10 @@ namespace StatisticsRomania.ViewModels
 
         public Dictionary<string, Type> ChapterList { get; set; }
 
-        private const string CastigulSalarialMediuBrut = "Castigul salarial mediu brut";
-        private const string CastigulSalarialMediuNet = "Castigul salarial mediu net";
-        private const string SosiriInStructurileDePrimireTuristica = "Sosiri in structurile de primire turistica";
+        private const string CastigulSalarialMediuBrut = "Forta de munca - salarial mediu brut";
+        private const string CastigulSalarialMediuNet = "Forta de munca - salarial mediu net";
+        private const string InnoptariInStructurileDePrimireTuristica = "Turism - innoptari";
+        private const string SosiriInStructurileDePrimireTuristica = "Turism - numar turisti";
 
         public void GetChapters()
         {
@@ -24,6 +25,7 @@ namespace StatisticsRomania.ViewModels
             {
                 { CastigulSalarialMediuBrut, typeof(AverageGrossSalary) },
                 { CastigulSalarialMediuNet, typeof(AverageNetSalary) },
+                { InnoptariInStructurileDePrimireTuristica, typeof(NumberOfNights) },
                 { SosiriInStructurileDePrimireTuristica, typeof(NumberOfTourists) },
             };
 
@@ -31,6 +33,7 @@ namespace StatisticsRomania.ViewModels
             {
                 { CastigulSalarialMediuBrut, "Lei" },
                 { CastigulSalarialMediuNet, "Lei" },
+                { InnoptariInStructurileDePrimireTuristica, "Innoptari" },
                 { SosiriInStructurileDePrimireTuristica, "Numar turisti" },
             };
         }

@@ -38,6 +38,7 @@
     <Compile Include="CountryIds.cs" />
     <Compile Include="County.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="NumberOfNights.cs" />
     <Compile Include="NumberOfTourists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

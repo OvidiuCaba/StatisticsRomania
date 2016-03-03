@@ -28,6 +28,11 @@ namespace StatisticsRomania.Lib
                 return await GetData<NumberOfTourists>(year, yearFraction);
             }
 
+            if (chapter == typeof(NumberOfNights))
+            {
+                return await GetData<NumberOfNights>(year, yearFraction);
+            }
+
             return null;
         }
 
