@@ -33,6 +33,11 @@ namespace StatisticsRomania.Lib
                 return await GetData<NumberOfNights>(year, yearFraction);
             }
 
+            if (chapter == typeof(NumberOfEmployees))
+            {
+                return await GetData<NumberOfEmployees>(year, yearFraction);
+            }
+
             return null;
         }
 

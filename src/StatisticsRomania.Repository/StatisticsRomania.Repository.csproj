@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Seeders\BaseSeeder.cs" />
+    <Compile Include="Seeders\NumberOfEmployeesSeeder.cs" />
     <Compile Include="Seeders\NumberOfNightsSeeder.cs" />
     <Compile Include="Seeders\NumberOfTouristsSeeder.cs" />
     <Compile Include="Database.cs" />

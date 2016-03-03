@@ -39,6 +39,7 @@ namespace StatisticsRomania.Repository
             _db.CreateTable<AverageGrossSalary>();
             _db.CreateTable<NumberOfTourists>();
             _db.CreateTable<NumberOfNights>();
+            _db.CreateTable<NumberOfEmployees>();
         }
 
         private void SeedDatabase()
@@ -61,6 +62,10 @@ namespace StatisticsRomania.Repository
             var numberOfNights = NumberOfNightsSeeder.GetData();
             _db.DeleteAll<NumberOfNights>();
             _db.InsertAll(numberOfNights);
+
+            var numberOfEmployees = NumberOfEmployeesSeeder.GetData();
+            _db.DeleteAll<NumberOfEmployees>();
+            _db.InsertAll(numberOfEmployees);
         }
     }
 }

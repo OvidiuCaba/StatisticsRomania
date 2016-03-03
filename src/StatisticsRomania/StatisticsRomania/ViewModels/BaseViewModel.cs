@@ -14,8 +14,9 @@ namespace StatisticsRomania.ViewModels
 
         public Dictionary<string, Type> ChapterList { get; set; }
 
-        private const string CastigulSalarialMediuBrut = "Forta de munca - salarial mediu brut";
-        private const string CastigulSalarialMediuNet = "Forta de munca - salarial mediu net";
+        private const string EfectivulSalariatilor = "Forta de munca - efectiv salariati";
+        private const string CastigulSalarialMediuBrut = "Forta de munca - salariu mediu brut";
+        private const string CastigulSalarialMediuNet = "Forta de munca - salariu mediu net";
         private const string InnoptariInStructurileDePrimireTuristica = "Turism - innoptari";
         private const string SosiriInStructurileDePrimireTuristica = "Turism - numar turisti";
 
@@ -23,6 +24,7 @@ namespace StatisticsRomania.ViewModels
         {
             ChapterList = new Dictionary<string, Type>()
             {
+                { EfectivulSalariatilor, typeof(NumberOfEmployees) },
                 { CastigulSalarialMediuBrut, typeof(AverageGrossSalary) },
                 { CastigulSalarialMediuNet, typeof(AverageNetSalary) },
                 { InnoptariInStructurileDePrimireTuristica, typeof(NumberOfNights) },
@@ -31,10 +33,11 @@ namespace StatisticsRomania.ViewModels
 
             UnitOfMeasureList = new Dictionary<string, string>()
             {
+                { EfectivulSalariatilor, "Persoane" },
                 { CastigulSalarialMediuBrut, "Lei" },
                 { CastigulSalarialMediuNet, "Lei" },
                 { InnoptariInStructurileDePrimireTuristica, "Innoptari" },
-                { SosiriInStructurileDePrimireTuristica, "Numar turisti" },
+                { SosiriInStructurileDePrimireTuristica, "Persoane" },
             };
         }
     }
