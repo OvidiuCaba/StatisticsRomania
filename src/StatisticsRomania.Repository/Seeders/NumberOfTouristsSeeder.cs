@@ -3,7 +3,7 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal class NumberOfTouristsSeeder
+    internal class NumberOfTouristsSeeder : BaseSeeder
     {
         internal static List<NumberOfTourists> GetData()
         {
@@ -53,37 +53,7 @@ namespace StatisticsRomania.Repository.Seeders
                                   "Bucuresti 157606 137846 108723 98968 109511 145347 136609 166963 164254 156049 143682 164670 164824",
                               };
 
-            var items = new List<NumberOfTourists>();
-
-            foreach (var rawItem in rawData)
-            {
-                var data = rawItem.Split(' ');
-
-                var county = data[0];
-                var year = 2014;
-                var month = 10;
-
-                for (var i = 1; i <= 13; i++)
-                {
-                    var item = new NumberOfTourists()
-                    {
-                        Subchapter = "Total judet",
-                        CountyId = CountryIds.Counties[county],
-                        Year = year,
-                        YearFraction = month,
-                        Value = float.Parse(data[i])
-                    };
-
-                    items.Add(item);
-
-                    month++;
-                    if (month == 13)
-                    {
-                        year++;
-                        month = 1;
-                    }
-                }
-            }
+            var items = GetItems<NumberOfTourists>(rawData);
 
             return items;
         }

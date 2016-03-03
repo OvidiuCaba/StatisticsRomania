@@ -7,7 +7,7 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    public static class AverageGrossSalarySeeder
+    internal class AverageGrossSalarySeeder : BaseSeeder
     {
         internal static List<AverageGrossSalary> GetData()
         {
@@ -54,37 +54,7 @@ namespace StatisticsRomania.Repository.Seeders
                                            "Bucuresti 3271 3314 3631 3344 3329 3581 3637 3520 3494 3543 3473 3509 3539",
                                        };
 
-            var items = new List<AverageGrossSalary>();
-
-            foreach (var rawItem in rawData)
-            {
-                var data = rawItem.Split(' ');
-
-                var county = data[0];
-                var year = 2014;
-                var month = 10;
-
-                for (var i = 1; i <= 13; i++)
-                {
-                    var item = new AverageGrossSalary()
-                                   {
-                                       Subchapter = "Total judet",
-                                       CountyId = CountryIds.Counties[county],
-                                       Year = year,
-                                       YearFraction = month,
-                                       Value = float.Parse(data[i])
-                                   };
-
-                    items.Add(item);
-
-                    month++;
-                    if (month == 13)
-                    {
-                        year++;
-                        month = 1;
-                    }
-                }
-            }
+            var items = GetItems<AverageGrossSalary>(rawData);
 
             return items;
         }
