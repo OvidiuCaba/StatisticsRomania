@@ -26,6 +26,9 @@ namespace StatisticsRomania.BusinessObjects
 
         public float Value { get; set; }
 
+        [Ignore]
+        public float Value2 { get; set; }
+
         [ManyToOne(ReadOnly = true)]
         public County County { get; set; }
 
