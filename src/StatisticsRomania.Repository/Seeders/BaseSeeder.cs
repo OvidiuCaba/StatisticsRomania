@@ -20,10 +20,11 @@ namespace StatisticsRomania.Repository.Seeders
                 var county = data[0];
                 var year = 2014;
                 var month = 10;
+                var totalNumberOfMonths = data.Length - 1;
 
-                for (var i = 1; i <= 13; i++)
+                for (var i = 1; i <= totalNumberOfMonths; i++)
                 {
-                    var item = new T()
+                    var item = new T
                     {
                         Subchapter = "Total judet",
                         CountyId = CountryIds.Counties[county],
