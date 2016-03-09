@@ -38,18 +38,24 @@ namespace StatisticsRomania.Lib
                 return await GetData<NumberOfEmployees>(year, yearFraction);
             }
 
+            if (chapter == typeof(Unemployed))
+            {
+                return await GetData<Unemployed>(year, yearFraction, true);
+            }
+
             return null;
         }
 
-        private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction)
+        private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction, bool isAscending = false)
             where T : Data, new()
         {
             var repo = new Repository<T>(App.AsyncDb);
 
-            var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction))
-                .OrderByDescending(x => x.Value);
+            var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction));
 
-            var data = await ProcessRawData(rawData, repo);
+            var orderedRawData = isAscending ? rawData.OrderBy(x => x.Value) : rawData.OrderByDescending(x => x.Value);
+
+            var data = await ProcessRawData(orderedRawData, repo);
 
             return data;
         }

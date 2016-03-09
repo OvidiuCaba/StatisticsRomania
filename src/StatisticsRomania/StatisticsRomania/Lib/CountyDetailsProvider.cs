@@ -37,6 +37,11 @@ namespace StatisticsRomania.Lib
                 return await GetData<NumberOfEmployees>(countyId);
             }
 
+            if (chapter == typeof(Unemployed))
+            {
+                return await GetData<Unemployed>(countyId);
+            }
+
             return null;
         }
 
