@@ -54,7 +54,7 @@ namespace StatisticsRomania.ViewModels
 
         internal void GetYears()
         {
-            YearList = Enumerable.Range(2014, 2).Select(x => x.ToString()).ToList();
+            YearList = Enumerable.Range(2014, 3).Select(x => x.ToString()).ToList();
         }
 
         internal void GetYearFractions()

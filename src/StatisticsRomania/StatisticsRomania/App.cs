@@ -22,8 +22,8 @@ namespace StatisticsRomania
         public static SQLiteAsyncConnection AsyncDb;
 
         // Note: change the values when new data is added [in the future we might automatically get the data from API, so no rush to optimize here]
-        public static int LastYearAvailableData = 2015;
-        public static int LastMonthAvailableData = 12;
+        public static int LastYearAvailableData = 2016;
+        public static int LastMonthAvailableData = 1;
 
         public App()
         {
