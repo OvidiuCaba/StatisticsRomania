@@ -34,6 +34,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Seeders\BaseSeeder.cs" />
+    <Compile Include="Seeders\ExportFobSeeder.cs" />
+    <Compile Include="Seeders\ImportCifSeeder.cs" />
     <Compile Include="Seeders\NumberOfEmployeesSeeder.cs" />
     <Compile Include="Seeders\NumberOfNightsSeeder.cs" />
     <Compile Include="Seeders\NumberOfTouristsSeeder.cs" />
@@ -44,6 +46,7 @@
     <Compile Include="Seeders\AverageGrossSalarySeeder.cs" />
     <Compile Include="Seeders\AverageNetSalarySeeder.cs" />
     <Compile Include="Seeders\CountiesSeeder.cs" />
+    <Compile Include="Seeders\SoldFobCifSeeder.cs" />
     <Compile Include="Seeders\UnemployedSeeder.cs" />
   </ItemGroup>
   <ItemGroup>
