@@ -12,6 +12,21 @@ namespace StatisticsRomania.Lib
     {
         public static async Task<List<Data>> GetData(int countyId, Type chapter)
         {
+            if (chapter == typeof(ExportFob))
+            {
+                return await GetData<ExportFob>(countyId);
+            }
+
+            if (chapter == typeof(ImportCif))
+            {
+                return await GetData<ImportCif>(countyId);
+            }
+
+            if (chapter == typeof(SoldFobCif))
+            {
+                return await GetData<SoldFobCif>(countyId);
+            }
+
             if (chapter == typeof(AverageGrossSalary))
             {
                 return await GetData<AverageGrossSalary>(countyId);

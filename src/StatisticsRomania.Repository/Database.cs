@@ -41,6 +41,9 @@ namespace StatisticsRomania.Repository
             _db.CreateTable<NumberOfNights>();
             _db.CreateTable<NumberOfEmployees>();
             _db.CreateTable<Unemployed>();
+            _db.CreateTable<ExportFob>();
+            _db.CreateTable<ImportCif>();
+            _db.CreateTable<SoldFobCif>();
         }
 
         private void SeedDatabase()
@@ -71,6 +74,18 @@ namespace StatisticsRomania.Repository
             var numberOfUnemployed = UnemployedSeeder.GetData();
             _db.DeleteAll<Unemployed>();
             _db.InsertAll(numberOfUnemployed);
+
+            var export = ExportFobSeeder.GetData();
+            _db.DeleteAll<ExportFob>();
+            _db.InsertAll(export);
+
+            var import = ImportCifSeeder.GetData();
+            _db.DeleteAll<ImportCif>();
+            _db.InsertAll(import);
+
+            var sold = SoldFobCifSeeder.GetData();
+            _db.DeleteAll<SoldFobCif>();
+            _db.InsertAll(sold);
         }
     }
 }
