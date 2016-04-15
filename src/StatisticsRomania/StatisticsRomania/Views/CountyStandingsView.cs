@@ -8,6 +8,7 @@ using StatisticsRomania.ViewModels;
 using Xamarin.Forms;
 using DevExpress.Mobile.DataGrid;
 using DevExpress.Utils;
+using StatisticsRomania.Helpers;
 
 namespace StatisticsRomania.Views
 {
@@ -49,7 +50,6 @@ namespace StatisticsRomania.Views
             {
                 _pickerChapters.Items.Add(chapter.Key);
             }
-            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
             var lblYear = new Label
             {
@@ -65,7 +65,6 @@ namespace StatisticsRomania.Views
             {
                 _pickerYears.Items.Add(year);
             }
-            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
 
             var lblYearFraction = new Label
             {
@@ -81,9 +80,6 @@ namespace StatisticsRomania.Views
             {
                 _pickerYearFractions.Items.Add(yearFraction);
             }
-            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
-
-            await LoadData();
 
             var degStandings = new GridControl();
             degStandings.IsReadOnly = true;
@@ -143,9 +139,15 @@ namespace StatisticsRomania.Views
                 }
             };
 
-            _pickerChapters.SelectedIndex = 0;
+            _pickerChapters.SelectedIndex = Settings.StandingsChapter;
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(App.LastYearAvailableData.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
+
+            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+
+            await LoadData();
         }
 
         void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
@@ -175,6 +177,8 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
+            Settings.StandingsChapter = _pickerChapters.SelectedIndex;
+
             var selectedChapter = _pickerChapters.SelectedIndex >= 0
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;

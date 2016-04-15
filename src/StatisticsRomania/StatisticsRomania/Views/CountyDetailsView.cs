@@ -12,6 +12,7 @@ using Xamarin.Forms;
 using DevExpress.Mobile.DataGrid;
 using OxyPlot.Xamarin.Forms;
 using OxyPlot.Series;
+using StatisticsRomania.Helpers;
 
 namespace StatisticsRomania.Views
 {
@@ -54,7 +55,6 @@ namespace StatisticsRomania.Views
             {
                 _pickerCounties.Items.Add(county.Key);
             }
-            _pickerCounties.SelectedIndexChanged += pickerCounties_SelectedIndexChanged;
 
             var lblCompare = new Label
             {
@@ -70,7 +70,6 @@ namespace StatisticsRomania.Views
             {
                 _pickerCounties2.Items.Add(county.Key);
             }
-            _pickerCounties2.SelectedIndexChanged += _pickerCounties2_SelectedIndexChanged;
 
             var lblChapter = new Label
             {
@@ -86,9 +85,6 @@ namespace StatisticsRomania.Views
             {
                 _pickerChapters.Items.Add(chapter.Key);
             }
-            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
-
-            await LoadData();
 
             degChapterData = new GridControl();
             degChapterData.IsReadOnly = true;
@@ -169,10 +165,16 @@ namespace StatisticsRomania.Views
                 }
             };
 
-            _pickerCounties.SelectedIndex = 0;
-            _pickerCounties2.SelectedIndex = 0;
-            _pickerChapters.SelectedIndex = 0;
+            _pickerCounties.SelectedIndex = Settings.County1;
+            _pickerCounties2.SelectedIndex = Settings.County2;
+            _pickerChapters.SelectedIndex = Settings.Chapter;
             degChapterData.SelectedRowHandle = -1;
+
+            _pickerCounties.SelectedIndexChanged += pickerCounties_SelectedIndexChanged;
+            _pickerCounties2.SelectedIndexChanged += _pickerCounties2_SelectedIndexChanged;
+            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
+
+            await LoadData();
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)
@@ -233,6 +235,10 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
+            Settings.County1 = _pickerCounties.SelectedIndex;
+            Settings.County2 = _pickerCounties2.SelectedIndex;
+            Settings.Chapter = _pickerChapters.SelectedIndex;
+
             var selectedCounty = _pickerCounties.SelectedIndex >= 0
                                      ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]]
                                      : -1;
