@@ -27,6 +27,9 @@ namespace StatisticsRomania.ViewModels
         public bool HasData { get; set; }
         public bool DoesNotHaveData { get; set; }
 
+        public int LastAvailableYear { get; set; }
+        public int LastAvailableYearFraction { get; set; }
+
         public CountyStandingsViewModel()
         {
             _standings = new ObservableCollection<StandingItem>();
@@ -50,6 +53,16 @@ namespace StatisticsRomania.ViewModels
 
             HasData = data.Count > 0;
             DoesNotHaveData = !HasData;
+
+            if (DoesNotHaveData)
+            {
+                var lastData = (await CountyDetailsProvider.GetData(1, ChapterList[chapter]))
+                    .OrderByDescending(x => x.Year)
+                    .ThenByDescending(x => x.YearFraction)
+                    .FirstOrDefault();
+                LastAvailableYear = lastData.Year;
+                LastAvailableYearFraction = lastData.YearFraction;
+            }
         }
 
         internal void GetYears()

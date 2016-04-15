@@ -101,10 +101,29 @@ namespace StatisticsRomania.Views
             var lblNoData = new Label()
                                   {
                                       HorizontalOptions = LayoutOptions.FillAndExpand,
-                                      VerticalOptions = LayoutOptions.FillAndExpand,
-                                      Text = "Nu exista date disponibile pentru intervalul selectat"
+                                      Text = "Nu exista date disponibile pentru intervalul selectat",
+                                      HorizontalTextAlignment = TextAlignment.Center,
+                                      VerticalTextAlignment = TextAlignment.Center,
+                                      FontSize = 27,
                                   };
-            lblNoData.SetBinding(Label.IsVisibleProperty, "DoesNotHaveData");
+            var btnForceDataLoading = new Button()
+                                          {
+                                              Text = "Forteaza incarcarea datelor",
+                                          };
+            btnForceDataLoading.Clicked += btnForceDataLoading_Clicked;
+
+            var stackNoData = new StackLayout()
+            {
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Spacing = 20,
+                Padding = new Thickness(0),
+                Children =
+                    {
+                        lblNoData,
+                        btnForceDataLoading
+                    }
+            };
+            stackNoData.SetBinding(Label.IsVisibleProperty, "DoesNotHaveData");
 
             this.Content = new StackLayout
             {
@@ -135,7 +154,7 @@ namespace StatisticsRomania.Views
                             }
                     },
                     degStandings,
-                    lblNoData
+                    stackNoData
                 }
             };
 
@@ -148,6 +167,12 @@ namespace StatisticsRomania.Views
             _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
 
             await LoadData();
+        }
+
+        void btnForceDataLoading_Clicked(object sender, EventArgs e)
+        {
+            _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(_viewModel.LastAvailableYear.ToString());
+            _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(_viewModel.LastAvailableYearFraction.ToString());
         }
 
         void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
