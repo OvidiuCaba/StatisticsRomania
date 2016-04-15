@@ -169,10 +169,18 @@ namespace StatisticsRomania.Views
             await LoadData();
         }
 
-        void btnForceDataLoading_Clicked(object sender, EventArgs e)
+        async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
+            _pickerYears.SelectedIndexChanged -= _pickerYears_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged -= _pickerYearFractions_SelectedIndexChanged;
+
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(_viewModel.LastAvailableYear.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(_viewModel.LastAvailableYearFraction.ToString());
+
+            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+
+            await LoadData();
         }
 
         void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
