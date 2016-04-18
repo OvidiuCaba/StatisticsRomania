@@ -15,6 +15,7 @@ namespace StatisticsRomania
     //  - add 3 pixels padding at the edge of the screen
     //  - add data from 2014 - maybe display only last 24 months [or less? maybe configurable?]
     //  - maybe group indicators by category
+    //  [cele de mai jos testate cu Nexus 5]
     //  - adaugă un "help" unde să ai explicații pentru toți termenii sau abrevierile folosite (eventual poți avea un buton de info "i" în colțul dreapta-sus al termenilor respectivi).
     //  - adaugă search la lsita județelor, e destul de greu să scoll-ezi în 41 de județe. 
     //  - zoom-in și zoom-out la grafice. O difentă între 155.000 și 158.000 pare imensă când axa Y pleacă de la 150.000 și se termină la 160.000.
