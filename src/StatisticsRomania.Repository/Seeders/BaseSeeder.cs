@@ -17,12 +17,11 @@ namespace StatisticsRomania.Repository.Seeders
             {
                 var data = rawItem.Split(' ');
 
-                var county = data[0];
-                var year = 2014;
-                var month = 10;
-                var totalNumberOfMonths = data.Length - 1;
+                var county = data[2];
+                var year = int.Parse(data[0]);
+                var month = int.Parse(data[1]);
 
-                for (var i = 1; i <= totalNumberOfMonths; i++)
+                for (var i = 3; i < data.Length; i++)
                 {
                     var item = new T
                     {
@@ -45,6 +44,5 @@ namespace StatisticsRomania.Repository.Seeders
             }
             return items;
         }
-
     }
 }
