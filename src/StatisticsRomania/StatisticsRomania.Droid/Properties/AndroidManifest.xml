@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.statisticiromania.app" android:installLocation="auto" android:versionCode="18" android:versionName="1.9">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.statisticiromania.app" android:installLocation="auto" android:versionCode="19" android:versionName="1.10">
 	<uses-sdk android:minSdkVersion="15" />
 	<application android:label="Statistici Romania" android:icon="@drawable/icon"></application>
 </manifest>
