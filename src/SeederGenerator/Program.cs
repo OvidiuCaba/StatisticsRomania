@@ -62,20 +62,22 @@ namespace SeederGenerator
                                       {"Bucuresti","Bucuresti.xls"},
                                   };
 
-            var chapterMapping = new Dictionary<string, string>
+            // The second parameter of the tuple is the number of the row in the table that contains the data
+            var chapterMapping = new Dictionary<string, Tuple<string, int>>
                                      {
-                                         {"AverageGrossSalarySeeder", "CÂŞTIGUL SALARIAL MEDIU BRUT"},
-                                         {"AverageNetSalarySeeder", "CÂŞTIGUL SALARIAL MEDIU NET"},
-                                         {"NumberOfTouristsSeeder", "SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
-                                         {"NumberOfNightsSeeder", "ÎNNOPTĂRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
-                                         {"NumberOfEmployeesSeeder", "EFECTIVUL SALARIAŢILOR"},
-                                         {"UnemployedSeeder", "NUMĂRUL ŞOMERILOR"},
-                                         {"ExportFobSeeder", "COMERŢUL INTERNAŢIONAL CU BUNURI"},
-                                         {"ImportCifSeeder", "COMERŢUL INTERNAŢIONAL CU BUNURI"},
-                                         {"SoldFobCifSeeder", "COMERŢUL INTERNAŢIONAL CU BUNURI"},
+                                         {"AverageGrossSalarySeeder", new Tuple<string, int>("CÂŞTIGUL SALARIAL MEDIU BRUT", 1)},
+                                         {"AverageNetSalarySeeder", new Tuple<string, int>("CÂŞTIGUL SALARIAL MEDIU NET", 1)},
+                                         {"NumberOfTouristsSeeder", new Tuple<string, int>("SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ", 1)},
+                                         {"NumberOfNightsSeeder", new Tuple<string, int>("ÎNNOPTĂRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ", 1)},
+                                         {"NumberOfEmployeesSeeder", new Tuple<string, int>("EFECTIVUL SALARIAŢILOR", 1)},
+                                         {"UnemployedSeeder", new Tuple<string, int>("NUMĂRUL ŞOMERILOR", 1)},
+                                         {"ExportFobSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 1)},
+                                         {"ImportCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 2)},
+                                         {"SoldFobCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 3)},
                                      };
 
             var year = 2016;
+            var months = new [] { "ian.", "feb.", "mar.", "apr.", "mai", "iun.", "iul.", "aug.", "sep.", "oct.", "nov.", "dec." };
 
             var res = new Dictionary<string, string>
                           {
@@ -94,7 +96,7 @@ namespace SeederGenerator
             {
                 foreach (var chapter in chapterMapping.Keys)
                 {
-                    res[chapter] += GetSeedingText(file.Key, dir + "\\" + file.Value, chapterMapping[chapter], year) + Environment.NewLine;
+                    res[chapter] += GetSeedingText(file.Key, dir + "\\" + file.Value, chapterMapping[chapter].Item1, chapterMapping[chapter].Item2, year, months) + Environment.NewLine;
                 }
             }
 
@@ -102,13 +104,13 @@ namespace SeederGenerator
             {
                 Console.WriteLine(chapter);
                 Console.WriteLine(res[chapter]);
-                Console.WriteLine(Environment.NewLine + Environment.NewLine);
+                Console.WriteLine(Environment.NewLine);
             }
 
             Console.ReadKey();
         }
 
-        private static string GetSeedingText(string county, string file, string chapter, int year)
+        private static string GetSeedingText(string county, string file, string chapter, int rowNumber, int year, string[] months)
         {
             var chapterRowIndex = -1;
 
@@ -149,10 +151,10 @@ namespace SeederGenerator
 
             var numberOfMonths =
                 sheet.GetRow(chapterRowIndex + 1).Cells.Count(
-                    x => x.ColumnIndex >= columnYearStartIndex && !string.IsNullOrWhiteSpace((x.StringCellValue)));
+                    x => x.ColumnIndex >= columnYearStartIndex && months.Any(month => x.StringCellValue.Contains(month)));
 
             var text =
-                sheet.GetRow(chapterRowIndex + 2).Cells.Where(
+                sheet.GetRow(chapterRowIndex + rowNumber + 1).Cells.Where(
                     x => x.ColumnIndex >= columnYearStartIndex && x.ColumnIndex < columnYearStartIndex + numberOfMonths).Select(
                         x => x.NumericCellValue.ToString(CultureInfo.InvariantCulture)).Aggregate((c, n) => c + " " + n);
 
