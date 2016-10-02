@@ -29,17 +29,27 @@ namespace SeederGenerator
                                       {"NumberOfTouristsSeeder", "SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
                                   };
 
-            //var file = dir + @"\Alba.xls";
-
             var year = 2016;
 
-            var chapter = "SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ";
+            var res = new Dictionary<string, string>
+                                  {
+                                      {"NumberOfNightsSeeder", string.Empty},
+                                      {"NumberOfTouristsSeeder", string.Empty},
+                                  };
 
             foreach (var file in fileMapping)
             {
-                var text = GetSeedingText(file.Key, dir + "\\" + file.Value, chapter, year);
+                foreach (var chapter in chapterMapping.Keys)
+                {
+                    res[chapter] += GetSeedingText(file.Key, dir + "\\" + file.Value, chapterMapping[chapter], year) + Environment.NewLine;
+                }
+            }
 
-                Console.WriteLine(text);
+            foreach (var chapter in chapterMapping.Keys)
+            {
+                Console.WriteLine(chapter);
+                Console.WriteLine(res[chapter]);
+                Console.WriteLine(Environment.NewLine + Environment.NewLine);
             }
 
             Console.ReadKey();
