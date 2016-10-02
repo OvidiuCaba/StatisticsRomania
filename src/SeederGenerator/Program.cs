@@ -100,14 +100,15 @@ namespace SeederGenerator
                 }
             }
 
+            var targetDirectory = dir + @"\Seeders\";
+
+            if (!Directory.Exists(targetDirectory))
+                Directory.CreateDirectory(targetDirectory);
+
             foreach (var chapter in chapterMapping.Keys)
             {
-                Console.WriteLine(chapter);
-                Console.WriteLine(res[chapter]);
-                Console.WriteLine(Environment.NewLine);
+                File.WriteAllText(targetDirectory + chapter + ".txt", res[chapter]);
             }
-
-            Console.ReadKey();
         }
 
         private static string GetSeedingText(string county, string file, string chapter, int rowNumber, int year, string[] months)
