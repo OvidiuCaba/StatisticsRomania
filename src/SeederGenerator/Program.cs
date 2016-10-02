@@ -63,18 +63,32 @@ namespace SeederGenerator
                                   };
 
             var chapterMapping = new Dictionary<string, string>
-                                  {
-                                      {"NumberOfNightsSeeder", "ÎNNOPTĂRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
-                                      {"NumberOfTouristsSeeder", "SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
-                                  };
+                                     {
+                                         {"AverageGrossSalarySeeder", "CÂŞTIGUL SALARIAL MEDIU BRUT"},
+                                         {"AverageNetSalarySeeder", "CÂŞTIGUL SALARIAL MEDIU NET"},
+                                         {"NumberOfTouristsSeeder", "SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
+                                         {"NumberOfNightsSeeder", "ÎNNOPTĂRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ"},
+                                         {"NumberOfEmployeesSeeder", "EFECTIVUL SALARIAŢILOR"},
+                                         {"UnemployedSeeder", "NUMĂRUL ŞOMERILOR"},
+                                         {"ExportFobSeeder", "COMERŢUL INTERNAŢIONAL CU BUNURI"},
+                                         {"ImportCifSeeder", "COMERŢUL INTERNAŢIONAL CU BUNURI"},
+                                         {"SoldFobCifSeeder", "COMERŢUL INTERNAŢIONAL CU BUNURI"},
+                                     };
 
             var year = 2016;
 
             var res = new Dictionary<string, string>
-                                  {
-                                      {"NumberOfNightsSeeder", string.Empty},
-                                      {"NumberOfTouristsSeeder", string.Empty},
-                                  };
+                          {
+                              {"AverageGrossSalarySeeder", string.Empty},
+                              {"AverageNetSalarySeeder", string.Empty},
+                              {"NumberOfTouristsSeeder", string.Empty},
+                              {"NumberOfNightsSeeder", string.Empty},
+                              {"NumberOfEmployeesSeeder", string.Empty},
+                              {"UnemployedSeeder", string.Empty},
+                              {"ExportFobSeeder", string.Empty},
+                              {"ImportCifSeeder", string.Empty},
+                              {"SoldFobCifSeeder", string.Empty},
+                          };
 
             foreach (var file in fileMapping)
             {
@@ -131,7 +145,7 @@ namespace SeederGenerator
             var rowYear = sheet.GetRow(chapterRowIndex);
 
             columnYearStartIndex =
-                rowYear.Cells.FirstOrDefault(x => x.CellType == CellType.Numeric && x.NumericCellValue == year).ColumnIndex;
+                rowYear.Cells.FirstOrDefault(x => (x.CellType == CellType.Numeric && x.NumericCellValue == year) || ((x.CellType == CellType.String && x.StringCellValue.Contains(year.ToString(CultureInfo.InvariantCulture))))).ColumnIndex;
 
             var numberOfMonths =
                 sheet.GetRow(chapterRowIndex + 1).Cells.Count(
