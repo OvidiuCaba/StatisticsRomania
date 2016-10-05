@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Repository;
-
+//TODO: nu arata bine pe Nexus S, probabil trebuie sa abreviez
 namespace StatisticsRomania.ViewModels
 {
     public abstract class BaseViewModel

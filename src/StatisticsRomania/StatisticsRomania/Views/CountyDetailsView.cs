@@ -131,6 +131,12 @@ namespace StatisticsRomania.Views
                                    Children = {degChapterData, plotView}
                                };
 
+            var btnTest = new Button()
+                              {
+                                  Text = "Test"
+                              };
+            btnTest.Clicked += btnTest_Clicked;
+
             this.Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -147,7 +153,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblCounty, _pickerCounties, lblCompare, _pickerCounties2
+                                lblCounty, _pickerCounties, lblCompare, _pickerCounties2//, btnTest
                             }
                     },
                     new StackLayout()
@@ -175,6 +181,12 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
             await LoadData();
+        }
+
+        private async void btnTest_Clicked(object sender, EventArgs e)
+        {
+            var view = new SelectorView("Selecteaza judetul", _viewModel.CountyList.Keys.ToList());
+            await Navigation.PushModalAsync(view);
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)

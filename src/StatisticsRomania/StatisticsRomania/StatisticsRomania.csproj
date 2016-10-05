@@ -46,6 +46,7 @@
     <Compile Include="Views\CountyDetailsView.cs" />
     <Compile Include="Views\CountyStandingsView.cs" />
     <Compile Include="Views\RootPage.cs" />
+    <Compile Include="Views\SelectorView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Mobile.Core.v15.2">
