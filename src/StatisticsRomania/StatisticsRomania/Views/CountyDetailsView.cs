@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +21,17 @@ namespace StatisticsRomania.Views
     {
         private CountyDetailsViewModel _viewModel;
         private PickerWithNoSpellCheck _pickerChapters;
-        private PickerWithNoSpellCheck _pickerCounties;
-        private PickerWithNoSpellCheck _pickerCounties2;
+        private Label _labelCounties;
+        private Label _labelCounties2;
 
         private GridControl degChapterData;
         private PlotView plotView;
 
         private StackLayout dataControls;
+
+        private readonly Lazy<SelectorView> _selectorView = new Lazy<SelectorView>();
+
+        private bool isSelectorActive = false;
 
         public CountyDetailsView()
         {
@@ -47,29 +52,58 @@ namespace StatisticsRomania.Views
                 Text = "Judet:"
             };
 
-            _pickerCounties = new PickerWithNoSpellCheck()
+            _labelCounties = new Label()
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                BackgroundColor = Color.Black,
+                TextColor = Color.White
             };
-            foreach (var county in _viewModel.CountyList)
-            {
-                _pickerCounties.Items.Add(county.Key);
-            }
+
+            var labelCountiesTapGesture = new TapGestureRecognizer();
+            labelCountiesTapGesture.Tapped += async (s, e) =>
+                                                        {
+                                                            if (isSelectorActive)
+                                                                return;
+
+                                                            isSelectorActive = true;
+
+                                                            var view = _selectorView.Value;
+                                                            view.Title = "Selecteaza judetul";
+                                                            view.ItemsSource = _viewModel.CountyList.Keys.ToList();
+                                                            view.SelectedItem = _labelCounties2.Text;
+                                                            view.ItemSelected += async (s2, e2) =>
+                                                                                           {
+                                                                                               _labelCounties.Text = e2;
+                                                                                               await LoadData();
+                                                                                           };
+                                                            await Navigation.PushModalAsync(view);
+
+                                                            isSelectorActive = false;
+                                                        };
+            _labelCounties.GestureRecognizers.Add(labelCountiesTapGesture);
+            var testFrame = new StackLayout()
+                          {
+                              Children = {_labelCounties},
+                              VerticalOptions = LayoutOptions.CenterAndExpand,
+                              HorizontalOptions = LayoutOptions.Center,
+                              Padding = new Thickness(0, 0, 0, 1),
+                              BackgroundColor = Color.Silver
+                          };
 
             var lblCompare = new Label
             {
                 VerticalOptions = LayoutOptions.Center,
                 Text = "compara cu"
             };
-            _pickerCounties2 = new PickerWithNoSpellCheck()
+            _labelCounties2 = new Label()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
-            _pickerCounties2.Items.Add("──────");
-            foreach (var county in _viewModel.CountyList)
-            {
-                _pickerCounties2.Items.Add(county.Key);
-            }
+            //_pickerCounties2.Items.Add("──────");
+            //foreach (var county in _viewModel.CountyList)
+            //{
+            //    _pickerCounties2.Items.Add(county.Key);
+            //}
 
             var lblChapter = new Label
             {
@@ -131,12 +165,6 @@ namespace StatisticsRomania.Views
                                    Children = {degChapterData, plotView}
                                };
 
-            var btnTest = new Button()
-                              {
-                                  Text = "Test"
-                              };
-            btnTest.Clicked += btnTest_Clicked;
-
             this.Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -153,7 +181,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblCounty, _pickerCounties, lblCompare, _pickerCounties2//, btnTest
+                                lblCounty, testFrame, lblCompare, _labelCounties2
                             }
                     },
                     new StackLayout()
@@ -165,28 +193,19 @@ namespace StatisticsRomania.Views
                                 lblChapter, _pickerChapters
                             }
                     },
-                    //degChapterData,
-                    //plotView
                     dataControls
                 }
             };
 
-            _pickerCounties.SelectedIndex = Settings.County1;
-            _pickerCounties2.SelectedIndex = Settings.County2;
+            Func<int, string> getCountyFromSettings = countyIdFromSettings => _viewModel.CountyList.ContainsValue(countyIdFromSettings) ? _viewModel.CountyList.FirstOrDefault(x => x.Value == countyIdFromSettings).Key : string.Empty;
+            _labelCounties.Text = getCountyFromSettings(Settings.County1);
+            _labelCounties2.Text = getCountyFromSettings(Settings.County1);
             _pickerChapters.SelectedIndex = Settings.Chapter;
             degChapterData.SelectedRowHandle = -1;
 
-            _pickerCounties.SelectedIndexChanged += pickerCounties_SelectedIndexChanged;
-            _pickerCounties2.SelectedIndexChanged += _pickerCounties2_SelectedIndexChanged;
             _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
             await LoadData();
-        }
-
-        private async void btnTest_Clicked(object sender, EventArgs e)
-        {
-            var view = new SelectorView("Selecteaza judetul", _viewModel.CountyList.Keys.ToList());
-            await Navigation.PushModalAsync(view);
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)
@@ -203,65 +222,73 @@ namespace StatisticsRomania.Views
 
         protected override void OnSizeAllocated(double width, double height)
         {
-            base.OnSizeAllocated(width, height);
-
-            if (plotView == null || dataControls == null)
+            try
             {
-                return;
-            }
+                base.OnSizeAllocated(width, height);
 
-            if (height > width) // portrait
-            {
-                plotView.HeightRequest = height/3;
-                plotView.WidthRequest = -1;
-                dataControls.Orientation = StackOrientation.Vertical;
-            }
-            else
-            {
-                dataControls.Orientation = StackOrientation.Horizontal;
-                plotView.HeightRequest = -1;
-                plotView.WidthRequest = width / 2;
-                degChapterData.ForceLayout();
-            }
-
-            _isPortrait = height > width;
-
-            plotView.Model.IsLegendVisible = plotView.Model.Series.Count > 1;
-
-            if (plotView.Model.IsLegendVisible)
-            {
-                if (_isPortrait)
+                if (plotView == null || dataControls == null)
                 {
-                    plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    plotView.Model.LegendPosition = LegendPosition.RightTop;
-                    plotView.Model.LegendOrientation = LegendOrientation.Vertical;
+                    return;
+                }
+
+                if (height > width) // portrait
+                {
+                    plotView.HeightRequest = height/3;
+                    plotView.WidthRequest = -1;
+                    dataControls.Orientation = StackOrientation.Vertical;
                 }
                 else
                 {
-                    plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    plotView.Model.LegendPosition = LegendPosition.TopRight;
-                    plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
+                    dataControls.Orientation = StackOrientation.Horizontal;
+                    plotView.HeightRequest = -1;
+                    plotView.WidthRequest = width/2;
+                    degChapterData.ForceLayout();
                 }
+
+                _isPortrait = height > width;
+
+                plotView.Model.IsLegendVisible = plotView.Model.Series.Count > 1;
+
+                if (plotView.Model.IsLegendVisible)
+                {
+                    if (_isPortrait)
+                    {
+                        plotView.Model.LegendPlacement = LegendPlacement.Outside;
+                        plotView.Model.LegendPosition = LegendPosition.RightTop;
+                        plotView.Model.LegendOrientation = LegendOrientation.Vertical;
+                    }
+                    else
+                    {
+                        plotView.Model.LegendPlacement = LegendPlacement.Outside;
+                        plotView.Model.LegendPosition = LegendPosition.TopRight;
+                        plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
+                    }
+                }
+            }
+            catch
+            {
+                // TODO: Find out why the exception occur and find a better solution
+                // Do nothing: from some reason the app crashes when I change the selection
             }
         }
 
         private async Task LoadData()
         {
-            Settings.County1 = _pickerCounties.SelectedIndex;
-            Settings.County2 = _pickerCounties2.SelectedIndex;
+            Settings.County1 = _viewModel.CountyList[_labelCounties.Text];
+            Settings.County2 = _viewModel.CountyList[_labelCounties2.Text];
             Settings.Chapter = _pickerChapters.SelectedIndex;
 
-            var selectedCounty = _pickerCounties.SelectedIndex >= 0
-                                     ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]]
-                                     : -1;
-            var selectedCounty2 = _pickerCounties2.SelectedIndex >= 1
-                                     ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties2.SelectedIndex - 1]]
-                                     : -1;
+            //var selectedCounty = _pickerCounties.SelectedIndex >= 0
+            //                         ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]]
+            //                         : -1;
+            //var selectedCounty2 = _pickerCounties2.SelectedIndex >= 1
+            //                         ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties2.SelectedIndex - 1]]
+            //                         : -1;
             var selectedChapter = _pickerChapters.SelectedIndex >= 0
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;
 
-            await _viewModel.GetChapterData(selectedCounty, selectedCounty2, selectedChapter);
+            await _viewModel.GetChapterData(_viewModel.CountyList[_labelCounties.Text], _viewModel.CountyList[_labelCounties2.Text], selectedChapter);
 
             if (plotView == null)
                 return;
@@ -292,7 +319,7 @@ namespace StatisticsRomania.Views
             series.ItemsSource = _viewModel.ChapterData;
             series.DataFieldX = "TimeStamp";
             series.DataFieldY = "Value";
-            series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
+            //series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
             plotView.Model.Series.Add(series);
 
             if (_viewModel.Value2ColumnVisibility)
@@ -301,7 +328,7 @@ namespace StatisticsRomania.Views
                 series2.ItemsSource = _viewModel.ChapterData;
                 series2.DataFieldX = "TimeStamp";
                 series2.DataFieldY = "Value2";
-                series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
+                //series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
                 plotView.Model.Series.Add(series2);
             }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,23 +10,48 @@ namespace StatisticsRomania.Views
 {
     public class SelectorView : ContentPage
     {
-        private readonly string _title;
-        private readonly List<string> _itemsSource;
+        public event EventHandler<string> ItemSelected;
 
-        public SelectorView(string title, List<string> itemsSource)
+        protected virtual void OnItemSelected(string selectedItem)
         {
-            _title = title;
-            _itemsSource = itemsSource;
+            var handler = ItemSelected;
+            if (handler != null)
+            {
+                handler(this, selectedItem);
+            }
+        }
 
+        public string Title
+        {
+            get { return _titleLbl.Text; }
+            set { _titleLbl.Text = value; }
+        }
+
+        public IEnumerable ItemsSource
+        {
+            get { return _listView.ItemsSource; }
+            set { _listView.ItemsSource = value; }
+        }
+
+        public object SelectedItem
+        {
+            get { return _listView.SelectedItem; }
+            set { _listView.SelectedItem = value; }
+        }
+
+        private Label _titleLbl;
+        private ListView _listView;
+
+        public SelectorView()
+        {
             Init();
         }
 
         private void Init()
         {
-            var titleLbl = new Label()
+            _titleLbl = new Label()
                                {
                                    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                                   Text = _title,
                                    BackgroundColor = Color.Black,
                                    TextColor = Color.White
                                };
@@ -33,28 +59,72 @@ namespace StatisticsRomania.Views
             var template = new DataTemplate(typeof(TextCell));
             template.SetValue(TextCell.TextColorProperty, Color.FromRgb(198, 198, 204));
             template.SetBinding(TextCell.TextProperty, ".");
-            var listView = new ListView();
-            listView.ItemTemplate = template;
-            listView.ItemsSource = _itemsSource;
+            _listView = new ListView();
+            _listView.ItemTemplate = template;
 
-            Content = new StackLayout()
+            var btnCancel = new Button { Text = "Anulare", HorizontalOptions = LayoutOptions.FillAndExpand, };
+            btnCancel.Clicked += btnCancel_Clicked;
+            var btnOk = new Button { Text = "Selecteaza", HorizontalOptions = LayoutOptions.FillAndExpand, };
+            btnOk.Clicked += btnOk_Clicked;
+
+            var buttonGrid = new Grid()
+            {
+                RowDefinitions =
+                                         {
+                                             new RowDefinition {Height = GridLength.Auto},
+                                         },
+                ColumnDefinitions =
+                                         {
+                                             new ColumnDefinition {Width = new GridLength(1, GridUnitType.Star)},
+                                             new ColumnDefinition {Width = new GridLength(1, GridUnitType.Star)}
+                                         },
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+            };
+            var frameBtnCancel = new Frame()
+            {
+                Content = btnCancel,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Padding = new Thickness(10, 2, 5, 10)
+            };
+            var frameBtnSave = new Frame()
+            {
+                Content = btnOk,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Padding = new Thickness(5, 2, 10, 10)
+            };
+            buttonGrid.Children.Add(frameBtnCancel, 0, 0);
+            buttonGrid.Children.Add(frameBtnSave, 1, 0);
+
+            Content = new StackLayout
                           {
                               HorizontalOptions = LayoutOptions.FillAndExpand,
                               BackgroundColor = Color.FromRgb(51, 51, 51),
                               Spacing = 5,
                               Children =
                                   {
-                                      new StackLayout()
+                                      new StackLayout
                                           {
                                               HorizontalOptions = LayoutOptions.FillAndExpand,
                                               BackgroundColor = Color.Black,
-                                              Children = {titleLbl},
+                                              Children = {_titleLbl},
                                               Spacing = 10,
                                               Padding = 10
                                           },
-                                      listView
+                                      _listView,
+                                      buttonGrid
                                   }
                           };
+        }
+
+        private async void btnOk_Clicked(object sender, EventArgs e)
+        {
+            OnItemSelected(_listView.SelectedItem.ToString());
+            await Navigation.PopModalAsync(false);
+        }
+
+        private async void btnCancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync(false);
         }
     }
 }
