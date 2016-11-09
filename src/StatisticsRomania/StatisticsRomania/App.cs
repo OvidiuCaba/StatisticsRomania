@@ -19,6 +19,8 @@ namespace StatisticsRomania
     //  - adaugă un "help" unde să ai explicații pentru toți termenii sau abrevierile folosite (eventual poți avea un buton de info "i" în colțul dreapta-sus al termenilor respectivi).
     //  - adaugă search la lista județelor, e destul de greu să scoll-ezi în 41 de județe. 
     //  - zoom-in și zoom-out la grafice. O difentă între 155.000 și 158.000 pare imensă când axa Y pleacă de la 150.000 și se termină la 160.000.
+    //  - infografice, afiseaza mai putine informatii; eventual in setari userul sa-si aleaga judetele pe care le urmareste si doar alea sa apara:
+    //          ex: 1. Bucuresti, 2. Cluj, 3. Ilfov (pana la 5), apoi 25. Bihor (cu 2 judete inainte si 2 dupa) + eventual o optiune de "show all" [sau highlight]
 
     public class App : Application
     {
