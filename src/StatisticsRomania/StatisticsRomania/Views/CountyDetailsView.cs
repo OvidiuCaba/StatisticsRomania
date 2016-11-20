@@ -81,7 +81,7 @@ namespace StatisticsRomania.Views
                                                             isSelectorActive = false;
                                                         };
             _labelCounties.GestureRecognizers.Add(labelCountiesTapGesture);
-            var testFrame = new StackLayout()
+            var frameToSimulateUnderline = new StackLayout()
                           {
                               Children = {_labelCounties},
                               VerticalOptions = LayoutOptions.CenterAndExpand,
@@ -183,7 +183,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblCounty, testFrame, lblCompare, _labelCounties2
+                                lblCounty, frameToSimulateUnderline, lblCompare, _labelCounties2
                             }
                     },
                     new StackLayout()
