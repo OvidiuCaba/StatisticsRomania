@@ -55,8 +55,8 @@ namespace StatisticsRomania.Views
             _labelCounties = new Label()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.Black,
-                TextColor = Color.White
+                BackgroundColor = Color.FromRgb(51, 51, 51),
+                TextColor = Color.White,
             };
 
             var labelCountiesTapGesture = new TapGestureRecognizer();
@@ -70,7 +70,7 @@ namespace StatisticsRomania.Views
                                                             var view = _selectorView.Value;
                                                             view.Title = "Selecteaza judetul";
                                                             view.ItemsSource = _viewModel.CountyList.Keys.ToList();
-                                                            view.SelectedItem = _labelCounties2.Text;
+                                                            view.SelectedItem = _labelCounties.Text;
                                                             view.ItemSelected += async (s2, e2) =>
                                                                                            {
                                                                                                _labelCounties.Text = e2;
@@ -97,7 +97,9 @@ namespace StatisticsRomania.Views
             };
             _labelCounties2 = new Label()
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                BackgroundColor = Color.FromRgb(51, 51, 51),
+                TextColor = Color.White,
             };
             //_pickerCounties2.Items.Add("──────");
             //foreach (var county in _viewModel.CountyList)
@@ -198,8 +200,11 @@ namespace StatisticsRomania.Views
             };
 
             Func<int, string> getCountyFromSettings = countyIdFromSettings => _viewModel.CountyList.ContainsValue(countyIdFromSettings) ? _viewModel.CountyList.FirstOrDefault(x => x.Value == countyIdFromSettings).Key : string.Empty;
-            _labelCounties.Text = getCountyFromSettings(Settings.County1);
-            _labelCounties2.Text = getCountyFromSettings(Settings.County1);
+            if (Settings.County1 < 1)
+                _labelCounties.Text = "Alba";
+            else
+                _labelCounties.Text = getCountyFromSettings(Settings.County1);
+            _labelCounties2.Text = getCountyFromSettings(Settings.County2);
             _pickerChapters.SelectedIndex = Settings.Chapter;
             degChapterData.SelectedRowHandle = -1;
 
@@ -274,8 +279,14 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
-            Settings.County1 = _viewModel.CountyList[_labelCounties.Text];
-            Settings.County2 = _viewModel.CountyList[_labelCounties2.Text];
+            if (_viewModel.CountyList.ContainsKey(_labelCounties.Text))
+                Settings.County1 = _viewModel.CountyList[_labelCounties.Text];
+            else
+                Settings.County1 = 0;
+            if (_viewModel.CountyList.ContainsKey(_labelCounties2.Text))
+                Settings.County2 = _viewModel.CountyList[_labelCounties2.Text];
+            else
+                Settings.County2 = 0;
             Settings.Chapter = _pickerChapters.SelectedIndex;
 
             //var selectedCounty = _pickerCounties.SelectedIndex >= 0
@@ -288,7 +299,7 @@ namespace StatisticsRomania.Views
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;
 
-            await _viewModel.GetChapterData(_viewModel.CountyList[_labelCounties.Text], _viewModel.CountyList[_labelCounties2.Text], selectedChapter);
+            await _viewModel.GetChapterData(Settings.County1, Settings.County2, selectedChapter);
 
             if (plotView == null)
                 return;
@@ -320,6 +331,7 @@ namespace StatisticsRomania.Views
             series.DataFieldX = "TimeStamp";
             series.DataFieldY = "Value";
             //series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
+            series.Title = _labelCounties.Text;
             plotView.Model.Series.Add(series);
 
             if (_viewModel.Value2ColumnVisibility)
@@ -329,6 +341,7 @@ namespace StatisticsRomania.Views
                 series2.DataFieldX = "TimeStamp";
                 series2.DataFieldY = "Value2";
                 //series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
+                series2.Title = _labelCounties2.Text;
                 plotView.Model.Series.Add(series2);
             }
 
