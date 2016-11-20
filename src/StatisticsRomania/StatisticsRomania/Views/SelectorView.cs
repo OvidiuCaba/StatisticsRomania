@@ -108,6 +108,13 @@ namespace StatisticsRomania.Views
                           };
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            _listView.ScrollTo(_listView.SelectedItem, ScrollToPosition.Center, false);
+        }
+
         private async void btnOk_Clicked(object sender, EventArgs e)
         {
             OnItemSelected(_listView.SelectedItem.ToString());
