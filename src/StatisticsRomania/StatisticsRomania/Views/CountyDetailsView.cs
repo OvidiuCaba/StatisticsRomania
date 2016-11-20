@@ -42,6 +42,18 @@ namespace StatisticsRomania.Views
 
         private async Task Init()
         {
+            MessagingCenter.Subscribe<SelectorView, string>(this, "County1", async (s, e) =>
+            {
+                _labelCounties.Text = e;
+                await LoadData();
+            });
+
+            MessagingCenter.Subscribe<SelectorView, string>(this, "County2", async (s, e) =>
+            {
+                _labelCounties2.Text = e;
+                await LoadData();
+            });
+
             _viewModel = new CountyDetailsViewModel();
             await _viewModel.GetCounties();
             _viewModel.GetChapters();
@@ -69,13 +81,9 @@ namespace StatisticsRomania.Views
 
                                                             var view = _selectorView.Value;
                                                             view.Title = "Selecteaza judetul";
+                                                            view.Target = "County1";
                                                             view.ItemsSource = _viewModel.CountyList.Keys.ToList();
                                                             view.SelectedItem = _labelCounties.Text;
-                                                            view.ItemSelected += async (s2, e2) =>
-                                                                                           {
-                                                                                               _labelCounties.Text = e2;
-                                                                                               await LoadData();
-                                                                                           };
                                                             await Navigation.PushModalAsync(view);
 
                                                             isSelectorActive = false;
@@ -83,9 +91,9 @@ namespace StatisticsRomania.Views
             _labelCounties.GestureRecognizers.Add(labelCountiesTapGesture);
             var frameToSimulateUnderline = new StackLayout()
                           {
-                              Children = {_labelCounties},
                               VerticalOptions = LayoutOptions.CenterAndExpand,
-                              HorizontalOptions = LayoutOptions.Center,
+                              HorizontalOptions = LayoutOptions.Start,
+                              Children = {_labelCounties},
                               Padding = new Thickness(0, 0, 0, 1),
                               BackgroundColor = Color.Silver
                           };
@@ -106,6 +114,33 @@ namespace StatisticsRomania.Views
             //{
             //    _pickerCounties2.Items.Add(county.Key);
             //}
+
+            var labelCounties2TapGesture = new TapGestureRecognizer();
+            labelCounties2TapGesture.Tapped += async (s, e) =>
+            {
+                if (isSelectorActive)
+                    return;
+
+                isSelectorActive = true;
+
+                var view = _selectorView.Value;
+                view.Title = "Selecteaza judetul";
+                view.Target = "County2";
+                view.ItemsSource = _viewModel.CountyList.Keys.ToList();
+                view.SelectedItem = _labelCounties.Text;
+                await Navigation.PushModalAsync(view);
+
+                isSelectorActive = false;
+            };
+            _labelCounties2.GestureRecognizers.Add(labelCounties2TapGesture);
+            var frameToSimulateUnderline2 = new StackLayout()
+            {
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Children = { _labelCounties2 },
+                Padding = new Thickness(0, 0, 0, 1),
+                BackgroundColor = Color.Silver,
+            };
 
             var lblChapter = new Label
             {
@@ -183,7 +218,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblCounty, frameToSimulateUnderline, lblCompare, _labelCounties2
+                                lblCounty, frameToSimulateUnderline, lblCompare, frameToSimulateUnderline2
                             }
                     },
                     new StackLayout()

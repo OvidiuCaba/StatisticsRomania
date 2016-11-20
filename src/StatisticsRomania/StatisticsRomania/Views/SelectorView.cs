@@ -1,24 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace StatisticsRomania.Views
 {
     public class SelectorView : ContentPage
     {
-        public event EventHandler<string> ItemSelected;
-
         protected virtual void OnItemSelected(string selectedItem)
         {
-            var handler = ItemSelected;
-            if (handler != null)
-            {
-                handler(this, selectedItem);
-            }
+            MessagingCenter.Send(this, Target, selectedItem);
         }
 
         public string Title
@@ -26,6 +16,8 @@ namespace StatisticsRomania.Views
             get { return _titleLbl.Text; }
             set { _titleLbl.Text = value; }
         }
+
+        public string Target { get; set; }
 
         public IEnumerable ItemsSource
         {
