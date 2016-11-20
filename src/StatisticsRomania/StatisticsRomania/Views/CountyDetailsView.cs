@@ -82,7 +82,7 @@ namespace StatisticsRomania.Views
                                                             var view = _selectorView.Value;
                                                             view.Title = "Selecteaza judetul";
                                                             view.Target = "County1";
-                                                            view.ItemsSource = _viewModel.CountyList.Keys.ToList();
+                                                            view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList();
                                                             view.SelectedItem = _labelCounties.Text;
                                                             await Navigation.PushModalAsync(view);
 
@@ -126,7 +126,7 @@ namespace StatisticsRomania.Views
                 var view = _selectorView.Value;
                 view.Title = "Selecteaza judetul";
                 view.Target = "County2";
-                view.ItemsSource = _viewModel.CountyList.Keys.ToList();
+                view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).ToList();
                 view.SelectedItem = _labelCounties.Text;
                 await Navigation.PushModalAsync(view);
 

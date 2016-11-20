@@ -98,6 +98,7 @@ namespace StatisticsRomania.ViewModels
         public async Task GetCounties()
         {
             CountyList = (await _countyRepository.GetAll()).ToDictionary(x => x.Name, x => x.Id);
+            CountyList.Add("──────", 0);
         }
 
         public async Task GetChapterData(int countyId, int countyId2, string chapter)
