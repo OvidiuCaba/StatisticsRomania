@@ -127,7 +127,7 @@ namespace StatisticsRomania.Views
                 view.Title = "Selecteaza judetul";
                 view.Target = "County2";
                 view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).ToList();
-                view.SelectedItem = _labelCounties.Text;
+                view.SelectedItem = _labelCounties2.Text;
                 await Navigation.PushModalAsync(view);
 
                 isSelectorActive = false;
