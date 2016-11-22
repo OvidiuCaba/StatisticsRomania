@@ -69,6 +69,7 @@ namespace StatisticsRomania.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = Color.FromRgb(51, 51, 51),
                 TextColor = Color.White,
+                FontSize = 18
             };
 
             var labelCountiesTapGesture = new TapGestureRecognizer();
@@ -108,6 +109,7 @@ namespace StatisticsRomania.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 BackgroundColor = Color.FromRgb(51, 51, 51),
                 TextColor = Color.White,
+                FontSize = 18
             };
             //_pickerCounties2.Items.Add("──────");
             //foreach (var county in _viewModel.CountyList)
