@@ -20,7 +20,7 @@ namespace StatisticsRomania.Views
     public class CountyDetailsView : ContentPage
     {
         private CountyDetailsViewModel _viewModel;
-        private PickerWithNoSpellCheck _pickerChapters;
+        private Label _labelChapters;
         private Label _labelCounties;
         private Label _labelCounties2;
 
@@ -51,6 +51,12 @@ namespace StatisticsRomania.Views
             MessagingCenter.Subscribe<SelectorView, string>(this, "County2", async (s, e) =>
             {
                 _labelCounties2.Text = e;
+                await LoadData();
+            });
+
+            MessagingCenter.Subscribe<SelectorView, string>(this, "Chapter", async (s, e) =>
+            {
+                _labelChapters.Text = e;
                 await LoadData();
             });
 
@@ -139,14 +145,37 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            _pickerChapters = new PickerWithNoSpellCheck()
+            _labelChapters = new Label
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                BackgroundColor = Color.FromRgb(51, 51, 51),
+                TextColor = Color.White,
+                FontSize = 18
             };
-            foreach (var chapter in _viewModel.ChapterList)
+
+            var labelChaptersTapGesture = new TapGestureRecognizer();
+            labelChaptersTapGesture.Tapped += async (s, e) =>
             {
-                _pickerChapters.Items.Add(chapter.Key);
-            }
+                if (isSelectorActive)
+                    return;
+
+                isSelectorActive = true;
+
+                ConfigureSelectorView("Selecteaza indicatorul", "Chapter", _viewModel.ChapterList.Keys.OrderBy(x => x).ToList(), _labelChapters.Text);
+
+                await Navigation.PushModalAsync(_selectorView);
+
+                isSelectorActive = false;
+            };
+            _labelChapters.GestureRecognizers.Add(labelChaptersTapGesture);
+            var frameToSimulateUnderlineForChaptersLabel = new StackLayout()
+            {
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Children = { _labelChapters },
+                Padding = new Thickness(0, 0, 0, 1),
+                BackgroundColor = Color.Silver,
+            };
 
             degChapterData = new GridControl();
             degChapterData.IsReadOnly = true;
@@ -218,7 +247,7 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblChapter, _pickerChapters
+                                lblChapter, frameToSimulateUnderlineForChaptersLabel
                             }
                     },
                     dataControls
@@ -229,10 +258,16 @@ namespace StatisticsRomania.Views
 
             _labelCounties.Text = Settings.County1 < 1 ? "Alba" : getCountyFromSettings(Settings.County1);
             _labelCounties2.Text = getCountyFromSettings(Settings.County2);
-            _pickerChapters.SelectedIndex = Settings.Chapter;
+            try
+            {
+                _labelChapters.Text = Settings.Chapter;
+            }
+            catch
+            {
+                // old versions of app store an integer; if cast fails, we initialize the selected chapter with the first element in the list
+                _labelChapters.Text = _viewModel.ChapterList.First().Key;
+            }
             degChapterData.SelectedRowHandle = -1;
-
-            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
             await LoadData();
         }
@@ -313,13 +348,9 @@ namespace StatisticsRomania.Views
         {
             Settings.County1 = _viewModel.CountyList.ContainsKey(_labelCounties.Text) ? _viewModel.CountyList[_labelCounties.Text] : 0;
             Settings.County2 = _viewModel.CountyList.ContainsKey(_labelCounties2.Text) ? _viewModel.CountyList[_labelCounties2.Text] : 0;
-            Settings.Chapter = _pickerChapters.SelectedIndex;
+            Settings.Chapter = _labelChapters.Text;
 
-            var selectedChapter = _pickerChapters.SelectedIndex >= 0
-                                      ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
-                                      : string.Empty;
-
-            await _viewModel.GetChapterData(Settings.County1, Settings.County2, selectedChapter);
+            await _viewModel.GetChapterData(Settings.County1, Settings.County2, Settings.Chapter);
 
             if (plotView == null)
                 return;

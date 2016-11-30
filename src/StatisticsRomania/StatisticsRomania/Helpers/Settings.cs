@@ -32,10 +32,10 @@ namespace StatisticsRomania.Helpers
             set { AppSettings.AddOrUpdateValue<int>(LastCounty2Key, value); }
         }
 
-        public static int Chapter
+        public static string Chapter
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastSelectedChapterKey); }
-            set { AppSettings.AddOrUpdateValue<int>(LastSelectedChapterKey, value); }
+            get { return AppSettings.GetValueOrDefault<string>(LastSelectedChapterKey); }
+            set { AppSettings.AddOrUpdateValue<string>(LastSelectedChapterKey, value); }
         }
 
         public static int StandingsChapter
