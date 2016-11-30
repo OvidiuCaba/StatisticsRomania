@@ -74,21 +74,18 @@ namespace StatisticsRomania.Views
 
             var labelCountiesTapGesture = new TapGestureRecognizer();
             labelCountiesTapGesture.Tapped += async (s, e) =>
-                                                        {
-                                                            if (isSelectorActive)
-                                                                return;
+            {
+                if (isSelectorActive)
+                    return;
 
-                                                            isSelectorActive = true;
+                isSelectorActive = true;
 
-                                                            var view = _selectorView;
-                                                            view.Title = "Selecteaza judetul";
-                                                            view.Target = "County1";
-                                                            view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList();
-                                                            view.SelectedItem = _labelCounties.Text;
-                                                            await Navigation.PushModalAsync(view);
+                ConfigureSelectorView("Selecteaza judetul", "County1", _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList(), _labelCounties.Text);
 
-                                                            isSelectorActive = false;
-                                                        };
+                await Navigation.PushModalAsync(_selectorView);
+
+                isSelectorActive = false;
+            };
             _labelCounties.GestureRecognizers.Add(labelCountiesTapGesture);
             var frameToSimulateUnderline = new StackLayout()
                           {
@@ -120,12 +117,9 @@ namespace StatisticsRomania.Views
 
                 isSelectorActive = true;
 
-                var view = _selectorView;
-                view.Title = "Selecteaza judetul";
-                view.Target = "County2";
-                view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).ToList();
-                view.SelectedItem = _labelCounties2.Text;
-                await Navigation.PushModalAsync(view);
+                ConfigureSelectorView("Selecteaza judetul", "County2", _viewModel.CountyList.Keys.OrderBy(x => x).ToList(), _labelCounties2.Text);
+
+                await Navigation.PushModalAsync(_selectorView);
 
                 isSelectorActive = false;
             };
@@ -243,6 +237,14 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
             await LoadData();
+        }
+
+        private void ConfigureSelectorView(string title, string target, List<string> itemsSource, string selectedItem)
+        {
+            _selectorView.Title = title;
+            _selectorView.Target = target;
+            _selectorView.ItemsSource = itemsSource;
+            _selectorView.SelectedItem = selectedItem;
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)
