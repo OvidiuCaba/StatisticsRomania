@@ -111,11 +111,6 @@ namespace StatisticsRomania.Views
                 TextColor = Color.White,
                 FontSize = 18
             };
-            //_pickerCounties2.Items.Add("──────");
-            //foreach (var county in _viewModel.CountyList)
-            //{
-            //    _pickerCounties2.Items.Add(county.Key);
-            //}
 
             var labelCounties2TapGesture = new TapGestureRecognizer();
             labelCounties2TapGesture.Tapped += async (s, e) =>
@@ -326,12 +321,6 @@ namespace StatisticsRomania.Views
                 Settings.County2 = 0;
             Settings.Chapter = _pickerChapters.SelectedIndex;
 
-            //var selectedCounty = _pickerCounties.SelectedIndex >= 0
-            //                         ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]]
-            //                         : -1;
-            //var selectedCounty2 = _pickerCounties2.SelectedIndex >= 1
-            //                         ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties2.SelectedIndex - 1]]
-            //                         : -1;
             var selectedChapter = _pickerChapters.SelectedIndex >= 0
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;
@@ -367,7 +356,6 @@ namespace StatisticsRomania.Views
             series.ItemsSource = _viewModel.ChapterData;
             series.DataFieldX = "TimeStamp";
             series.DataFieldY = "Value";
-            //series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
             series.Title = _labelCounties.Text;
             plotView.Model.Series.Add(series);
 
@@ -377,7 +365,6 @@ namespace StatisticsRomania.Views
                 series2.ItemsSource = _viewModel.ChapterData;
                 series2.DataFieldX = "TimeStamp";
                 series2.DataFieldY = "Value2";
-                //series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
                 series2.Title = _labelCounties2.Text;
                 plotView.Model.Series.Add(series2);
             }
@@ -404,16 +391,6 @@ namespace StatisticsRomania.Views
         }
 
         private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void pickerCounties_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void _pickerCounties2_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
         }
