@@ -29,7 +29,7 @@ namespace StatisticsRomania.Views
 
         private StackLayout dataControls;
 
-        private readonly Lazy<SelectorView> _selectorView = new Lazy<SelectorView>();
+        private readonly SelectorView _selectorView = new SelectorView();
 
         private bool isSelectorActive = false;
 
@@ -80,7 +80,7 @@ namespace StatisticsRomania.Views
 
                                                             isSelectorActive = true;
 
-                                                            var view = _selectorView.Value;
+                                                            var view = _selectorView;
                                                             view.Title = "Selecteaza judetul";
                                                             view.Target = "County1";
                                                             view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList();
@@ -120,7 +120,7 @@ namespace StatisticsRomania.Views
 
                 isSelectorActive = true;
 
-                var view = _selectorView.Value;
+                var view = _selectorView;
                 view.Title = "Selecteaza judetul";
                 view.Target = "County2";
                 view.ItemsSource = _viewModel.CountyList.Keys.OrderBy(x => x).ToList();
