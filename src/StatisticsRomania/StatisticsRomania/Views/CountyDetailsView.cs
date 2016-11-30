@@ -226,10 +226,8 @@ namespace StatisticsRomania.Views
             };
 
             Func<int, string> getCountyFromSettings = countyIdFromSettings => _viewModel.CountyList.ContainsValue(countyIdFromSettings) ? _viewModel.CountyList.FirstOrDefault(x => x.Value == countyIdFromSettings).Key : string.Empty;
-            if (Settings.County1 < 1)
-                _labelCounties.Text = "Alba";
-            else
-                _labelCounties.Text = getCountyFromSettings(Settings.County1);
+
+            _labelCounties.Text = Settings.County1 < 1 ? "Alba" : getCountyFromSettings(Settings.County1);
             _labelCounties2.Text = getCountyFromSettings(Settings.County2);
             _pickerChapters.SelectedIndex = Settings.Chapter;
             degChapterData.SelectedRowHandle = -1;
