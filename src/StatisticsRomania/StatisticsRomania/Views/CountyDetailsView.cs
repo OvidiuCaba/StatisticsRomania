@@ -311,14 +311,8 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
-            if (_viewModel.CountyList.ContainsKey(_labelCounties.Text))
-                Settings.County1 = _viewModel.CountyList[_labelCounties.Text];
-            else
-                Settings.County1 = 0;
-            if (_viewModel.CountyList.ContainsKey(_labelCounties2.Text))
-                Settings.County2 = _viewModel.CountyList[_labelCounties2.Text];
-            else
-                Settings.County2 = 0;
+            Settings.County1 = _viewModel.CountyList.ContainsKey(_labelCounties.Text) ? _viewModel.CountyList[_labelCounties.Text] : 0;
+            Settings.County2 = _viewModel.CountyList.ContainsKey(_labelCounties2.Text) ? _viewModel.CountyList[_labelCounties2.Text] : 0;
             Settings.Chapter = _pickerChapters.SelectedIndex;
 
             var selectedChapter = _pickerChapters.SelectedIndex >= 0
