@@ -17,10 +17,16 @@ using StatisticsRomania.Helpers;
 
 namespace StatisticsRomania.Views
 {
-    public class CountyDetailsView : ContentPage
+    public class CountyDetailsView : BaseView<CountyDetailsViewModel>
     {
-        private CountyDetailsViewModel _viewModel;
-        private Label _labelChapters;
+        protected override string ChapterTarget
+        {
+            get
+            {
+                return "Chapter";
+            }
+        }
+
         private Label _labelCounties;
         private Label _labelCounties2;
 
@@ -28,10 +34,6 @@ namespace StatisticsRomania.Views
         private PlotView plotView;
 
         private StackLayout dataControls;
-
-        private readonly SelectorView _selectorView = new SelectorView();
-
-        private bool isSelectorActive = false;
 
         public CountyDetailsView()
         {
@@ -54,7 +56,7 @@ namespace StatisticsRomania.Views
                 await LoadData();
             });
 
-            MessagingCenter.Subscribe<SelectorView, string>(this, "Chapter", async (s, e) =>
+            MessagingCenter.Subscribe<SelectorView, string>(this, ChapterTarget, async (s, e) =>
             {
                 _labelChapters.Text = e;
                 await LoadData();
@@ -94,13 +96,13 @@ namespace StatisticsRomania.Views
             };
             _labelCounties.GestureRecognizers.Add(labelCountiesTapGesture);
             var frameToSimulateUnderline = new StackLayout()
-                          {
-                              VerticalOptions = LayoutOptions.CenterAndExpand,
-                              HorizontalOptions = LayoutOptions.Start,
-                              Children = {_labelCounties},
-                              Padding = new Thickness(0, 0, 0, 1),
-                              BackgroundColor = Color.Silver
-                          };
+            {
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.Start,
+                Children = { _labelCounties },
+                Padding = new Thickness(0, 0, 0, 1),
+                BackgroundColor = Color.Silver
+            };
 
             var lblCompare = new Label
             {
@@ -145,30 +147,9 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            _labelChapters = new Label
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.FromRgb(51, 51, 51),
-                TextColor = Color.White,
-                FontSize = 18
-            };
+            CreateLabelChapters();
 
-            var labelChaptersTapGesture = new TapGestureRecognizer();
-            labelChaptersTapGesture.Tapped += async (s, e) =>
-            {
-                if (isSelectorActive)
-                    return;
-
-                isSelectorActive = true;
-
-                ConfigureSelectorView("Selecteaza indicatorul", "Chapter", _viewModel.ChapterList.Keys.OrderBy(x => x).ToList(), _labelChapters.Text);
-
-                await Navigation.PushModalAsync(_selectorView);
-
-                isSelectorActive = false;
-            };
-            _labelChapters.GestureRecognizers.Add(labelChaptersTapGesture);
-            var frameToSimulateUnderlineForChaptersLabel = new StackLayout()
+            var labelChapterStackLayout = new StackLayout()
             {
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -181,14 +162,14 @@ namespace StatisticsRomania.Views
             degChapterData.IsReadOnly = true;
             degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
             degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
-            degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
+            degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
-                                  {
-                                      FieldName = "Value",
-                                      IsReadOnly = true,
-                                      AllowSort = DefaultBoolean.False
-                                  };
+            {
+                FieldName = "Value",
+                IsReadOnly = true,
+                AllowSort = DefaultBoolean.False
+            };
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             degChapterData.Columns.Add(valueColumn);
             var valueColumn2 = new TextColumn()
@@ -214,13 +195,13 @@ namespace StatisticsRomania.Views
             plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
             dataControls = new StackLayout()
-                               {
-                                   Orientation = StackOrientation.Vertical,
-                                   HorizontalOptions = LayoutOptions.FillAndExpand,
-                                   VerticalOptions = LayoutOptions.FillAndExpand,
-                                   Spacing = 0,
-                                   Children = {degChapterData, plotView}
-                               };
+            {
+                Orientation = StackOrientation.Vertical,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Spacing = 0,
+                Children = { degChapterData, plotView }
+            };
 
             this.Content = new StackLayout
             {
@@ -230,7 +211,7 @@ namespace StatisticsRomania.Views
                     right: 0,
                     bottom: 0,
                     top: Device.OnPlatform(iOS: 20, Android: 5, WinPhone: 0)),
-                Children = { 
+                Children = {
                     new StackLayout()
                     {
                         HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -247,7 +228,7 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblChapter, frameToSimulateUnderlineForChaptersLabel
+                                lblChapter, labelChapterStackLayout
                             }
                     },
                     dataControls
@@ -270,14 +251,6 @@ namespace StatisticsRomania.Views
             degChapterData.SelectedRowHandle = -1;
 
             await LoadData();
-        }
-
-        private void ConfigureSelectorView(string title, string target, List<string> itemsSource, string selectedItem)
-        {
-            _selectorView.Title = title;
-            _selectorView.Target = target;
-            _selectorView.ItemsSource = itemsSource;
-            _selectorView.SelectedItem = selectedItem;
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)

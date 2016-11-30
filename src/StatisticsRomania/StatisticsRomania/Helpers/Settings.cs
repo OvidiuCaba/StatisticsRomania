@@ -38,10 +38,10 @@ namespace StatisticsRomania.Helpers
             set { AppSettings.AddOrUpdateValue<string>(LastSelectedChapterKey, value); }
         }
 
-        public static int StandingsChapter
+        public static string StandingsChapter
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastSelectedStandingsChapterKey); }
-            set { AppSettings.AddOrUpdateValue<int>(LastSelectedStandingsChapterKey, value); }
+            get { return AppSettings.GetValueOrDefault<string>(LastSelectedStandingsChapterKey); }
+            set { AppSettings.AddOrUpdateValue<string>(LastSelectedStandingsChapterKey, value); }
         }
     }
 }

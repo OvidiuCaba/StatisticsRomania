@@ -12,10 +12,16 @@ using StatisticsRomania.Helpers;
 
 namespace StatisticsRomania.Views
 {
-    public class CountyStandingsView : ContentPage
+    public class CountyStandingsView : BaseView<CountyStandingsViewModel>
     {
-        private CountyStandingsViewModel _viewModel;
-        private PickerWithNoSpellCheck _pickerChapters;
+        protected override string ChapterTarget
+        {
+            get
+            {
+                return "StandingsChapter";
+            }
+        }
+
         private PickerWithNoSpellCheck _pickerYears;
         private PickerWithNoSpellCheck _pickerYearFractions;
 
@@ -28,6 +34,12 @@ namespace StatisticsRomania.Views
 
         private async Task Init()
         {
+            MessagingCenter.Subscribe<SelectorView, string>(this, ChapterTarget, async (s, e) =>
+            {
+                _labelChapters.Text = e;
+                await LoadData();
+            });
+
             _viewModel = new CountyStandingsViewModel();
 
             BindingContext = _viewModel;
@@ -42,14 +54,16 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            _pickerChapters = new PickerWithNoSpellCheck()
+            CreateLabelChapters();
+
+            var labelChapterStackLayout = new StackLayout()
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                VerticalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Children = { _labelChapters },
+                Padding = new Thickness(0, 0, 0, 1),
+                BackgroundColor = Color.Silver,
             };
-            foreach (var chapter in _viewModel.ChapterList)
-            {
-                _pickerChapters.Items.Add(chapter.Key);
-            }
 
             var lblYear = new Label
             {
@@ -141,7 +155,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblChapter, _pickerChapters
+                                lblChapter, labelChapterStackLayout
                             }
                     },
                     new StackLayout()
@@ -158,11 +172,18 @@ namespace StatisticsRomania.Views
                 }
             };
 
-            _pickerChapters.SelectedIndex = Settings.StandingsChapter;
+            try
+            {
+                _labelChapters.Text = Settings.StandingsChapter;
+            }
+            catch
+            {
+                // old versions of app store an integer; if cast fails, we initialize the selected chapter with the first element in the list
+                _labelChapters.Text = _viewModel.ChapterList.First().Key;
+            }
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(App.LastYearAvailableData.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
 
-            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
             _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
 
@@ -210,17 +231,13 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
-            Settings.StandingsChapter = _pickerChapters.SelectedIndex;
-
-            var selectedChapter = _pickerChapters.SelectedIndex >= 0
-                                      ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
-                                      : string.Empty;
+            Settings.StandingsChapter = _labelChapters.Text;
 
             var selectedYear = _pickerYears.SelectedIndex >= 0 ? int.Parse(_pickerYears.Items[_pickerYears.SelectedIndex]) : -1;
 
             var selectedYearFraction = _pickerYearFractions.SelectedIndex >= 0 ? int.Parse(_pickerYearFractions.Items[_pickerYearFractions.SelectedIndex]) : -1;
 
-            await _viewModel.GetStandings(selectedChapter, selectedYear, selectedYearFraction);
+            await _viewModel.GetStandings(Settings.StandingsChapter, selectedYear, selectedYearFraction);
         }
     }
 }
