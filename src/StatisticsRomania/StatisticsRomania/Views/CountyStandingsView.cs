@@ -23,7 +23,7 @@ namespace StatisticsRomania.Views
         }
 
         private LabelSelectorView _labelSelectorViewYears;
-        private PickerWithNoSpellCheck _pickerYearFractions;
+        private LabelSelectorView _labelSelectorViewYearFractions;
 
         public CountyStandingsView()
         {
@@ -43,6 +43,12 @@ namespace StatisticsRomania.Views
             MessagingCenter.Subscribe<SelectorView, string>(this, "Year", async (s, e) =>
             {
                 _labelSelectorViewYears.Text = e;
+                await LoadData();
+            });
+
+            MessagingCenter.Subscribe<SelectorView, string>(this, "YearFraction", async (s, e) =>
+            {
+                _labelSelectorViewYearFractions.Text = e;
                 await LoadData();
             });
 
@@ -81,14 +87,12 @@ namespace StatisticsRomania.Views
                 Text = "Luna:"
             };
 
-            _pickerYearFractions = new PickerWithNoSpellCheck()
+            _labelSelectorViewYearFractions = new LabelSelectorView(_selectorView)
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                Title = "Selecteaza luna",
+                ChapterTarget = () => "YearFraction",
+                ItemsSource = () => _viewModel.YearFractionList,
             };
-            foreach (var yearFraction in _viewModel.YearFractionList)
-            {
-                _pickerYearFractions.Items.Add(yearFraction);
-            }
 
             var degStandings = new GridControl();
             degStandings.IsReadOnly = true;
@@ -160,7 +164,7 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblYear, _labelSelectorViewYears, lblYearFraction, _pickerYearFractions
+                                lblYear, _labelSelectorViewYears, lblYearFraction, _labelSelectorViewYearFractions
                             }
                     },
                     degStandings,
@@ -179,21 +183,15 @@ namespace StatisticsRomania.Views
             }
 
             _labelSelectorViewYears.Text = App.LastYearAvailableData.ToString();
-            _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
-
-            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+            _labelSelectorViewYearFractions.Text = App.LastMonthAvailableData.ToString();
 
             await LoadData();
         }
 
         async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
-            _pickerYearFractions.SelectedIndexChanged -= _pickerYearFractions_SelectedIndexChanged;
-
             _labelSelectorViewYears.Text = _viewModel.LastAvailableYear.ToString();
-            _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(_viewModel.LastAvailableYearFraction.ToString());
-
-            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+            _labelSelectorViewYearFractions.Text = _viewModel.LastAvailableYearFraction.ToString();
 
             await LoadData();
         }
@@ -208,28 +206,12 @@ namespace StatisticsRomania.Views
             }
         }
 
-        private async void _pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void _pickerYears_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
         private async Task LoadData()
         {
             Settings.StandingsChapter = _labelSelectorViewChapters.Text;
 
             var selectedYear = int.Parse(_labelSelectorViewYears.Text);
-
-            var selectedYearFraction = _pickerYearFractions.SelectedIndex >= 0 ? int.Parse(_pickerYearFractions.Items[_pickerYearFractions.SelectedIndex]) : -1;
+            var selectedYearFraction = int.Parse(_labelSelectorViewYearFractions.Text);
 
             await _viewModel.GetStandings(Settings.StandingsChapter, selectedYear, selectedYearFraction);
         }
