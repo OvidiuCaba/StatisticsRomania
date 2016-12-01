@@ -27,8 +27,8 @@ namespace StatisticsRomania.Views
             }
         }
 
-        private Label _labelCounties;
-        private Label _labelCounties2;
+        private LabelSelectorView _labelSelectorViewCounties;
+        private LabelSelectorView _labelSelectorViewCounties2;
 
         private GridControl degChapterData;
         private PlotView plotView;
@@ -46,13 +46,13 @@ namespace StatisticsRomania.Views
         {
             MessagingCenter.Subscribe<SelectorView, string>(this, "County1", async (s, e) =>
             {
-                _labelCounties.Text = e;
+                _labelSelectorViewCounties.Text = e;
                 await LoadData();
             });
 
             MessagingCenter.Subscribe<SelectorView, string>(this, "County2", async (s, e) =>
             {
-                _labelCounties2.Text = e;
+                _labelSelectorViewCounties2.Text = e;
                 await LoadData();
             });
 
@@ -72,36 +72,11 @@ namespace StatisticsRomania.Views
                 Text = "Judet:"
             };
 
-            _labelCounties = new Label()
+            _labelSelectorViewCounties = new LabelSelectorView(_selectorView)
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.FromRgb(51, 51, 51),
-                TextColor = Color.White,
-                FontSize = 18
-            };
-
-            var labelCountiesTapGesture = new TapGestureRecognizer();
-            labelCountiesTapGesture.Tapped += async (s, e) =>
-            {
-                if (isSelectorActive)
-                    return;
-
-                isSelectorActive = true;
-
-                ConfigureSelectorView("Selecteaza judetul", "County1", _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList(), _labelCounties.Text);
-
-                await Navigation.PushModalAsync(_selectorView);
-
-                isSelectorActive = false;
-            };
-            _labelCounties.GestureRecognizers.Add(labelCountiesTapGesture);
-            var _labelCountiesStackLayout = new StackLayout()
-            {
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.Start,
-                Children = { _labelCounties },
-                Padding = new Thickness(0, 0, 0, 1),
-                BackgroundColor = Color.Silver
+                Title = "Selecteaza judetul",
+                ChapterTarget = () => "County1",
+                ItemsSource = () => _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList(),
             };
 
             var lblCompare = new Label
@@ -109,36 +84,11 @@ namespace StatisticsRomania.Views
                 VerticalOptions = LayoutOptions.Center,
                 Text = "compara cu"
             };
-            _labelCounties2 = new Label()
+            _labelSelectorViewCounties2 = new LabelSelectorView(_selectorView)
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.FromRgb(51, 51, 51),
-                TextColor = Color.White,
-                FontSize = 18
-            };
-
-            var labelCounties2TapGesture = new TapGestureRecognizer();
-            labelCounties2TapGesture.Tapped += async (s, e) =>
-            {
-                if (isSelectorActive)
-                    return;
-
-                isSelectorActive = true;
-
-                ConfigureSelectorView("Selecteaza judetul", "County2", _viewModel.CountyList.Keys.OrderBy(x => x).ToList(), _labelCounties2.Text);
-
-                await Navigation.PushModalAsync(_selectorView);
-
-                isSelectorActive = false;
-            };
-            _labelCounties2.GestureRecognizers.Add(labelCounties2TapGesture);
-            var labelCounties2StackLayout = new StackLayout()
-            {
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Children = { _labelCounties2 },
-                Padding = new Thickness(0, 0, 0, 1),
-                BackgroundColor = Color.Silver,
+                Title = "Selecteaza judetul",
+                ChapterTarget = () => "County2",
+                ItemsSource = () => _viewModel.CountyList.Keys.OrderBy(x => x).ToList(),
             };
 
             var lblChapter = new Label
@@ -211,7 +161,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblCounty, _labelCountiesStackLayout, lblCompare, labelCounties2StackLayout
+                                lblCounty, _labelSelectorViewCounties, lblCompare, _labelSelectorViewCounties2
                             }
                     },
                     new StackLayout()
@@ -229,8 +179,8 @@ namespace StatisticsRomania.Views
 
             Func<int, string> getCountyFromSettings = countyIdFromSettings => _viewModel.CountyList.ContainsValue(countyIdFromSettings) ? _viewModel.CountyList.FirstOrDefault(x => x.Value == countyIdFromSettings).Key : string.Empty;
 
-            _labelCounties.Text = Settings.County1 < 1 ? "Alba" : getCountyFromSettings(Settings.County1);
-            _labelCounties2.Text = getCountyFromSettings(Settings.County2);
+            _labelSelectorViewCounties.Text = Settings.County1 < 1 ? "Alba" : getCountyFromSettings(Settings.County1);
+            _labelSelectorViewCounties2.Text = getCountyFromSettings(Settings.County2);
             try
             {
                 _labelSelectorViewChapters.Text = Settings.Chapter;
@@ -311,8 +261,8 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
-            Settings.County1 = _viewModel.CountyList.ContainsKey(_labelCounties.Text) ? _viewModel.CountyList[_labelCounties.Text] : 0;
-            Settings.County2 = _viewModel.CountyList.ContainsKey(_labelCounties2.Text) ? _viewModel.CountyList[_labelCounties2.Text] : 0;
+            Settings.County1 = _viewModel.CountyList.ContainsKey(_labelSelectorViewCounties.Text) ? _viewModel.CountyList[_labelSelectorViewCounties.Text] : 0;
+            Settings.County2 = _viewModel.CountyList.ContainsKey(_labelSelectorViewCounties2.Text) ? _viewModel.CountyList[_labelSelectorViewCounties2.Text] : 0;
             Settings.Chapter = _labelSelectorViewChapters.Text;
 
             await _viewModel.GetChapterData(Settings.County1, Settings.County2, Settings.Chapter);
@@ -346,7 +296,7 @@ namespace StatisticsRomania.Views
             series.ItemsSource = _viewModel.ChapterData;
             series.DataFieldX = "TimeStamp";
             series.DataFieldY = "Value";
-            series.Title = _labelCounties.Text;
+            series.Title = _labelSelectorViewCounties.Text;
             plotView.Model.Series.Add(series);
 
             if (_viewModel.Value2ColumnVisibility)
@@ -355,7 +305,7 @@ namespace StatisticsRomania.Views
                 series2.ItemsSource = _viewModel.ChapterData;
                 series2.DataFieldX = "TimeStamp";
                 series2.DataFieldY = "Value2";
-                series2.Title = _labelCounties2.Text;
+                series2.Title = _labelSelectorViewCounties2.Text;
                 plotView.Model.Series.Add(series2);
             }
 
