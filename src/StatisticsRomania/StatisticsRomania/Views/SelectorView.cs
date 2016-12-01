@@ -11,6 +11,8 @@ namespace StatisticsRomania.Views
             MessagingCenter.Send(this, Target, selectedItem);
         }
 
+        public bool IsActive { get; set; }
+
         public string Title
         {
             get { return _titleLbl.Text; }
@@ -110,9 +112,18 @@ namespace StatisticsRomania.Views
 
         protected override void OnAppearing()
         {
+            IsActive = true;
+
             base.OnAppearing();
 
             _listView.ScrollTo(_listView.SelectedItem, ScrollToPosition.Center, false);
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            IsActive = false;
         }
 
         private async void btnOk_Clicked(object sender, EventArgs e)

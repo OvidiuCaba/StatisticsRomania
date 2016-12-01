@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Controls\LabelSelectorView.cs" />
     <Compile Include="Controls\PickerWithNoSpellCheck.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Lib\CountyStandingsProvider.cs" />

@@ -58,7 +58,7 @@ namespace StatisticsRomania.Views
 
             MessagingCenter.Subscribe<SelectorView, string>(this, ChapterTarget, async (s, e) =>
             {
-                _labelChapters.Text = e;
+                _labelSelectorViewChapters.Text = e;
                 await LoadData();
             });
 
@@ -147,16 +147,7 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            CreateLabelChapters();
-
-            var labelChapterStackLayout = new StackLayout()
-            {
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Children = { _labelChapters },
-                Padding = new Thickness(0, 0, 0, 1),
-                BackgroundColor = Color.Silver,
-            };
+            _labelSelectorViewChapters = CreateLabelChapters();
 
             degChapterData = new GridControl();
             degChapterData.IsReadOnly = true;
@@ -228,7 +219,7 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblChapter, labelChapterStackLayout
+                                lblChapter, _labelSelectorViewChapters
                             }
                     },
                     dataControls
@@ -241,12 +232,12 @@ namespace StatisticsRomania.Views
             _labelCounties2.Text = getCountyFromSettings(Settings.County2);
             try
             {
-                _labelChapters.Text = Settings.Chapter;
+                _labelSelectorViewChapters.Text = Settings.Chapter;
             }
             catch
             {
                 // old versions of app store an integer; if cast fails, we initialize the selected chapter with the first element in the list
-                _labelChapters.Text = _viewModel.ChapterList.First().Key;
+                _labelSelectorViewChapters.Text = _viewModel.ChapterList.First().Key;
             }
             degChapterData.SelectedRowHandle = -1;
 
@@ -321,7 +312,7 @@ namespace StatisticsRomania.Views
         {
             Settings.County1 = _viewModel.CountyList.ContainsKey(_labelCounties.Text) ? _viewModel.CountyList[_labelCounties.Text] : 0;
             Settings.County2 = _viewModel.CountyList.ContainsKey(_labelCounties2.Text) ? _viewModel.CountyList[_labelCounties2.Text] : 0;
-            Settings.Chapter = _labelChapters.Text;
+            Settings.Chapter = _labelSelectorViewChapters.Text;
 
             await _viewModel.GetChapterData(Settings.County1, Settings.County2, Settings.Chapter);
 

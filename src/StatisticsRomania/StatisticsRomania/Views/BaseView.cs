@@ -1,4 +1,5 @@
-﻿using StatisticsRomania.ViewModels;
+﻿using StatisticsRomania.Controls;
+using StatisticsRomania.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,37 +16,20 @@ namespace StatisticsRomania.Views
 
         protected TViewModel _viewModel;
 
-        protected Label _labelChapters;
+        protected LabelSelectorView _labelSelectorViewChapters;
 
         protected static readonly SelectorView _selectorView = new SelectorView();
 
         protected bool isSelectorActive = false;
 
-        protected void CreateLabelChapters()
+        protected LabelSelectorView CreateLabelChapters()
         {
-            _labelChapters = new Label
+            return new LabelSelectorView(_selectorView)
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.FromRgb(51, 51, 51),
-                TextColor = Color.White,
-                FontSize = 18
+                Title = "Selecteaza indicatorul",
+                ChapterTarget = () => ChapterTarget,
+                ItemsSource = () => _viewModel.ChapterList.Keys.OrderBy(x => x).ToList(),
             };
-
-            var labelChaptersTapGesture = new TapGestureRecognizer();
-            labelChaptersTapGesture.Tapped += async (s, e) =>
-            {
-                if (isSelectorActive)
-                    return;
-
-                isSelectorActive = true;
-
-                ConfigureSelectorView("Selecteaza indicatorul", ChapterTarget, _viewModel.ChapterList.Keys.OrderBy(x => x).ToList(), _labelChapters.Text);
-
-                await Navigation.PushModalAsync(_selectorView);
-
-                isSelectorActive = false;
-            };
-            _labelChapters.GestureRecognizers.Add(labelChaptersTapGesture);
         }
 
         protected void ConfigureSelectorView(string title, string target, List<string> itemsSource, string selectedItem)

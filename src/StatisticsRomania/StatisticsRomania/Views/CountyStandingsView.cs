@@ -22,7 +22,7 @@ namespace StatisticsRomania.Views
             }
         }
 
-        private PickerWithNoSpellCheck _pickerYears;
+        private LabelSelectorView _labelSelectorViewYears;
         private PickerWithNoSpellCheck _pickerYearFractions;
 
         public CountyStandingsView()
@@ -36,7 +36,13 @@ namespace StatisticsRomania.Views
         {
             MessagingCenter.Subscribe<SelectorView, string>(this, ChapterTarget, async (s, e) =>
             {
-                _labelChapters.Text = e;
+                _labelSelectorViewChapters.Text = e;
+                await LoadData();
+            });
+
+            MessagingCenter.Subscribe<SelectorView, string>(this, "Year", async (s, e) =>
+            {
+                _labelSelectorViewYears.Text = e;
                 await LoadData();
             });
 
@@ -54,16 +60,7 @@ namespace StatisticsRomania.Views
                 Text = "Indicator:"
             };
 
-            CreateLabelChapters();
-
-            var labelChapterStackLayout = new StackLayout()
-            {
-                VerticalOptions = LayoutOptions.CenterAndExpand,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                Children = { _labelChapters },
-                Padding = new Thickness(0, 0, 0, 1),
-                BackgroundColor = Color.Silver,
-            };
+            _labelSelectorViewChapters = CreateLabelChapters();
 
             var lblYear = new Label
             {
@@ -71,14 +68,12 @@ namespace StatisticsRomania.Views
                 Text = "An:"
             };
 
-            _pickerYears = new PickerWithNoSpellCheck()
+            _labelSelectorViewYears = new LabelSelectorView(_selectorView)
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                Title = "Selecteaza anul",
+                ChapterTarget = () => "Year",
+                ItemsSource = () => _viewModel.YearList,
             };
-            foreach (var year in _viewModel.YearList)
-            {
-                _pickerYears.Items.Add(year);
-            }
 
             var lblYearFraction = new Label
             {
@@ -155,7 +150,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblChapter, labelChapterStackLayout
+                                lblChapter, _labelSelectorViewChapters
                             }
                     },
                     new StackLayout()
@@ -164,7 +159,7 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
+                                lblYear, _labelSelectorViewYears, lblYearFraction, _pickerYearFractions
                             }
                     },
                     degStandings,
@@ -174,17 +169,17 @@ namespace StatisticsRomania.Views
 
             try
             {
-                _labelChapters.Text = Settings.StandingsChapter;
+                _labelSelectorViewChapters.Text = Settings.StandingsChapter;
             }
             catch
             {
                 // old versions of app store an integer; if cast fails, we initialize the selected chapter with the first element in the list
-                _labelChapters.Text = _viewModel.ChapterList.First().Key;
+                _labelSelectorViewChapters.Text = _viewModel.ChapterList.First().Key;
             }
-            _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(App.LastYearAvailableData.ToString());
+
+            _labelSelectorViewYears.Text = App.LastYearAvailableData.ToString();
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
 
-            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
 
             await LoadData();
@@ -192,13 +187,11 @@ namespace StatisticsRomania.Views
 
         async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
-            _pickerYears.SelectedIndexChanged -= _pickerYears_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged -= _pickerYearFractions_SelectedIndexChanged;
 
-            _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(_viewModel.LastAvailableYear.ToString());
+            _labelSelectorViewYears.Text = _viewModel.LastAvailableYear.ToString();
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(_viewModel.LastAvailableYearFraction.ToString());
 
-            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
 
             await LoadData();
@@ -231,9 +224,9 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
-            Settings.StandingsChapter = _labelChapters.Text;
+            Settings.StandingsChapter = _labelSelectorViewChapters.Text;
 
-            var selectedYear = _pickerYears.SelectedIndex >= 0 ? int.Parse(_pickerYears.Items[_pickerYears.SelectedIndex]) : -1;
+            var selectedYear = int.Parse(_labelSelectorViewYears.Text);
 
             var selectedYearFraction = _pickerYearFractions.SelectedIndex >= 0 ? int.Parse(_pickerYearFractions.Items[_pickerYearFractions.SelectedIndex]) : -1;
 
