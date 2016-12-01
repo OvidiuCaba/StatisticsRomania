@@ -36,7 +36,7 @@ namespace StatisticsRomania.Controls
             _label = new Label
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.FromRgb(51, 51, 51),
+                BackgroundColor = Color.FromRgb(25, 25, 25),
                 TextColor = Color.White,
                 FontSize = 18,
             };

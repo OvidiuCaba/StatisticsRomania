@@ -196,6 +196,7 @@ namespace StatisticsRomania.Views
 
             this.Content = new StackLayout
             {
+                BackgroundColor = Color.FromRgb(25, 25, 25),
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Padding = new Thickness(
                     left: 0,
