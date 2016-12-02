@@ -64,6 +64,7 @@ namespace StatisticsRomania.Controls
         {
             _selectorView.Title = Title;
             _selectorView.Target = ChapterTarget();
+            _selectorView.ItemsSource = null;
             _selectorView.ItemsSource = ItemsSource();
             _selectorView.SelectedItem = _label.Text;
         }
