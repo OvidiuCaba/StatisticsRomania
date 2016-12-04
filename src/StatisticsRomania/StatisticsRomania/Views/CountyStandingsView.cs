@@ -175,6 +175,8 @@ namespace StatisticsRomania.Views
             try
             {
                 _labelSelectorViewChapters.Text = Settings.StandingsChapter;
+                if (string.IsNullOrEmpty(_labelSelectorViewChapters.Text))
+                    _labelSelectorViewChapters.Text = _viewModel.ChapterList.First().Key;
             }
             catch
             {
