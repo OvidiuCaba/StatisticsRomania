@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace SeederGenerator
 {
@@ -14,7 +15,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"e:\_____INS\INS\BSL Judete_Excel 201608\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna sep. 2016\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -153,6 +154,8 @@ namespace SeederGenerator
             var numberOfMonths =
                 sheet.GetRow(chapterRowIndex + 1).Cells.Count(
                     x => x.ColumnIndex >= columnYearStartIndex && months.Any(month => x.StringCellValue.Contains(month)));
+
+            Debug.WriteLine("Current county: " + county + "; chapter: " + chapter);
 
             var text =
                 sheet.GetRow(chapterRowIndex + rowNumber + 1).Cells.Where(
