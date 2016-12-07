@@ -8,13 +8,15 @@ using SQLiteNetExtensions.Attributes;
 
 namespace StatisticsRomania.BusinessObjects
 {
-    public abstract class Data
+    public class Data
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        //[PrimaryKey, AutoIncrement]
+        public string Id { get; set; } // TODO: this should be string
 
         [ForeignKey(typeof(County))]
         public int? CountyId { get; set; }
+
+        public string Chapter { get; set; }
 
         [MaxLength(256)]
         public string Subchapter { get; set; }

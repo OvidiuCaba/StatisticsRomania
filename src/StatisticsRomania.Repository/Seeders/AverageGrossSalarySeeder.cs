@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal class AverageGrossSalarySeeder : BaseSeeder
+    public class AverageGrossSalarySeeder : BaseSeeder
     {
-        internal static List<AverageGrossSalary> GetData()
+        public static List<AverageGrossSalary> GetData()
         {
             var rawData = new List<string>
                                        {

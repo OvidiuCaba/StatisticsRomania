@@ -7,7 +7,7 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal abstract class BaseSeeder
+    public abstract class BaseSeeder
     {
         protected static List<T> GetItems<T>(List<string> rawData) where T : Data, new()
         {
@@ -25,6 +25,8 @@ namespace StatisticsRomania.Repository.Seeders
                 {
                     var item = new T
                     {
+                        Id = typeof(T).Name + "_" + CountryIds.Counties[county] + "_" + year + "_" + month,
+                        Chapter = typeof(T).Name,
                         Subchapter = "Total judet",
                         CountyId = CountryIds.Counties[county],
                         Year = year,

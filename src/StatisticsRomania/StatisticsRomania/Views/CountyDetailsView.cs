@@ -14,6 +14,9 @@ using DevExpress.Mobile.DataGrid;
 using OxyPlot.Xamarin.Forms;
 using OxyPlot.Series;
 using StatisticsRomania.Helpers;
+using StatisticsRomania.Lib;
+using StatisticsRomania.BusinessObjects;
+using StatisticsRomania.Repository.Seeders;
 
 namespace StatisticsRomania.Views
 {
@@ -195,6 +198,34 @@ namespace StatisticsRomania.Views
             degChapterData.SelectedRowHandle = -1;
 
             await LoadData();
+#if DEBUG
+            try
+            {
+                //Debug.WriteLine("Start pushing data");
+                //await AzureService.Insert(AverageNetSalarySeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End AverageNetSalarySeeder");
+                //await AzureService.Insert(AverageGrossSalarySeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End AverageGrossSalarySeeder");
+                //await AzureService.Insert(NumberOfTouristsSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End NumberOfTouristsSeeder");
+                //await AzureService.Insert(NumberOfNightsSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End NumberOfNightsSeeder");
+                //await AzureService.Insert(NumberOfEmployeesSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End NumberOfEmployeesSeeder");
+                //await AzureService.Insert(UnemployedSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End UnemployedSeeder");
+                //await AzureService.Insert(ExportFobSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End ExportFobSeeder");
+                //await AzureService.Insert(ImportCifSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End ImportCifSeeder");
+                //await AzureService.Insert(SoldFobCifSeeder.GetData().Cast<Data>().ToList());
+                //Debug.WriteLine("End SoldFobCifSeeder");
+            }
+            catch(Exception ex)
+            {
+
+            }
+#endif
         }
 
         void degChapterData_RowTap(object sender, RowTapEventArgs e)

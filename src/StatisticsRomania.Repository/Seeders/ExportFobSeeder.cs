@@ -3,9 +3,9 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal class ExportFobSeeder : BaseSeeder
+    public class ExportFobSeeder : BaseSeeder
     {
-        internal static List<ExportFob> GetData()
+        public static List<ExportFob> GetData()
         {
             var rawData = new List<string>()
                               {

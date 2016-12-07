@@ -3,9 +3,9 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal class NumberOfTouristsSeeder : BaseSeeder
+    public class NumberOfTouristsSeeder : BaseSeeder
     {
-        internal static List<NumberOfTourists> GetData()
+        public static List<NumberOfTourists> GetData()
         {
             var rawData = new List<string>()
                               {

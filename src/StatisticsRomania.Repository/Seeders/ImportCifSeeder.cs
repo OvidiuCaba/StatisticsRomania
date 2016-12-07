@@ -3,9 +3,9 @@ using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal class ImportCifSeeder : BaseSeeder
+    public class ImportCifSeeder : BaseSeeder
     {
-        internal static List<ImportCif> GetData()
+        public static List<ImportCif> GetData()
         {
             var rawData = new List<string>()
                               {
