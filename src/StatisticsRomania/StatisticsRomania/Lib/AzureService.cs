@@ -14,7 +14,7 @@ namespace StatisticsRomania.Lib
 {
     public static class AzureService
     {
-        private static DateTime LastSync = DateTime.Now;
+        private static DateTime LastSync = DateTime.Now.AddMinutes(-61);
 
         private static MobileServiceClient client;
 
@@ -47,7 +47,7 @@ namespace StatisticsRomania.Lib
         {
             try
             {
-                if ((DateTime.Now - LastSync).Minutes < 60)
+                if ((DateTime.Now - LastSync).TotalMinutes < 60)
                 {
                     return;
                 }

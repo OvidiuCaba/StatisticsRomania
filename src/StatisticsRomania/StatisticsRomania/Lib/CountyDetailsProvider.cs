@@ -63,9 +63,15 @@ namespace StatisticsRomania.Lib
         private static async Task<List<Data>> GetData<T>(int countyId)
             where T : Data, new()
         {
-            var repo = new Repository<T>(App.AsyncDb);
-            var data = (await repo.GetAll(x => x.CountyId == countyId))
-                .Cast<Data>().ToList();
+            await AzureService.Initialize();
+            await AzureService.SyncData();      // TODO: Do not call SyncData() always because it is too slow
+
+            //var repo = new Repository<T>(App.AsyncDb);
+            //var data = (await repo.GetAll(x => x.CountyId == countyId))
+            //    .Cast<Data>().ToList();
+
+            var data = await AzureService.Table.Where(x => x.CountyId == countyId && x.Chapter == typeof(T).Name).ToListAsync();
+
             return data;
         }
     }

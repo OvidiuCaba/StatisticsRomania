@@ -17,6 +17,7 @@ using StatisticsRomania.Helpers;
 using StatisticsRomania.Lib;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Repository.Seeders;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace StatisticsRomania.Views
 {
@@ -201,27 +202,67 @@ namespace StatisticsRomania.Views
 #if DEBUG
             try
             {
-                //Debug.WriteLine("Start pushing data");
-                //await AzureService.Insert(AverageNetSalarySeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End AverageNetSalarySeeder");
-                //await AzureService.Insert(AverageGrossSalarySeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End AverageGrossSalarySeeder");
-                //await AzureService.Insert(NumberOfTouristsSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End NumberOfTouristsSeeder");
-                //await AzureService.Insert(NumberOfNightsSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End NumberOfNightsSeeder");
-                //await AzureService.Insert(NumberOfEmployeesSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End NumberOfEmployeesSeeder");
-                //await AzureService.Insert(UnemployedSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End UnemployedSeeder");
-                //await AzureService.Insert(ExportFobSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End ExportFobSeeder");
-                //await AzureService.Insert(ImportCifSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End ImportCifSeeder");
-                //await AzureService.Insert(SoldFobCifSeeder.GetData().Cast<Data>().ToList());
-                //Debug.WriteLine("End SoldFobCifSeeder");
+                Debug.WriteLine("Start pushing data");
+                await AzureService.Initialize();
+                await AzureService.SyncData();
+                var existingData = await AzureService.Table.Where(x => x.Chapter == "AverageNetSalary").ToListAsync();
+                var allData = AverageNetSalarySeeder.GetData().Cast<Data>();
+                var dataToInsert = allData.Except(existingData, new DataEqualityComparer()).ToList();
+                await AzureService.Insert(dataToInsert);
+                Debug.WriteLine("End AverageNetSalarySeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "AverageGrossSalary").ToListAsync();
+                await AzureService.Insert(AverageGrossSalarySeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End AverageGrossSalarySeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "NumberOfTourists").ToListAsync();
+                await AzureService.Insert(NumberOfTouristsSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End NumberOfTouristsSeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "NumberOfNights").ToListAsync();
+                await AzureService.Insert(NumberOfNightsSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End NumberOfNightsSeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "NumberOfEmployees").ToListAsync();
+                await AzureService.Insert(NumberOfEmployeesSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End NumberOfEmployeesSeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "Unemployed").ToListAsync();
+                await AzureService.Insert(UnemployedSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End UnemployedSeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "ExportFob").ToListAsync();
+                await AzureService.Insert(ExportFobSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End ExportFobSeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "ImportCif").ToListAsync();
+                await AzureService.Insert(ImportCifSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End ImportCifSeeder");
+                existingData = await AzureService.Table.Where(x => x.Chapter == "SoldFobCif").ToListAsync();
+                await AzureService.Insert(SoldFobCifSeeder.GetData().Cast<Data>().Except(existingData, new DataEqualityComparer()).ToList());
+                Debug.WriteLine("End SoldFobCifSeeder");
             }
-            catch(Exception ex)
+            catch (MobileServicePushFailedException exc)
+            {
+                if (exc.PushResult != null)
+                {
+                    var syncErrors = exc.PushResult.Errors;
+
+                    // Simple error/conflict handling.
+                    if (syncErrors != null)
+                    {
+                        foreach (var error in syncErrors)
+                        {
+                            if (error.OperationKind == MobileServiceTableOperationKind.Update && error.Result != null)
+                            {
+                                // Update failed, revert to server's copy
+                                await error.CancelAndUpdateItemAsync(error.Result);
+                            }
+                            else
+                            {
+                                // Discard local change
+                                await error.CancelAndDiscardItemAsync();
+                            }
+
+                            Debug.WriteLine(@"Error executing sync operation. Item: {0} ({1}). Operation discarded.", error.TableName, error.Item["id"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
             {
 
             }
