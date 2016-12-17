@@ -25,10 +25,10 @@ namespace StatisticsRomania.Repository.Seeders
                 {
                     var item = new T
                     {
-                        Id = typeof(T).Name + "_" + CountryIds.Counties[county] + "_" + year + "_" + month,
+                        Id = typeof(T).Name + "_" + CountyIds.Counties[county] + "_" + year + "_" + month,
                         Chapter = typeof(T).Name,
                         Subchapter = "Total judet",
-                        CountyId = CountryIds.Counties[county],
+                        CountyId = CountyIds.Counties[county],
                         Year = year,
                         YearFraction = month,
                         Value = float.Parse(data[i])

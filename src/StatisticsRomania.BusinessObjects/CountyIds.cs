@@ -2,7 +2,7 @@
 
 namespace StatisticsRomania.BusinessObjects
 {
-    public static class CountryIds
+    public static class CountyIds
     {
         public static Dictionary<string, int> Counties = new Dictionary<string, int>()
                                                              {
