@@ -35,19 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AverageGrossSalary.cs" />
-    <Compile Include="AverageNetSalary.cs" />
     <Compile Include="CountyIds.cs" />
     <Compile Include="County.cs" />
     <Compile Include="Data.cs" />
-    <Compile Include="ExportFob.cs" />
-    <Compile Include="ImportCif.cs" />
-    <Compile Include="NumberOfEmployees.cs" />
-    <Compile Include="NumberOfNights.cs" />
-    <Compile Include="NumberOfTourists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoldFobCif.cs" />
-    <Compile Include="Unemployed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class NumberOfEmployeesSeeder : BaseSeeder
     {
-        public static List<NumberOfEmployees> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>
                               {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                     "2016 1 Bucuresti 911434 917872 923968 926294 928299 931171 934900 936656 938391",
                               };
 
-            var items = GetItems<NumberOfEmployees>(rawData);
+            var items = GetItems("NumberOfEmployees", rawData);
 
             return items;
         }

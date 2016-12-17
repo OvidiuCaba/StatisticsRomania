@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class NumberOfTouristsSeeder : BaseSeeder
     {
-        public static List<NumberOfTourists> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>()
                               {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                     "2016 1 Bucuresti 112482 129012 149088 152709 186999 174558 163250 161193 192918",
                               };
 
-            var items = GetItems<NumberOfTourists>(rawData);
+            var items = GetItems("NumberOfTourists", rawData);
 
             return items;
         }

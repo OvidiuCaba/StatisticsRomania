@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class AverageGrossSalarySeeder : BaseSeeder
     {
-        public static List<AverageGrossSalary> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>
                                        {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                             "2016 1 Bucuresti 3695 3732 4038 4023 3902 3944 3909 3875 3915",
                                        };
 
-            var items = GetItems<AverageGrossSalary>(rawData);
+            var items = GetItems("AverageGrossSalary", rawData);
 
             return items;
         }

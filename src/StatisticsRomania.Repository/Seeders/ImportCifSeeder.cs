@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class ImportCifSeeder : BaseSeeder
     {
-        public static List<ImportCif> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>()
                               {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                     "2016 1 Bucuresti 1365053 1661495 1754993 1629112 1663586 1656556 1628704",
                               };
 
-            var items = GetItems<ImportCif>(rawData);
+            var items = GetItems("ImportCif", rawData);
 
             return items;
         }

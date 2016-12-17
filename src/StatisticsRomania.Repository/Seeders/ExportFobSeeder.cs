@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class ExportFobSeeder : BaseSeeder
     {
-        public static List<ExportFob> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>()
                               {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                     "2016 1 Bucuresti 626253 742977 765908 728126 745426 803654 905921",
                               };
 
-            var items = GetItems<ExportFob>(rawData);
+            var items = GetItems("ExportFob", rawData);
 
             return items;
         }

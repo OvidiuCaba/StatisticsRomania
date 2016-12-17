@@ -1,17 +1,13 @@
-﻿using System;
+﻿using StatisticsRomania.BusinessObjects;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
     public abstract class BaseSeeder
     {
-        protected static List<T> GetItems<T>(List<string> rawData) where T : Data, new()
+        protected static List<Data> GetItems(string chapter, List<string> rawData)
         {
-            var items = new List<T>();
+            var items = new List<Data>();
 
             foreach (var rawItem in rawData)
             {
@@ -23,10 +19,10 @@ namespace StatisticsRomania.Repository.Seeders
 
                 for (var i = 3; i < data.Length; i++)
                 {
-                    var item = new T
+                    var item = new Data
                     {
-                        Id = typeof(T).Name + "_" + CountyIds.Counties[county] + "_" + year + "_" + month,
-                        Chapter = typeof(T).Name,
+                        Id = chapter + "_" + CountyIds.Counties[county] + "_" + year + "_" + month,
+                        Chapter = chapter,
                         Subchapter = "Total judet",
                         CountyId = CountyIds.Counties[county],
                         Year = year,

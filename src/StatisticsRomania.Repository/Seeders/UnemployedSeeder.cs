@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class UnemployedSeeder : BaseSeeder
     {
-        public static List<Unemployed> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>()
                               {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                     "2016 1 Bucuresti 20790 20723 20483 20329 20171 20047 19840 19640 19433",
                               };
 
-            var items = GetItems<Unemployed>(rawData);
+            var items = GetItems("Unemployed", rawData);
 
             return items;
         }

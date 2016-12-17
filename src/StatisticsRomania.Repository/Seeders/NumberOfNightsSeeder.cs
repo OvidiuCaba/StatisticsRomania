@@ -5,7 +5,7 @@ namespace StatisticsRomania.Repository.Seeders
 {
     public class NumberOfNightsSeeder : BaseSeeder
     {
-        public static List<NumberOfNights> GetData()
+        public static List<Data> GetData()
         {
             var rawData = new List<string>()
                               {
@@ -97,7 +97,7 @@ namespace StatisticsRomania.Repository.Seeders
                                     "2016 1 Bucuresti 185587 209212 243526 256148 302614 284761 272044 269805 314162",
                               };
 
-            var items = GetItems<NumberOfNights>(rawData);
+            var items = GetItems("NumberOfNights", rawData);
 
             return items;
         }
