@@ -11,6 +11,7 @@ using System.IO;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System.Diagnostics;
+using StatisticsRomania.Repository.Seeders;
 
 namespace StatisticsRomania.Lib
 {
@@ -70,34 +71,30 @@ namespace StatisticsRomania.Lib
             where T : Data, new()
         {
             await AzureService.Initialize();
-            await AzureService.SyncData();      // TODO: Do not call SyncData() always because it is too slow
+            await AzureService.SyncData();
 
             var repo = new Repository<T>(App.AsyncDb);
 
-            //var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction));
             var rawData = await AzureService.Table.Where(x => x.Year == year && x.YearFraction == yearFraction && x.Chapter == typeof(T).Name).ToListAsync();
 
             var orderedRawData = isAscending ? rawData.OrderBy(x => x.Value) : rawData.OrderByDescending(x => x.Value);
 
-            var data = await ProcessRawData(orderedRawData, repo);
+            var data = ProcessRawData(orderedRawData, repo);
 
             return data;
         }
 
-        private static async Task<List<StandingItem>> ProcessRawData<T>(IEnumerable<Data> rawData, Repository<T> repo)
+        private static List<StandingItem> ProcessRawData<T>(IEnumerable<Data> rawData, Repository<T> repo)
             where T : Data, new()
         {
-            var countyRepository = new Repository<County>(App.AsyncDb);
+            var counties = CountiesSeeder.GetData().ToDictionary(x => x.Id, x => x.Name);
 
             var data = new List<StandingItem>();
             var index = 1;
 
             foreach (var item in rawData)
             {
-                //await repo.GetChild((T) item, x => x.County);
-                item.County = await countyRepository.Get(item.CountyId.Value);
-
-                var standingItem = new StandingItem() {Position = index++, County = item.County.Name, Value = item.Value};
+                var standingItem = new StandingItem() {Position = index++, County = counties[item.CountyId.Value], Value = item.Value};
                 data.Add(standingItem);
             }
 
