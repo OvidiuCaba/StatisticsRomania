@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StatisticsRomania.BusinessObjects;
-using StatisticsRomania.Repository;
+﻿using System.Collections.Generic;
+
 //TODO: nu arata bine pe Nexus S, probabil trebuie sa abreviez
 namespace StatisticsRomania.ViewModels
 {
@@ -12,7 +7,7 @@ namespace StatisticsRomania.ViewModels
     {
         protected Dictionary<string, string> UnitOfMeasureList;
 
-        public Dictionary<string, Type> ChapterList { get; set; }
+        public Dictionary<string, string> ChapterList { get; set; }
 
         private const string Exporturi = "Comert international - exporturi FOB";
         private const string Importuri = "Comert international - importuri CIF";
@@ -26,17 +21,17 @@ namespace StatisticsRomania.ViewModels
 
         public void GetChapters()
         {
-            ChapterList = new Dictionary<string, Type>()
+            ChapterList = new Dictionary<string, string>()
             {
-                { Exporturi, typeof(ExportFob) },
-                { Importuri, typeof(ImportCif) },
-                { Sold, typeof(SoldFobCif) },
-                { EfectivulSalariatilor, typeof(NumberOfEmployees) },
-                { CastigulSalarialMediuBrut, typeof(AverageGrossSalary) },
-                { CastigulSalarialMediuNet, typeof(AverageNetSalary) },
-                { NumarulSomerilor, typeof(Unemployed) },
-                { InnoptariInStructurileDePrimireTuristica, typeof(NumberOfNights) },
-                { SosiriInStructurileDePrimireTuristica, typeof(NumberOfTourists) },
+                [Exporturi] = "ExportFob",
+                [Importuri] = "ImportCif",
+                [Sold] = "SoldFobCif",
+                [EfectivulSalariatilor] = "NumberOfEmployees",
+                [CastigulSalarialMediuBrut] = "AverageGrossSalary",
+                [CastigulSalarialMediuNet] = "AverageNetSalary",
+                [NumarulSomerilor] = "Unemployed",
+                [InnoptariInStructurileDePrimireTuristica] = "NumberOfNights",
+                [SosiriInStructurileDePrimireTuristica] = "NumberOfTourists",
             };
 
             UnitOfMeasureList = new Dictionary<string, string>()

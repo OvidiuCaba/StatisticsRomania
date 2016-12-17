@@ -1,76 +1,17 @@
-﻿using System;
+﻿using StatisticsRomania.BusinessObjects;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using StatisticsRomania.BusinessObjects;
-using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.Lib
 {
     public static class CountyDetailsProvider
     {
-        public static async Task<List<Data>> GetData(int countyId, Type chapter)
-        {
-            if (chapter == typeof(ExportFob))
-            {
-                return await GetData<ExportFob>(countyId);
-            }
-
-            if (chapter == typeof(ImportCif))
-            {
-                return await GetData<ImportCif>(countyId);
-            }
-
-            if (chapter == typeof(SoldFobCif))
-            {
-                return await GetData<SoldFobCif>(countyId);
-            }
-
-            if (chapter == typeof(AverageGrossSalary))
-            {
-                return await GetData<AverageGrossSalary>(countyId);
-            }
-
-            if (chapter == typeof(AverageNetSalary))
-            {
-                return await GetData<AverageNetSalary>(countyId);
-            }
-
-            if (chapter == typeof(NumberOfTourists))
-            {
-                return await GetData<NumberOfTourists>(countyId);
-            }
-
-            if (chapter == typeof(NumberOfNights))
-            {
-                return await GetData<NumberOfNights>(countyId);
-            }
-
-            if (chapter == typeof(NumberOfEmployees))
-            {
-                return await GetData<NumberOfEmployees>(countyId);
-            }
-
-            if (chapter == typeof(Unemployed))
-            {
-                return await GetData<Unemployed>(countyId);
-            }
-
-            return null;
-        }
-
-        private static async Task<List<Data>> GetData<T>(int countyId)
-            where T : Data, new()
+        public static async Task<List<Data>> GetData(int countyId, string chapter)
         {
             await AzureService.Initialize();
-            await AzureService.SyncData();      // TODO: Do not call SyncData() always because it is too slow
+            await AzureService.SyncData();
 
-            //var repo = new Repository<T>(App.AsyncDb);
-            //var data = (await repo.GetAll(x => x.CountyId == countyId))
-            //    .Cast<Data>().ToList();
-
-            var data = await AzureService.Table.Where(x => x.CountyId == countyId && x.Chapter == typeof(T).Name).ToListAsync();
+            var data = await AzureService.Table.Where(x => x.CountyId == countyId && x.Chapter == chapter).ToListAsync();
 
             return data;
         }
