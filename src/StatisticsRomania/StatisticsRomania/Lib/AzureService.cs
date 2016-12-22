@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using StatisticsRomania.BusinessObjects;
@@ -7,7 +8,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace StatisticsRomania.Lib
@@ -27,9 +31,11 @@ namespace StatisticsRomania.Lib
                 return;
             }
 
+            var handler = new AuthHandler();
             var azureUrl = "http://statistics-romania.azurewebsites.net";
 
-            client = new MobileServiceClient(azureUrl);
+            client = new MobileServiceClient(azureUrl, handler);
+            handler.Client = client;
 
             var path = "data.db";
             path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
@@ -96,6 +102,82 @@ namespace StatisticsRomania.Lib
             await Task.WhenAll(data.Select(x => Table.InsertAsync(x)));
 
             await SyncData();
+        }
+
+        public static async Task<string> GetAzureAccessToken()
+        {
+            var tokenCache = new TokenCache();
+            AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + $"{AppResource.AzureTenantId}", tokenCache);
+            ClientCredential clientCredential = new ClientCredential(AppResource.AzureClientId, AppResource.AzureClientSecret);
+            var result = await authContext.AcquireTokenAsync(AppResource.AzureApiEndtpointUri, clientCredential);
+            if (result == null)
+                throw new InvalidOperationException("Failed to obtain the JWT token");
+            return result.AccessToken;
+        }
+    }
+
+    internal class AuthHandler : DelegatingHandler
+    {
+        public IMobileServiceClient Client { get; set; }
+
+        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            if (this.Client == null)
+            {
+                throw new InvalidOperationException("Make sure to set the 'Client' property in this handler before using it.");
+            }
+
+            // Cloning the request, in case we need to send it again
+            var clonedRequest = await CloneRequest(request);
+            var response = await base.SendAsync(clonedRequest, cancellationToken);
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                try
+                {
+                    // Clone the request
+                    clonedRequest = await CloneRequest(request);
+
+                    var token = await AzureService.GetAzureAccessToken();
+
+                    clonedRequest.Headers.Remove("X-ZUMO-AUTH");
+                    clonedRequest.Headers.Add("X-ZUMO-AUTH", token);
+
+                    response = await base.SendAsync(clonedRequest, cancellationToken);
+                }
+                catch (InvalidOperationException)
+                {
+                    // user cancelled auth, so let’s return the original response
+                    return response;
+                }
+            }
+
+            return response;
+        }
+
+        private async Task<HttpRequestMessage> CloneRequest(HttpRequestMessage request)
+        {
+            var result = new HttpRequestMessage(request.Method, request.RequestUri);
+            foreach (var header in request.Headers)
+            {
+                result.Headers.Add(header.Key, header.Value);
+            }
+
+            if (request.Content != null && request.Content.Headers.ContentType != null)
+            {
+                var requestBody = await request.Content.ReadAsStringAsync();
+                var mediaType = request.Content.Headers.ContentType.MediaType;
+                result.Content = new StringContent(requestBody, Encoding.UTF8, mediaType);
+                foreach (var header in request.Content.Headers)
+                {
+                    if (!header.Key.Equals("Content-Type", StringComparison.OrdinalIgnoreCase))
+                    {
+                        result.Content.Headers.Add(header.Key, header.Value);
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }

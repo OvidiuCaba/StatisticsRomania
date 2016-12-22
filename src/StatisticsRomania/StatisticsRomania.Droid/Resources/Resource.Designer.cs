@@ -3166,6 +3166,9 @@ namespace StatisticsRomania.Droid
 			global::DevExpress.Mobile.DataGrid.Android.Resource.Styleable.ViewStubCompat_android_id = global::StatisticsRomania.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::DevExpress.Mobile.DataGrid.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::StatisticsRomania.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::DevExpress.Mobile.DataGrid.Android.Resource.Styleable.ViewStubCompat_android_layout = global::StatisticsRomania.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.Id.agentWebView = global::StatisticsRomania.Droid.Resource.Id.agentWebView;
+			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.Layout.WebAuthenticationBroker = global::StatisticsRomania.Droid.Resource.Layout.WebAuthenticationBroker;
+			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.String.ApplicationName = global::StatisticsRomania.Droid.Resource.String.ApplicationName;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::StatisticsRomania.Droid.Resource.Animation.abc_fade_in;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::StatisticsRomania.Droid.Resource.Animation.abc_fade_out;
 			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::StatisticsRomania.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -6752,6 +6755,9 @@ namespace StatisticsRomania.Droid
 			// aapt resource value: 0x7f0b003e
 			public const int activity_chooser_view_content = 2131427390;
 			
+			// aapt resource value: 0x7f0b0084
+			public const int agentWebView = 2131427460;
+			
 			// aapt resource value: 0x7f0b0048
 			public const int alertTitle = 2131427400;
 			
@@ -7287,6 +7293,9 @@ namespace StatisticsRomania.Droid
 			
 			// aapt resource value: 0x7f03002f
 			public const int support_simple_spinner_dropdown_item = 2130903087;
+			
+			// aapt resource value: 0x7f030030
+			public const int WebAuthenticationBroker = 2130903088;
 			
 			static Layout()
 			{
