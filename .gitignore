@@ -235,4 +235,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 /Files
-/src/StatisticsRomania/StatisticsRomania/AppResourceReal.resx
+/src/StatisticsRomania/StatisticsRomania/AppResource.resx
+/src/StatisticsRomania/StatisticsRomania/AppResource.Designer.cs
