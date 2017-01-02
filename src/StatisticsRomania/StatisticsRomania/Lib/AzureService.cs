@@ -19,15 +19,17 @@ namespace StatisticsRomania.Lib
 {
     public static class AzureService
     {
-        private static DateTime LastSync = DateTime.Now.AddMinutes(-61);
+        private static DateTime _lastSync = DateTime.Now.AddMinutes(-61);
 
-        private static MobileServiceClient client;
+        private static MobileServiceClient _client;
+
+        private static bool _isSyncing = false;
 
         public static IMobileServiceSyncTable<Data> Table { get; set; }
 
         public static async Task Initialize()
         {
-            if (client?.SyncContext?.IsInitialized ?? false)
+            if (_client?.SyncContext?.IsInitialized ?? false)
             {
                 return;
             }
@@ -35,8 +37,8 @@ namespace StatisticsRomania.Lib
             var handler = new AuthHandler();
             var azureUrl = "http://statistics-romania.azurewebsites.net";
 
-            client = new MobileServiceClient(azureUrl, handler);
-            handler.Client = client;
+            _client = new MobileServiceClient(azureUrl, handler);
+            handler.Client = _client;
 
             var path = "data.db";
             path = Path.Combine(MobileServiceClient.DefaultDatabasePath, path);
@@ -45,26 +47,33 @@ namespace StatisticsRomania.Lib
 
             store.DefineTable<Data>();
 
-            await client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
+            await _client.SyncContext.InitializeAsync(store, new MobileServiceSyncHandler());
 
-            Table = client.GetSyncTable<Data>();
+            Table = _client.GetSyncTable<Data>();
         }
 
         public static async Task SyncData()
         {
             try
             {
+                // If it's syncing, I need to wait so I make sure that after executing this method I have something up to date to load on UI; if I don't wait, I might quit too soon and have nothing to load from cache
+                while(_isSyncing)
+                {
+                    await Task.Delay(1000);
+                }
+
                 if (!CrossConnectivity.Current.IsConnected)
                     return;
 
-                if ((DateTime.Now - LastSync).TotalMinutes < 60)
+                if ((DateTime.Now - _lastSync).TotalMinutes < 60)
                 {
                     return;
                 }
 
-                await client.SyncContext.PushAsync();
+                _isSyncing = true;
+                await _client.SyncContext.PushAsync();
                 await Table.PullAsync("allData", Table.CreateQuery());
-                LastSync = DateTime.Now;
+                _lastSync = DateTime.Now;
             }
             catch (MobileServicePushFailedException exc)
             {
@@ -104,6 +113,8 @@ namespace StatisticsRomania.Lib
             {
                 Debug.WriteLine("Unable to sync, use offline capabilities: " + ex);
             }
+
+            _isSyncing = false;
         }
 
         public static async Task Insert(List<Data> data)
