@@ -60,6 +60,13 @@ namespace StatisticsRomania.ViewModels
                     .OrderByDescending(x => x.Year)
                     .ThenByDescending(x => x.YearFraction)
                     .FirstOrDefault();
+
+                if (lastData == null)
+                {
+                    IsLoading = false;
+                    return;
+                }
+
                 LastAvailableYear = lastData.Year;
                 LastAvailableYearFraction = lastData.YearFraction;
             }

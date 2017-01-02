@@ -19,6 +19,8 @@ namespace StatisticsRomania.Views
 
         protected bool isSelectorActive = false;
 
+        protected static bool _isInternetAlertDisplayed = false;
+
         protected LabelSelectorView CreateLabelChapters()
         {
             return new LabelSelectorView(_selectorView)

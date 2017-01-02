@@ -18,6 +18,7 @@ using StatisticsRomania.Lib;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Repository.Seeders;
 using Microsoft.WindowsAzure.MobileServices.Sync;
+using Plugin.Connectivity;
 
 namespace StatisticsRomania.Views
 {
@@ -204,6 +205,7 @@ namespace StatisticsRomania.Views
 #if DEBUG
             try
             {
+                //return;
                 Debug.WriteLine("Start pushing data");
                 await AzureService.Initialize();
                 await AzureService.SyncData();
@@ -342,6 +344,11 @@ namespace StatisticsRomania.Views
             Settings.Chapter = _labelSelectorViewChapters.Text;
 
             await _viewModel.GetChapterData(Settings.County1, Settings.County2, Settings.Chapter);
+
+            if (!_isInternetAlertDisplayed && !_viewModel.ChapterData.Any() && !CrossConnectivity.Current.IsConnected)
+            {
+                await DisplayAlert(string.Empty, "Pentru a vizualiza datele, conectati-va la Internet, apoi incercati din nou.", "Accept");
+            }
 
             if (plotView == null)
                 return;

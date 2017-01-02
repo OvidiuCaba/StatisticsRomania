@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using DevExpress.Mobile.DataGrid;
 using DevExpress.Utils;
 using StatisticsRomania.Helpers;
+using Plugin.Connectivity;
 
 namespace StatisticsRomania.Views
 {
@@ -218,6 +219,11 @@ namespace StatisticsRomania.Views
             var selectedYearFraction = int.Parse(_labelSelectorViewYearFractions.Text);
 
             await _viewModel.GetStandings(Settings.StandingsChapter, selectedYear, selectedYearFraction);
+
+            if (!_isInternetAlertDisplayed && !_viewModel.Standings.Any() && !CrossConnectivity.Current.IsConnected)
+            {
+                await DisplayAlert(string.Empty, "Pentru a vizualiza datele, conectati-va la Internet, apoi incercati din nou.", "Accept");
+            }
         }
     }
 }
