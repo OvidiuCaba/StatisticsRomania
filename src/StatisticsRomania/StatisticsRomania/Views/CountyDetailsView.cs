@@ -79,6 +79,7 @@ namespace StatisticsRomania.Views
             _labelSelectorViewCounties = new LabelSelectorView(_selectorView)
             {
                 Title = "Selecteaza judetul",
+                IsLoading = () => _viewModel.IsLoading,
                 ChapterTarget = () => "County1",
                 ItemsSource = () => _viewModel.CountyList.Keys.OrderBy(x => x).Skip(1).ToList(),
             };
@@ -91,6 +92,7 @@ namespace StatisticsRomania.Views
             _labelSelectorViewCounties2 = new LabelSelectorView(_selectorView)
             {
                 Title = "Selecteaza judetul",
+                IsLoading = () => _viewModel.IsLoading,
                 ChapterTarget = () => "County2",
                 ItemsSource = () => _viewModel.CountyList.Keys.OrderBy(x => x).ToList(),
             };

@@ -103,6 +103,8 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetChapterData(int countyId, int countyId2, string chapter)
         {
+            IsLoading = true;
+
             ChapterData.Clear();
             ChapterDataReversed.Clear();
 
@@ -139,6 +141,8 @@ namespace StatisticsRomania.ViewModels
                 ChapterData.Add(item);
                 ChapterDataReversed.Insert(0, item);
             }
+
+            IsLoading = false;
         }
     }
 }

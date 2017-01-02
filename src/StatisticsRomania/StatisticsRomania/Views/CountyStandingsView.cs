@@ -77,6 +77,7 @@ namespace StatisticsRomania.Views
             _labelSelectorViewYears = new LabelSelectorView(_selectorView)
             {
                 Title = "Selecteaza anul",
+                IsLoading = () => _viewModel.IsLoading,
                 ChapterTarget = () => "Year",
                 ItemsSource = () => _viewModel.YearList,
             };
@@ -90,6 +91,7 @@ namespace StatisticsRomania.Views
             _labelSelectorViewYearFractions = new LabelSelectorView(_selectorView)
             {
                 Title = "Selecteaza luna",
+                IsLoading = () => _viewModel.IsLoading,
                 ChapterTarget = () => "YearFraction",
                 ItemsSource = () => _viewModel.YearFractionList,
             };

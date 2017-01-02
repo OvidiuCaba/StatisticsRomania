@@ -1,11 +1,9 @@
-﻿using System;
+﻿using PropertyChanged;
+using StatisticsRomania.Lib;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using PropertyChanged;
-using StatisticsRomania.Lib;
 
 namespace StatisticsRomania.ViewModels
 {
@@ -37,6 +35,8 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetStandings(string chapter, int year, int yearFraction)
         {
+            IsLoading = true;
+
             Standings.Clear();
 
             if (!ChapterList.ContainsKey(chapter))
@@ -63,6 +63,8 @@ namespace StatisticsRomania.ViewModels
                 LastAvailableYear = lastData.Year;
                 LastAvailableYearFraction = lastData.YearFraction;
             }
+
+            IsLoading = false;
         }
 
         internal void GetYears()

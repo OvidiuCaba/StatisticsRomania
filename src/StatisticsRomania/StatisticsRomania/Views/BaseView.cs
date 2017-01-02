@@ -1,10 +1,7 @@
 ﻿using StatisticsRomania.Controls;
 using StatisticsRomania.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace StatisticsRomania.Views
@@ -27,6 +24,7 @@ namespace StatisticsRomania.Views
             return new LabelSelectorView(_selectorView)
             {
                 Title = "Selecteaza indicatorul",
+                IsLoading = () => _viewModel.IsLoading,
                 ChapterTarget = () => ChapterTarget,
                 ItemsSource = () => _viewModel.ChapterList.Keys.OrderBy(x => x).ToList(),
             };

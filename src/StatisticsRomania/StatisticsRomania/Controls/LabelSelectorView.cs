@@ -11,6 +11,8 @@ namespace StatisticsRomania.Controls
 
         public string Title { get; set; }
 
+        public Func<bool> IsLoading { get; set; }
+
         public Func<string> ChapterTarget { get; set; }
 
         public Func<List<string>> ItemsSource { get; set; }
@@ -44,7 +46,7 @@ namespace StatisticsRomania.Controls
             var labelChaptersTapGesture = new TapGestureRecognizer();
             labelChaptersTapGesture.Tapped += async (s, e) =>
             {
-                if (_selectorView.IsActive)
+                if (IsLoading() || _selectorView.IsActive)
                     return;
 
                 ConfigureSelectorView();
