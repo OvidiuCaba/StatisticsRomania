@@ -17,8 +17,6 @@ namespace StatisticsRomania.Views
 
         protected static readonly SelectorView _selectorView = new SelectorView();
 
-        protected bool isSelectorActive = false;
-
         protected static bool _isInternetAlertDisplayed = false;
 
         protected LabelSelectorView CreateLabelChapters()
