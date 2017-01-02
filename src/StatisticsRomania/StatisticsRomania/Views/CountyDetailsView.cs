@@ -347,7 +347,7 @@ namespace StatisticsRomania.Views
 
             if (!_isInternetAlertDisplayed && !_viewModel.ChapterData.Any() && !CrossConnectivity.Current.IsConnected)
             {
-                await DisplayAlert(string.Empty, "Pentru a vizualiza datele, conectati-va la Internet, apoi incercati din nou.", "Accept");
+                await DisplayAlert(string.Empty, "Pentru a vizualiza datele, conectati-va la Internet, apoi incercati din nou.", "OK");
             }
 
             if (plotView == null)

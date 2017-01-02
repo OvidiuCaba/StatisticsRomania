@@ -195,6 +195,9 @@ namespace StatisticsRomania.Views
 
         async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
+            if (_viewModel.LastAvailableYear == 0)
+                return;
+
             _labelSelectorViewYears.Text = _viewModel.LastAvailableYear.ToString();
             _labelSelectorViewYearFractions.Text = _viewModel.LastAvailableYearFraction.ToString();
 
@@ -222,7 +225,7 @@ namespace StatisticsRomania.Views
 
             if (!_isInternetAlertDisplayed && !_viewModel.Standings.Any() && !CrossConnectivity.Current.IsConnected)
             {
-                await DisplayAlert(string.Empty, "Pentru a vizualiza datele, conectati-va la Internet, apoi incercati din nou.", "Accept");
+                await DisplayAlert(string.Empty, "Pentru a vizualiza datele, conectati-va la Internet, apoi incercati din nou.", "OK");
             }
         }
     }
