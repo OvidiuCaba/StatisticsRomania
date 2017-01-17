@@ -71,7 +71,9 @@ namespace StatisticsRomania.Lib
                 }
 
                 _isSyncing = true;
+#if DEBUG
                 await _client.SyncContext.PushAsync();
+#endif
                 await Table.PullAsync("allData", Table.CreateQuery());
                 _lastSync = DateTime.Now;
             }
