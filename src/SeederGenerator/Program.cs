@@ -8,6 +8,7 @@ using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.Globalization;
 using System.Diagnostics;
+using NPOI.XSSF.UserModel;
 
 namespace SeederGenerator
 {
@@ -15,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna sep. 2016\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna oct. 2016\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -32,7 +33,7 @@ namespace SeederGenerator
                                       {"CarasSeverin","Caras-Severin.xls"},
                                       {"Calarasi","Calarasi.xls"},
                                       {"Cluj","Cluj.xls"},
-                                      {"Constanta","Constanta.xls"},
+                                      {"Constanta","Constanta.xlsx"},
                                       {"Covasna","Covasna.xls"},
                                       {"Dambovita","Dambovita.xls"},
                                       {"Dolj","Dolj.xls"},
@@ -116,11 +117,11 @@ namespace SeederGenerator
         {
             var chapterRowIndex = -1;
 
-            HSSFWorkbook excelFile;
+            IWorkbook excelFile;
 
             using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
-                excelFile = new HSSFWorkbook(fileStream);
+                excelFile = file.EndsWith(".xls") ? (IWorkbook)new HSSFWorkbook(fileStream) : (IWorkbook)new XSSFWorkbook(fileStream);
             }
 
             var sheet = excelFile.GetSheetAt(0);
