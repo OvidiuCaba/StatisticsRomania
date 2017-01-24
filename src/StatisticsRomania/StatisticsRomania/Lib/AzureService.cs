@@ -127,17 +127,6 @@ namespace StatisticsRomania.Lib
 
             await SyncData();
         }
-
-        public static async Task<string> GetAzureAccessToken()
-        {
-            var tokenCache = new TokenCache();
-            AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + $"{AppResource.AzureTenantId}", tokenCache);
-            ClientCredential clientCredential = new ClientCredential(AppResource.AzureClientId, AppResource.AzureClientSecret);
-            var result = await authContext.AcquireTokenAsync(AppResource.AzureApiEndtpointUri, clientCredential);
-            if (result == null)
-                throw new InvalidOperationException("Failed to obtain the JWT token");
-            return result.AccessToken;
-        }
     }
 
     internal class AuthHandler : DelegatingHandler
@@ -162,7 +151,7 @@ namespace StatisticsRomania.Lib
                     // Clone the request
                     clonedRequest = await CloneRequest(request);
 
-                    var token = await AzureService.GetAzureAccessToken();
+                    var token = await GetAzureAccessToken();
 
                     clonedRequest.Headers.Remove("X-ZUMO-AUTH");
                     clonedRequest.Headers.Add("X-ZUMO-AUTH", token);
@@ -177,6 +166,17 @@ namespace StatisticsRomania.Lib
             }
 
             return response;
+        }
+
+        private static async Task<string> GetAzureAccessToken()
+        {
+            var tokenCache = new TokenCache();
+            AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + $"{AppResource.AzureTenantId}", tokenCache);
+            ClientCredential clientCredential = new ClientCredential(AppResource.AzureClientId, AppResource.AzureClientSecret);
+            var result = await authContext.AcquireTokenAsync(AppResource.AzureApiEndtpointUri, clientCredential);
+            if (result == null)
+                throw new InvalidOperationException("Failed to obtain the JWT token");
+            return result.AccessToken;
         }
 
         private async Task<HttpRequestMessage> CloneRequest(HttpRequestMessage request)
