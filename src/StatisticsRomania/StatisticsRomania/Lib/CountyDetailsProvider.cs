@@ -11,7 +11,11 @@ namespace StatisticsRomania.Lib
             await AzureService.Initialize();
             await AzureService.SyncData();
 
-            var data = await AzureService.Table.Where(x => x.CountyId == countyId && x.Chapter == chapter).ToListAsync();
+            var data = await AzureService.Table
+                                    .Where(x => x.CountyId == countyId && x.Chapter == chapter)
+                                    .OrderBy(x => x.Year)
+                                    .ThenBy(x => x.YearFraction)
+                                    .ToListAsync();
 
             return data;
         }
