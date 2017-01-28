@@ -5,6 +5,9 @@ using System.Text;
 using StatisticsRomania.Views;
 using Xamarin.Forms;
 using SQLite.Net.Async;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace StatisticsRomania
 {
@@ -33,6 +36,10 @@ namespace StatisticsRomania
 
         public App()
         {
+#if DEBUG
+            MobileCenter.Start(typeof(Analytics), typeof(Crashes));
+#endif
+
             // The root page of your application
             MainPage = new RootPage();
         }

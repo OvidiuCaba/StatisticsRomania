@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using StatisticsRomania.Repository;
+using Microsoft.Azure.Mobile;
 
 namespace StatisticsRomania.Droid
 {
@@ -19,6 +20,7 @@ namespace StatisticsRomania.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+            MobileCenter.Configure("34727667-015a-4fd6-ae0b-99a522146681");
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             DevExpress.Mobile.Forms.Init();
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
