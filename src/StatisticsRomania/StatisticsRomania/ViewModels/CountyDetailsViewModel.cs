@@ -8,12 +8,18 @@ using PropertyChanged;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Lib;
 using StatisticsRomania.Repository;
+using StatisticsRomania.Lib.Sync;
+using Xamarin.Forms;
+using StatisticsRomania.Helpers;
+using Plugin.Connectivity;
 
 namespace StatisticsRomania.ViewModels
 {
     [ImplementPropertyChanged]
     public class CountyDetailsViewModel : BaseViewModel
     {
+        private readonly object sync = new object();
+
         private readonly IRepository<County> _countyRepository;
         private readonly ObservableCollection<Data> _chapterData;
         private readonly ObservableCollection<Data> _chapterDataReversed;
@@ -41,6 +47,12 @@ namespace StatisticsRomania.ViewModels
         public string Value2ColumnCaption { get; set; }
 
         public bool Value2ColumnVisibility { get; set; }
+
+        public bool IsMessageVisible { get; set; }
+
+        public bool IsDataVisible { get; set; }
+
+        public string Message { get; set; }
 
         public CountyDetailsViewModel()
         {
@@ -93,6 +105,17 @@ namespace StatisticsRomania.ViewModels
                                            {"Vrancea", "VN"},
                                            {"Bucuresti", "B"},
                                        };
+
+            MessagingCenter.Subscribe<PullCommand, string>(this, "DataPulled", async (sender, arg) => {
+                if (arg == ChapterList[Chapter])
+                {
+                    var data = await CountyDetailsProvider.GetData(Settings.County1, Settings.County2, ChapterList[Settings.Chapter]);
+                    FillDataSources(data);
+                    Message = string.Empty;
+                    IsMessageVisible = false;
+                    IsDataVisible = true;
+                }
+            });
         }
 
         public async Task GetCounties()
@@ -113,36 +136,46 @@ namespace StatisticsRomania.ViewModels
 
             ValueColumnCaption = string.Format("{0} {1}", UnitOfMeasureList[chapter], CountyAbbreviations[CountyList.First(x => x.Value == countyId).Key]);
 
-            var data = await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]);
+            var data = await CountyDetailsProvider.GetData(countyId, countyId2, ChapterList[chapter]);
 
-            if (countyId2 >= 1 && countyId != countyId2)
+            if (!data.Any())
             {
-                var data2 = await CountyDetailsProvider.GetData(countyId2, ChapterList[chapter]);
-                foreach (var item2 in data2)
-                {
-                    var item = data.FirstOrDefault(x => x.Year == item2.Year && x.YearFraction == item2.YearFraction);
-                    if (item != null)
-                    {
-                        item.Value2 = item2.Value;
-                    }
-                }
-
-                Value2ColumnCaption = string.Format("{0} {1}", UnitOfMeasureList[chapter], CountyAbbreviations[CountyList.First(x => x.Value == countyId2).Key]);
-
-                Value2ColumnVisibility = true;
+                Message = CrossConnectivity.Current.IsConnected ? "Asteptati pana cand datele sunt preluate de pe server." : "Conectati-va la Internet si incercati din nou.";
             }
             else
             {
-                Value2ColumnVisibility = false;
+                Message = string.Empty;
             }
+            IsMessageVisible = Message.Length > 0;
+            IsDataVisible = !IsMessageVisible;
 
-            foreach (var item in data)
-            {
-                ChapterData.Add(item);
-                ChapterDataReversed.Insert(0, item);
-            }
+            var isCounty2Set = countyId2 >= 1 && countyId != countyId2;
+            Value2ColumnCaption = isCounty2Set ? string.Format("{0} {1}", UnitOfMeasureList[chapter], CountyAbbreviations[CountyList.First(x => x.Value == countyId2).Key]) : string.Empty;
+            Value2ColumnVisibility = isCounty2Set;
+
+            FillDataSources(data);
 
             IsLoading = false;
+
+            await SyncService.PushCommand(new PullCommand(ChapterList[chapter], DateTime.Now.Year));
+            await SyncService.PushCommand(new PullCommand(ChapterList[chapter], DateTime.Now.Year - 1));
+        }
+
+        private void FillDataSources(List<Data> data)
+        {
+            foreach (var item in data)
+            {
+                lock (sync)
+                {
+                    if (!ChapterData.Any(x => x.Year == item.Year && x.YearFraction == item.YearFraction))
+                    {
+                        var numberOfSmallerItems = ChapterData.Count(x => x.Year < item.Year || (x.Year == item.Year && x.YearFraction < item.YearFraction));
+                        var numberOfBiggerItems = ChapterData.Count(x => x.Year > item.Year || (x.Year == item.Year && x.YearFraction > item.YearFraction));
+                        ChapterData.Insert(numberOfSmallerItems, item);            // TODO: check this - ascending order
+                        ChapterDataReversed.Insert(numberOfBiggerItems, item);    // TODO: check this - descending order
+                    }
+                }
+            }
         }
     }
 }

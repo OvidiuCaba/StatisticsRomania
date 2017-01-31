@@ -12,7 +12,6 @@ namespace StatisticsRomania.Lib
         public static async Task<List<StandingItem>> GetData(string chapter, int year, int yearFraction, bool isAscending = false)
         {
             await AzureService.Initialize();
-            await AzureService.SyncData();
 
             var rawData = await AzureService.Table.Where(x => x.Year == year && x.YearFraction == yearFraction && x.Chapter == chapter).ToListAsync();
 

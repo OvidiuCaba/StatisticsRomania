@@ -8,6 +8,7 @@ using SQLite.Net.Async;
 using Microsoft.Azure.Mobile;
 using Microsoft.Azure.Mobile.Analytics;
 using Microsoft.Azure.Mobile.Crashes;
+using StatisticsRomania.Lib.Sync;
 
 namespace StatisticsRomania
 {
@@ -31,6 +32,7 @@ namespace StatisticsRomania
         public static SQLiteAsyncConnection AsyncDb;
 
         // Note: change the values when new data is added [in the future we might automatically get the data from API, so no rush to optimize here]
+        public static int FirstYearAvailableData = 2014;
         public static int LastYearAvailableData = 2016;
         public static int LastMonthAvailableData = 10;
 
@@ -44,9 +46,11 @@ namespace StatisticsRomania
             MainPage = new RootPage();
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             // Handle when your app starts
+            SyncService.LoadSyncCommands();
+            await SyncService.SyncAsync();
         }
 
         protected override void OnSleep()

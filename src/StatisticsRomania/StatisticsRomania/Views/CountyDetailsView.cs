@@ -105,6 +105,7 @@ namespace StatisticsRomania.Views
             };
 
             _labelSelectorViewChapters = CreateLabelChapters();
+            _labelSelectorViewChapters.SetBinding(LabelSelectorView.TextProperty, new Binding("Chapter", source: _viewModel));
 
             degChapterData = new GridControl();
             degChapterData.IsReadOnly = true;
@@ -150,6 +151,18 @@ namespace StatisticsRomania.Views
                 Spacing = 0,
                 Children = { degChapterData, plotView }
             };
+            dataControls.SetBinding(StackLayout.IsVisibleProperty, new Binding("IsDataVisible", source: _viewModel));
+
+            var lblMessage = new Label()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Text = "Nu exista date disponibile pentru intervalul selectat",
+                HorizontalTextAlignment = TextAlignment.Center,
+                VerticalTextAlignment = TextAlignment.Center,
+                FontSize = 27,
+            };
+            lblMessage.SetBinding(Label.TextProperty, new Binding("Message", source: _viewModel));
+            lblMessage.SetBinding(Label.IsVisibleProperty, new Binding("IsMessageVisible", source: _viewModel));
 
             this.Content = new StackLayout
             {
@@ -180,7 +193,8 @@ namespace StatisticsRomania.Views
                                 lblChapter, _labelSelectorViewChapters
                             }
                     },
-                    dataControls
+                    dataControls,
+                    lblMessage
                 }
             };
 
@@ -205,7 +219,7 @@ namespace StatisticsRomania.Views
 #if DEBUG
             try
             {
-                //return;
+                return;
                 Debug.WriteLine("Start pushing data");
                 await AzureService.Initialize();
                 await AzureService.SyncData();

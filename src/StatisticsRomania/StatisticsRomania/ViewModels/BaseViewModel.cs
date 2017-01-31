@@ -9,6 +9,8 @@ namespace StatisticsRomania.ViewModels
 
         public bool IsLoading { get; set; }
 
+        public string Chapter { get; set; }
+
         public Dictionary<string, string> ChapterList { get; set; }
 
         private const string Exporturi = "Comert international - exporturi FOB";

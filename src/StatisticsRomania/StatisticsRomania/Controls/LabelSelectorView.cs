@@ -17,6 +17,8 @@ namespace StatisticsRomania.Controls
 
         public Func<List<string>> ItemsSource { get; set; }
 
+        public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(LabelSelectorView), null, BindingMode.TwoWay);
+
         public string Text
         {
             get
@@ -25,6 +27,7 @@ namespace StatisticsRomania.Controls
             }
             set
             {
+                SetValue(TextProperty, value);
                 _label.Text = value;
             }
         }

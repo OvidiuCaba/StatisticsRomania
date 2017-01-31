@@ -68,6 +68,7 @@ namespace StatisticsRomania.Views
             };
 
             _labelSelectorViewChapters = CreateLabelChapters();
+            _labelSelectorViewChapters.SetBinding(LabelSelectorView.TextProperty, new Binding("Chapter", source: _viewModel));
 
             var lblYear = new Label
             {
@@ -82,6 +83,7 @@ namespace StatisticsRomania.Views
                 ChapterTarget = () => "Year",
                 ItemsSource = () => _viewModel.YearList,
             };
+            _labelSelectorViewYears.SetBinding(LabelSelectorView.TextProperty, new Binding("Year", source: _viewModel));
 
             var lblYearFraction = new Label
             {
@@ -96,6 +98,7 @@ namespace StatisticsRomania.Views
                 ChapterTarget = () => "YearFraction",
                 ItemsSource = () => _viewModel.YearFractionList,
             };
+            _labelSelectorViewYearFractions.SetBinding(LabelSelectorView.TextProperty, new Binding("YearFraction", source: _viewModel));
 
             var degStandings = new GridControl();
             degStandings.IsReadOnly = true;
