@@ -61,11 +61,11 @@
     <DebugSymbols>False</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Mobile.Core.Android.v15.2">
-      <HintPath>..\..\Components\devexpress-grid-15.2.4.0\lib\android\DevExpress.Mobile.Core.Android.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Core.Android.v16.2">
+      <HintPath>..\..\Components\devexpress-grid-16.2.1.0\lib\android\DevExpress.Mobile.Core.Android.v16.2.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Mobile.Grid.Android.v15.2">
-      <HintPath>..\..\Components\devexpress-grid-15.2.4.0\lib\android\DevExpress.Mobile.Grid.Android.v15.2.dll</HintPath>
+    <Reference Include="DevExpress.Mobile.Grid.Android.v16.2">
+      <HintPath>..\..\Components\devexpress-grid-16.2.1.0\lib\android\DevExpress.Mobile.Grid.Android.v16.2.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.3.180\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
@@ -287,7 +287,7 @@
   <ItemGroup>
     <XamarinComponentReference Include="devexpress-grid">
       <Visible>False</Visible>
-      <Version>15.2.4.0</Version>
+      <Version>16.2.1.0</Version>
     </XamarinComponentReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
