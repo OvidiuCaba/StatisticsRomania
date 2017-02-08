@@ -9,6 +9,7 @@ using SQLite.Net.Async;
 namespace StatisticsRomania
 {
     // TODO: new functionalities:
+    //  - la clasament, daca nu pui luna (sa ai optiunea ca la comparatia cu judetele), sa-ti dea totalul pe an                 [!important!]
     //  - export data
     //  - fix issues on rotating
     //  - forecast: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
