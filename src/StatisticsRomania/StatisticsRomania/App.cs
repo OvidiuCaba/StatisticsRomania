@@ -35,7 +35,7 @@ namespace StatisticsRomania
         // Note: change the values when new data is added [in the future we might automatically get the data from API, so no rush to optimize here]
         public static int FirstYearAvailableData = 2014;
         public static int LastYearAvailableData = 2016;
-        public static int LastMonthAvailableData = 11;
+        public static int LastMonthAvailableData = 12;
 
         public App()
         {
