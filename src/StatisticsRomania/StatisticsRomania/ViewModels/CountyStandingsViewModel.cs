@@ -72,7 +72,7 @@ namespace StatisticsRomania.ViewModels
 
         internal void GetYearFractions()
         {
-            YearFractionList = Enumerable.Range(0, 13).Select(x => x == 0 ? "------" : x.ToString()).ToList();
+            YearFractionList = Enumerable.Range(0, 13).Select(x => x == 0 ? "──────" : x.ToString()).ToList();
         }
     }
 }
