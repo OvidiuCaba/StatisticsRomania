@@ -9,7 +9,6 @@ using SQLite.Net.Async;
 namespace StatisticsRomania
 {
     // TODO: new functionalities:
-    //  - la clasament, in loc de medii, fa sume pentru anumiti indicatori: ex: export, import, sold, innoptari si numar turisti
     //  - export data
     //  - fix issues on rotating
     //  - forecast: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/

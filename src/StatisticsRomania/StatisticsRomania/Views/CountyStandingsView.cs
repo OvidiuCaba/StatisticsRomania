@@ -90,7 +90,8 @@ namespace StatisticsRomania.Views
             {
                 FieldName = "Value",
                 IsReadOnly = true,
-                AllowSort = DefaultBoolean.False
+                AllowSort = DefaultBoolean.False,
+                DisplayFormat = "{0:0}"
             };
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             degStandings.Columns.Add(valueColumn);

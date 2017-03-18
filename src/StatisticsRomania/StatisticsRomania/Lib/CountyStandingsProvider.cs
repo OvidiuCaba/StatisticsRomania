@@ -16,17 +16,17 @@ namespace StatisticsRomania.Lib
         {
             if (chapter == typeof(ExportFob))
             {
-                return await GetData<ExportFob>(year, yearFraction);
+                return await GetData<ExportFob>(year, yearFraction, isSum: true);
             }
 
             if (chapter == typeof(ImportCif))
             {
-                return await GetData<ImportCif>(year, yearFraction);
+                return await GetData<ImportCif>(year, yearFraction, isSum: true);
             }
 
             if (chapter == typeof(SoldFobCif))
             {
-                return await GetData<SoldFobCif>(year, yearFraction);
+                return await GetData<SoldFobCif>(year, yearFraction, isSum: true);
             }
 
             if (chapter == typeof(AverageGrossSalary))
@@ -41,12 +41,12 @@ namespace StatisticsRomania.Lib
 
             if (chapter == typeof(NumberOfTourists))
             {
-                return await GetData<NumberOfTourists>(year, yearFraction);
+                return await GetData<NumberOfTourists>(year, yearFraction, isSum: true);
             }
 
             if (chapter == typeof(NumberOfNights))
             {
-                return await GetData<NumberOfNights>(year, yearFraction);
+                return await GetData<NumberOfNights>(year, yearFraction, isSum: true);
             }
 
             if (chapter == typeof(NumberOfEmployees))
@@ -56,13 +56,13 @@ namespace StatisticsRomania.Lib
 
             if (chapter == typeof(Unemployed))
             {
-                return await GetData<Unemployed>(year, yearFraction, true);
+                return await GetData<Unemployed>(year, yearFraction, isAscending: true);
             }
 
             return null;
         }
 
-        private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction, bool isAscending = false)
+        private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction, bool isAscending = false, bool isSum = false)
             where T : Data, new()
         {
             var repo = new Repository<T>(App.AsyncDb);
@@ -82,7 +82,7 @@ namespace StatisticsRomania.Lib
                 {
                     var countyDataItem = rawData.Find(x => x.YearFraction == firstMonth && x.CountyId == countyId);
                     var countyData = rawData.Where(x => x.CountyId == countyId);
-                    countyDataItem.Value = (float)Math.Round(countyData.Sum(x => x.Value) / countyData.Count());
+                    countyDataItem.Value = (float)Math.Round(countyData.Sum(x => x.Value) / (isSum ? 1 : countyData.Count()));
                     rawData.RemoveAll(x => x.CountyId == countyId && x.YearFraction > firstMonth);
                 }
             }
