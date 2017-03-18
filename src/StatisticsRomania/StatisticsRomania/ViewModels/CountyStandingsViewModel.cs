@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PropertyChanged;
 using StatisticsRomania.Lib;
+using System.Diagnostics;
 
 namespace StatisticsRomania.ViewModels
 {
@@ -45,6 +46,17 @@ namespace StatisticsRomania.ViewModels
             ValueColumnCaption = UnitOfMeasureList[chapter];
 
             var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
+
+            //var y2015 = await CountyStandingsProvider.GetData(ChapterList[chapter], 2015, -1);
+            //var y2016 = await CountyStandingsProvider.GetData(ChapterList[chapter], 2016, -1);
+
+            //Debug.WriteLine($"Indicator: {ChapterList[chapter]}");
+            //foreach(var item in y2015.OrderBy(x => x.County))
+            //{
+            //    var county = item.County;
+            //    var value2016 = y2016.Find(x => x.County == county).Value;
+            //    Debug.WriteLine($"{county}, 2015: {item.Value}, 2016: {value2016}, diferenta: {value2016 - item.Value} ({Math.Round((value2016 - item.Value) * 100.0 / item.Value, 2)}%)");
+            //}
 
             foreach (var item in data)
             {
