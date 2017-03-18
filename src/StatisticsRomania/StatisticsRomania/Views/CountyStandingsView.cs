@@ -18,6 +18,7 @@ namespace StatisticsRomania.Views
         private PickerWithNoSpellCheck _pickerChapters;
         private PickerWithNoSpellCheck _pickerYears;
         private PickerWithNoSpellCheck _pickerYearFractions;
+        private GridControl _degStandings;
 
         public CountyStandingsView()
         {
@@ -81,23 +82,26 @@ namespace StatisticsRomania.Views
                 _pickerYearFractions.Items.Add(yearFraction);
             }
 
-            var degStandings = new GridControl();
-            degStandings.IsReadOnly = true;
-            degStandings.HorizontalOptions = LayoutOptions.FillAndExpand;
-            degStandings.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            degStandings.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            _degStandings = new GridControl();
+            _degStandings.IsReadOnly = true;
+            _degStandings.HorizontalOptions = LayoutOptions.FillAndExpand;
+            _degStandings.TotalSummaryVisibility = DevExpress.Mobile.Core.VisibilityState.Always;
+            _degStandings.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            _degStandings.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
             {
                 FieldName = "Value",
                 IsReadOnly = true,
                 AllowSort = DefaultBoolean.False,
-                DisplayFormat = "{0:0}"
+                DisplayFormat = "{0:0}",
             };
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
-            degStandings.Columns.Add(valueColumn);
-            degStandings.ItemsSource = _viewModel.Standings;
-            degStandings.RowTap += degAverageGrosSalary_RowTap;
-            degStandings.SetBinding(GridControl.IsVisibleProperty, "HasData");
+            _degStandings.Columns.Add(valueColumn);
+            _degStandings.ItemsSource = _viewModel.Standings;
+            _degStandings.RowTap += degAverageGrosSalary_RowTap;
+            _degStandings.TotalSummaries.Add(new GridColumnSummary { FieldName = "County", Type = SummaryType.Count, DisplayFormat = "TOTAL" });
+            _degStandings.TotalSummaries.Add(new GridColumnSummary { FieldName = "Value", Type = SummaryType.None, DisplayFormat = "{0:0}" });
+            _degStandings.SetBinding(GridControl.IsVisibleProperty, "HasData");
 
             var lblNoData = new Label()
                                   {
@@ -154,7 +158,7 @@ namespace StatisticsRomania.Views
                                 lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
                             }
                     },
-                    degStandings,
+                    _degStandings,
                     stackNoData
                 }
             };
@@ -216,6 +220,8 @@ namespace StatisticsRomania.Views
             var selectedChapter = _pickerChapters.SelectedIndex >= 0
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;
+
+            _degStandings.TotalSummaries.First(x => x.FieldName == "Value").Type = new[] { "ExportFob", "ImportCif", "SoldFobCif", "NumberOfTourists", "NumberOfNights", "NumberOfEmployees", "Unemployed" }.Contains(_viewModel.ChapterList[selectedChapter].Name) ? SummaryType.Sum : SummaryType.Average;
 
             var selectedYear = _pickerYears.SelectedIndex >= 0 ? int.Parse(_pickerYears.Items[_pickerYears.SelectedIndex]) : -1;
 
