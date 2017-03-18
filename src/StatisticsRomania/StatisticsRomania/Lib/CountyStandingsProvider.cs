@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Repository;
 using StatisticsRomania.ViewModels;
+using System.Linq.Expressions;
 
 namespace StatisticsRomania.Lib
 {
@@ -66,7 +67,25 @@ namespace StatisticsRomania.Lib
         {
             var repo = new Repository<T>(App.AsyncDb);
 
-            var rawData = (await repo.GetAll(x => x.Year == year && x.YearFraction == yearFraction));
+            Expression<Func<T, bool>> filter = null;
+            if (yearFraction == -1)
+                filter = x => x.Year == year;
+            else
+                filter = x => x.Year == year && x.YearFraction == yearFraction;
+
+            var rawData = await repo.GetAll(filter);
+
+            if (yearFraction == -1)
+            {
+                var firstMonth = rawData.Min(x => x.YearFraction);
+                for (var countyId = 1; countyId <= 42; countyId++)
+                {
+                    var countyDataItem = rawData.Find(x => x.YearFraction == firstMonth && x.CountyId == countyId);
+                    var countyData = rawData.Where(x => x.CountyId == countyId);
+                    countyDataItem.Value = (float)Math.Round(countyData.Sum(x => x.Value) / countyData.Count());
+                    rawData.RemoveAll(x => x.CountyId == countyId && x.YearFraction > firstMonth);
+                }
+            }
 
             var orderedRawData = isAscending ? rawData.OrderBy(x => x.Value) : rawData.OrderByDescending(x => x.Value);
 

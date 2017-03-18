@@ -218,7 +218,7 @@ namespace StatisticsRomania.Views
 
             var selectedYear = _pickerYears.SelectedIndex >= 0 ? int.Parse(_pickerYears.Items[_pickerYears.SelectedIndex]) : -1;
 
-            var selectedYearFraction = _pickerYearFractions.SelectedIndex >= 0 ? int.Parse(_pickerYearFractions.Items[_pickerYearFractions.SelectedIndex]) : -1;
+            var selectedYearFraction = _pickerYearFractions.SelectedIndex > 0 ? int.Parse(_pickerYearFractions.Items[_pickerYearFractions.SelectedIndex]) : -1;
 
             await _viewModel.GetStandings(selectedChapter, selectedYear, selectedYearFraction);
         }
