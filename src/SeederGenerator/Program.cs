@@ -16,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna nov. 2016\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna ian. 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -30,7 +30,7 @@ namespace SeederGenerator
                                       {"Brasov","Brasov.xls"},
                                       {"Braila","Braila.xls"},
                                       {"Buzau","Buzau.xls"},
-                                      {"CarasSeverin","Caras-Severin.xls"},
+                                      {"CarasSeverin","Caras Severin.xls"},
                                       {"Calarasi","Calarasi.xls"},
                                       {"Cluj","Cluj.xls"},
                                       {"Constanta","Constanta.xlsx"},
@@ -78,7 +78,7 @@ namespace SeederGenerator
                                          {"SoldFobCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 3)},
                                      };
 
-            var year = 2016;
+            var year = 2017;
             var months = new [] { "ian.", "feb.", "mar.", "apr.", "mai", "iun.", "iul.", "aug.", "sep.", "oct.", "nov.", "dec." };
 
             var res = new Dictionary<string, string>
@@ -150,7 +150,10 @@ namespace SeederGenerator
             var rowYear = sheet.GetRow(chapterRowIndex);
 
             columnYearStartIndex =
-                rowYear.Cells.FirstOrDefault(x => (x.CellType == CellType.Numeric && x.NumericCellValue == year) || ((x.CellType == CellType.String && x.StringCellValue.Contains(year.ToString(CultureInfo.InvariantCulture))))).ColumnIndex;
+                rowYear.Cells.FirstOrDefault(x => (x.CellType == CellType.Numeric && x.NumericCellValue == year) || ((x.CellType == CellType.String && x.StringCellValue.Contains(year.ToString(CultureInfo.InvariantCulture)))))?.ColumnIndex ?? 0;
+
+            if (columnYearStartIndex == 0)
+                return string.Empty;
 
             var numberOfMonths =
                 sheet.GetRow(chapterRowIndex + 1).Cells.Count(
