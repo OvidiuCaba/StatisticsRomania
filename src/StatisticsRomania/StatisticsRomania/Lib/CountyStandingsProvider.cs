@@ -12,6 +12,8 @@ namespace StatisticsRomania.Lib
 {
     public static class CountyStandingsProvider
     {
+        public static bool IsWebSite { get; set; }
+
         public static async Task<List<StandingItem>> GetData(Type chapter, int year, int yearFraction)
         {
             if (chapter == typeof(ExportFob))
@@ -62,10 +64,20 @@ namespace StatisticsRomania.Lib
             return null;
         }
 
+        private static IRepository<T> GetMobileRepository<T>() where T : Data, new()
+        {
+            return new Repository<T>(App.AsyncDb);
+        }
+
+        private static IRepository<T> GetWebClientRepository<T>() where T : Data, new()
+        {
+            return new InMemoryRepository<T>();
+        }
+
         private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction, bool isAscending = false, bool isSum = false)
             where T : Data, new()
         {
-            var repo = new Repository<T>(App.AsyncDb);
+            var repo = IsWebSite ? GetWebClientRepository<T>() : GetMobileRepository<T>();
 
             Expression<Func<T, bool>> filter = null;
             if (yearFraction == -1)
@@ -94,7 +106,7 @@ namespace StatisticsRomania.Lib
             return data;
         }
 
-        private static async Task<List<StandingItem>> ProcessRawData<T>(IEnumerable<Data> rawData, Repository<T> repo)
+        private static async Task<List<StandingItem>> ProcessRawData<T>(IEnumerable<Data> rawData, IRepository<T> repo)
             where T : Data, new()
         {
             var data = new List<StandingItem>();

@@ -1,0 +1,69 @@
+<h1>Clasamente</h1>
+
+<div class="form-group">
+    <div class="col-md-1">
+        <label>An:</label>
+    </div>
+    <div class="col-md-11">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-default"><input type="radio">2014</label>
+            <label class="btn btn-default"><input type="radio">2015</label>
+            <label class="btn btn-default"><input type="radio">2016</label>
+            <label class="btn btn-default active"><input type="radio">2017</label>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="col-md-1">
+        <label>Luna:</label>
+    </div>
+    <div class="col-md-11">
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+            <label class="btn btn-default active"><input type="radio">Ianuarie</label>
+            <label class="btn btn-default"><input type="radio">Februarie</label>
+            <label class="btn btn-default"><input type="radio">Martie</label>
+            <label class="btn btn-default"><input type="radio">Aprilie</label>
+            <label class="btn btn-default"><input type="radio">Mai</label>
+            <label class="btn btn-default"><input type="radio">Iunie</label>
+            <label class="btn btn-default"><input type="radio">Iulie</label>
+            <label class="btn btn-default"><input type="radio">August</label>
+            <label class="btn btn-default"><input type="radio">Septembrie</label>
+            <label class="btn btn-default"><input type="radio">Octombrie</label>
+            <label class="btn btn-default"><input type="radio">Noiembrie</label>
+            <label class="btn btn-default"><input type="radio">Decembrie</label>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <ul class="nav nav-tabs nav-tabs-justified">
+        <li role="presentation" class="active"><a href="#">Comert international - exporturi FOB</a></li>
+        <li role="presentation"><a href="#">Comert international - importuri CIF</a></li>
+        <li role="presentation"><a href="#">Comert international - sold FOB/CIF</a></li>
+        <li role="presentation"><a href="#">Forta de munca - efectiv salariati</a></li>
+        <li role="presentation"><a href="#">Forta de munca - salariu mediu brut</a></li>
+        <li role="presentation"><a href="#">Forta de munca - salariu mediu net</a></li>
+        <li role="presentation"><a href="#">Forta de munca - numar someri</a></li>
+        <li role="presentation"><a href="#">Turism - innoptari</a></li>
+        <li role="presentation"><a href="#">Turism - numar turisti</a></li>
+    </ul>
+</div>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table' *ngIf="standing">
+    <thead>
+        <tr>
+            <th>Pozitie</th>
+            <th>Judet</th>
+            <th>{{unitOfMeasure}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of standing">
+            <td>{{ item.position }}</td>
+            <td>{{ item.county }}</td>
+            <td>{{ item.value }}</td>
+        </tr>
+    </tbody>
+</table>

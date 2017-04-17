@@ -1,4 +1,4 @@
-﻿using SQLite.Net.Async;
+﻿using StatisticsRomania.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,6 @@ namespace StatisticsRomania.Repository
         Task<List<T>> GetAll(Expression<Func<T, bool>> predicate);
         Task<T> Get(Expression<Func<T, bool>> predicate);
         Task<List<T>> QueryAsync(string sql, params object[] args);
-        AsyncTableQuery<T> AsQueryable();
         Task<int> Insert(T entity);
         Task<int> Update(T entity);
         Task<int> Delete(T entity);
