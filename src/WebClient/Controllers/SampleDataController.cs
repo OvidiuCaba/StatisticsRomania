@@ -6,30 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using StatisticsRomania.Lib;
 using StatisticsRomania.BusinessObjects;
 
-// TODO: To be deleted
-
 namespace WebClient.Controllers
 {
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
-        private static string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        [HttpGet("[action]")]
-        public IEnumerable<WeatherForecast> WeatherForecasts()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                DateFormatted = DateTime.Now.AddDays(index).ToString("d"),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            });
-        }
-
         private const string Exporturi = "Comert international - exporturi FOB";
         private const string Importuri = "Comert international - importuri CIF";
         private const string Sold = "Comert international - sold FOB/CIF";
@@ -71,36 +52,14 @@ namespace WebClient.Controllers
         [HttpGet("[action]")]
         public async Task<object> GetStandings(string chapter, int year, int yearFraction)
         {
-            try
-            {
-                if (!ChapterList.ContainsKey(chapter))
-                    return null;
-
-                ValueColumnCaption = UnitOfMeasureList[chapter];
-
-                var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
-
-                return new { ValueColumnCaption = ValueColumnCaption, Data = data };
-            }
-            catch(Exception ex)
-            {
+            if (!ChapterList.ContainsKey(chapter))
                 return null;
-            }
-        }
 
-        public class WeatherForecast
-        {
-            public string DateFormatted { get; set; }
-            public int TemperatureC { get; set; }
-            public string Summary { get; set; }
+            ValueColumnCaption = UnitOfMeasureList[chapter];
 
-            public int TemperatureF
-            {
-                get
-                {
-                    return 32 + (int)(TemperatureC / 0.5556);
-                }
-            }
+            var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
+
+            return new { ValueColumnCaption = ValueColumnCaption, Data = data };
         }
     }
 }
