@@ -1,52 +1,68 @@
 <h1>Clasamente</h1>
 
 <div class="form-group">
-    <div class="col-md-1">
-        <label>An:</label>
-    </div>
-    <div class="col-md-11">
-        <div class="btn-group" data-toggle="buttons">
-            <label class="btn btn-default"><input type="radio">2014</label>
-            <label class="btn btn-default"><input type="radio">2015</label>
-            <label class="btn btn-default"><input type="radio">2016</label>
-            <label class="btn btn-default active"><input type="radio">2017</label>
+    <div class="row">
+        <div class="col-md-1">
+            <label>An:</label>
+        </div>
+        <div class="col-md-11">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default"><input type="radio">2014</label>
+                <label class="btn btn-default"><input type="radio">2015</label>
+                <label class="btn btn-default"><input type="radio">2016</label>
+                <label class="btn btn-default active"><input type="radio">2017</label>
+            </div>
         </div>
     </div>
 </div>
 <div class="form-group">
-    <div class="col-md-1">
-        <label>Luna:</label>
-    </div>
-    <div class="col-md-11">
-        <div class="btn-group btn-group-justified" data-toggle="buttons">
-            <label class="btn btn-default active"><input type="radio">Ianuarie</label>
-            <label class="btn btn-default"><input type="radio">Februarie</label>
-            <label class="btn btn-default"><input type="radio">Martie</label>
-            <label class="btn btn-default"><input type="radio">Aprilie</label>
-            <label class="btn btn-default"><input type="radio">Mai</label>
-            <label class="btn btn-default"><input type="radio">Iunie</label>
-            <label class="btn btn-default"><input type="radio">Iulie</label>
-            <label class="btn btn-default"><input type="radio">August</label>
-            <label class="btn btn-default"><input type="radio">Septembrie</label>
-            <label class="btn btn-default"><input type="radio">Octombrie</label>
-            <label class="btn btn-default"><input type="radio">Noiembrie</label>
-            <label class="btn btn-default"><input type="radio">Decembrie</label>
+    <div class="row">
+        <div class="col-md-1">
+            <label>Luna:</label>
+        </div>
+        <div class="col-md-11">
+            <div *ngIf="largeScreen" class="btn-group btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-default active"><input type="radio">Ianuarie</label>
+                <label class="btn btn-default"><input type="radio">Februarie</label>
+                <label class="btn btn-default"><input type="radio">Martie</label>
+                <label class="btn btn-default"><input type="radio">Aprilie</label>
+                <label class="btn btn-default"><input type="radio">Mai</label>
+                <label class="btn btn-default"><input type="radio">Iunie</label>
+                <label class="btn btn-default"><input type="radio">Iulie</label>
+                <label class="btn btn-default"><input type="radio">August</label>
+                <label class="btn btn-default"><input type="radio">Septembrie</label>
+                <label class="btn btn-default"><input type="radio">Octombrie</label>
+                <label class="btn btn-default"><input type="radio">Noiembrie</label>
+                <label class="btn btn-default"><input type="radio">Decembrie</label>
+            </div>
         </div>
     </div>
 </div>
-
-<div class="col-md-12">
-    <ul class="nav nav-tabs nav-tabs-justified">
-        <li role="presentation" class="active"><a href="#">Comert international - exporturi FOB</a></li>
-        <li role="presentation"><a href="#">Comert international - importuri CIF</a></li>
-        <li role="presentation"><a href="#">Comert international - sold FOB/CIF</a></li>
-        <li role="presentation"><a href="#">Forta de munca - efectiv salariati</a></li>
-        <li role="presentation"><a href="#">Forta de munca - salariu mediu brut</a></li>
-        <li role="presentation"><a href="#">Forta de munca - salariu mediu net</a></li>
-        <li role="presentation"><a href="#">Forta de munca - numar someri</a></li>
-        <li role="presentation"><a href="#">Turism - innoptari</a></li>
-        <li role="presentation"><a href="#">Turism - numar turisti</a></li>
-    </ul>
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Indicator:</label>
+        </div>
+        <div class="col-md-11">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Forta de munca - salariu mediu net
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Comert international - exporturi FOB</a></li>
+                    <li><a href="#">Comert international - importuri CIF</a></li>
+                    <li><a href="#">Comert international - sold FOB/CIF</a></li>
+                    <li><a href="#">Forta de munca - efectiv salariati</a></li>
+                    <li><a href="#">Forta de munca - salariu mediu brut</a></li>
+                    <li class="active"><a href="#">Forta de munca - salariu mediu net</a></li>
+                    <li><a href="#">Forta de munca - numar someri</a></li>
+                    <li><a href="#">Turism - innoptari</a></li>
+                    <li><a href="#">Turism - numar turisti</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 <p *ngIf="!standing"><em>Loading...</em></p>
