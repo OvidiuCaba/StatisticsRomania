@@ -1,6 +1,7 @@
 <h1>Clasamente</h1>
 <br />
 <br />
+<!--TODO: years: use ngFor-->
 <div class="form-group">
     <div class="row">
         <div class="col-md-1">
@@ -8,16 +9,16 @@
         </div>
         <div [(ngModel)]="year" ngbRadioGroup name="radioBasic" class="col-md-11">
             <label class="btn btn-primary">
-                <input type="radio" [value]="2014"> 2014
+                <input type="radio" [value]="2014" (click)="LoadData(2014)"> 2014
             </label>
             <label class="btn btn-primary">
-                <input type="radio" [value]="2015"> 2015
+                <input type="radio" [value]="2015" (click)="LoadData(2015)"> 2015
             </label>
             <label class="btn btn-primary">
-                <input type="radio" [value]="2016"> 2016
+                <input type="radio" [value]="2016" (click)="LoadData(2016)"> 2016
             </label>
             <label class="btn btn-primary">
-                <input type="radio" [value]="2017"> 2017
+                <input type="radio" [value]="2017" (click)="LoadData(2017)"> 2017
             </label>
         </div>
     </div>
@@ -94,10 +95,6 @@
         </div>
     </div>
 </div>
-
-{{year}}
-{{month}}
-{{indicator}}
 
 <p *ngIf="!standing"><em>Loading...</em></p>
 

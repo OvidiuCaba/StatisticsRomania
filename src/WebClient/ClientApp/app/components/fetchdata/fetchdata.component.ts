@@ -20,7 +20,7 @@ export class FetchDataComponent {
     public months: Map<number, string>;
     public monthsKeys: Array<number>;
 
-    constructor(http: Http) {
+    constructor(private http: Http) {
 
         this.InitializeMonths();
 
@@ -32,10 +32,7 @@ export class FetchDataComponent {
         this.innerWidth = window.innerWidth;
         this.largeScreen = this.innerWidth > 1400;
 
-        http.get('/api/SampleData/GetStandings?chapter=Forta de munca - salariu mediu net&year=2017&yearFraction=1').subscribe(result => {
-            this.standing = result.json().data;
-            this.unitOfMeasure = result.json().valueColumnCaption;
-        });
+        this.LoadData();
     }
 
     onWindowResize(event: Event) {
@@ -45,11 +42,26 @@ export class FetchDataComponent {
 
     ChangeIndicator(indicator: string) {
         this.indicator = indicator;
+
+        this.LoadData();
     }
 
     ChangeMonth(month: number) {
         this.month = month;
         this.monthText = this.months[month];
+
+        this.LoadData();
+    }
+
+    LoadData(year?: number) {
+
+        if (year)
+            this.year = year;
+
+        this.http.get('/api/SampleData/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
+            this.standing = result.json().data;
+            this.unitOfMeasure = result.json().valueColumnCaption;
+        });
     }
 
     private InitializeMonths()
