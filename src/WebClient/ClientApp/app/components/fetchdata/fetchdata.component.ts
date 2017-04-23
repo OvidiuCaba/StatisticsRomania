@@ -17,12 +17,18 @@ export class FetchDataComponent {
     public month: number;
     public monthText: string;
     public indicator: string;
+    public months: Map<number, string>;
+    public monthsKeys: Array<number>;
 
     constructor(http: Http) {
+
+        this.InitializeMonths();
+
+        this.monthsKeys = new Array<number>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         this.indicator = 'Forta de munca - salariu mediu net';
         this.year = 2017;
         this.month = 1;
-        this.monthText = 'Ianuarie';
+        this.monthText = this.months[1];
         this.innerWidth = window.innerWidth;
         this.largeScreen = this.innerWidth > 1400;
 
@@ -41,19 +47,27 @@ export class FetchDataComponent {
         this.indicator = indicator;
     }
 
-    // TODO: make it general
-    ChangeMonth(monthText: string) {
-        if (monthText == 'Ianuarie') {
-            this.month = 1;
-            this.monthText = 'Ianuarie';
-        } else if
-            (monthText == 'Februarie') {
-            this.month = 2;
-            this.monthText = 'Februarie';
-        } else if (monthText == 'Martie') {
-            this.month = 3;
-            this.monthText = 'Martie';
-        }
+    ChangeMonth(month: number) {
+        this.month = month;
+        this.monthText = this.months[month];
+    }
+
+    private InitializeMonths()
+    {
+        this.months = new Map<number, string>();
+
+        this.months[1] = "Ianuarie";
+        this.months[2] = "Februarie";
+        this.months[3] = "Martie";
+        this.months[4] = "Aprilie";
+        this.months[5] = "Mai";
+        this.months[6] = "Iunie";
+        this.months[7] = "Iulie";
+        this.months[8] = "August";
+        this.months[9] = "Septembrie";
+        this.months[10] = "Octombrie";
+        this.months[11] = "Noiembrie";
+        this.months[12] = "Decembrie";
     }
 }
 

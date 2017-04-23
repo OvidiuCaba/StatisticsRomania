@@ -30,18 +30,7 @@
         </div>
         <div class="col-md-11">
             <div *ngIf="largeScreen" [(ngModel)]="month" ngbRadioGroup name="radioBasic2">
-                <label class="btn btn-primary"><input type="radio" [value]="1">Ianuarie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="2">Februarie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="3">Martie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="4">Aprilie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="5">Mai</label>
-                <label class="btn btn-primary"><input type="radio" [value]="6">Iunie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="7">Iulie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="8">August</label>
-                <label class="btn btn-primary"><input type="radio" [value]="9">Septembrie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="10">Octombrie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="11">Noiembrie</label>
-                <label class="btn btn-primary"><input type="radio" [value]="12">Decembrie</label>
+                <label *ngFor="let monthKey of monthsKeys" class="btn btn-primary"><input type="radio" (click)="ChangeMonth(monthKey)" [value]="monthKey">{{months[monthKey]}}</label>
             </div>
             <div *ngIf="!largeScreen" ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
@@ -49,15 +38,7 @@
                     <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <button class="dropdown-item {{month == 1 ? 'active' : ''}}" (click)="ChangeMonth('Ianuarie')">Ianuarie</button>
-                    <button class="dropdown-item {{month == 2 ? 'active' : ''}}" (click)="ChangeMonth('Februarie')">Februarie</button>
-                    <button class="dropdown-item {{month == 3 ? 'active' : ''}}" (click)="ChangeMonth('Martie')">Martie</button>
-                    <button class="dropdown-item" (click)="ChangeMonth('Aprilie')">Aprilie</button>
-                    <button class="dropdown-item" (click)="ChangeMonth('Mai')">Mai</button>
-                    <button class="dropdown-item" (click)="ChangeMonth('Iunie')">Iunie</button>
-                    <button class="dropdown-item" (click)="ChangeMonth('Iulie')">Iulie</button>
-                    <button class="dropdown-item" (click)="ChangeMonth('August')">August</button>
-                    <button class="dropdown-item" (click)="ChangeMonth('Septembrie')">Septembrie</button>
+                    <button *ngFor="let monthKey of monthsKeys" class="dropdown-item {{month == monthKey ? 'active' : ''}}" (click)="ChangeMonth(monthKey)">{{months[monthKey]}}</button>
                 </div>
             </div>
         </div>
