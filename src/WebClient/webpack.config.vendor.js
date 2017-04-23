@@ -8,7 +8,7 @@ module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
     const sharedConfig = {
         stats: { modules: false },
-        resolve: { extensions: [ '.js' ] },
+        resolve: { extensions: ['.js'] },
         module: {
             rules: [
                 { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
@@ -26,7 +26,9 @@ module.exports = (env) => {
                 '@angular/platform-server',
                 'angular2-universal',
                 'angular2-universal-polyfills',
-                'bootstrap',
+                'tether',
+                //'bootstrap',  // bootstrap.js is not needed when ng-bootstrap is used: https://github.com/ng-bootstrap/ng-bootstrap/issues/1101
+                '@ng-bootstrap/ng-bootstrap',   // instead of bootstrap, use ng-bootstrap
                 'bootstrap/dist/css/bootstrap.css',
                 'es6-shim',
                 'es6-promise',

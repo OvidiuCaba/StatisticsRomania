@@ -1,8 +1,11 @@
+// TODO: run this manually to generate vendor files: webpack --config webpack.config.vendor.js
+// TODO: automate the above step; it should be generated at runtime
+
 import 'angular2-universal-polyfills/browser';
 import { enableProdMode } from '@angular/core';
 import { platformUniversalDynamic } from 'angular2-universal';
 import { AppModule } from './app/app.module';
-import 'bootstrap';
+//import 'bootstrap';   // commented because it breaks some of the NGB [Angular Bootstrap] controls [eg: group buttons]; however, bootstrap.js should not be used together with ng-bootstrap: https://github.com/ng-bootstrap/ng-bootstrap/issues/1101
 const rootElemTagName = 'app'; // Update this if you change your root component selector
 
 // Enable either Hot Module Reloading or production mode
