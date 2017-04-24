@@ -1,0 +1,116 @@
+<h1>Clasamente</h1>
+<br />
+<br />
+<!--TODO: years: use ngFor-->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>An:</label>
+        </div>
+        <div [(ngModel)]="year" ngbRadioGroup name="radioBasic" class="col-md-11">
+            <label class="btn btn-primary">
+                <input type="radio" [value]="2014" (click)="LoadData(2014)"> 2014
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" [value]="2015" (click)="LoadData(2015)"> 2015
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" [value]="2016" (click)="LoadData(2016)"> 2016
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" [value]="2017" (click)="LoadData(2017)"> 2017
+            </label>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Luna:</label>
+        </div>
+        <div class="col-md-11">
+            <div *ngIf="largeScreen" [(ngModel)]="month" ngbRadioGroup name="radioBasic2">
+                <label *ngFor="let monthKey of monthsKeys" class="btn btn-primary"><input type="radio" (click)="ChangeMonth(monthKey)" [value]="monthKey">{{months[monthKey]}}</label>
+            </div>
+            <div *ngIf="!largeScreen" ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
+                    {{monthText}}
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <button *ngFor="let monthKey of monthsKeys" class="dropdown-item {{month == monthKey ? 'active' : ''}}" (click)="ChangeMonth(monthKey)">{{months[monthKey]}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Indicator:</label>
+        </div>
+        <div class="col-md-11">
+            <!--TODO: make this more dynamic:
+    import {Component} from '@angular/core';
+    @Component({
+      selector: 'dropdown-demo-sortby',
+      template: `
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="sortMenu" ngbDropdownToggle>{{selectedSortOrder}}</button>
+          <div class="dropdown-menu" aria-labelledby="sortMenu">
+            <button class="dropdown-item" *ngFor="let sortOrder of sortOrders" (click)="ChangeSortOrder(sortOrder)" >{{sortOrder}}</button>
+          </div>
+        </div>
+      `
+    })
+    export class DropdownDemoSortby {
+
+      sortOrders: string[] = ["Year", "Title", "Author"];
+      selectedSortOrder: string = "Sort by...";
+
+      ChangeSortOrder(newSortOrder: string) {
+        this.selectedSortOrder = newSortOrder;
+      }
+    }
+                        -->
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
+                    {{indicator}}
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <button class="dropdown-item" (click)="ChangeIndicator('Comert international - exporturi FOB')">Comert international - exporturi FOB</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Comert international - importuri CIF')">Comert international - importuri CIF</button>
+                    <button class="dropdown-item {{indicator == 'Comert international - sold FOB/CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - sold FOB/CIF')">Comert international - sold FOB/CIF</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - efectiv salariati')">Forta de munca - efectiv salariati</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - salariu mediu brut')">Forta de munca - salariu mediu brut</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - salariu mediu net')">Forta de munca - salariu mediu net</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - numar someri')">Forta de munca - numar someri</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Turism - innoptari')">Turism - innoptari</button>
+                    <button class="dropdown-item" (click)="ChangeIndicator('Turism - numar turisti')">Turism - numar turisti</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p *ngIf="!standing"><em>Loading...</em></p>
+
+<table class='table' *ngIf="standing">
+    <thead>
+        <tr>
+            <th>Pozitie</th>
+            <th>Judet</th>
+            <th>{{unitOfMeasure}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of standing">
+            <td>{{ item.position }}</td>
+            <td>{{ item.county }}</td>
+            <td>{{ item.value }}</td>
+        </tr>
+    </tbody>
+</table>

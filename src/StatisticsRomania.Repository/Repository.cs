@@ -25,11 +25,6 @@ namespace StatisticsRomania.Repository
             return db.QueryAsync<T>(sql, args);
         }
 
-        public AsyncTableQuery<T> AsQueryable()
-        {
-            return db.Table<T>();
-        }
-
         public async Task<List<T>> GetAll()
         {
             return await db.Table<T>().ToListAsync();
