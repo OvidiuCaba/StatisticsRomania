@@ -81,15 +81,15 @@
                     <span class="caret"></span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <button class="dropdown-item" (click)="ChangeIndicator('Comert international - exporturi FOB')">Comert international - exporturi FOB</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Comert international - importuri CIF')">Comert international - importuri CIF</button>
+                    <button class="dropdown-item {{indicator == 'Comert international - exporturi FOB' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - exporturi FOB')">Comert international - exporturi FOB</button>
+                    <button class="dropdown-item {{indicator == 'Comert international - importuri CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - importuri CIF')">Comert international - importuri CIF</button>
                     <button class="dropdown-item {{indicator == 'Comert international - sold FOB/CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - sold FOB/CIF')">Comert international - sold FOB/CIF</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - efectiv salariati')">Forta de munca - efectiv salariati</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - salariu mediu brut')">Forta de munca - salariu mediu brut</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - salariu mediu net')">Forta de munca - salariu mediu net</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Forta de munca - numar someri')">Forta de munca - numar someri</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Turism - innoptari')">Turism - innoptari</button>
-                    <button class="dropdown-item" (click)="ChangeIndicator('Turism - numar turisti')">Turism - numar turisti</button>
+                    <button class="dropdown-item {{indicator == 'Forta de munca - efectiv salariati' ? 'active' : ''}}" (click)="ChangeIndicator('Forta de munca - efectiv salariati')">Forta de munca - efectiv salariati</button>
+                    <button class="dropdown-item {{indicator == 'Forta de munca - salariu mediu brut' ? 'active' : ''}}" (click)="ChangeIndicator('Forta de munca - salariu mediu brut')">Forta de munca - salariu mediu brut</button>
+                    <button class="dropdown-item {{indicator == 'Forta de munca - salariu mediu net' ? 'active' : ''}}" (click)="ChangeIndicator('Forta de munca - salariu mediu net')">Forta de munca - salariu mediu net</button>
+                    <button class="dropdown-item {{indicator == 'Forta de munca - numar someri' ? 'active' : ''}}" (click)="ChangeIndicator('Forta de munca - numar someri')">Forta de munca - numar someri</button>
+                    <button class="dropdown-item {{indicator == 'Turism - innoptari' ? 'active' : ''}}" (click)="ChangeIndicator('Turism - innoptari')">Turism - innoptari</button>
+                    <button class="dropdown-item {{indicator == 'Turism - numar turisti' ? 'active' : ''}}" (click)="ChangeIndicator('Turism - numar turisti')">Turism - numar turisti</button>
                 </div>
             </div>
         </div>
