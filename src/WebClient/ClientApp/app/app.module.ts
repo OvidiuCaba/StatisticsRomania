@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
+import { CountyDetailsComponent } from './components/county-details/county-details.component';
 import { StandingsComponent } from './components/standings/standings.component';
 import { CounterComponent } from './components/counter/counter.component';
 
@@ -15,6 +16,7 @@ import { CounterComponent } from './components/counter/counter.component';
         AppComponent,
         NavMenuComponent,
         CounterComponent,
+        CountyDetailsComponent,
         StandingsComponent,
         HomeComponent
     ],
@@ -24,6 +26,7 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
+            { path: 'statistici-judetene', component: CountyDetailsComponent },
             { path: 'clasamente', component: StandingsComponent },
             { path: '**', redirectTo: 'home' }
         ]),

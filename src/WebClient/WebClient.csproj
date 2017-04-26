@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StatisticsRomania.BusinessObjects\StatisticsRomania.BusinessObjects.csproj" />
+    <ProjectReference Include="..\StatisticsRomania.Repository\StatisticsRomania.Repository.csproj" />
     <ProjectReference Include="..\StatisticsRomania\StatisticsRomania\StatisticsRomania.csproj" />
   </ItemGroup>
   <Target Name="RunWebpack" AfterTargets="ComputeFilesToPublish">

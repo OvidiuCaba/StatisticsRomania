@@ -1,15 +1,11 @@
-﻿using System;
+﻿using StatisticsRomania.BusinessObjects;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
-    internal static class CountiesSeeder
+    public static class CountiesSeeder
     {
-        internal static List<County> GetData()
+        public static List<County> GetData()
         {
             var items = new List<County>
                                {
