@@ -9,7 +9,7 @@ using StatisticsRomania.BusinessObjects;
 namespace WebClient.Controllers
 {
     [Route("api/[controller]")]
-    public class ClasamenteController : Controller
+    public class StandingsController : Controller
     {
         private const string Exporturi = "Comert international - exporturi FOB";
         private const string Importuri = "Comert international - importuri CIF";

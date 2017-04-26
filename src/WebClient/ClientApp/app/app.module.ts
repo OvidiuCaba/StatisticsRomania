@@ -6,7 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { ClasamenteComponent } from './components/clasamente/clasamente.component';
+import { StandingsComponent } from './components/standings/standings.component';
 import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { CounterComponent } from './components/counter/counter.component';
         AppComponent,
         NavMenuComponent,
         CounterComponent,
-        ClasamenteComponent,
+        StandingsComponent,
         HomeComponent
     ],
     imports: [
@@ -24,7 +24,7 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
-            { path: 'clasamente', component: ClasamenteComponent },
+            { path: 'clasamente', component: StandingsComponent },
             { path: '**', redirectTo: 'home' }
         ]),
         FormsModule,

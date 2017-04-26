@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
-    selector: 'clasamente',
-    templateUrl: './clasamente.component.html',
+    selector: 'standings',
+    templateUrl: './standings.component.html',
     host: {
         '(window:resize)': 'onWindowResize($event)',
     }
 })
-export class ClasamenteComponent {
+export class StandingsComponent {
     public standing: any;
     public unitOfMeasure: any;
     public innerWidth: number;
@@ -58,7 +58,7 @@ export class ClasamenteComponent {
         if (year)
             this.year = year;
 
-        this.http.get('/api/Clasamente/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
+        this.http.get('/api/Standings/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
             this.standing = result.json().data;
             this.unitOfMeasure = result.json().valueColumnCaption;
         });
