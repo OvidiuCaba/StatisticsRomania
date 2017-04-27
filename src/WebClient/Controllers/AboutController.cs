@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebClient.Controllers
 {
-    public class HomeController : Controller
+    public class AboutController : Controller
     {
         public IActionResult Index()
         {

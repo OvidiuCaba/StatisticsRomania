@@ -51,7 +51,7 @@ namespace WebClient
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/About/Error");
             }
 
             app.UseStaticFiles();
@@ -60,11 +60,11 @@ namespace WebClient
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=About}/{action=Index}/{id?}");
 
                 routes.MapSpaFallbackRoute(
                     name: "spa-fallback",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "About", action = "Index" });
             });
         }
     }
