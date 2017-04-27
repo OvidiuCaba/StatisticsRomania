@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using StatisticsRomania.Lib;
 
 namespace WebClient
 {
@@ -22,7 +23,8 @@ namespace WebClient
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            StatisticsRomania.Lib.CountyStandingsProvider.IsWebSite = true;
+            CountyStandingsProvider.IsWebSite = true;
+            CountyDetailsProvider.IsWebSite = true;
         }
 
         public IConfigurationRoot Configuration { get; }

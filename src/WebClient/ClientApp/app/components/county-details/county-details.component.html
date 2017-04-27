@@ -61,21 +61,23 @@
     </div>
 </div>
 
-<!--<p *ngIf="!standing"><em>Loading...</em></p>-->
+<p *ngIf="!countyDetails"><em>Loading...</em></p>
 
-<!--<table class='table' *ngIf="standing">
+<table class='table' *ngIf="countyDetails">
     <thead>
         <tr>
-            <th>Pozitie</th>
-            <th>Judet</th>
-            <th>{{unitOfMeasure}}</th>
+            <th>An</th>
+            <th>Luna</th>
+            <th>{{valueColumnCaption}}</th>
+            <th>{{value2ColumnCaption}}</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of standing">
-            <td>{{ item.position }}</td>
-            <td>{{ item.county }}</td>
+        <tr *ngFor="let item of countyDetails">
+            <td>{{ item.year }}</td>
+            <td>{{ item.yearFraction }}</td>
             <td>{{ item.value }}</td>
+            <td>{{ item.value2 }}</td>
         </tr>
     </tbody>
-</table>-->
+</table>

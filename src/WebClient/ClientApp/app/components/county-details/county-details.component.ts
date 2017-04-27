@@ -13,6 +13,9 @@ export class CountyDetailsComponent {
     public county1Text: string;
     public county2Text: string;
     public indicator: string;
+    public countyDetails: any;
+    public valueColumnCaption: string;
+    public value2ColumnCaption: string;
 
     constructor(private http: Http) {
 
@@ -36,6 +39,8 @@ export class CountyDetailsComponent {
                 this.counties1.forEach(x => this.counties2.push(x));
                 this.county2 = 0;
                 this.county2Text = this.counties2.find(x => x.id == 0).name;
+
+                this.LoadData();
             });
     }
 
@@ -60,12 +65,11 @@ export class CountyDetailsComponent {
     }
 
     LoadData() {
-
-
-        //this.http.get('/api/Standings/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
-        //    this.standing = result.json().data;
-        //    this.unitOfMeasure = result.json().valueColumnCaption;
-        //});
+        this.http.get('/api/CountyDetails/GetCountyDetails?countyId=' + this.county1 + '&countyId2=' + this.county2 + '&chapter=' + this.indicator).subscribe(result => {
+            this.countyDetails = result.json().data;
+            this.valueColumnCaption = result.json().valueColumnCaption;
+            this.value2ColumnCaption = result.json().value2ColumnCaption;
+        });
     }
 }
 

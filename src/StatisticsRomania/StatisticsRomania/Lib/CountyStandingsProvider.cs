@@ -64,6 +64,7 @@ namespace StatisticsRomania.Lib
             return null;
         }
 
+        // TODO: extract this in a factory
         private static IRepository<T> GetMobileRepository<T>() where T : Data, new()
         {
             return new Repository<T>(App.AsyncDb);

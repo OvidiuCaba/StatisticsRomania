@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PropertyChanged;
+﻿using PropertyChanged;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Lib;
 using StatisticsRomania.Repository;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace StatisticsRomania.ViewModels
 {
