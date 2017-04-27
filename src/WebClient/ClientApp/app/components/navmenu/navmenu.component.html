@@ -2,13 +2,13 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">Statistici Romania</a>
+    <a class="navbar-brand" href="/statistici-judetene">Statistici Romania</a>
 
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="exCollapsingNavbar2">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item" [routerLinkActive]="['link-active']">
+            <!--<li class="nav-item" [routerLinkActive]="['link-active']">
                 <a class="nav-link" [routerLink]="['/home']">Statistici judetene</a>
-            </li>
+            </li>-->
             <li class="nav-item" [routerLinkActive]="['link-active']">
                 <a class="nav-link" [routerLink]="['/statistici-judetene']">Statistici judetene</a>
             </li>
