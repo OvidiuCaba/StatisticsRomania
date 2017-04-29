@@ -53,28 +53,28 @@
         </div>
         <div class="col-md-11">
             <!--TODO: make this more dynamic:
-    import {Component} from '@angular/core';
-    @Component({
-      selector: 'dropdown-demo-sortby',
-      template: `
-        <div ngbDropdown class="d-inline-block">
-          <button class="btn btn-outline-primary" id="sortMenu" ngbDropdownToggle>{{selectedSortOrder}}</button>
-          <div class="dropdown-menu" aria-labelledby="sortMenu">
-            <button class="dropdown-item" *ngFor="let sortOrder of sortOrders" (click)="ChangeSortOrder(sortOrder)" >{{sortOrder}}</button>
-          </div>
-        </div>
-      `
-    })
-    export class DropdownDemoSortby {
+            import {Component} from '@angular/core';
+            @Component({
+              selector: 'dropdown-demo-sortby',
+              template: `
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btn btn-outline-primary" id="sortMenu" ngbDropdownToggle>{{selectedSortOrder}}</button>
+                  <div class="dropdown-menu" aria-labelledby="sortMenu">
+                    <button class="dropdown-item" *ngFor="let sortOrder of sortOrders" (click)="ChangeSortOrder(sortOrder)" >{{sortOrder}}</button>
+                  </div>
+                </div>
+              `
+            })
+            export class DropdownDemoSortby {
 
-      sortOrders: string[] = ["Year", "Title", "Author"];
-      selectedSortOrder: string = "Sort by...";
+              sortOrders: string[] = ["Year", "Title", "Author"];
+              selectedSortOrder: string = "Sort by...";
 
-      ChangeSortOrder(newSortOrder: string) {
-        this.selectedSortOrder = newSortOrder;
-      }
-    }
-                        -->
+              ChangeSortOrder(newSortOrder: string) {
+                this.selectedSortOrder = newSortOrder;
+              }
+            }
+                                -->
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
                     {{indicator}}
@@ -98,19 +98,28 @@
 
 <p *ngIf="!standing"><em>Loading...</em></p>
 
-<table class='table' *ngIf="standing">
+<table class='table table-sm' *ngIf="standing">
     <thead>
         <tr>
             <th>Pozitie</th>
             <th>Judet</th>
-            <th>{{unitOfMeasure}}</th>
+            <th class="text-right">{{unitOfMeasure}}</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of standing">
             <td>{{ item.position }}</td>
             <td>{{ item.county }}</td>
-            <td>{{ item.value }}</td>
+            <td class="text-right">{{ item.value | number:'1.0-0' }}</td>
         </tr>
     </tbody>
+    <tfoot *ngIf="standing && standing.length > 0">
+        <tr>
+            <td></td>
+            <td class="font-weight-bold">Total</td>
+            <td class="text-right font-weight-bold">{{total | number:'1.0-0'}}</td>
+        </tr>
+    </tfoot>
 </table>
+
+<div *ngIf="standing && standing.length == 0">Nu exista date pentru perioada selectata.</div>

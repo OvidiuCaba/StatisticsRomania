@@ -63,7 +63,7 @@
 
 <p *ngIf="!countyDetails"><em>Loading...</em></p>
 
-<table class='table' *ngIf="countyDetails">
+<table class='table table-sm' *ngIf="countyDetails">
     <thead>
         <tr>
             <th>An</th>
@@ -76,8 +76,8 @@
         <tr *ngFor="let item of countyDetails">
             <td>{{ item.year }}</td>
             <td>{{ item.yearFraction }}</td>
-            <td>{{ item.value }}</td>
-            <td *ngIf="value2ColumnCaption">{{ item.value2 }}</td>
+            <td>{{ item.value | number:'1.0-0' }}</td>
+            <td *ngIf="value2ColumnCaption">{{ item.value2 | number:'1.0-0' }}</td>
         </tr>
     </tbody>
 </table>

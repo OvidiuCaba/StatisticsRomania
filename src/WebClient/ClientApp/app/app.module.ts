@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { UniversalModule } from 'angular2-universal';
@@ -33,6 +33,9 @@ import { CounterComponent } from './components/counter/counter.component';
         FormsModule,
         ReactiveFormsModule,
         NgbModule.forRoot()
+    ],
+    providers: [
+        { provide: LOCALE_ID, useValue: "ro-RO" }
     ]
 })
 export class AppModule {

@@ -19,6 +19,7 @@ export class StandingsComponent {
     public indicator: string;
     public months: Map<number, string>;
     public monthsKeys: Array<number>;
+    public total: number;
 
     constructor(private http: Http) {
 
@@ -61,7 +62,19 @@ export class StandingsComponent {
         this.http.get('/api/Standings/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
             this.standing = result.json().data;
             this.unitOfMeasure = result.json().valueColumnCaption;
+            this.CalculateTotal();
         });
+    }
+
+    private CalculateTotal() {
+        if (this.standing === null || this.standing.length == 0)
+        {
+            this.total = null;
+            return;
+        }
+        var total = this.standing.map(x => x.value).reduce((sum, current) => sum + current);
+        this.total = (new Array<string>("Comert international - exporturi FOB", "Comert international - importuri CIF", "Comert international - sold FOB/CIF", "Turism - numar turisti",
+            "Turism - innoptari", "Forta de munca - efectiv salariati", "Forta de munca - numar someri")).indexOf(this.indicator) > -1 ? total : total / 42;
     }
 
     private InitializeMonths()
