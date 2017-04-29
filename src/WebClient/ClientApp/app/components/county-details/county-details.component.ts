@@ -16,12 +16,16 @@ export class CountyDetailsComponent {
     public countyDetails: any;
     public valueColumnCaption: string;
     public value2ColumnCaption: string;
+    public comparisonType: number;
+    public needToProcessAllYear: boolean;
 
     constructor(private http: Http) {
 
         this.GetCounties();
 
         this.indicator = 'Forta de munca - salariu mediu net';
+        this.comparisonType = 1;
+        this.needToProcessAllYear = this.comparisonType == 2;
     }
 
     GetCounties() {
@@ -64,8 +68,15 @@ export class CountyDetailsComponent {
         this.LoadData();
     }
 
+    ChangeComparisonType(comparisonType: number) {
+        this.needToProcessAllYear = comparisonType == 2;
+        this.comparisonType = comparisonType;
+
+        this.LoadData();
+    }
+
     LoadData() {
-        this.http.get('/api/CountyDetails/GetCountyDetails?countyId=' + this.county1 + '&countyId2=' + this.county2 + '&chapter=' + this.indicator).subscribe(result => {
+        this.http.get('/api/CountyDetails/GetCountyDetails?countyId=' + this.county1 + '&countyId2=' + this.county2 + '&chapter=' + this.indicator + '&needToProcessAllYear=' + this.needToProcessAllYear).subscribe(result => {
             this.countyDetails = result.json().data;
             this.valueColumnCaption = result.json().valueColumnCaption;
             this.value2ColumnCaption = result.json().value2ColumnCaption;

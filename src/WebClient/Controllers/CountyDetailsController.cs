@@ -19,7 +19,7 @@ namespace WebClient.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<object> GetCountyDetails(int countyId, int countyId2, string chapter)
+        public async Task<object> GetCountyDetails(int countyId, int countyId2, string chapter, bool needToProcessAllYear)
         {
             if (!ChapterList.ContainsKey(chapter) || countyId < 1)
                 return null;
@@ -74,7 +74,7 @@ namespace WebClient.Controllers
 
             var valueColumnCaption = string.Format("{0} {1}", UnitOfMeasureList[chapter], countyAbbreviations[countyList.First(x => x.Value == countyId).Key]);
 
-            var data = (await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]))
+            var data = (await CountyDetailsProvider.GetData(countyId, ChapterList[chapter], needToProcessAllYear))
                 .OrderByDescending(x => x.Year)
                 .ThenByDescending(x => x.YearFraction)
                 .Select(x => new DataDto
@@ -94,7 +94,7 @@ namespace WebClient.Controllers
 
             if (countyId2 >= 1 && countyId != countyId2)
             {
-                var data2 = await CountyDetailsProvider.GetData(countyId2, ChapterList[chapter]);
+                var data2 = await CountyDetailsProvider.GetData(countyId2, ChapterList[chapter], needToProcessAllYear);
                 foreach (var item2 in data2)
                 {
                     var item = data.FirstOrDefault(x => x.Year == item2.Year && x.YearFraction == item2.YearFraction);
