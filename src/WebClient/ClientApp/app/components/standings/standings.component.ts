@@ -25,11 +25,12 @@ export class StandingsComponent {
 
         this.InitializeMonths();
 
-        this.monthsKeys = new Array<number>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+        this.monthsKeys = new Array<number>(-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         this.indicator = 'Forta de munca - salariu mediu net';
         this.year = 2017;
-        this.month = 1;
-        this.monthText = this.months[1];
+        var selectedYearFraction = -1;
+        this.month = selectedYearFraction;
+        this.monthText = this.months[selectedYearFraction];
         this.innerWidth = window.innerWidth;
         this.largeScreen = this.innerWidth > 1400;
 
@@ -81,6 +82,7 @@ export class StandingsComponent {
     {
         this.months = new Map<number, string>();
 
+        this.months[-1] = "Tot anul";
         this.months[1] = "Ianuarie";
         this.months[2] = "Februarie";
         this.months[3] = "Martie";
