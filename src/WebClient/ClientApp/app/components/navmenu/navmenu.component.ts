@@ -1,5 +1,3 @@
-// TODO: delete folder
-
 import { Component } from '@angular/core';
 
 @Component({
