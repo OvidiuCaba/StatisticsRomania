@@ -9,6 +9,8 @@ import { AboutComponent } from './components/about/about.component';
 import { CountyDetailsComponent } from './components/county-details/county-details.component';
 import { StandingsComponent } from './components/standings/standings.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { ChartsModule } from 'ng2-charts';
+import 'chart.js';
 
 @NgModule({
     bootstrap: [ AppComponent ],
@@ -32,7 +34,8 @@ import { CounterComponent } from './components/counter/counter.component';
         ]),
         FormsModule,
         ReactiveFormsModule,
-        NgbModule.forRoot()
+        NgbModule.forRoot(),
+        ChartsModule
     ],
     providers: [
         { provide: LOCALE_ID, useValue: "ro-RO" }

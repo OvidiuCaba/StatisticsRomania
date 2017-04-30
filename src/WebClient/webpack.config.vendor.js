@@ -1,3 +1,6 @@
+// TODO: run this manually to generate vendor files: webpack --config webpack.config.vendor.js
+// TODO: automate the above step; it should be generated at runtime
+
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -35,6 +38,8 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'jquery',
                 'zone.js',
+                'chart.js',
+                'ng2-charts'
             ]
         },
         output: {
