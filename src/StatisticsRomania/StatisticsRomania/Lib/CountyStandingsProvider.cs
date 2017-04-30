@@ -88,6 +88,9 @@ namespace StatisticsRomania.Lib
 
             var rawData = await repo.GetAll(filter);
 
+            if (!rawData.Any())
+                return new List<StandingItem>();
+
             if (yearFraction == -1)
             {
                 var firstMonth = rawData.Min(x => x.YearFraction);
