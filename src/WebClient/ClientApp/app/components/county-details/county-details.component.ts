@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 import { Http } from '@angular/http';
 
 @Component({
@@ -24,6 +25,7 @@ export class CountyDetailsComponent {
     public lineChartOptions: any;
     public lineChartLegend: boolean;
     public lineChartType: string;
+    @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
     constructor(private http: Http) {
 
@@ -113,12 +115,21 @@ export class CountyDetailsComponent {
             });
         }
         this.lineChartData = lineChartData;
-        this.lineChartLabels = chartData.map(x => x.year + ' ' + x.yearFraction);
+        // TODO: determine years dynamically
+        this.lineChartLabels = this.needToProcessAllYear ? ['2015', '2016'] : chartData.map(x => x.year + ' ' + x.yearFraction);
         this.lineChartOptions = {
             responsive: true
         };
         this.lineChartLegend = true;
         this.lineChartType = 'line';
+
+        setTimeout(() => {
+            if (this.chart && this.chart.chart && this.chart.chart.config) {
+                // TODO: remove this hack once the ng2-charts fixes this issue
+                this.chart.chart.config.data.labels = this.lineChartLabels;
+                this.chart.chart.update();
+            }
+        });
     }
 
     private sortCountyDetails(n1: any, n2: any): any {
