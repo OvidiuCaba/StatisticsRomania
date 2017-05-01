@@ -38,7 +38,7 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'jquery',
                 'zone.js',
-                'chart.js',
+                //'chart.js',
                 'ng2-charts'
             ]
         },
