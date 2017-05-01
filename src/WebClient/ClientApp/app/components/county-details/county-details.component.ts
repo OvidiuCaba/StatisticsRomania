@@ -18,6 +18,12 @@ export class CountyDetailsComponent {
     public value2ColumnCaption: string;
     public comparisonType: number;
     public needToProcessAllYear: boolean;
+    // charts
+    public lineChartData: Array<any>;
+    public lineChartLabels: Array<any>;
+    public lineChartOptions: any;
+    public lineChartLegend: boolean;
+    public lineChartType: string;
 
     constructor(private http: Http) {
 
@@ -36,7 +42,7 @@ export class CountyDetailsComponent {
                 this.county1 = 1;
                 this.county1Text = this.counties1.find(x => x.id == 1).name;
                 this.counties2 = new Array<ICounty>();
-                var defaultCounty2 = new County() ;
+                var defaultCounty2 = new County();
                 defaultCounty2.id = 0;
                 defaultCounty2.name = '-----------------';
                 this.counties2.push(defaultCounty2);
@@ -80,18 +86,56 @@ export class CountyDetailsComponent {
             this.countyDetails = result.json().data;
             this.valueColumnCaption = result.json().valueColumnCaption;
             this.value2ColumnCaption = result.json().value2ColumnCaption;
+
+            this.LoadChart();
         });
     }
 
-    //public lineChartData: Array<any> = [
-    //    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    //    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    //    { data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C' }
-    //];
-    //public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    //public lineChartOptions: any = {
-    //    responsive: true
-    //};
+    LoadChart() {
+        var chartData = JSON.parse(JSON.stringify(this.countyDetails)).sort(this.sortCountyDetails);
+        var lineChartData = [
+            {
+                data: chartData.map(x => x.value),
+                label: this.county1Text
+            }
+        ];
+        if (this.county2 > 0) {
+            lineChartData.push({
+                data: chartData.map(x => x.value2),
+                label: this.county2Text
+            });
+        }
+        else {
+            // workaround: if I don't put this null object here, the second line would never appear on the graph'
+            lineChartData.push({
+                data: {},
+                label: '-------------'
+            });
+        }
+        this.lineChartData = lineChartData;
+        this.lineChartLabels = chartData.map(x => x.year + ' ' + x.yearFraction);
+        this.lineChartOptions = {
+            responsive: true
+        };
+        this.lineChartLegend = true;
+        this.lineChartType = 'line';
+    }
+
+    private sortCountyDetails(n1: any, n2: any): any {
+        if (n1.year > n2.year)
+            return 1;
+        else if (n1.year === n2.year) {
+            if (n1.yearFraction > n2.yearFraction)
+                return 1;
+            else if (n1.yearFraction === n2.yearFraction)
+                return 0;
+            else
+                return -1;
+        } else
+            return -1;
+    }
+
+    // TODO: maybe chose some proper color later; grey is not a proper color; so better go with the default for now
     //public lineChartColors: Array<any> = [
     //    { // grey
     //        backgroundColor: 'rgba(148,159,177,0.2)',
@@ -118,19 +162,6 @@ export class CountyDetailsComponent {
     //        pointHoverBorderColor: 'rgba(148,159,177,0.8)'
     //    }
     //];
-    //public lineChartLegend: boolean = true;
-    //public lineChartType: string = 'line';
-
-    //public randomize(): void {
-    //    let _lineChartData: Array<any> = new Array(this.lineChartData.length);
-    //    for (let i = 0; i < this.lineChartData.length; i++) {
-    //        _lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
-    //        for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-    //            _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-    //        }
-    //    }
-    //    this.lineChartData = _lineChartData;
-    //}
 }
 
 interface ICounty {

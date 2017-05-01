@@ -79,6 +79,27 @@
 
 <p *ngIf="!countyDetails"><em>Loading...</em></p>
 
+<div class="row">
+    <div *ngIf="lineChartData" style="display: block;" class="col-md-8 offset-md-2">
+        <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+    </div>
+</div>
+
+<!--<div *ngIf="lineChartData" style="display: block;">
+    <canvas baseChart width="400" height="400"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [colors]="lineChartColors"
+            [legend]="lineChartLegend"
+            [chartType]="lineChartType"></canvas>
+</div>-->
+
 <table class='table table-sm' *ngIf="countyDetails">
     <thead>
         <tr>
@@ -97,13 +118,3 @@
         </tr>
     </tbody>
 </table>
-
-<!--<div style="display: block;">
-    <canvas baseChart width="400" height="400"
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"></canvas>
-</div>-->
