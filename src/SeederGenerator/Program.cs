@@ -16,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna ian. 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna feb. 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -30,10 +30,10 @@ namespace SeederGenerator
                                       {"Brasov","Brasov.xls"},
                                       {"Braila","Braila.xls"},
                                       {"Buzau","Buzau.xls"},
-                                      {"CarasSeverin","Caras Severin.xls"},
+                                      {"CarasSeverin","Caras-Severin.xls"},
                                       {"Calarasi","Calarasi.xls"},
                                       {"Cluj","Cluj.xls"},
-                                      {"Constanta","Constanta.xlsx"},
+                                      {"Constanta","Constanta.xls"},
                                       {"Covasna","Covasna.xls"},
                                       {"Dambovita","Dambovita.xls"},
                                       {"Dolj","Dolj.xls"},
@@ -164,7 +164,7 @@ namespace SeederGenerator
             var text =
                 sheet.GetRow(chapterRowIndex + rowNumber + 1).Cells.Where(
                     x => x.ColumnIndex >= columnYearStartIndex && x.ColumnIndex < columnYearStartIndex + numberOfMonths).Select(
-                        x => x.NumericCellValue.ToString(CultureInfo.InvariantCulture)).Aggregate((c, n) => c + " " + n);
+                        x => x.CellType == CellType.String ? x.StringCellValue.Trim() : x.NumericCellValue.ToString(CultureInfo.InvariantCulture)).Aggregate((c, n) => c + " " + n);
 
             return "\"" + year.ToString(CultureInfo.InvariantCulture) + " 1 " + county + " " + text + "\",";
         }
