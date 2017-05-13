@@ -39,7 +39,8 @@ module.exports = (env) => {
                 'jquery',
                 'zone.js',
                 //'chart.js',
-                'ng2-charts'
+                'ng2-charts',
+                'ng2-cookies'
             ]
         },
         output: {

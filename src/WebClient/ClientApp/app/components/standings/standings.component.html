@@ -104,14 +104,15 @@
             <th>Pozitie</th>
             <th>Judet</th>
             <th class="text-right">{{unitOfMeasure}}</th>
+            <th class="text-right">Favorit</th>
         </tr>
     </thead>
     <tbody>
-        <!--<tr *ngFor="let item of standing" [style.background-color]="item.county == 'Bihor' ? 'bisque' : 'transparent'">-->
-        <tr *ngFor="let item of standing">
+        <tr *ngFor="let item of standing" [style.background-color]="item.favourite ? 'bisque' : 'transparent'">
             <td>{{ item.position }}</td>
             <td>{{ item.county }}</td>
             <td class="text-right">{{ item.value | number:'1.0-0' }}</td>
+            <td class="text-right"><button class="btn btn-sm btn-primary" (click)="ToggleCounty(item.county)">Schimba</button></td>
         </tr>
     </tbody>
     <tfoot *ngIf="standing && standing.length > 0">
@@ -119,6 +120,7 @@
             <td></td>
             <td class="font-weight-bold">Total</td>
             <td class="text-right font-weight-bold">{{total | number:'1.0-0'}}</td>
+            <td class="text-right"><button class="btn btn-sm btn-primary" (click)="RemoveAllCountiesFromFavourites()">Deselecteaza tot</button></td>
         </tr>
     </tfoot>
 </table>

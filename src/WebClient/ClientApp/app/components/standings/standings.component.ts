@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
+import { Cookie } from 'ng2-cookies';
 
 @Component({
     selector: 'standings',
@@ -9,7 +10,7 @@ import { Http } from '@angular/http';
     }
 })
 export class StandingsComponent {
-    public standing: any;
+    public standing: Array<any>;
     public unitOfMeasure: any;
     public innerWidth: number;
     public largeScreen: boolean;
@@ -21,7 +22,11 @@ export class StandingsComponent {
     public monthsKeys: Array<number>;
     public total: number;
 
+    private favouriteCountiesCookieKey: string;
+
     constructor(private http: Http) {
+
+        this.favouriteCountiesCookieKey = 'favouriteCounties';
 
         this.InitializeMonths();
 
@@ -62,9 +67,31 @@ export class StandingsComponent {
 
         this.http.get('/api/Standings/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
             this.standing = result.json().data;
+            var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);
+            this.standing.forEach(x => x.favourite = selectedCounties.indexOf(x.county) > -1);
             this.unitOfMeasure = result.json().valueColumnCaption;
             this.CalculateTotal();
         });
+    }
+
+    ToggleCounty(county: string) {
+        var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);
+
+        if (selectedCounties.indexOf(county) > -1) {
+            selectedCounties = selectedCounties.replace(county + ' ', '');
+            this.standing.filter(x => x.county == county).forEach(x => x.favourite = false);
+        } else {
+            selectedCounties += county + ' ';
+            this.standing.filter(x => x.county == county).forEach(x => x.favourite = true);
+        }
+
+        Cookie.set(this.favouriteCountiesCookieKey, selectedCounties);
+    }
+
+    RemoveAllCountiesFromFavourites() {
+        Cookie.delete(this.favouriteCountiesCookieKey);
+
+        this.standing.forEach(x => x.favourite = false);
     }
 
     private CalculateTotal() {
