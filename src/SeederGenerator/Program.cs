@@ -16,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna feb. 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna mar. 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -79,7 +79,7 @@ namespace SeederGenerator
                                      };
 
             var year = 2017;
-            var months = new [] { "ian.", "feb.", "mar.", "apr.", "mai", "iun.", "iul.", "aug.", "sep.", "oct.", "nov.", "dec." };
+            var months = new [] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
             var res = new Dictionary<string, string>
                           {
@@ -157,14 +157,16 @@ namespace SeederGenerator
 
             var numberOfMonths =
                 sheet.GetRow(chapterRowIndex + 1).Cells.Count(
-                    x => x.ColumnIndex >= columnYearStartIndex && months.Any(month => x.StringCellValue.Contains(month)));
+                    x => x.ColumnIndex >= columnYearStartIndex && months.Any(month => x.StringCellValue.StartsWith(month)));
 
             Debug.WriteLine("Current county: " + county + "; chapter: " + chapter);
 
-            var text =
-                sheet.GetRow(chapterRowIndex + rowNumber + 1).Cells.Where(
-                    x => x.ColumnIndex >= columnYearStartIndex && x.ColumnIndex < columnYearStartIndex + numberOfMonths).Select(
-                        x => x.CellType == CellType.String ? x.StringCellValue.Trim() : x.NumericCellValue.ToString(CultureInfo.InvariantCulture)).Aggregate((c, n) => c + " " + n);
+            var cellsContainingTheValuesForCurrentYear = sheet.GetRow(chapterRowIndex + rowNumber + 1).Cells.Where(x => x.ColumnIndex >= columnYearStartIndex && x.ColumnIndex < columnYearStartIndex + numberOfMonths);
+
+            if (!cellsContainingTheValuesForCurrentYear.Any())
+                return null;
+
+            var text = cellsContainingTheValuesForCurrentYear.Select(x => x.CellType == CellType.String ? x.StringCellValue.Trim() : x.NumericCellValue.ToString(CultureInfo.InvariantCulture)).Aggregate((c, n) => c + " " + n);
 
             return "\"" + year.ToString(CultureInfo.InvariantCulture) + " 1 " + county + " " + text + "\",";
         }
