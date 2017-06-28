@@ -16,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna mar. 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna apr. 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
