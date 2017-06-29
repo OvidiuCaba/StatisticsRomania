@@ -118,7 +118,7 @@ namespace StatisticsRomania.Repository.Seeders
 "2017 1 Gorj 3320 3480",
 "2017 1 Harghita 25704 29194",
 "2017 1 Hunedoara 48784 57493",
-"2017 1 Ialomita 12580",
+"2017 1 Ialomita 12527 18656",
 "2017 1 Iasi 58150 71450",
 "2017 1 Ilfov 416983 482070",
 "2017 1 Maramures 70084 73357",
