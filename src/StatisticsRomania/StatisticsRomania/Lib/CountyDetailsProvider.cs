@@ -1,17 +1,13 @@
-﻿using System;
+﻿using StatisticsRomania.BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using StatisticsRomania.BusinessObjects;
-using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.Lib
 {
     public static class CountyDetailsProvider
     {
-        public static bool IsWebSite { get; set; }
-
         public static async Task<List<Data>> GetData(int countyId, Type chapter, bool needToProcessAllYear = false)
         {
             if (chapter == typeof(ExportFob))
@@ -62,23 +58,12 @@ namespace StatisticsRomania.Lib
             return null;
         }
 
-        // TODO: extract this in a factory
-        private static IRepository<T> GetMobileRepository<T>() where T : Data, new()
-        {
-            return new Repository<T>(App.AsyncDb);
-        }
-
-        private static IRepository<T> GetWebClientRepository<T>() where T : Data, new()
-        {
-            return new InMemoryRepository<T>();
-        }
-
         // TODO: put the functionality needToProcessAllYear on mobile, too
         private static async Task<List<Data>> GetData<T>(int countyId, bool needToProcessAllYear = false)
             where T : Data, new()
         {
-            var repo = IsWebSite ? GetWebClientRepository<T>() : GetMobileRepository<T>();
-            var query = (await repo.GetAll(x => x.CountyId == countyId));
+            var repository = RepositoryFactory.GetRepository<T>();
+            var query = (await repository.GetAll(x => x.CountyId == countyId));
             if (needToProcessAllYear)
             {
                 query = query.GroupBy(x => x.Year)

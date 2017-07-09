@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StatisticsRomania.BusinessObjects;
+﻿using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Repository;
 using StatisticsRomania.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace StatisticsRomania.Lib
 {
     public static class CountyStandingsProvider
     {
-        public static bool IsWebSite { get; set; }
-
         public static async Task<List<StandingItem>> GetData(Type chapter, int year, int yearFraction)
         {
             if (chapter == typeof(ExportFob))
@@ -64,21 +61,10 @@ namespace StatisticsRomania.Lib
             return null;
         }
 
-        // TODO: extract this in a factory
-        private static IRepository<T> GetMobileRepository<T>() where T : Data, new()
-        {
-            return new Repository<T>(App.AsyncDb);
-        }
-
-        private static IRepository<T> GetWebClientRepository<T>() where T : Data, new()
-        {
-            return new InMemoryRepository<T>();
-        }
-
         private static async Task<List<StandingItem>> GetData<T>(int year, int yearFraction, bool isAscending = false, bool isSum = false)
             where T : Data, new()
         {
-            var repo = IsWebSite ? GetWebClientRepository<T>() : GetMobileRepository<T>();
+            var repository = RepositoryFactory.GetRepository<T>();
 
             Expression<Func<T, bool>> filter = null;
             if (yearFraction == -1)
@@ -86,7 +72,7 @@ namespace StatisticsRomania.Lib
             else
                 filter = x => x.Year == year && x.YearFraction == yearFraction;
 
-            var rawData = await repo.GetAll(filter);
+            var rawData = await repository.GetAll(filter);
 
             if (!rawData.Any())
                 return new List<StandingItem>();
@@ -105,12 +91,12 @@ namespace StatisticsRomania.Lib
 
             var orderedRawData = isAscending ? rawData.OrderBy(x => x.Value) : rawData.OrderByDescending(x => x.Value);
 
-            var data = await ProcessRawData(orderedRawData, repo);
+            var data = await ProcessRawData(orderedRawData, repository);
 
             return data;
         }
 
-        private static async Task<List<StandingItem>> ProcessRawData<T>(IEnumerable<Data> rawData, IRepository<T> repo)
+        private static async Task<List<StandingItem>> ProcessRawData<T>(IEnumerable<Data> rawData, IRepository<T> repository)
             where T : Data, new()
         {
             var data = new List<StandingItem>();
@@ -118,7 +104,7 @@ namespace StatisticsRomania.Lib
 
             foreach (var item in rawData)
             {
-                await repo.GetChild((T) item, x => x.County);
+                await repository.GetChild((T) item, x => x.County);
 
                 var standingItem = new StandingItem() {Position = index++, County = item.County.Name, Value = item.Value};
                 data.Add(standingItem);

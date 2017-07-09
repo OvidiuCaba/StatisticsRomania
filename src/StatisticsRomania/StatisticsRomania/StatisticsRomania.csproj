@@ -38,6 +38,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Lib\CountyStandingsProvider.cs" />
     <Compile Include="Lib\CountyDetailsProvider.cs" />
+    <Compile Include="Lib\RepositoryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CountyDetailsViewModel.cs" />
