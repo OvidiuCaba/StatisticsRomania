@@ -108,11 +108,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of standing" [style.background-color]="item.favourite ? 'bisque' : 'transparent'">
+        <tr *ngFor="let item of standing" [style.background-color]="item.favourite ? 'bisque' : 'transparent'" (click)="ToggleCounty(item.county)">
             <td>{{ item.position }}</td>
             <td>{{ item.county }}</td>
             <td class="text-right">{{ item.value | number:'1.0-0' }}</td>
-            <td class="text-right"><button class="btn btn-sm btn-primary" (click)="ToggleCounty(item.county)">Schimba</button></td>
+            <td class="text-right"><button class="btn btn-sm btn-primary">Schimba</button></td>
         </tr>
     </tbody>
     <tfoot *ngIf="standing && standing.length > 0">
