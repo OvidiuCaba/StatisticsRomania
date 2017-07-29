@@ -65,5 +65,6 @@ namespace WebClient.Controllers
         public float OldValue { get; set; }
         public float NewValue { get; set; }
         public string ValueVariation { get; set; }
+        public bool Favourite { get; set; }
     }
 }

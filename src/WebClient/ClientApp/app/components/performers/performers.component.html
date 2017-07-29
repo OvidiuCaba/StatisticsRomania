@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let performer of indicator.performers">
+            <tr *ngFor="let performer of indicator.performers" [style.background-color]="performer.favourite ? 'bisque' : 'transparent'" (click)="ToggleCounty(performer.county)">
                 <td>{{ performer.position | number:'1.0-0' }}</td>
                 <td>{{ performer.county }}</td>
                 <td class="text-right">{{ performer.oldValue | number:'1.0-0' }}</td>
