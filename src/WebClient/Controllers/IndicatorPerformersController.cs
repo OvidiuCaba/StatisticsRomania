@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using WebClient.Lib;
 
 namespace WebClient.Controllers
 {
@@ -21,15 +22,13 @@ namespace WebClient.Controllers
                 var (lastYearAvailableData, lastMonthAvailableData) = (await CountyDetailsProvider.GetData(1, ChapterList[chapter])).OrderByDescending(x => x.Year).ThenByDescending(x => x.YearFraction).Take(1).Select(x => (x.Year, x.YearFraction)).First();
                 var standingsCurrentYearMonth = await CountyStandingsProvider.GetData(ChapterList[chapter], lastYearAvailableData, lastMonthAvailableData);
                 var standingsLastYearMonth = await CountyStandingsProvider.GetData(ChapterList[chapter], lastYearAvailableData - 1, lastMonthAvailableData);
-                var chapterPerformers = (from currentValue in standingsCurrentYearMonth
-                                         join previousValue in standingsLastYearMonth on currentValue.County equals previousValue.County
-                                         orderby currentValue.Value - previousValue.Value descending
-                                         select new
-                                         {
-                                             County = currentValue.County,
-                                             CurrentValue = currentValue.Value,
-                                             PreviousValue = previousValue.Value
-                                         })
+                var chapterPerformers = standingsCurrentYearMonth.Join(standingsLastYearMonth, x => x.County, x => x.County, (currentValue, previousValue) => new
+                                        {
+                                            County = currentValue.County,
+                                            CurrentValue = currentValue.Value,
+                                            PreviousValue = previousValue.Value
+                                        })
+                                        .OrderByWithDirection(x => x.CurrentValue - x.PreviousValue, chapter == "Forta de munca - numar someri")
                                         .Take(5)
                                         .Select((x, index) => new Performer
                                         {
