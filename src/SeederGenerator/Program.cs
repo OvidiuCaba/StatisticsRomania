@@ -16,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna apr. 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna mai 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -25,12 +25,12 @@ namespace SeederGenerator
                                       {"Arges", "Arges.xls"},
                                       {"Bacau","Bacau.xls"},
                                       {"Bihor","Bihor.xls"},
-                                      {"BistritaNasaud","Bistrita-Nasaud.xls"},
+                                      {"BistritaNasaud","Bistrita Nasaud.xls"},
                                       {"Botosani","Botosani.xls"},
-                                      {"Brasov","Brasov.xls"},
+                                      {"Brasov","Brasov.xlsx"},
                                       {"Braila","Braila.xls"},
                                       {"Buzau","Buzau.xls"},
-                                      {"CarasSeverin","Caras-Severin.xls"},
+                                      {"CarasSeverin","Caras Severin.xls"},
                                       {"Calarasi","Calarasi.xls"},
                                       {"Cluj","Cluj.xls"},
                                       {"Constanta","Constanta.xls"},
@@ -138,6 +138,9 @@ namespace SeederGenerator
 
                 if (cell == null)
                     continue;
+
+                if (cell.CellType != CellType.String)
+                    continue;   // we're looking for chapter, so we don't care about the cell if it's not string
 
                 if (!cell.StringCellValue.ToLower().Contains(chapter.ToLower()))
                     continue;
