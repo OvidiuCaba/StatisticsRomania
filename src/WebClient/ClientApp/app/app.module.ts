@@ -7,6 +7,7 @@ import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { AboutComponent } from './components/about/about.component';
 import { CountyDetailsComponent } from './components/county-details/county-details.component';
+import { PerformersComponent } from './components/performers/performers.component';
 import { StandingsComponent } from './components/standings/standings.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { ChartsModule } from 'ng2-charts';
@@ -19,17 +20,19 @@ import 'chart.js';
         NavMenuComponent,
         CounterComponent,
         CountyDetailsComponent,
+        PerformersComponent,
         StandingsComponent,
         AboutComponent
     ],
     imports: [
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
         RouterModule.forRoot([
-            { path: '', redirectTo: 'statistici-judetene', pathMatch: 'full' },
+            { path: '', redirectTo: 'performerii-lunii', pathMatch: 'full' },
             { path: 'despre-noi', component: AboutComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'statistici-judetene', component: CountyDetailsComponent },
             { path: 'clasamente', component: StandingsComponent },
+            { path: 'performerii-lunii', component: PerformersComponent },
             { path: '**', redirectTo: 'statistici-judetene' }
         ]),
         FormsModule,

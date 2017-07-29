@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StatisticsRomania.Lib;
+using System.Globalization;
 
 namespace WebClient
 {
@@ -20,6 +21,7 @@ namespace WebClient
             Configuration = builder.Build();
 
             RepositoryFactory.IsWebSite = true;
+            CultureInfo.CurrentCulture = new CultureInfo("ro-RO"); ;
         }
 
         public IConfigurationRoot Configuration { get; }

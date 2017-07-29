@@ -44,5 +44,7 @@ namespace WebClient.Controllers
                 { InnoptariInStructurileDePrimireTuristica, "Innoptari" },
                 { SosiriInStructurileDePrimireTuristica, "Persoane" },
             };
+
+        protected List<string> IgnoredChapters => new List<string> { Importuri, Sold, CastigulSalarialMediuBrut };
     }
 }

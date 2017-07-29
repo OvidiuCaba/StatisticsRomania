@@ -1,0 +1,31 @@
+﻿<h1>Performerii lunii</h1>
+<br />
+<br />
+<div *ngFor="let indicator of indicators">
+    <h3>{{indicator.name}}</h3>
+    <h5>{{indicator.comparisonPeriod}}</h5>
+    <br />
+    <table class='table table-sm'>
+        <thead>
+            <tr>
+                <th>Pozitie</th>
+                <th>Judet</th>
+                <th class="text-right">Valoare veche</th>
+                <th class="text-right">Valoare noua</th>
+                <th class="text-right">Variatie</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let performer of indicator.performers">
+                <td>{{ performer.position | number:'1.0-0' }}</td>
+                <td>{{ performer.county }}</td>
+                <td class="text-right">{{ performer.oldValue | number:'1.0-0' }}</td>
+                <td class="text-right">{{ performer.newValue | number:'1.0-0' }}</td>
+                <td class="text-right">{{ performer.valueVariation }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+    <br />
+    <br />
+</div>
