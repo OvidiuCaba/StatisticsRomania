@@ -1,6 +1,23 @@
 ﻿<h1>Performerii lunii</h1>
 <br />
 <br />
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-2">
+            <label>Analiza:</label>
+        </div>
+        <div [(ngModel)]="comparisonType" ngbRadioGroup name="radioBasic" class="col-md-10">
+            <label class="btn btn-primary">
+                <input type="radio" [value]="1" (click)="ChangeComparisonType(1)"> Lunara
+            </label>
+            <label class="btn btn-primary">
+                <input type="radio" [value]="2" (click)="ChangeComparisonType(2)"> Anuala
+            </label>
+        </div>
+    </div>
+</div>
+
 <div *ngFor="let indicator of indicators">
     <h3>{{indicator.name}}</h3>
     <h5>{{indicator.comparisonPeriod}}</h5>
