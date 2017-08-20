@@ -76,8 +76,7 @@ namespace StatisticsRomania.Lib
                     })
                     .ToList();
             }
-            var data = query
-                .Cast<Data>().ToList();
+            var data = query.Cast<Data>().ToList();
             return data;
         }
     }
