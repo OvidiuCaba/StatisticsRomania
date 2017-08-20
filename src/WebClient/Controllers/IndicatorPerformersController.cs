@@ -11,6 +11,7 @@ namespace WebClient.Controllers
     [Route("api/[controller]")]
     public class IndicatorPerformersController : BaseController
     {
+        // TODO: remove the duplicate code from the methods
         [HttpGet("[action]")]
         public async Task<object> GetIndicatorPerformers()
         {
