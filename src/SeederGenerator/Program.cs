@@ -16,7 +16,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna mai 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna iun. 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -25,12 +25,12 @@ namespace SeederGenerator
                                       {"Arges", "Arges.xls"},
                                       {"Bacau","Bacau.xls"},
                                       {"Bihor","Bihor.xls"},
-                                      {"BistritaNasaud","Bistrita Nasaud.xls"},
+                                      {"BistritaNasaud","Bistrita-Nasaud.xls"},
                                       {"Botosani","Botosani.xls"},
-                                      {"Brasov","Brasov.xlsx"},
+                                      {"Brasov","Brasov.xls"},
                                       {"Braila","Braila.xls"},
                                       {"Buzau","Buzau.xls"},
-                                      {"CarasSeverin","Caras Severin.xls"},
+                                      {"CarasSeverin","Caras-Severin.xls"},
                                       {"Calarasi","Calarasi.xls"},
                                       {"Cluj","Cluj.xls"},
                                       {"Constanta","Constanta.xls"},
@@ -51,7 +51,7 @@ namespace SeederGenerator
                                       {"Neamt","Neamt.xls"},
                                       {"Olt","Olt.xls"},
                                       {"Prahova","Prahova.xls"},
-                                      {"SatuMare","Satu Mare.xls"},
+                                      {"SatuMare","Satu-Mare.xls"},
                                       {"Salaj","Salaj.xls"},
                                       {"Sibiu","Sibiu.xls"},
                                       {"Suceava","Suceava.xls"},
@@ -118,6 +118,9 @@ namespace SeederGenerator
             var chapterRowIndex = -1;
 
             IWorkbook excelFile;
+
+            if (!File.Exists(file))
+                file = file.Replace("-", " ");
 
             using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
