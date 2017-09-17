@@ -14,7 +14,7 @@ namespace StatisticsRomania.Repository.Seeders
                                    new County {Id = 3, Name = "Arges"},
                                    new County {Id = 4, Name = "Bacau"},
                                    new County {Id = 5, Name = "Bihor"},
-                                   new County {Id = 6, Name = "Bistrita Nasaud"},
+                                   new County {Id = 6, Name = "Bistrita-Nasaud"},
                                    new County {Id = 7, Name = "Botosani"},
                                    new County {Id = 8, Name = "Brasov"},
                                    new County {Id = 9, Name = "Braila"},
