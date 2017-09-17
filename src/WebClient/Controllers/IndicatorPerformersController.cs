@@ -40,7 +40,7 @@ namespace WebClient.Controllers
             return (await CountyDetailsProvider.GetData(1, ChapterList[chapter])).OrderByDescending(x => x.Year).ThenByDescending(x => x.YearFraction).Take(1).Select(x => (x.Year, x.YearFraction)).First();
         }
 
-        private static IEnumerable<Performer> GetPerformers(string chapter, List<StatisticsRomania.BusinessObjects.Data> currentYearData, List<StatisticsRomania.BusinessObjects.Data> previousYearData)
+        private static IEnumerable<Performer> GetPerformers(string chapter, List<Data> currentYearData, List<Data> previousYearData)
         {
             return currentYearData.Join(previousYearData, x => x.CountyId, x => x.CountyId, (currentValue, previousValue) => new
                                                     {
