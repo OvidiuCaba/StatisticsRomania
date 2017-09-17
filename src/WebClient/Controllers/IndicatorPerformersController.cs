@@ -25,6 +25,31 @@ namespace WebClient.Controllers
             return GetData(true, favouriteCounties);
         }
 
+        private async Task<object> GetData(bool get12Months, string favouriteCounties)
+        {
+            var favouriteCountiesIds = favouriteCounties == null ? new List<int>() : favouriteCounties.Split(' ').Select(x => CountryIds.Counties[x.Replace("-", string.Empty)]);
+            var months = GetMonths();
+            var performers = new List<IndicatorPerformers>();
+            var chapters = GetChapters();
+            foreach (var chapter in chapters)
+            {
+                var (lastYearAvailableData, lastMonthAvailableData) = await GetLastMonthAndLastYear(chapter);
+                Func<int, int, Type, Task<List<Data>>> getData = get12Months ? (Func<int, int, Type, Task<List<Data>>>)IndicatorPerformersProvider.GetLast12MonthsData : IndicatorPerformersProvider.GetData;
+                var currentYearData = await getData(lastYearAvailableData, lastMonthAvailableData, ChapterList[chapter]);
+                var previousYearData = await getData(lastYearAvailableData - 1, lastMonthAvailableData, ChapterList[chapter]);
+                var chapterPerformers = GetPerformers(chapter, currentYearData, previousYearData, favouriteCountiesIds);
+                var performer = new IndicatorPerformers
+                {
+                    Name = chapter,
+                    ComparisonPeriod = $"({ months[lastMonthAvailableData - 1] } { lastYearAvailableData } vs. { lastYearAvailableData - 1})",
+                    Performers = chapterPerformers
+                };
+                performers.Add(performer);
+            }
+
+            return performers;
+        }
+
         private static List<string> GetMonths()
         {
             return new List<string> { "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie" };
@@ -59,31 +84,6 @@ namespace WebClient.Controllers
                                                         NewValue = x.Performer.CurrentValue,
                                                         ValueVariation = $"{(x.Performer.CurrentValue - x.Performer.PreviousValue).ToString("##,#", CultureInfo.CurrentCulture)} ({(x.Performer.CurrentValue - x.Performer.PreviousValue) * 100.0 / x.Performer.PreviousValue:F2}%)"
                                                     });
-        }
-
-        private async Task<object> GetData(bool get12Months, string favouriteCounties)
-        {
-            var favouriteCountiesIds = favouriteCounties == null ? new List<int>() : favouriteCounties.Split(' ').Select(x => CountryIds.Counties[x.Replace("-", string.Empty)]);
-            var months = GetMonths();
-            var performers = new List<IndicatorPerformers>();
-            var chapters = GetChapters();
-            foreach (var chapter in chapters)
-            {
-                var (lastYearAvailableData, lastMonthAvailableData) = await GetLastMonthAndLastYear(chapter);
-                Func<int, int, Type, Task<List<Data>>> getData = get12Months ? (Func<int, int, Type, Task<List<Data>>>)IndicatorPerformersProvider.GetLast12MonthsData : IndicatorPerformersProvider.GetData;
-                var currentYearData = await getData(lastYearAvailableData, lastMonthAvailableData, ChapterList[chapter]);
-                var previousYearData = await getData(lastYearAvailableData - 1, lastMonthAvailableData, ChapterList[chapter]);
-                var chapterPerformers = GetPerformers(chapter, currentYearData, previousYearData, favouriteCountiesIds);
-                var performer = new IndicatorPerformers
-                {
-                    Name = chapter,
-                    ComparisonPeriod = $"({ months[lastMonthAvailableData - 1] } { lastYearAvailableData } vs. { lastYearAvailableData - 1})",
-                    Performers = chapterPerformers
-                };
-                performers.Add(performer);
-            }
-
-            return performers;
         }
     }
 
