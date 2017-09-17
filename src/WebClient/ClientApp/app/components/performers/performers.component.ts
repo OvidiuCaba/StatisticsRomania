@@ -47,6 +47,8 @@ export class PerformersComponent {
         this.indicators.forEach(indicator => indicator.performers.forEach(performer => performer.favourite = selectedCounties.indexOf(performer.county) > -1));
 
         Cookie.set(this.favouriteCountiesCookieKey, selectedCounties);
+
+        this.LoadData();
     }
 }
 
