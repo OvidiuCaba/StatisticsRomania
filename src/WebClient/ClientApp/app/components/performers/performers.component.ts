@@ -21,7 +21,7 @@ export class PerformersComponent {
     }
 
     LoadData() {
-        this.http.get('/api/IndicatorPerformers/GetIndicatorPerformers' + (this.comparisonType == 2 ? 'ByYear' : ''))
+        this.http.get('/api/IndicatorPerformers/GetIndicatorPerformers' + (this.comparisonType == 2 ? 'ByYear' : '') + '?favouriteCounties=' + Cookie.get(this.favouriteCountiesCookieKey))
             .subscribe(result => {
                 this.indicators = result.json();
                 var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);

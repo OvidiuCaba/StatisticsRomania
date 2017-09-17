@@ -14,15 +14,15 @@ namespace WebClient.Controllers
     public class IndicatorPerformersController : BaseController
     {
         [HttpGet("[action]")]
-        public Task<object> GetIndicatorPerformers()
+        public Task<object> GetIndicatorPerformers(string favouriteCounties)
         {
-            return GetData(false);
+            return GetData(false, favouriteCounties);
         }
 
         [HttpGet("[action]")]
-        public Task<object> GetIndicatorPerformersByYear()
+        public Task<object> GetIndicatorPerformersByYear(string favouriteCounties)
         {
-            return GetData(true);
+            return GetData(true, favouriteCounties);
         }
 
         private static List<string> GetMonths()
@@ -40,28 +40,30 @@ namespace WebClient.Controllers
             return (await CountyDetailsProvider.GetData(1, ChapterList[chapter])).OrderByDescending(x => x.Year).ThenByDescending(x => x.YearFraction).Take(1).Select(x => (x.Year, x.YearFraction)).First();
         }
 
-        private static IEnumerable<Performer> GetPerformers(string chapter, List<Data> currentYearData, List<Data> previousYearData)
+        private static IEnumerable<Performer> GetPerformers(string chapter, List<Data> currentYearData, List<Data> previousYearData, IEnumerable<int> favouriteCountiesIds)
         {
             return currentYearData.Join(previousYearData, x => x.CountyId, x => x.CountyId, (currentValue, previousValue) => new
                                                     {
-                                                        County = currentValue.County.Name,
+                                                        County = currentValue.County,
                                                         CurrentValue = currentValue.Value,
                                                         PreviousValue = previousValue.Value
                                                     })
                                                     .OrderByWithDirection(x => x.CurrentValue - x.PreviousValue, chapter == "Forta de munca - numar someri")
-                                                    .Take(5)
-                                                    .Select((x, index) => new Performer
+                                                    .Select((x, index) => new { Position = index + 1, Performer = x })
+                                                    .Where(x => favouriteCountiesIds.Contains(x.Performer.County.Id) || x.Position <= 5)
+                                                    .Select(x => new Performer
                                                     {
-                                                        Position = index + 1,
-                                                        County = x.County,
-                                                        OldValue = x.PreviousValue,
-                                                        NewValue = x.CurrentValue,
-                                                        ValueVariation = $"{(x.CurrentValue - x.PreviousValue).ToString("##,#", CultureInfo.CurrentCulture)} ({(x.CurrentValue - x.PreviousValue) * 100.0 / x.PreviousValue:F2}%)"
+                                                        Position = x.Position,
+                                                        County = x.Performer.County.Name,
+                                                        OldValue = x.Performer.PreviousValue,
+                                                        NewValue = x.Performer.CurrentValue,
+                                                        ValueVariation = $"{(x.Performer.CurrentValue - x.Performer.PreviousValue).ToString("##,#", CultureInfo.CurrentCulture)} ({(x.Performer.CurrentValue - x.Performer.PreviousValue) * 100.0 / x.Performer.PreviousValue:F2}%)"
                                                     });
         }
 
-        private async Task<object> GetData(bool get12Months)
+        private async Task<object> GetData(bool get12Months, string favouriteCounties)
         {
+            var favouriteCountiesIds = favouriteCounties == null ? new List<int>() : favouriteCounties.Split(' ').Select(x => CountryIds.Counties[x.Replace("-", string.Empty)]);
             var months = GetMonths();
             var performers = new List<IndicatorPerformers>();
             var chapters = GetChapters();
@@ -71,7 +73,7 @@ namespace WebClient.Controllers
                 Func<int, int, Type, Task<List<Data>>> getData = get12Months ? (Func<int, int, Type, Task<List<Data>>>)IndicatorPerformersProvider.GetLast12MonthsData : IndicatorPerformersProvider.GetData;
                 var currentYearData = await getData(lastYearAvailableData, lastMonthAvailableData, ChapterList[chapter]);
                 var previousYearData = await getData(lastYearAvailableData - 1, lastMonthAvailableData, ChapterList[chapter]);
-                var chapterPerformers = GetPerformers(chapter, currentYearData, previousYearData);
+                var chapterPerformers = GetPerformers(chapter, currentYearData, previousYearData, favouriteCountiesIds);
                 var performer = new IndicatorPerformers
                 {
                     Name = chapter,
