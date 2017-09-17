@@ -13,7 +13,7 @@ http://www.insse.ro/cms/ro/content/buletine-statistice
 
 Tehnologii utilizate:
 
-Xamarin, .NET 4.5, C# 6
+Xamarin, .NET 4.5, C# 7
 
 Aplicatia poata fi descarcata accesand linkul urmator:
 
