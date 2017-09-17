@@ -58,11 +58,63 @@ namespace StatisticsRomania.Lib
             return null;
         }
 
-        private static async Task<List<Data>> GetData<T>(int year, int yearFraction, bool isSum = false)
+        public static async Task<List<Data>> GetData(int year, int yearFraction, Type chapter)
+        {
+            if (chapter == typeof(ExportFob))
+            {
+                return await GetData<ExportFob>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(ImportCif))
+            {
+                return await GetData<ImportCif>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(SoldFobCif))
+            {
+                return await GetData<SoldFobCif>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(AverageGrossSalary))
+            {
+                return await GetData<AverageGrossSalary>(year, yearFraction, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(AverageNetSalary))
+            {
+                return await GetData<AverageNetSalary>(year, yearFraction, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(NumberOfTourists))
+            {
+                return await GetData<NumberOfTourists>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(NumberOfNights))
+            {
+                return await GetData<NumberOfNights>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(NumberOfEmployees))
+            {
+                return await GetData<NumberOfEmployees>(year, yearFraction, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(Unemployed))
+            {
+                return await GetData<Unemployed>(year, yearFraction, needSingleMonth: true);
+            }
+
+            return null;
+        }
+
+        private static async Task<List<Data>> GetData<T>(int year, int yearFraction, bool isSum = false, bool needSingleMonth = false)
             where T : Data, new()
         {
             var repository = RepositoryFactory.GetRepository<T>();
-            var query = (await repository.GetAll(x => (x.Year == year && x.YearFraction <= yearFraction) || (x.Year == year - 1 && x.YearFraction > yearFraction)));
+            var query = needSingleMonth ?
+                (await repository.GetAll(x => x.Year == year && x.YearFraction == yearFraction)):
+                (await repository.GetAll(x => (x.Year == year && x.YearFraction <= yearFraction) || (x.Year == year - 1 && x.YearFraction > yearFraction)));
             var data = query.Cast<Data>().ToList();
 
             foreach (var item in data)
