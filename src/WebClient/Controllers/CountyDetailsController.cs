@@ -31,7 +31,7 @@ namespace WebClient.Controllers
                                            {"Arges", "AG"},
                                            {"Bacau", "BC"},
                                            {"Bihor", "BH"},
-                                           {"Bistrita Nasaud", "BN"},
+                                           {"Bistrita-Nasaud", "BN"},
                                            {"Botosani", "BT"},
                                            {"Brasov", "BV"},
                                            {"Braila", "BR"},
