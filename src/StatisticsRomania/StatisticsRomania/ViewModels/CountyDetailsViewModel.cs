@@ -53,7 +53,7 @@ namespace StatisticsRomania.ViewModels
                                            {"Arges", "AG"},
                                            {"Bacau", "BC"},
                                            {"Bihor", "BH"},
-                                           {"Bistrita Nasaud", "BN"},
+                                           {"Bistrita-Nasaud", "BN"},
                                            {"Botosani", "BT"},
                                            {"Brasov", "BV"},
                                            {"Braila", "BR"},
