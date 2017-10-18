@@ -7,18 +7,18 @@
         <div class="col-md-1">
             <label>An:</label>
         </div>
-        <div [(ngModel)]="year" ngbRadioGroup name="radioBasic" class="col-md-11">
-            <label class="btn btn-primary">
-                <input type="radio" [value]="2014" (click)="LoadData(2014)"> 2014
+        <div [(ngModel)]="year" ngbRadioGroup name="radioBasic" class="btn-group col-md-11">
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="2014" (click)="LoadData(2014)"> 2014
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" [value]="2015" (click)="LoadData(2015)"> 2015
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="2015" (click)="LoadData(2015)"> 2015
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" [value]="2016" (click)="LoadData(2016)"> 2016
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="2016" (click)="LoadData(2016)"> 2016
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" [value]="2017" (click)="LoadData(2017)"> 2017
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="2017" (click)="LoadData(2017)"> 2017
             </label>
         </div>
     </div>
@@ -30,18 +30,16 @@
             <label>Luna:</label>
         </div>
         <div class="col-md-11">
-            <div *ngIf="largeScreen" [(ngModel)]="month" ngbRadioGroup name="radioBasic2">
-                <label *ngFor="let monthKey of monthsKeys" class="btn btn-primary"><input type="radio" (click)="ChangeMonth(monthKey)" [value]="monthKey">{{months[monthKey]}}</label>
+            <div *ngIf="largeScreen" class="btn-group" [(ngModel)]="month" ngbRadioGroup name="radioBasic2">
+                <label *ngFor="let monthKey of monthsKeys" ngbButtonLabel class="btn-primary"><input ngbButton type="radio" (click)="ChangeMonth(monthKey)" [value]="monthKey">{{months[monthKey]}}</label>
             </div>
             <div *ngIf="!largeScreen" ngbDropdown class="d-inline-block">
-                <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
-                    {{monthText}}
-                    <span class="caret"></span>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>{{monthText}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
                     <button *ngFor="let monthKey of monthsKeys" class="dropdown-item {{month == monthKey ? 'active' : ''}}" (click)="ChangeMonth(monthKey)">{{months[monthKey]}}</button>
                 </div>
             </div>
+            <!--<months [month]="month" (onChangeMonth)="ChangeMonth($event)"></months>-->
         </div>
     </div>
 </div>
@@ -80,7 +78,7 @@
                     {{indicator}}
                     <span class="caret"></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
                     <button class="dropdown-item {{indicator == 'Comert international - exporturi FOB' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - exporturi FOB')">Comert international - exporturi FOB</button>
                     <button class="dropdown-item {{indicator == 'Comert international - importuri CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - importuri CIF')">Comert international - importuri CIF</button>
                     <button class="dropdown-item {{indicator == 'Comert international - sold FOB/CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - sold FOB/CIF')">Comert international - sold FOB/CIF</button>

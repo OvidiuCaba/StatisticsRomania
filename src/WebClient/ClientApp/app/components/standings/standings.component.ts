@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { Cookie } from 'ng2-cookies';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'standings',
@@ -18,13 +18,13 @@ export class StandingsComponent {
     public month: number;
     public monthText: string;
     public indicator: string;
-    public months: Map<number, string>;
+    public months: { [index: number]: string } = {};
     public monthsKeys: Array<number>;
-    public total: number;
+    public total?: number;
 
     private favouriteCountiesCookieKey: string;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private cookieService: CookieService) {
 
         this.favouriteCountiesCookieKey = 'favouriteCounties';
 
@@ -35,7 +35,7 @@ export class StandingsComponent {
         this.year = 2017;
         var selectedYearFraction = -1;
         this.month = selectedYearFraction;
-        this.monthText = this.months[selectedYearFraction];
+        this.monthText = (<any>this.months)[selectedYearFraction];
         this.innerWidth = window.innerWidth;
         this.largeScreen = this.innerWidth > 1400;
 
@@ -61,13 +61,12 @@ export class StandingsComponent {
     }
 
     LoadData(year?: number) {
-
         if (year)
             this.year = year;
 
         this.http.get('/api/Standings/GetStandings?chapter=' + this.indicator + '&year=' + this.year + '&yearFraction=' + this.month).subscribe(result => {
             this.standing = result.json().data;
-            var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);
+            var selectedCounties = this.cookieService.get(this.favouriteCountiesCookieKey);
             this.standing.forEach(x => x.favourite = selectedCounties.indexOf(x.county) > -1);
             this.unitOfMeasure = result.json().valueColumnCaption;
             this.CalculateTotal();
@@ -75,7 +74,7 @@ export class StandingsComponent {
     }
 
     ToggleCounty(county: string) {
-        var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);
+        var selectedCounties = this.cookieService.get(this.favouriteCountiesCookieKey);
 
         if (selectedCounties.indexOf(county) > -1) {
             selectedCounties = selectedCounties.replace(county + ' ', '');
@@ -85,11 +84,11 @@ export class StandingsComponent {
             this.standing.filter(x => x.county == county).forEach(x => x.favourite = true);
         }
 
-        Cookie.set(this.favouriteCountiesCookieKey, selectedCounties);
+        this.cookieService.set(this.favouriteCountiesCookieKey, selectedCounties);
     }
 
     RemoveAllCountiesFromFavourites() {
-        Cookie.delete(this.favouriteCountiesCookieKey);
+        this.cookieService.delete(this.favouriteCountiesCookieKey);
 
         this.standing.forEach(x => x.favourite = false);
     }
@@ -97,7 +96,7 @@ export class StandingsComponent {
     private CalculateTotal() {
         if (this.standing === null || this.standing.length == 0)
         {
-            this.total = null;
+            this.total = undefined;
             return;
         }
         var total = this.standing.map(x => x.value).reduce((sum, current) => sum + current);
@@ -107,8 +106,6 @@ export class StandingsComponent {
 
     private InitializeMonths()
     {
-        this.months = new Map<number, string>();
-
         this.months[-1] = "Tot anul";
         this.months[1] = "Ianuarie";
         this.months[2] = "Februarie";

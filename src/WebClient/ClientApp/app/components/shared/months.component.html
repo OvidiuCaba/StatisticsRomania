@@ -1,0 +1,9 @@
+﻿<div *ngIf="largeScreen" class="btn-group" [(ngModel)]="month" ngbRadioGroup name="radioBasic2">
+    <label *ngFor="let monthKey of monthsKeys" ngbButtonLabel class="btn-primary"><input ngbButton type="radio" (click)="ChangeMonth(monthKey)" [value]="monthKey">{{months[monthKey]}}</label>
+</div>
+<div *ngIf="!largeScreen" ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>{{monthText}}</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+        <button *ngFor="let monthKey of monthsKeys" class="dropdown-item {{month == monthKey ? 'active' : ''}}" (click)="ChangeMonth(monthKey)">{{months[monthKey]}}</button>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
-import { Cookie } from 'ng2-cookies';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
     selector: 'performers',
@@ -12,7 +12,7 @@ export class PerformersComponent {
 
     private favouriteCountiesCookieKey: string;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private cookieService: CookieService) {
         this.favouriteCountiesCookieKey = 'favouriteCounties';
 
         this.comparisonType = 2;
@@ -21,10 +21,10 @@ export class PerformersComponent {
     }
 
     LoadData() {
-        this.http.get('/api/IndicatorPerformers/GetIndicatorPerformers' + (this.comparisonType == 2 ? 'ByYear' : '') + '?favouriteCounties=' + Cookie.get(this.favouriteCountiesCookieKey))
+        this.http.get('/api/IndicatorPerformers/GetIndicatorPerformers' + (this.comparisonType == 2 ? 'ByYear' : '') + '?favouriteCounties=' + this.cookieService.get(this.favouriteCountiesCookieKey))
             .subscribe(result => {
                 this.indicators = result.json();
-                var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);
+                var selectedCounties = this.cookieService.get(this.favouriteCountiesCookieKey);
                 this.indicators.forEach(indicator => indicator.performers.forEach(performer => performer.favourite = selectedCounties.indexOf(performer.county) > -1));
             });
     }
@@ -36,7 +36,7 @@ export class PerformersComponent {
     }
 
     ToggleCounty(county: string) {
-        var selectedCounties = Cookie.get(this.favouriteCountiesCookieKey);
+        var selectedCounties = this.cookieService.get(this.favouriteCountiesCookieKey);
 
         if (selectedCounties.indexOf(county) > -1) {
             selectedCounties = selectedCounties.replace(county + ' ', '');
@@ -46,7 +46,7 @@ export class PerformersComponent {
 
         this.indicators.forEach(indicator => indicator.performers.forEach(performer => performer.favourite = selectedCounties.indexOf(performer.county) > -1));
 
-        Cookie.set(this.favouriteCountiesCookieKey, selectedCounties);
+        this.cookieService.set(this.favouriteCountiesCookieKey, selectedCounties);
 
         this.LoadData();
     }

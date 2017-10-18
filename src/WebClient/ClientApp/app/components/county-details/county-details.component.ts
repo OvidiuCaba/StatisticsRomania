@@ -42,7 +42,7 @@ export class CountyDetailsComponent {
             .subscribe(result => {
                 this.counties1 = result.json();
                 this.county1 = 1;
-                this.county1Text = this.counties1.find(x => x.id == 1).name;
+                this.county1Text = this.counties1.find(x => x.id == 1)!.name;
                 this.counties2 = new Array<ICounty>();
                 var defaultCounty2 = new County();
                 defaultCounty2.id = 0;
@@ -50,7 +50,7 @@ export class CountyDetailsComponent {
                 this.counties2.push(defaultCounty2);
                 this.counties1.forEach(x => this.counties2.push(x));
                 this.county2 = 0;
-                this.county2Text = this.counties2.find(x => x.id == 0).name;
+                this.county2Text = this.counties2.find(x => x.id == 0)!.name;
 
                 this.LoadData();
             });
@@ -97,13 +97,13 @@ export class CountyDetailsComponent {
         var chartData = JSON.parse(JSON.stringify(this.countyDetails)).sort(this.sortCountyDetails);
         var lineChartData = [
             {
-                data: chartData.map(x => x.value),
+                data: chartData.map((x: any) => x.value),
                 label: this.county1Text
             }
         ];
         if (this.county2 > 0) {
             lineChartData.push({
-                data: chartData.map(x => x.value2),
+                data: chartData.map((x: any) => x.value2),
                 label: this.county2Text
             });
         }
@@ -116,7 +116,7 @@ export class CountyDetailsComponent {
         }
         this.lineChartData = lineChartData;
         // TODO: determine years dynamically
-        this.lineChartLabels = this.needToProcessAllYear ? ['2015', '2016'] : chartData.map(x => x.year + ' ' + x.yearFraction);
+        this.lineChartLabels = this.needToProcessAllYear ? ['2015', '2016'] : chartData.map((x: any) => x.year + ' ' + x.yearFraction);
         this.lineChartOptions = {
             responsive: true
         };

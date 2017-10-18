@@ -1,30 +1,34 @@
-<nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-primary">
-    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
+<header class="navbar navbar-dark navbar-fixed-top navbar-expand-lg bg-primary">
+
+    <a class="navbar-brand" [routerLink]="['/']" (click)="isNavbarCollapsed = true">Statistici Romania</a>
+
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+            [attr.aria-expanded]="!isNavbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/performerii-lunii">Statistici Romania</a>
 
-    <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="exCollapsingNavbar2">
+    <div class="navbar-collapse" [ngbCollapse]="isNavbarCollapsed" id="navbarContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-                <a class="nav-link" [routerLink]="['/performerii-lunii']">Performerii lunii</a>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/performerii-lunii']" (click)="isNavbarCollapsed = true">Performerii lunii</a>
             </li>
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-                <a class="nav-link" [routerLink]="['/statistici-judetene']">Statistici judetene</a>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/statistici-judetene']" (click)="isNavbarCollapsed = true">Statistici judetene</a>
             </li>
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-                <a class="nav-link" [routerLink]="['/clasamente']">Clasamente</a>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/clasamente']" (click)="isNavbarCollapsed = true">Clasamente</a>
             </li>
-            <li class="nav-item" [routerLinkActive]="['link-active']">
-                <a class="nav-link" [routerLink]="['/despre-noi']">Despre noi</a>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/despre-noi']" (click)="isNavbarCollapsed = true">Despre noi</a>
             </li>
         </ul>
-        <!--<form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>-->
-        <a href='https://play.google.com/store/apps/details?id=com.statisticiromania.app&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank"><img alt='acum pe Google Play' src='../../../../wwwroot/google-play-badge.png' height="40" /></a>
+
+        <span class="github-buttons d-none d-lg-inline">
+            <a href='https://play.google.com/store/apps/details?id=com.statisticiromania.app&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' target="_blank">
+                <img alt='acum pe Google Play' src='../../../../wwwroot/google-play-badge.png' height="40" />
+            </a>
+        </span>
     </div>
-</nav>
+</header>
 
 <!--Source: https://github.com/ng-bootstrap/ng-bootstrap/issues/738 -->

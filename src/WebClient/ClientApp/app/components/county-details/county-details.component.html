@@ -10,9 +10,8 @@
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
                     {{county1Text}}
-                    <span class="caret"></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
                     <button *ngFor="let county of counties1" class="dropdown-item {{county1 == county.id ? 'active' : ''}}" (click)="ChangeCounty1(county)">{{county.name}}</button>
                 </div>
             </div>
@@ -24,9 +23,8 @@
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownMenu2" ngbDropdownToggle>
                     {{county2Text}}
-                    <span class="caret"></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu2">
                     <button *ngFor="let county of counties2" class="dropdown-item {{county2 == county.id ? 'active' : ''}}" (click)="ChangeCounty2(county)">{{county.name}}</button>
                 </div>
             </div>
@@ -43,9 +41,8 @@
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>
                     {{indicator}}
-                    <span class="caret"></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
                     <button class="dropdown-item {{indicator == 'Comert international - exporturi FOB' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - exporturi FOB')">Comert international - exporturi FOB</button>
                     <button class="dropdown-item {{indicator == 'Comert international - importuri CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - importuri CIF')">Comert international - importuri CIF</button>
                     <button class="dropdown-item {{indicator == 'Comert international - sold FOB/CIF' ? 'active' : ''}}" (click)="ChangeIndicator('Comert international - sold FOB/CIF')">Comert international - sold FOB/CIF</button>
@@ -66,12 +63,12 @@
         <div class="col-md-2">
             <label>Comparatie:</label>
         </div>
-        <div [(ngModel)]="comparisonType" ngbRadioGroup name="radioBasic" class="col-md-10">
-            <label class="btn btn-primary">
-                <input type="radio" [value]="1" (click)="ChangeComparisonType(1)"> Lunara
+        <div [(ngModel)]="comparisonType" ngbRadioGroup name="radioBasic" class="btn-group col-md-10">
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="1" (click)="ChangeComparisonType(1)"> Lunara
             </label>
-            <label class="btn btn-primary">
-                <input type="radio" [value]="2" (click)="ChangeComparisonType(2)"> Anuala
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="2" (click)="ChangeComparisonType(2)"> Anuala
             </label>
         </div>
     </div>
@@ -80,7 +77,7 @@
 <p *ngIf="!countyDetails"><em>Loading...</em></p>
 
 <div class="row">
-    <div *ngIf="lineChartData" style="display: block;" class="col-md-8 offset-md-2">
+    <div *ngIf="lineChartData" style="display: block;" class="col-md-8 mx-auto">
         <canvas baseChart width="400" height="400"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"

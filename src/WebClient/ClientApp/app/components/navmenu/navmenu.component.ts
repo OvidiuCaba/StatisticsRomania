@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
     styleUrls: ['./navmenu.component.css']
 })
 export class NavMenuComponent {
+    public isNavbarCollapsed: boolean;
+
+    constructor() {
+        this.isNavbarCollapsed = true;
+    }
 }

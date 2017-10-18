@@ -1,9 +1,10 @@
 import { Component, NgModule, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { UniversalModule } from 'angular2-universal';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AppComponent } from './components/app/app.component'
+import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { AboutComponent } from './components/about/about.component';
 import { CountyDetailsComponent } from './components/county-details/county-details.component';
@@ -11,10 +12,13 @@ import { PerformersComponent } from './components/performers/performers.componen
 import { StandingsComponent } from './components/standings/standings.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { ChartsModule } from 'ng2-charts';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpModule, JsonpModule } from '@angular/http';
 import 'chart.js';
+import { MonthsComponent } from './components/shared/months.component';
 
 @NgModule({
-    bootstrap: [ AppComponent ],
+    bootstrap: [AppComponent],
     declarations: [
         AppComponent,
         NavMenuComponent,
@@ -22,10 +26,14 @@ import 'chart.js';
         CountyDetailsComponent,
         PerformersComponent,
         StandingsComponent,
-        AboutComponent
+        AboutComponent,
+        MonthsComponent
     ],
     imports: [
-        UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
+        CommonModule,
+        BrowserModule,
+        HttpModule,
+        JsonpModule,    // TODO: is this needed?
         RouterModule.forRoot([
             { path: '', redirectTo: 'performerii-lunii', pathMatch: 'full' },
             { path: 'despre-noi', component: AboutComponent },
@@ -41,8 +49,9 @@ import 'chart.js';
         ChartsModule
     ],
     providers: [
-        { provide: LOCALE_ID, useValue: "ro-RO" }
+        { provide: LOCALE_ID, useValue: "ro-RO" },
+        CookieService
     ]
 })
-export class AppModule {
+export class AppModuleShared {
 }
