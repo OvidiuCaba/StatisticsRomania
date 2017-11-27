@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Foundation;
 using UIKit;
+using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.iOS
 {
@@ -23,9 +25,35 @@ namespace StatisticsRomania.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            DevExpress.Mobile.Forms.Init();
+            OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
+
+            var database = new Database
+            {
+                SqlitePlatform = new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS(),
+                Path = GetPath()
+            };
+            database.Initialize();
+
+            App.AsyncDb = database.AsyncDb;
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
+        }
+
+        private static string GetPath()
+        {
+            string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
+
+            if (!Directory.Exists(libFolder))
+            {
+                Directory.CreateDirectory(libFolder);
+            }
+
+            return Path.Combine(libFolder, App.SqliteFilename);
         }
     }
 }
