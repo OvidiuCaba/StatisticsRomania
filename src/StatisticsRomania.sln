@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebClient\WebC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticsRomania.iOS", "StatisticsRomania\StatisticsRomania.iOS\StatisticsRomania.iOS.csproj", "{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{969235E6-22BD-4DAF-9D72-82E6148838FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -234,6 +236,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{491B8346-E33F-4E86-BA53-97DF1095D582} = {969235E6-22BD-4DAF-9D72-82E6148838FE}
+		{F1825549-6428-4DC1-9EC8-79E79DC9D3B8} = {969235E6-22BD-4DAF-9D72-82E6148838FE}
+		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4} = {969235E6-22BD-4DAF-9D72-82E6148838FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E66C746-2A60-4B5C-BCA5-DC01F652AFC1}
