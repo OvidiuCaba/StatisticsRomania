@@ -115,8 +115,7 @@ export class CountyDetailsComponent {
             });
         }
         this.lineChartData = lineChartData;
-        // TODO: determine years dynamically
-        this.lineChartLabels = this.needToProcessAllYear ? ['2015', '2016'] : chartData.map((x: any) => x.year + ' ' + x.yearFraction);
+        this.lineChartLabels = this.needToProcessAllYear ? chartData.map((x: any) => x.year) : chartData.map((x: any) => x.year + ' ' + x.yearFraction);
         this.lineChartOptions = {
             responsive: true
         };

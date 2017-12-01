@@ -67,7 +67,6 @@ namespace StatisticsRomania.Lib
             if (needToProcessAllYear)
             {
                 query = query.GroupBy(x => x.Year)
-                    .Where(group => group.Count() == 12)
                     .Select(group => new T
                     {
                         CountyId = countyId,
