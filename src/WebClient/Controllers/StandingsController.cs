@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using StatisticsRomania.Lib;
+using StatisticsRomania.ViewModels;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace WebClient.Controllers
@@ -17,7 +19,13 @@ namespace WebClient.Controllers
 
             var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
 
-            return new { ValueColumnCaption = valueColumnCaption, Data = data };
+            return new StandingsDto { ValueColumnCaption = valueColumnCaption, Data = data };
         }
+    }
+
+    public class StandingsDto
+    {
+        public string ValueColumnCaption { get; set; }
+        public List<StandingItem> Data { get; set; }
     }
 }

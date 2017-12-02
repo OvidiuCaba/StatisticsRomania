@@ -1,6 +1,9 @@
-﻿import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
+﻿import { Location } from '@angular/common';
+import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 import { Http } from '@angular/http';
+import { ShareService } from '../../services/share.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'county-details',
@@ -27,13 +30,28 @@ export class CountyDetailsComponent {
     public lineChartType: string;
     @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
-    constructor(private http: Http) {
+    constructor(private http: Http, private shareService: ShareService, private router: Router, private location: Location) {
 
         this.GetCounties();
 
-        this.indicator = 'Forta de munca - salariu mediu net';
-        this.comparisonType = 1;
+        var queryParams = this.router.parseUrl(this.router.url).queryParams;
+
+        if (queryParams['share'] == 'true') {
+            this.indicator = queryParams['chapter'].replace(new RegExp("\\+", "g"), ' ');
+            this.comparisonType = queryParams['needToProcessAllYear'] == 'true' ? 2 : 1;
+        }
+        else {
+            this.indicator = 'Forta de munca - salariu mediu net';
+            this.comparisonType = 1;
+        }
+
         this.needToProcessAllYear = this.comparisonType == 2;
+
+        this.location.go('/statistici-judetene');
+    }
+
+    Share() {
+        this.shareService.ShareCountyDetails(this.county1, this.county2, this.indicator, this.needToProcessAllYear);
     }
 
     GetCounties() {
@@ -51,6 +69,14 @@ export class CountyDetailsComponent {
                 this.counties1.forEach(x => this.counties2.push(x));
                 this.county2 = 0;
                 this.county2Text = this.counties2.find(x => x.id == 0)!.name;
+
+                var queryParams = this.router.parseUrl(this.router.url).queryParams;
+                if (queryParams['share'] == 'true') {
+                    this.county1 = +queryParams['countyId1'];
+                    this.county1Text = this.counties1.find(x => x.id == this.county1)!.name;
+                    this.county2 = +queryParams['countyId2'];
+                    this.county2Text = this.counties2.find(x => x.id == this.county2)!.name;
+                }
 
                 this.LoadData();
             });

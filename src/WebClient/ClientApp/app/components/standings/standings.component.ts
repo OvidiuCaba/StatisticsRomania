@@ -1,6 +1,9 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
+import { ShareService } from '../../services/share.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'standings',
@@ -24,28 +27,46 @@ export class StandingsComponent {
 
     private favouriteCountiesCookieKey: string;
 
-    constructor(private http: Http, private cookieService: CookieService) {
+    constructor(private http: Http, private cookieService: CookieService, private shareService: ShareService, private router: Router, private location: Location) {
 
         this.favouriteCountiesCookieKey = 'favouriteCounties';
 
         this.InitializeMonths();
 
         this.monthsKeys = new Array<number>(-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-        this.indicator = 'Forta de munca - salariu mediu net';
-        this.year = 2017;
-        var selectedYearFraction = -1;
-        this.month = selectedYearFraction;
-        this.monthText = (<any>this.months)[selectedYearFraction];
+
+        var queryParams = this.router.parseUrl(this.router.url).queryParams;
+
+        if (queryParams['share'] == 'true') {
+            this.indicator = queryParams['chapter'].replace(new RegExp("\\+", "g"), ' ');
+            this.year = +queryParams['year'];
+            this.month = +queryParams['yearFraction'];
+            this.monthText = (<any>this.months)[this.month];
+        }
+        else {
+            this.indicator = 'Forta de munca - salariu mediu net';
+            this.year = 2017;
+            var selectedYearFraction = -1;
+            this.month = selectedYearFraction;
+            this.monthText = (<any>this.months)[selectedYearFraction];
+        }
+
         this.innerWidth = window.innerWidth;
         this.largeScreen = this.innerWidth > 1400;
 
         this.LoadData();
+
+        this.location.go('/clasamente');
     }
 
     onWindowResize(event: Event) {
         this.innerWidth = window.innerWidth;
         this.largeScreen = this.innerWidth > 1400;
     };
+
+    Share() {
+        this.shareService.ShareStandings(this.indicator, this.year, this.month);
+    }
 
     ChangeIndicator(indicator: string) {
         this.indicator = indicator;

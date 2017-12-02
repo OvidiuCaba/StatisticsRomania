@@ -1,6 +1,9 @@
-﻿import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
+﻿import { Location } from '@angular/common';
+import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
 import { Http } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
+import { ShareService } from '../../services/share.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'performers',
@@ -12,12 +15,28 @@ export class PerformersComponent {
 
     private favouriteCountiesCookieKey: string;
 
-    constructor(private http: Http, private cookieService: CookieService) {
+    constructor(private http: Http, private cookieService: CookieService, private shareService: ShareService, private router: Router, private location: Location) {
+
+        var queryParams = this.router.parseUrl(router.url).queryParams;
+
+        if (queryParams['share'] == 'true')
+        {
+            this.comparisonType = queryParams['analysis'] == 'monthly' ? 1 : 2;
+        }
+        else
+        {
+            this.comparisonType = 2;
+        }
+
         this.favouriteCountiesCookieKey = 'favouriteCounties';
 
-        this.comparisonType = 2;
-
         this.LoadData();
+
+        this.location.go('/performerii-lunii');
+    }
+
+    Share() {
+        this.shareService.SharePerformers(this.comparisonType == 1 ? 'monthly' : 'yearly');
     }
 
     LoadData() {

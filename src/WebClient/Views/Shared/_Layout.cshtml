@@ -9,12 +9,18 @@
     enable_page_level_ads: true
   });
     </script>
+    <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Vizualizare tabelara (evolutie si clasamente) si grafica a unor indicatori statistici la nivelul judetelor Romaniei. Indicatori disponibili: exporturi FOB, importuri CIF, sold FOB/CIF, efectiv salariati, salariu mediu brut, 
-          salariu mediu net, numar someri, innoptari, numar turisti. Datele sunt preluate de la Insistitutul National de Statistica." />
+    <meta name="description" content="@ViewData["Description"]" />
     <meta name="keywords" content="statistici, clasamente, judet, exporturi FOB, importuri CIF, sold FOB/CIF, efectiv salariati, salariu mediu brut, salariu mediu net, numar someri, innoptari, numar turisti">
-    <title>Statistici Romania @ViewData["Title"]</title>
+    @*<meta property="og:url" content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html" />*@
+    @*<meta property="og:type" content="article" />*@
+    <meta property="og:title" content="Statistici Romania - @ViewData["Title"]" />
+    <meta property="og:description" content="@ViewData["Description"]" />
+    @*TODO: set the other meta tags*@
+    @*<meta property="og:image" content="http://static01.nyt.com/images/2015/02/19/arts/international/19iht-btnumbers19A/19iht-btnumbers19A-facebookJumbo-v2.jpg" />*@
+    <title>Statistici Romania</title>
     <base href="/" />
     <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
     @Html.Raw(JavaScriptSnippet.FullScript)

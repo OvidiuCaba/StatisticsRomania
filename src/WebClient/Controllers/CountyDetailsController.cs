@@ -113,7 +113,7 @@ namespace WebClient.Controllers
                 value2ColumnVisibility = false;
             }
 
-            return new { ValueColumnCaption = valueColumnCaption, Value2ColumnCaption = value2ColumnCaption, Data = data };
+            return new CountyDetailsDto { ValueColumnCaption = valueColumnCaption, Value2ColumnCaption = value2ColumnCaption, Data = data };
         }
     }
 
@@ -140,5 +140,12 @@ namespace WebClient.Controllers
         public float Value { get; set; }
 
         public float Value2 { get; set; }
+    }
+
+    public class CountyDetailsDto
+    {
+        public string ValueColumnCaption { get; set; }
+        public string Value2ColumnCaption { get; set; }
+        public List<DataDto> Data { get; set; }
     }
 }
