@@ -27,7 +27,7 @@ namespace WebClient.Controllers
 
         private async Task<object> GetData(bool get12Months, string favouriteCounties)
         {
-            var favouriteCountiesIds = favouriteCounties == null ? new List<int>() : favouriteCounties.Split(' ').Select(x => CountryIds.Counties[x.Replace("-", string.Empty)]);
+            var favouriteCountiesIds = string.IsNullOrWhiteSpace(favouriteCounties) ? new List<int>() : favouriteCounties.Split(' ').Select(x => CountryIds.Counties[x.Replace("-", string.Empty)]);
             var months = GetMonths();
             var performers = new List<IndicatorPerformers>();
             var chapters = GetChapters();

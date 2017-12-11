@@ -70,7 +70,7 @@ namespace WebClient.Controllers
 
             var data = await getData(query["favouriteCounties"]) as List<IndicatorPerformers>;
 
-            var favouriteCounties = query.ContainsKey("favouriteCounties") ? query["favouriteCounties"].ToString().Split(' ').ToList() : new List<string>();
+            var favouriteCounties = query.ContainsKey("favouriteCounties") && !string.IsNullOrWhiteSpace(query["favouriteCounties"].ToString()) ? query["favouriteCounties"].ToString().Split(' ').ToList() : new List<string>();
 
             var pointOfInterests = data
                                         .Select(x => new { x.Name, Performers = x.Performers.Where(p => favouriteCounties.Any() ? favouriteCounties.Contains(p.County) : true) })
