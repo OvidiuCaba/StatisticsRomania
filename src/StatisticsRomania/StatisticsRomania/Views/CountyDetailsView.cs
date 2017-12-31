@@ -170,9 +170,9 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndex = Settings.Chapter;
             _degChapterData.SelectedRowHandle = -1;
 
-            _pickerCounties.SelectedIndexChanged += pickerCounties_SelectedIndexChanged;
-            _pickerCounties2.SelectedIndexChanged += pickerCounties2_SelectedIndexChanged;
-            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
+            _pickerCounties.SelectedIndexChanged += picker_SelectedIndexChanged;
+            _pickerCounties2.SelectedIndexChanged += picker_SelectedIndexChanged;
+            _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
 
             await LoadData();
         }
@@ -314,17 +314,7 @@ namespace StatisticsRomania.Views
             _plotView.Model.InvalidatePlot(true);
         }
 
-        private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void pickerCounties_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void pickerCounties2_SelectedIndexChanged(object sender, EventArgs e)
+        private async void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
         }

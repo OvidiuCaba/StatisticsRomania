@@ -160,23 +160,23 @@ namespace StatisticsRomania.Views
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(App.LastYearAvailableData.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
 
-            _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
-            _pickerYears.SelectedIndexChanged += pickerYears_SelectedIndexChanged;
-            _pickerYearFractions.SelectedIndexChanged += pickerYearFractions_SelectedIndexChanged;
+            _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged += picker_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged += picker_SelectedIndexChanged;
 
             await LoadData();
         }
 
         async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
-            _pickerYears.SelectedIndexChanged -= pickerYears_SelectedIndexChanged;
-            _pickerYearFractions.SelectedIndexChanged -= pickerYearFractions_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged -= picker_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged -= picker_SelectedIndexChanged;
 
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(_viewModel.LastAvailableYear.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(_viewModel.LastAvailableYearFraction.ToString());
 
-            _pickerYears.SelectedIndexChanged += pickerYears_SelectedIndexChanged;
-            _pickerYearFractions.SelectedIndexChanged += pickerYearFractions_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged += picker_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged += picker_SelectedIndexChanged;
 
             await LoadData();
         }
@@ -191,17 +191,7 @@ namespace StatisticsRomania.Views
             }
         }
 
-        private async void pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void pickerYears_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await LoadData();
-        }
-
-        private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
+        private async void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
         }
