@@ -17,7 +17,6 @@ namespace StatisticsRomania
     //  - zoom-in și zoom-out la grafice. O difentă între 155.000 și 158.000 pare imensă când axa Y pleacă de la 150.000 și se termină la 160.000.
     //  - infografice, afiseaza mai putine informatii; eventual in setari userul sa-si aleaga judetele pe care le urmareste si doar alea sa apara:
     //          ex: 1. Bucuresti, 2. Cluj, 3. Ilfov (pana la 5), apoi 25. Bihor (cu 2 judete inainte si 2 dupa) + eventual o optiune de "show all" [sau highlight]
-    //  - pe ecranele inguste Indicator e splituit: "Indicato" pe un rand si "r" pe al doilea si arata rau (Sabin Uivarosan)
 
     public class App : Application
     {

@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StatisticsRomania.Controls;
-using StatisticsRomania.ViewModels;
-using Xamarin.Forms;
-using DevExpress.Mobile.DataGrid;
+﻿using DevExpress.Mobile.DataGrid;
 using DevExpress.Utils;
+using StatisticsRomania.Controls;
 using StatisticsRomania.Helpers;
+using StatisticsRomania.ViewModels;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace StatisticsRomania.Views
 {
@@ -37,15 +35,10 @@ namespace StatisticsRomania.Views
             _viewModel.GetYears();
             _viewModel.GetYearFractions();
 
-            var lblChapter = new Label
-            {
-                VerticalOptions = LayoutOptions.Center,
-                Text = "Indicator:"
-            };
-
             _pickerChapters = new PickerWithNoSpellCheck()
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Title = "Selecteaza indicatorul statistic",
             };
             foreach (var chapter in _viewModel.ChapterList)
             {
@@ -146,7 +139,7 @@ namespace StatisticsRomania.Views
                         Padding = new Thickness(0, 2),
                         Children =
                             {
-                                lblChapter, _pickerChapters
+                                _pickerChapters
                             }
                     },
                     new StackLayout()
@@ -168,22 +161,22 @@ namespace StatisticsRomania.Views
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
 
             _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
-            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
-            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged += pickerYears_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged += pickerYearFractions_SelectedIndexChanged;
 
             await LoadData();
         }
 
         async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
-            _pickerYears.SelectedIndexChanged -= _pickerYears_SelectedIndexChanged;
-            _pickerYearFractions.SelectedIndexChanged -= _pickerYearFractions_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged -= pickerYears_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged -= pickerYearFractions_SelectedIndexChanged;
 
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(_viewModel.LastAvailableYear.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(_viewModel.LastAvailableYearFraction.ToString());
 
-            _pickerYears.SelectedIndexChanged += _pickerYears_SelectedIndexChanged;
-            _pickerYearFractions.SelectedIndexChanged += _pickerYearFractions_SelectedIndexChanged;
+            _pickerYears.SelectedIndexChanged += pickerYears_SelectedIndexChanged;
+            _pickerYearFractions.SelectedIndexChanged += pickerYearFractions_SelectedIndexChanged;
 
             await LoadData();
         }
@@ -198,12 +191,12 @@ namespace StatisticsRomania.Views
             }
         }
 
-        private async void _pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
+        private async void pickerYearFractions_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
         }
 
-        private async void _pickerYears_SelectedIndexChanged(object sender, EventArgs e)
+        private async void pickerYears_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
         }

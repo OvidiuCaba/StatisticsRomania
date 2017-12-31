@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevExpress.Mobile.DataGrid;
 using DevExpress.Utils;
 using OxyPlot;
 using OxyPlot.Axes;
-using StatisticsRomania.Controls;
-using StatisticsRomania.ViewModels;
-using Xamarin.Forms;
-using DevExpress.Mobile.DataGrid;
-using OxyPlot.Xamarin.Forms;
 using OxyPlot.Series;
+using OxyPlot.Xamarin.Forms;
+using StatisticsRomania.Controls;
 using StatisticsRomania.Helpers;
+using StatisticsRomania.ViewModels;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace StatisticsRomania.Views
 {
@@ -23,10 +21,10 @@ namespace StatisticsRomania.Views
         private PickerWithNoSpellCheck _pickerCounties;
         private PickerWithNoSpellCheck _pickerCounties2;
 
-        private GridControl degChapterData;
-        private PlotView plotView;
+        private GridControl _degChapterData;
+        private PlotView _plotView;
 
-        private StackLayout dataControls;
+        private StackLayout _dataControls;
 
         public CountyDetailsView()
         {
@@ -71,27 +69,22 @@ namespace StatisticsRomania.Views
                 _pickerCounties2.Items.Add(county.Key);
             }
 
-            var lblChapter = new Label
-            {
-                VerticalOptions = LayoutOptions.Center,
-                Text = "Indicator:"
-            };
-
             _pickerChapters = new PickerWithNoSpellCheck()
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Title = "Selecteaza indicatorul statistic",
             };
             foreach (var chapter in _viewModel.ChapterList)
             {
                 _pickerChapters.Items.Add(chapter.Key);
             }
 
-            degChapterData = new GridControl();
-            degChapterData.IsReadOnly = true;
-            degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
-            degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
-            degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
-            degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            _degChapterData = new GridControl();
+            _degChapterData.IsReadOnly = true;
+            _degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
+            _degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
+            _degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False});
+            _degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
                                   {
                                       FieldName = "Value",
@@ -99,7 +92,7 @@ namespace StatisticsRomania.Views
                                       AllowSort = DefaultBoolean.False
                                   };
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
-            degChapterData.Columns.Add(valueColumn);
+            _degChapterData.Columns.Add(valueColumn);
             var valueColumn2 = new TextColumn()
             {
                 FieldName = "Value2",
@@ -108,28 +101,29 @@ namespace StatisticsRomania.Views
             };
             valueColumn2.SetBinding(TextColumn.CaptionProperty, new Binding("Value2ColumnCaption", source: _viewModel));
             valueColumn2.SetBinding(TextColumn.IsVisibleProperty, new Binding("Value2ColumnVisibility", source: _viewModel));
-            degChapterData.Columns.Add(valueColumn2);
-            degChapterData.ItemsSource = _viewModel.ChapterDataReversed;
-            degChapterData.RowTap += degChapterData_RowTap;
+            _degChapterData.Columns.Add(valueColumn2);
+            _degChapterData.ItemsSource = _viewModel.ChapterDataReversed;
+            _degChapterData.RowTap += degChapterData_RowTap;
 
-            plotView = new PlotView();
-            plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
-            plotView.VerticalOptions = LayoutOptions.FillAndExpand;
-            plotView.Model = new PlotModel();
+            _plotView = new PlotView();
+            _plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
+            _plotView.VerticalOptions = LayoutOptions.FillAndExpand;
+            _plotView.Model = new PlotModel();
             var series = new LineSeries();
             series.ItemsSource = _viewModel.ChapterData;
-            plotView.Model.Series.Add(series);
-            plotView.Model.Title = "Evolutie indicator";
-            plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
+            _plotView.Model.Series.Add(series);
+            _plotView.Model.Title = "Evolutie indicator";
+            _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
-            dataControls = new StackLayout()
+            _dataControls = new StackLayout()
                                {
                                    Orientation = StackOrientation.Vertical,
                                    HorizontalOptions = LayoutOptions.FillAndExpand,
                                    VerticalOptions = LayoutOptions.FillAndExpand,
                                    Spacing = 0,
-                                   Children = {degChapterData, plotView}
+                                   Children = {_degChapterData, _plotView}
                                };
+            _dataControls.SetBinding(StackLayout.IsVisibleProperty, new Binding("HasData", source: _viewModel));
 
             var btnTest = new Button()
                               {
@@ -162,22 +156,22 @@ namespace StatisticsRomania.Views
                         Orientation = StackOrientation.Horizontal,
                         Children =
                             {
-                                lblChapter, _pickerChapters
+                                _pickerChapters
                             }
                     },
                     //degChapterData,
                     //plotView
-                    dataControls
+                    _dataControls
                 }
             };
 
             _pickerCounties.SelectedIndex = Settings.County1;
             _pickerCounties2.SelectedIndex = Settings.County2;
             _pickerChapters.SelectedIndex = Settings.Chapter;
-            degChapterData.SelectedRowHandle = -1;
+            _degChapterData.SelectedRowHandle = -1;
 
             _pickerCounties.SelectedIndexChanged += pickerCounties_SelectedIndexChanged;
-            _pickerCounties2.SelectedIndexChanged += _pickerCounties2_SelectedIndexChanged;
+            _pickerCounties2.SelectedIndexChanged += pickerCounties2_SelectedIndexChanged;
             _pickerChapters.SelectedIndexChanged += pickerChapters_SelectedIndexChanged;
 
             await LoadData();
@@ -205,42 +199,42 @@ namespace StatisticsRomania.Views
         {
             base.OnSizeAllocated(width, height);
 
-            if (plotView == null || dataControls == null)
+            if (_plotView == null || _dataControls == null)
             {
                 return;
             }
 
             if (height > width) // portrait
             {
-                plotView.HeightRequest = height/3;
-                plotView.WidthRequest = -1;
-                dataControls.Orientation = StackOrientation.Vertical;
+                _plotView.HeightRequest = height/3;
+                _plotView.WidthRequest = -1;
+                _dataControls.Orientation = StackOrientation.Vertical;
             }
             else
             {
-                dataControls.Orientation = StackOrientation.Horizontal;
-                plotView.HeightRequest = -1;
-                plotView.WidthRequest = width / 2;
-                degChapterData.ForceLayout();
+                _dataControls.Orientation = StackOrientation.Horizontal;
+                _plotView.HeightRequest = -1;
+                _plotView.WidthRequest = width / 2;
+                _degChapterData.ForceLayout();
             }
 
             _isPortrait = height > width;
 
-            plotView.Model.IsLegendVisible = plotView.Model.Series.Count > 1;
+            _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;
 
-            if (plotView.Model.IsLegendVisible)
+            if (_plotView.Model.IsLegendVisible)
             {
                 if (_isPortrait)
                 {
-                    plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    plotView.Model.LegendPosition = LegendPosition.RightTop;
-                    plotView.Model.LegendOrientation = LegendOrientation.Vertical;
+                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+                    _plotView.Model.LegendPosition = LegendPosition.RightTop;
+                    _plotView.Model.LegendOrientation = LegendOrientation.Vertical;
                 }
                 else
                 {
-                    plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    plotView.Model.LegendPosition = LegendPosition.TopRight;
-                    plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
+                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+                    _plotView.Model.LegendPosition = LegendPosition.TopRight;
+                    _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
                 }
             }
         }
@@ -251,25 +245,19 @@ namespace StatisticsRomania.Views
             Settings.County2 = _pickerCounties2.SelectedIndex;
             Settings.Chapter = _pickerChapters.SelectedIndex;
 
-            var selectedCounty = _pickerCounties.SelectedIndex >= 0
-                                     ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]]
-                                     : -1;
-            var selectedCounty2 = _pickerCounties2.SelectedIndex >= 1
-                                     ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties2.SelectedIndex - 1]]
-                                     : -1;
-            var selectedChapter = _pickerChapters.SelectedIndex >= 0
-                                      ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
-                                      : string.Empty;
+            var selectedCounty = _pickerCounties.SelectedIndex >= 0 ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties.SelectedIndex]] : -1;
+            var selectedCounty2 = _pickerCounties2.SelectedIndex >= 1 ? _viewModel.CountyList[_pickerCounties.Items[_pickerCounties2.SelectedIndex - 1]] : -1;
+            var selectedChapter = _pickerChapters.SelectedIndex >= 0 ? _pickerChapters.Items[_pickerChapters.SelectedIndex] : string.Empty;
 
             await _viewModel.GetChapterData(selectedCounty, selectedCounty2, selectedChapter);
 
-            if (plotView == null)
+            if (_plotView == null)
                 return;
 
-            plotView.Model = new PlotModel();
-            plotView.Model.Title = "Evolutie indicator";
+            _plotView.Model = new PlotModel();
+            _plotView.Model.Title = "Evolutie indicator";
 
-            plotView.Model.TextColor = OxyColors.LightGray;
+            _plotView.Model.TextColor = OxyColors.LightGray;
 
             var dtAxis = new DateTimeAxis();
             dtAxis.Position = AxisPosition.Bottom;
@@ -283,17 +271,17 @@ namespace StatisticsRomania.Views
             verticalAxis.IsPanEnabled = false;
             verticalAxis.IsZoomEnabled = false;
 
-            plotView.Model.Axes.Add(dtAxis);
-            plotView.Model.Axes.Add(verticalAxis);
+            _plotView.Model.Axes.Add(dtAxis);
+            _plotView.Model.Axes.Add(verticalAxis);
 
-            plotView.Model.Series.Clear();
+            _plotView.Model.Series.Clear();
 
             var series = new LineSeries();
             series.ItemsSource = _viewModel.ChapterData;
             series.DataFieldX = "TimeStamp";
             series.DataFieldY = "Value";
             series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
-            plotView.Model.Series.Add(series);
+            _plotView.Model.Series.Add(series);
 
             if (_viewModel.Value2ColumnVisibility)
             {
@@ -302,28 +290,28 @@ namespace StatisticsRomania.Views
                 series2.DataFieldX = "TimeStamp";
                 series2.DataFieldY = "Value2";
                 series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
-                plotView.Model.Series.Add(series2);
+                _plotView.Model.Series.Add(series2);
             }
 
-            plotView.Model.IsLegendVisible = plotView.Model.Series.Count > 1;
+            _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;
 
-            if (plotView.Model.IsLegendVisible)
+            if (_plotView.Model.IsLegendVisible)
             {
                 if (_isPortrait)
                 {
-                    plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    plotView.Model.LegendPosition = LegendPosition.RightTop;
-                    plotView.Model.LegendOrientation = LegendOrientation.Vertical;
+                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+                    _plotView.Model.LegendPosition = LegendPosition.RightTop;
+                    _plotView.Model.LegendOrientation = LegendOrientation.Vertical;
                 }
                 else
                 {
-                    plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    plotView.Model.LegendPosition = LegendPosition.TopRight;
-                    plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
+                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+                    _plotView.Model.LegendPosition = LegendPosition.TopRight;
+                    _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
                 }
             }
 
-            plotView.Model.InvalidatePlot(true);
+            _plotView.Model.InvalidatePlot(true);
         }
 
         private async void pickerChapters_SelectedIndexChanged(object sender, EventArgs e)
@@ -336,7 +324,7 @@ namespace StatisticsRomania.Views
             await LoadData();
         }
 
-        private async void _pickerCounties2_SelectedIndexChanged(object sender, EventArgs e)
+        private async void pickerCounties2_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
         }

@@ -40,6 +40,8 @@ namespace StatisticsRomania.ViewModels
 
         public bool Value2ColumnVisibility { get; set; }
 
+        public bool HasData { get; set; }
+
         public CountyDetailsViewModel()
         {
             _countyRepository = new Repository<County>(App.AsyncDb);
@@ -109,6 +111,8 @@ namespace StatisticsRomania.ViewModels
             ValueColumnCaption = string.Format("{0} {1}", UnitOfMeasureList[chapter], CountyAbbreviations[CountyList.First(x => x.Value == countyId).Key]);
 
             var data = await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]);
+
+            HasData = data.Count > 0;
 
             if (countyId2 >= 1 && countyId != countyId2)
             {
