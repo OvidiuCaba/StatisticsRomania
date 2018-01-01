@@ -179,7 +179,7 @@ namespace StatisticsRomania.Views
             }
         }
 
-        private bool _isPortrait;
+        private bool _wasPortrait;
         private double _width, _height;
 
         protected override void OnSizeAllocated(double width, double height)
@@ -189,15 +189,21 @@ namespace StatisticsRomania.Views
             if (width == _width && height == _height)
                 return;
 
-            _width = width;
-            _height = height;
-
             if (_plotView == null || _dataControls == null)
             {
                 return;
             }
 
-            if (height > width) // portrait
+            _width = width;
+            _height = height;
+
+            var isPortrait = height > width;
+
+            // Note: Ugly workaround to fix rotation to landscape issue
+            //       When a transition from portrait to landscape happens, OnSizeAllocated() is called [at last] twice twice and HeightRequest must be set each time for this bug to go away
+            _dataControls.HeightRequest = _wasPortrait ? 100 : -1;
+
+            if (isPortrait)
             {
                 _plotView.HeightRequest = height/3;
                 _plotView.WidthRequest = -1;
@@ -211,13 +217,12 @@ namespace StatisticsRomania.Views
                 _degChapterData.ForceLayout();
             }
 
-            _isPortrait = height > width;
-
+            // TODO: duplicate code, try to clean it
             _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;
 
             if (_plotView.Model.IsLegendVisible)
             {
-                if (_isPortrait)
+                if (isPortrait)
                 {
                     _plotView.Model.LegendPlacement = LegendPlacement.Outside;
                     _plotView.Model.LegendPosition = LegendPosition.RightTop;
@@ -230,6 +235,8 @@ namespace StatisticsRomania.Views
                     _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
                 }
             }
+
+            _wasPortrait = isPortrait;
         }
 
         private async Task LoadData()
@@ -290,7 +297,7 @@ namespace StatisticsRomania.Views
 
             if (_plotView.Model.IsLegendVisible)
             {
-                if (_isPortrait)
+                if (_wasPortrait)
                 {
                     _plotView.Model.LegendPlacement = LegendPlacement.Outside;
                     _plotView.Model.LegendPosition = LegendPosition.RightTop;

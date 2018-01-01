@@ -38,8 +38,6 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetStandings(string chapter, int year, int yearFraction)
         {
-            Standings.Clear();
-
             if (!ChapterList.ContainsKey(chapter))
                 return;
 
@@ -57,6 +55,8 @@ namespace StatisticsRomania.ViewModels
             //    var value2016 = y2016.Find(x => x.County == county).Value;
             //    Debug.WriteLine($"{county}, 2015: {item.Value}, 2016: {value2016}, diferenta: {value2016 - item.Value} ({Math.Round((value2016 - item.Value) * 100.0 / item.Value, 2)}%)");
             //}
+
+            Standings.Clear();
 
             foreach (var item in data)
             {

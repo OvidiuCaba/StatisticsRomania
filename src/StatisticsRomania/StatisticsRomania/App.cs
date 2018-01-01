@@ -6,7 +6,6 @@ namespace StatisticsRomania
 {
     // TODO: new functionalities:
     //  - export data
-    //  - fix issues on rotating
     //  - forecast: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
     //  - add data from 2014 - maybe display only last 24 months [or less? maybe configurable?]
     //  - maybe group indicators by category

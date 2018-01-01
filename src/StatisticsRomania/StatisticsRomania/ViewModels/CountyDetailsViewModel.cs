@@ -102,9 +102,6 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetChapterData(int countyId, int countyId2, string chapter)
         {
-            ChapterData.Clear();
-            ChapterDataReversed.Clear();
-
             if (!ChapterList.ContainsKey(chapter) || countyId < 1)
                 return;
 
@@ -134,6 +131,9 @@ namespace StatisticsRomania.ViewModels
             {
                 Value2ColumnVisibility = false;
             }
+
+            ChapterData.Clear();
+            ChapterDataReversed.Clear();
 
             foreach (var item in data)
             {
