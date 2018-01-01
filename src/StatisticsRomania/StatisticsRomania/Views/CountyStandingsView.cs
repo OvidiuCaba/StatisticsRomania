@@ -131,21 +131,13 @@ namespace StatisticsRomania.Views
                     right: 0,
                     bottom: 0,
                     top: Device.OnPlatform(iOS: 20, Android: 5, WinPhone: 0)),
-                Children = { 
+                Children = {
+                    _pickerChapters,
                     new StackLayout()
                     {
                         HorizontalOptions = LayoutOptions.FillAndExpand,
                         Orientation = StackOrientation.Horizontal,
-                        Padding = new Thickness(0, 2),
-                        Children =
-                            {
-                                _pickerChapters
-                            }
-                    },
-                    new StackLayout()
-                    {
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        Orientation = StackOrientation.Horizontal,
+                        Padding = new Thickness(5, 0, 0, 0),
                         Children =
                             {
                                 lblYear, _pickerYears, lblYearFraction, _pickerYearFractions

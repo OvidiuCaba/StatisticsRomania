@@ -8,7 +8,6 @@ namespace StatisticsRomania
     //  - export data
     //  - fix issues on rotating
     //  - forecast: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
-    //  - add 3 pixels padding at the edge of the screen
     //  - add data from 2014 - maybe display only last 24 months [or less? maybe configurable?]
     //  - maybe group indicators by category
     //  [cele de mai jos testate cu Nexus 5]
