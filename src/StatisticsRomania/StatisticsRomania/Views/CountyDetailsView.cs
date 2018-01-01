@@ -180,10 +180,17 @@ namespace StatisticsRomania.Views
         }
 
         private bool _isPortrait;
+        private double _width, _height;
 
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
+
+            if (width == _width && height == _height)
+                return;
+
+            _width = width;
+            _height = height;
 
             if (_plotView == null || _dataControls == null)
             {
