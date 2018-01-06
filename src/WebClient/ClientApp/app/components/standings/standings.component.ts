@@ -1,9 +1,14 @@
+// KB:
+// https://www.amcharts.com/kbase/your-first-ammap/
+// https://github.com/amcharts/amcharts3-angular2
+
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
 import { ShareService } from '../../services/share.service';
 import { Router } from '@angular/router';
+import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 
 @Component({
     selector: 'standings',
@@ -26,8 +31,9 @@ export class StandingsComponent {
     public total?: number;
 
     private favouriteCountiesCookieKey: string;
+    private map: AmChart;
 
-    constructor(private http: Http, private cookieService: CookieService, private shareService: ShareService, private router: Router, private location: Location) {
+    constructor(private http: Http, private cookieService: CookieService, private shareService: ShareService, private router: Router, private location: Location, private AmCharts: AmChartsService) {
 
         this.favouriteCountiesCookieKey = 'favouriteCounties';
 
@@ -91,9 +97,73 @@ export class StandingsComponent {
             this.standing.forEach(x => x.favourite = selectedCounties.indexOf(x.county) > -1);
             this.unitOfMeasure = result.json().valueColumnCaption;
             this.CalculateTotal();
+            this.RefreshMap();
         });
     }
 
+    RefreshMap() {
+        var labelsShiftedX: { [index: string]: number } = {
+            "RO-CJ": 5,
+            "RO-CT": 10,
+            "RO-MH": 20,
+            "RO-MM": -10,
+            "RO-NT": -5,
+            "RO-OT": 10,
+            "RO-SM": -10,
+            "RO-TL": -20,
+        };
+        var labelsShiftedY: { [index: string]: number } = {
+            "RO-AB": -10,
+            "RO-BN": -10,
+            "RO-CL": -5,
+            "RO-IL": -10,
+            "RO-IS": -5,
+            "RO-TM": -10,
+            "RO-SV": -10,
+            "RO-VS": -10,
+        };
+
+        var offset = 0;
+        this.map.dataProvider.images = [];
+        for (var x in this.map.dataProvider.areas) {
+            var area = this.map.dataProvider.areas[x];
+            area.value = this.standing.filter(x => x.county == area.title)[0].value;
+            var image = {
+                "latitude": this.map.getAreaCenterLatitude(area),
+                "longitude": this.map.getAreaCenterLongitude(area),
+                "label": area.callout ? '' : area.title + '\n' + area.value,
+                "title": area.title,
+                "linkToObject": area,
+                "labelShiftX": labelsShiftedX[area.id] || 0,
+                "labelShiftY": labelsShiftedY[area.id] || 0,
+                "groupId": area.id
+            };
+            this.map.dataProvider.images.push(image);
+
+            if (area.callout) {
+                var image2 = {
+                    "latitude": 47.5 + offset,
+                    "longitude": 28,
+                    "label": area.title + ' ' + area.value,
+                    "title": area.title,
+                    "type": "circle",
+                    //"labelColor": "#000",
+                    "labelShiftX": 50,
+                    "width": 22,
+                    "height": 22,
+                    "groupId": area.id
+                };
+                this.map.dataProvider.images.push(image2);
+
+                offset += 0.3;
+            }
+        }
+        var values = this.standing.map(x => x.value);
+        this.map.valueLegend.minValue = values.reduce((min, current) => Math.min(min, current));
+        this.map.valueLegend.maxValue = values.reduce((max, current) => Math.max(max, current));
+        this.map.validateData();
+    }
+    
     ToggleCounty(county: string) {
         var selectedCounties = this.cookieService.get(this.favouriteCountiesCookieKey);
 
@@ -115,8 +185,7 @@ export class StandingsComponent {
     }
 
     private CalculateTotal() {
-        if (this.standing === null || this.standing.length == 0)
-        {
+        if (this.standing === null || this.standing.length == 0) {
             this.total = undefined;
             return;
         }
@@ -125,8 +194,7 @@ export class StandingsComponent {
             "Turism - innoptari", "Forta de munca - efectiv salariati", "Forta de munca - numar someri")).indexOf(this.indicator) > -1 ? total : total / 42;
     }
 
-    private InitializeMonths()
-    {
+    private InitializeMonths() {
         this.months[-1] = "Tot anul";
         this.months[1] = "Ianuarie";
         this.months[2] = "Februarie";
@@ -140,6 +208,41 @@ export class StandingsComponent {
         this.months[10] = "Octombrie";
         this.months[11] = "Noiembrie";
         this.months[12] = "Decembrie";
+    }
+
+    ngAfterViewInit() {
+        this.map = this.AmCharts.makeChart("chartdiv", {
+            "type": "map",
+            "dragMap": false,
+            "zoomOnDoubleClick": false,
+            "zoomControl": {
+                "zoomControlEnabled": false
+            },
+            "theme": "light",
+            "dataProvider": {
+                "mapURL": "romaniaHigh.svg",
+                "getAreasFromMap": true,
+                "areas": [
+                    { "id": "RO-B", "callout": true },
+                    { "id": "RO-IF", "callout": true },
+                ]
+            },
+            "imagesSettings": {
+                "labelPosition": "middle",
+                "labelFontSize": 8
+            },
+            "valueLegend": {
+                "right": 10,
+                "minValue": "",
+                "maxValue": ""
+            },
+        });
+    }
+
+    ngOnDestroy() {
+        if (this.map) {
+            this.AmCharts.destroyChart(this.map);
+        }
     }
 }
 
