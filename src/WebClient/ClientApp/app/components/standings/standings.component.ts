@@ -97,7 +97,12 @@ export class StandingsComponent {
             this.standing.forEach(x => x.favourite = selectedCounties.indexOf(x.county) > -1);
             this.unitOfMeasure = result.json().valueColumnCaption;
             this.CalculateTotal();
-            this.RefreshMap();
+
+            // Ugly workaround for a bug; the map is not displayed at first load
+            setTimeout(() => {
+                this.RefreshMap();
+            }, 300);
+            
         });
     }
 
@@ -127,7 +132,12 @@ export class StandingsComponent {
         this.map.dataProvider.images = [];
         for (var x in this.map.dataProvider.areas) {
             var area = this.map.dataProvider.areas[x];
-            area.value = this.standing.filter(x => x.county == area.title)[0].value;
+            try {
+                area.value = this.standing.filter(x => x.county == area.title)[0].value;
+            }
+            catch (exception) {
+                debugger;
+            }
             var image = {
                 "latitude": this.map.getAreaCenterLatitude(area),
                 "longitude": this.map.getAreaCenterLongitude(area),
@@ -223,8 +233,8 @@ export class StandingsComponent {
                 "mapURL": "romaniaHigh.svg",
                 "getAreasFromMap": true,
                 "areas": [
-                    { "id": "RO-B", "callout": true },
-                    { "id": "RO-IF", "callout": true },
+                    { "id": "RO-B", "title": "Bucuresti", "callout": true },
+                    { "id": "RO-IF", "title": "Ilfov", "callout": true },
                 ]
             },
             "imagesSettings": {
@@ -237,6 +247,72 @@ export class StandingsComponent {
                 "maxValue": ""
             },
         });
+
+        //var labelsShiftedX: { [index: string]: number } = {
+        //    "RO-CJ": 5,
+        //    "RO-CT": 10,
+        //    "RO-MH": 20,
+        //    "RO-MM": -10,
+        //    "RO-NT": -5,
+        //    "RO-OT": 10,
+        //    "RO-SM": -10,
+        //    "RO-TL": -20,
+        //};
+        //var labelsShiftedY: { [index: string]: number } = {
+        //    "RO-AB": -10,
+        //    "RO-BN": -10,
+        //    "RO-CL": -5,
+        //    "RO-IL": -10,
+        //    "RO-IS": -5,
+        //    "RO-TM": -10,
+        //    "RO-SV": -10,
+        //    "RO-VS": -10,
+        //};
+
+        //var offset = 0;
+        //this.map.dataProvider.images = [];
+        //for (var x in this.map.dataProvider.areas) {
+        //    var area = this.map.dataProvider.areas[x];
+        //    //try {
+        //    //    area.value = this.standing.filter(x => x.county == area.title)[0].value;
+        //    //}
+        //    //catch (exception) {
+        //    //    debugger;
+        //    //}
+        //    var image = {
+        //        "latitude": this.map.getAreaCenterLatitude(area),
+        //        "longitude": this.map.getAreaCenterLongitude(area),
+        //        "label": area.callout ? '' : area.title/* + '\n' + area.value*/,
+        //        "title": area.title,
+        //        "linkToObject": area,
+        //        "labelShiftX": labelsShiftedX[area.id] || 0,
+        //        "labelShiftY": labelsShiftedY[area.id] || 0,
+        //        "groupId": area.id
+        //    };
+        //    this.map.dataProvider.images.push(image);
+
+        //    if (area.callout) {
+        //        var image2 = {
+        //            "latitude": 47.5 + offset,
+        //            "longitude": 28,
+        //            "label": area.title/* + ' ' + area.value*/,
+        //            "title": area.title,
+        //            "type": "circle",
+        //            //"labelColor": "#000",
+        //            "labelShiftX": 50,
+        //            "width": 22,
+        //            "height": 22,
+        //            "groupId": area.id
+        //        };
+        //        this.map.dataProvider.images.push(image2);
+
+        //        offset += 0.3;
+        //    }
+        //}
+        ////var values = this.standing.map(x => x.value);
+        ////this.map.valueLegend.minValue = values.reduce((min, current) => Math.min(min, current));
+        ////this.map.valueLegend.maxValue = values.reduce((max, current) => Math.max(max, current));
+        //this.map.validateData();
     }
 
     ngOnDestroy() {
