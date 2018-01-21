@@ -37,8 +37,6 @@ export class StandingsComponent {
     constructor(private http: Http, private cookieService: CookieService, private shareService: ShareService, private router: Router, private location: Location, private AmCharts: AmChartsService) {
 
         this.favouriteCountiesCookieKey = 'favouriteCounties';
-        // TODO: remove this if possible
-        this.shareService.InitService();
 
         this.InitializeMonths();
 
