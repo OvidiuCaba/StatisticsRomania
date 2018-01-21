@@ -29,6 +29,7 @@ export class StandingsComponent {
     public months: { [index: number]: string } = {};
     public monthsKeys: Array<number>;
     public total?: number;
+    public shareableUrl: string;
 
     private favouriteCountiesCookieKey: string;
     private map: AmChart;
@@ -36,6 +37,8 @@ export class StandingsComponent {
     constructor(private http: Http, private cookieService: CookieService, private shareService: ShareService, private router: Router, private location: Location, private AmCharts: AmChartsService) {
 
         this.favouriteCountiesCookieKey = 'favouriteCounties';
+        // TODO: remove this if possible
+        this.shareService.InitService();
 
         this.InitializeMonths();
 
@@ -70,10 +73,6 @@ export class StandingsComponent {
         this.largeScreen = this.innerWidth > 1400;
     };
 
-    Share() {
-        this.shareService.ShareStandings(this.indicator, this.year, this.month);
-    }
-
     ChangeIndicator(indicator: string) {
         this.indicator = indicator;
 
@@ -88,6 +87,13 @@ export class StandingsComponent {
     }
 
     LoadData(year?: number) {
+        this.shareableUrl = this.shareService.GetShareableUrlForStandings(this.indicator, this.year, this.month);
+        this.shareService.InitService();    // refresh the share button URL
+        // TODO: Fix the flickering of the Share button
+        // This does not work [yet]
+        //var ctrl = document.getElementById('fb-share-button');
+        //(<any>window).FB.XFBML.parse(ctrl);
+
         if (year)
             this.year = year;
 
@@ -107,6 +113,9 @@ export class StandingsComponent {
     }
 
     RefreshMap() {
+        if (this.standing.length == 0)
+            return;
+
         var labelsShiftedX: { [index: string]: number } = {
             "RO-CJ": 5,
             "RO-CT": 10,
@@ -132,12 +141,7 @@ export class StandingsComponent {
         this.map.dataProvider.images = [];
         for (var x in this.map.dataProvider.areas) {
             var area = this.map.dataProvider.areas[x];
-            try {
-                area.value = this.standing.filter(x => x.county == area.title)[0].value;
-            }
-            catch (exception) {
-                debugger;
-            }
+            area.value = this.standing.filter(x => x.county == area.title)[0].value;
             var image = {
                 "latitude": this.map.getAreaCenterLatitude(area),
                 "longitude": this.map.getAreaCenterLongitude(area),

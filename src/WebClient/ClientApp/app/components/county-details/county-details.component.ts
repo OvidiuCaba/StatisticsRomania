@@ -22,6 +22,7 @@ export class CountyDetailsComponent {
     public value2ColumnCaption: string;
     public comparisonType: number;
     public needToProcessAllYear: boolean;
+    public shareableUrl: string;
     // charts
     public lineChartData: Array<any>;
     public lineChartLabels: Array<any>;
@@ -48,10 +49,6 @@ export class CountyDetailsComponent {
         this.needToProcessAllYear = this.comparisonType == 2;
 
         this.location.go('/statistici-judetene');
-    }
-
-    Share() {
-        this.shareService.ShareCountyDetails(this.county1, this.county2, this.indicator, this.needToProcessAllYear);
     }
 
     GetCounties() {
@@ -110,6 +107,9 @@ export class CountyDetailsComponent {
     }
 
     LoadData() {
+        this.shareableUrl = this.shareService.GetShareableUrlForCountyDetails(this.county1, this.county2, this.indicator, this.needToProcessAllYear);
+        this.shareService.InitService();    // refresh the share button URL
+
         this.http.get('/api/CountyDetails/GetCountyDetails?countyId=' + this.county1 + '&countyId2=' + this.county2 + '&chapter=' + this.indicator + '&needToProcessAllYear=' + this.needToProcessAllYear).subscribe(result => {
             this.countyDetails = result.json().data;
             this.valueColumnCaption = result.json().valueColumnCaption;

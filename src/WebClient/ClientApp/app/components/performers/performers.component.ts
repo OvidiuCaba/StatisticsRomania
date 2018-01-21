@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class PerformersComponent {
     public comparisonType: number;
     public indicators: Array<IndicatorPerformers>;
+    public shareableUrl: string;
 
     private favouriteCountiesCookieKey: string;
 
@@ -35,11 +36,10 @@ export class PerformersComponent {
         this.location.go('/performerii-lunii');
     }
 
-    Share() {
-        this.shareService.SharePerformers(this.comparisonType == 1 ? 'monthly' : 'yearly');
-    }
-
     LoadData() {
+        this.shareableUrl = this.shareService.GetShareableUrlForPerformers(this.comparisonType == 1 ? 'monthly' : 'yearly');
+        this.shareService.InitService();    // refresh the share button URL
+
         this.http.get('/api/IndicatorPerformers/GetIndicatorPerformers' + (this.comparisonType == 2 ? 'ByYear' : '') + '?favouriteCounties=' + this.cookieService.get(this.favouriteCountiesCookieKey))
             .subscribe(result => {
                 this.indicators = result.json();
