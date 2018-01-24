@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StatisticsRomania.Repository.Seeders;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,6 +25,7 @@ namespace WebClient.Controllers
             ViewData["Title"] = title;
 
             var description = "Vizualizare tabelara (evolutie si clasamente) si grafica a unor indicatori statistici la nivelul judetelor Romaniei. Indicatori disponibili: exporturi FOB, importuri CIF, sold FOB/CIF, efectiv salariati, salariu mediu brut, salariu mediu net, numar someri, innoptari, numar turisti.Datele sunt preluate de la Insistitutul National de Statistica.";
+            var image = "";
 
             var query = this.HttpContext.Request.Query;
             var isUrlShared = query.ContainsKey("share") && query["share"] == "true";
@@ -31,9 +33,11 @@ namespace WebClient.Controllers
             if(isUrlShared)
             {
                 description = await GetDescription() ?? description;
+                image = GetImage();
             }
 
             ViewData["Description"] = description;
+            ViewData["Image"] = image;
 
             return View();
         }
@@ -134,6 +138,29 @@ namespace WebClient.Controllers
             var description = $"Pentru indicatorul statistic '{query["chapter"]}', pentru anul {year}{(yearFraction == -1 ? string.Empty : $", luna {yearFraction}")}, clasamentul pe judete arata astfel: {partialStandings}.";
 
             return description;
+        }
+
+        private string GetImage()
+        {
+            var page = this.HttpContext.Request.Path.ToString().Substring(1);
+
+            switch (page)
+            {
+                case "performerii-lunii":
+                case "statistici-judetene":
+                    return string.Empty;
+                case "clasamente":
+                    return GetImageForStandings();
+            }
+
+            return string.Empty;
+        }
+
+        private string GetImageForStandings()
+        {
+            var query = this.HttpContext.Request.Query;
+
+            return $"{this.HttpContext.Request.Host}\\maps\\{query["chapter"]}-{query["year"]}{query["yearFraction"]}.jpg";
         }
     }
 }
