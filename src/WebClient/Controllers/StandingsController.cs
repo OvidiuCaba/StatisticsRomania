@@ -25,7 +25,7 @@ namespace WebClient.Controllers
         }
 
         [HttpPost("upload")]
-        public async Task Upload(string base64)
+        public async Task Upload(string base64, string filename)
         {
             // TODO: if the file already exists, do not generate it again;
             // TODO: plus: don't even make the request if the file exists [how do we handle data update/refresh from INS? maybe we just remove all the maps or all the maps for a specific indicator]
@@ -40,7 +40,7 @@ namespace WebClient.Controllers
                 {
                     Directory.CreateDirectory(mapsPath);
                 }
-                var mapPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "maps", "someMap.jpg");
+                var mapPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "maps", filename);
                 using (var stream = new FileStream(mapPath, FileMode.Create))
                 {
                     await stream.WriteAsync(fileContent, 0, fileContent.Length);

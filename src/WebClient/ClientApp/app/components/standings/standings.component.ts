@@ -77,6 +77,7 @@ export class StandingsComponent {
             this.toJPG({}, function (base64: any) {
                 var formData = new FormData();
                 formData.append("base64", base64);
+                formData.append("filename", self.indicator + "-" + self.year + self.month + ".jpg");
 
                 self.http.post('/api/Standings/' + "upload/", formData)
                     .subscribe(r => console.log(r));
