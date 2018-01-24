@@ -71,6 +71,19 @@ export class StandingsComponent {
         this.largeScreen = this.innerWidth > 1400;
     };
 
+    ExportMap() {
+        var self = this;
+        this.map["export"].capture({}, function (this: any) {
+            this.toJPG({}, function (base64: any) {
+                var formData = new FormData();
+                formData.append("base64", base64);
+
+                self.http.post('/api/Standings/' + "upload/", formData)
+                    .subscribe(r => console.log(r));
+            });
+        });
+    }
+
     ChangeIndicator(indicator: string) {
         this.indicator = indicator;
 
@@ -105,6 +118,7 @@ export class StandingsComponent {
             // Ugly workaround for a bug; the map is not displayed at first load
             setTimeout(() => {
                 this.RefreshMap();
+                this.ExportMap();
             }, 300);
             
         });
@@ -248,6 +262,10 @@ export class StandingsComponent {
                 "minValue": "",
                 "maxValue": ""
             },
+            "export": {
+                "enabled": true,
+                "menu": []
+            }
         });
 
         //var labelsShiftedX: { [index: string]: number } = {
