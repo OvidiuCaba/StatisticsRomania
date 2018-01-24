@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using StatisticsRomania.Repository.Seeders;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -160,7 +159,7 @@ namespace WebClient.Controllers
         {
             var query = this.HttpContext.Request.Query;
 
-            return $"{this.HttpContext.Request.Host}\\maps\\{query["chapter"]}-{query["year"]}{query["yearFraction"]}.jpg";
+            return $"{this.Request.Scheme}://{this.HttpContext.Request.Host}//maps//{query["chapter"].ToString().Replace(" ", string.Empty)}-{query["year"]}{query["yearFraction"]}.jpg";
         }
     }
 }
