@@ -46,7 +46,9 @@ namespace WebClient.Controllers
                 {
                     using (var img = Image.FromFile(mapPath))
                     {
-                        if (img.Width > 1000)
+                        var fileInfo = new FileInfo(mapPath);
+                        // the file must be bigger than 50 kb, otherwise something might be wrong and the initial file was not saved properly
+                        if (img.Width > 1000 && fileInfo.Length > 50000)
                             return;
                     }
                 }
