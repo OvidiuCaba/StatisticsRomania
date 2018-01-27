@@ -155,6 +155,7 @@ namespace WebClient.Controllers
             return string.Empty;
         }
 
+        // TODO: set dimensions and set it in the image meta tag to display the image correctly at the 1st share
         private string GetImageForStandings()
         {
             var query = this.HttpContext.Request.Query;
