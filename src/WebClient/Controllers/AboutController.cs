@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using StatisticsRomania.Repository.Seeders;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,6 +27,8 @@ namespace WebClient.Controllers
 
             var description = "Vizualizare tabelara (evolutie si clasamente) si grafica a unor indicatori statistici la nivelul judetelor Romaniei. Indicatori disponibili: exporturi FOB, importuri CIF, sold FOB/CIF, efectiv salariati, salariu mediu brut, salariu mediu net, numar someri, innoptari, numar turisti.Datele sunt preluate de la Insistitutul National de Statistica.";
             var image = "";
+            int? imageWidth = null;
+            int? imageHeight = null;
 
             var query = this.HttpContext.Request.Query;
             var isUrlShared = query.ContainsKey("share") && query["share"] == "true";
@@ -32,11 +36,13 @@ namespace WebClient.Controllers
             if(isUrlShared)
             {
                 description = await GetDescription() ?? description;
-                image = GetImage();
+                (image, imageWidth, imageHeight ) = GetImage();
             }
 
             ViewData["Description"] = description;
             ViewData["Image"] = image;
+            ViewData["ImageWidth"] = imageWidth;
+            ViewData["ImageHeight"] = imageHeight;
 
             return View();
         }
@@ -139,7 +145,7 @@ namespace WebClient.Controllers
             return description;
         }
 
-        private string GetImage()
+        private (string, int?, int?) GetImage()
         {
             var page = this.HttpContext.Request.Path.ToString().Substring(1);
 
@@ -147,20 +153,40 @@ namespace WebClient.Controllers
             {
                 case "performerii-lunii":
                 case "statistici-judetene":
-                    return string.Empty;
+                    return (string.Empty, null, null);
                 case "clasamente":
                     return GetImageForStandings();
             }
 
-            return string.Empty;
+            return (string.Empty, null, null);
         }
 
-        // TODO: set dimensions and set it in the image meta tag to display the image correctly at the 1st share
-        private string GetImageForStandings()
+        private (string, int?, int?) GetImageForStandings()
         {
             var query = this.HttpContext.Request.Query;
 
-            return $"{this.Request.Scheme}://{this.HttpContext.Request.Host}//maps//{query["chapter"].ToString().Replace(" ", string.Empty)}-{query["year"]}{query["yearFraction"]}.jpg";
+            var filename = $"{query["chapter"].ToString().Replace(" ", string.Empty)}-{query["year"]}{query["yearFraction"]}.jpg";
+            // TODO: remove duplicate code
+            var mapsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "maps");
+            if (!Directory.Exists(mapsPath))
+            {
+                Directory.CreateDirectory(mapsPath);
+            }
+            var mapPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "maps", filename);
+
+            int? imageWidth = null;
+            int? imageHeight = null;
+
+            if (System.IO.File.Exists(mapPath))
+            {
+                using (var img = Image.FromFile(mapPath))
+                {
+                    imageWidth = img.Width;
+                    imageHeight = img.Height;
+                }
+            }
+
+            return ($"{this.Request.Scheme}://{this.HttpContext.Request.Host}//maps//{query["chapter"].ToString().Replace(" ", string.Empty)}-{query["year"]}{query["yearFraction"]}.jpg", imageWidth, imageHeight);
         }
     }
 }

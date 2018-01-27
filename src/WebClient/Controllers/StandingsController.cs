@@ -35,6 +35,7 @@ namespace WebClient.Controllers
             {
                 base64 = base64.Substring(needle + 1);
                 var fileContent = Convert.FromBase64String(base64);
+                // TODO: remove duplicate code
                 var mapsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "maps");
                 if (!Directory.Exists(mapsPath))
                 {
