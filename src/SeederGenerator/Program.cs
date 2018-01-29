@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.Globalization;
@@ -16,7 +14,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna oct. 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna nov. 2017\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -79,7 +77,7 @@ namespace SeederGenerator
                                      };
 
             var year = 2017;
-            var months = new [] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
+            var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
             var res = new Dictionary<string, string>
                           {
