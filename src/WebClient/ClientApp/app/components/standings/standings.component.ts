@@ -181,11 +181,15 @@ export class StandingsComponent {
                     "groupId": area.id
                 };
                 this.map.dataProvider.images.push(image2);
+                // Hack to remove Bucuresti and Ilfov from the process that determines the county color
+                if (area.title === 'Bucuresti')
+                    area.value = this.standing.filter(x => x.county != 'Bucuresti').map(x => x.value).reduce((max, current) => Math.max(max, current));
 
                 offset += 0.3;
             }
         }
-        var values = this.standing.map(x => x.value);
+        // Bucuresti is no longer taken into consideration when coloring the counties
+        var values = this.standing.filter(x => x.county != 'Bucuresti').map(x => x.value);
         this.map.valueLegend.minValue = values.reduce((min, current) => Math.min(min, current));
         this.map.valueLegend.maxValue = values.reduce((max, current) => Math.max(max, current));
         this.map.validateData();
