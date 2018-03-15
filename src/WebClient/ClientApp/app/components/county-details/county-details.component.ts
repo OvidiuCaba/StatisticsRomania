@@ -1,4 +1,4 @@
-﻿import { Location } from '@angular/common';
+﻿import { Location, DecimalPipe } from '@angular/common';
 import { Component, OnInit, Pipe, ViewChild, ElementRef } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 import { Http } from '@angular/http';
@@ -143,7 +143,17 @@ export class CountyDetailsComponent {
         this.lineChartData = lineChartData;
         this.lineChartLabels = this.needToProcessAllYear ? chartData.map((x: any) => x.year) : chartData.map((x: any) => x.year + ' ' + x.yearFraction);
         this.lineChartOptions = {
-            responsive: true
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        callback: (dataLabel: any, index: any) => {
+                            let decimalPipe = new DecimalPipe('ro-RO');
+                            return decimalPipe.transform(dataLabel, '1.0-0');
+                        }
+                    }
+                }]
+            }
         };
         this.lineChartLegend = true;
         this.lineChartType = 'line';

@@ -158,7 +158,7 @@ export class StandingsComponent {
             var image = {
                 "latitude": this.map.getAreaCenterLatitude(area),
                 "longitude": this.map.getAreaCenterLongitude(area),
-                "label": area.callout ? '' : area.title + '\n' + area.value,
+                "label": area.callout ? '' : area.title + '\n' + this.FormatNumber(area.value),
                 "title": area.title,
                 "linkToObject": area,
                 "labelShiftX": labelsShiftedX[area.id] || 0,
@@ -171,7 +171,7 @@ export class StandingsComponent {
                 var image2 = {
                     "latitude": 47.5 + offset,
                     "longitude": 28,
-                    "label": area.title + ' ' + area.value,
+                    "label": area.title + ' ' + this.FormatNumber(area.value),
                     "title": area.title,
                     "type": "circle",
                     //"labelColor": "#000",
@@ -209,6 +209,11 @@ export class StandingsComponent {
         this.cookieService.delete(this.favouriteCountiesCookieKey);
 
         this.standing.forEach(x => x.favourite = false);
+    }
+
+    private FormatNumber(number: any): string {
+        // Ugly hack; it looks like we only have US as locale, so we just replace "," with "." for thousands separator
+        return new Intl.NumberFormat().format(number).replace(",", ".");
     }
 
     private CalculateTotal() {

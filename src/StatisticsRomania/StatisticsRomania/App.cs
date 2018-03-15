@@ -9,8 +9,6 @@ namespace StatisticsRomania
     //      https://www.facebook.com/StatisticiRomaniaApp/posts/1845041702461073?comment_id=1851594968472413&notif_id=1520943160326564&notif_t=feed_comment&ref=notif
     //  - de asemenea si un titlu pe grafic nu ar strica (adica ce se prezinta/compara - turisti, someri, etc) [Goada Bogdan]
     //      https://www.facebook.com/StatisticiRomaniaApp/posts/1845041702461073?comment_id=1851594968472413&notif_id=1520943160326564&notif_t=feed_comment&ref=notif
-    //  - si la grafic ar ajuta la sumele mai mari o virgula sau separare fizica la cate 3 zecimale. [Goada Bogdan]
-    //      https://www.facebook.com/StatisticiRomaniaApp/posts/1845041702461073?comment_id=1851594968472413&notif_id=1520943160326564&notif_t=feed_comment&ref=notif
     /*  - de asemenea pe harta, datorita faptului ca Bucurestiul are diferente majore fata de restul judetelor culorile sunt cam toate la fel. As sugera si aici, cumva Bucurestiul sa fie "scos" din gama de culori.
      *      Argumentatie:   - Bucurestiul nu este judet, este un municipiu. Nu e corect sa calculam salariul mediu pe un judet (care are multe sate si orase mici unde salariul este mai mic, si unde multi oameni 
      *                          nici nu lucreaza traiesc din munca nefiscalizata full time) cu un oras de 6 ori mai mare ca si orasul nr 2 ca si marime si buget
