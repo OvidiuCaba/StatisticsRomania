@@ -152,7 +152,11 @@ export class CountyDetailsComponent {
                             return decimalPipe.transform(dataLabel, '1.0-0');
                         }
                     }
-                }]
+                }],
+            },
+            title: {
+                display: true,
+                text: this.indicator
             }
         };
         this.lineChartLegend = true;
@@ -162,6 +166,7 @@ export class CountyDetailsComponent {
             if (this.chart && this.chart.chart && this.chart.chart.config) {
                 // TODO: remove this hack once the ng2-charts fixes this issue
                 this.chart.chart.config.data.labels = this.lineChartLabels;
+                this.chart.chart.options.title.text = this.indicator;
                 this.chart.chart.update();
             }
         });
