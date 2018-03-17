@@ -7,6 +7,10 @@ namespace StatisticsRomania
     // TODO: new functionalities:
     //  - La functionalitatea de "compara cu", oare se pot adauga mai multe elemente/judete de comparat, nu doar doua? Daca se poate dinamic (cate vrea utilizatorul) sau daca nu, sa zicem 7 pentru ca intr-o regiune de dezvoltare avem maxim 7 judete, si oricum 7 e "good enough". [Goada Bogdan]
     //      https://www.facebook.com/StatisticiRomaniaApp/posts/1845041702461073?comment_id=1851594968472413&notif_id=1520943160326564&notif_t=feed_comment&ref=notif
+    //  - As pune cu litera mare la toate valorile din dropdown, dupa liniuta de despartire (ex: Comert international - Exporturi FOB). Si vezi putin poate arata mai bine cu doua puncte in loc de liniuta, adica:
+    //    Comert international - Exporturi FOB
+    //    Comert international: Exporturi FOB
+    //      https://www.facebook.com/StatisticiRomaniaApp/posts/1845041702461073?comment_id=1851508875147689&reply_comment_id=1853218668310043&comment_tracking=%7B%22tn%22%3A%22R2%22%7D
     //  - export data
     //  - forecast: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-what-is-machine-learning/
     //  - add data from 2014 - maybe display only last 24 months [or less? maybe configurable?]
