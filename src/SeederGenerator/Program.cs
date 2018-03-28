@@ -14,7 +14,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna dec. 2017\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna ian. 2018\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -76,7 +76,7 @@ namespace SeederGenerator
                                          {"SoldFobCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 3)},
                                      };
 
-            var year = 2017;
+            var year = 2018;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
             var res = new Dictionary<string, string>
