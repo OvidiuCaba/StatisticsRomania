@@ -24,6 +24,7 @@ namespace StatisticsRomania
     //  - fix orientation issues on iPhone X and enable it
     //      https://www.jimbobbennett.io/orientation-with-xamarin-forms/
     //      https://www.wintellect.com/responding-to-orientation-changes-in-xamarin-forms/
+    //  - iOS: make a nicer launch screen
 
     public class App : Application
     {
