@@ -21,7 +21,7 @@
 	<key>MinimumOSVersion</key>
 	<string>7.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>StatisticsRomania</string>
+	<string>Statistici Romania</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.yourcompany.StatisticsRomania</string>
 	<key>CFBundleVersion</key>
