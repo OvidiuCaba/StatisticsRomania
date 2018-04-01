@@ -45,5 +45,9 @@
 	<string>LaunchScreen</string>
 	<key>CFBundleShortVersionString</key>
 	<string></string>
+	<key>XSLaunchImageAssets</key>
+	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 </dict>
 </plist>
