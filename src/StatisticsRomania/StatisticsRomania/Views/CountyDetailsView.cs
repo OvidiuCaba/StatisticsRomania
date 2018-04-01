@@ -11,6 +11,8 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace StatisticsRomania.Views
 {
@@ -29,6 +31,8 @@ namespace StatisticsRomania.Views
         public CountyDetailsView()
         {
             Title = "Statistici judetene";
+
+            On<iOS>().SetUseSafeArea(true);
 
             Init();
         }
