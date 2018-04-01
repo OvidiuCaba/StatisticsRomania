@@ -111,7 +111,8 @@ namespace StatisticsRomania.Views
             series.ItemsSource = _viewModel.ChapterData;
             _plotView.Model.Series.Add(series);
             _plotView.Model.Title = "Evolutie indicator";
-            _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
+            if (Device.RuntimePlatform == Device.Android)
+                _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
             _dataControls = new StackLayout()
                                {
@@ -261,7 +262,8 @@ namespace StatisticsRomania.Views
             _plotView.Model = new PlotModel();
             _plotView.Model.Title = "Evolutie indicator";
 
-            _plotView.Model.TextColor = OxyColors.LightGray;
+            if (Device.RuntimePlatform == Device.Android)
+                _plotView.Model.TextColor = OxyColors.LightGray;
 
             var dtAxis = new DateTimeAxis();
             dtAxis.Position = AxisPosition.Bottom;
