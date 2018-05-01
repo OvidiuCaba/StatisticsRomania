@@ -25,6 +25,7 @@ namespace StatisticsRomania
     //      https://www.jimbobbennett.io/orientation-with-xamarin-forms/
     //      https://www.wintellect.com/responding-to-orientation-changes-in-xamarin-forms/
     //  - iOS: make a nicer launch screen
+    //  - the mobile apps should no longer have hardcoded data; instead they should load the data from Web API and cache it
 
     public class App : Application
     {
