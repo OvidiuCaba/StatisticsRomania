@@ -14,7 +14,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna ian. 2018\";
+            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna feb. 2018\";
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -119,6 +119,10 @@ namespace SeederGenerator
 
             if (!File.Exists(file))
                 file = file.Replace("-", " ");
+
+            // Sometimes INS provides xls, sometimes it provides xlsx; so let's check for xlsx, too
+            if (!File.Exists(file))
+                file = file.Replace(".xls", ".xlsx");
 
             using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
