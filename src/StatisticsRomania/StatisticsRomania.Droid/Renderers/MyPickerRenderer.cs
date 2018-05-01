@@ -21,12 +21,15 @@ namespace StatisticsRomania.Droid.Renderers
 {
     public class MyPickerRenderer : PickerRenderer
     {
+        public MyPickerRenderer(Context context) : base(context)
+        {
+        }
+
         protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
         {
             base.OnElementChanged(e);
             if (e.OldElement == null)
                 Control.InputType = InputTypes.TextFlagNoSuggestions;
-
         }
     }
 }
