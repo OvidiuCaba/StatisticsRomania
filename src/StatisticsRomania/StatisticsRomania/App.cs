@@ -26,6 +26,9 @@ namespace StatisticsRomania
     //      https://www.wintellect.com/responding-to-orientation-changes-in-xamarin-forms/
     //  - iOS: make a nicer launch screen
     //  - the mobile apps should no longer have hardcoded data; instead they should load the data from Web API and cache it
+    //  - un nou INDICATOR la statistici (in dropdown). Probabil asta nu o primesti de la INS, dar se poate calcula usor, iar impactul vizual este mare, altfel trebuie sa tot schimbi si sa faci comparatii intre doua harti.
+    //      Ma refer la raport intre "efectiv salariati" si "nr someri" (sau invers someri la salariati).
+    //      https://www.facebook.com/StatisticiRomaniaApp/posts/1885852421713334?comment_id=1893581804273729&comment_tracking=%7B%22tn%22%3A%22R%22%7D
 
     public class App : Application
     {
