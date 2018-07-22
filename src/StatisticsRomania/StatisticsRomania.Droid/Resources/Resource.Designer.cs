@@ -2728,6 +2728,7 @@ namespace StatisticsRomania.Droid
 			global::DevExpress.Mobile.DataGrid.Android.Resource.Styleable.ViewStubCompat_android_id = global::StatisticsRomania.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::DevExpress.Mobile.DataGrid.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::StatisticsRomania.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::DevExpress.Mobile.DataGrid.Android.Resource.Styleable.ViewStubCompat_android_layout = global::StatisticsRomania.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Splat.Resource.String.library_name = global::StatisticsRomania.Droid.Resource.String.library_name;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::StatisticsRomania.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::StatisticsRomania.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::StatisticsRomania.Droid.Resource.Attribute.actionBarSize;

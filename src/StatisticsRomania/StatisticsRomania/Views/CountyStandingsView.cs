@@ -153,8 +153,8 @@ namespace StatisticsRomania.Views
             };
 
             _pickerChapters.SelectedIndex = Settings.StandingsChapter;
-            _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(App.LastYearAvailableData.ToString());
-            _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(App.LastMonthAvailableData.ToString());
+            _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(Settings.Year.ToString());
+            _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(Settings.Month.ToString());
 
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerYears.SelectedIndexChanged += picker_SelectedIndexChanged;
@@ -195,6 +195,8 @@ namespace StatisticsRomania.Views
         private async Task LoadData()
         {
             Settings.StandingsChapter = _pickerChapters.SelectedIndex;
+            Settings.Year = int.Parse((string)_pickerYears.SelectedItem);
+            Settings.Month = _pickerYearFractions.SelectedIndex == 0 ? -1 : int.Parse((string)_pickerYearFractions.SelectedItem);
 
             var selectedChapter = _pickerChapters.SelectedIndex >= 0
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]

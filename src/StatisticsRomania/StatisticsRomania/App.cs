@@ -1,4 +1,5 @@
-﻿using SQLite.Net.Async;
+﻿using Akavache;
+using SQLite.Net.Async;
 using StatisticsRomania.Views;
 using Xamarin.Forms;
 
@@ -30,14 +31,12 @@ namespace StatisticsRomania
     //      Ma refer la raport intre "efectiv salariati" si "nr someri" (sau invers someri la salariati).
     //      https://www.facebook.com/StatisticiRomaniaApp/posts/1885852421713334?comment_id=1893581804273729&comment_tracking=%7B%22tn%22%3A%22R%22%7D
 
+    // JUST TEST THIS: what happens if the caches expires (after 3 hours), but there's no internet; do we still return the cached data, or the data that is stored in the DB (which might be outdated)?
+
     public class App : Application
     {
         public static string SqliteFilename = "database.db3";
         public static SQLiteAsyncConnection AsyncDb;
-
-        // Note: change the values when new data is added [in the future we might automatically get the data from API, so no rush to optimize here]
-        public static int LastYearAvailableData = 2018;
-        public static int LastMonthAvailableData = 4;
 
         public App()
         {
@@ -48,6 +47,9 @@ namespace StatisticsRomania
         protected override void OnStart()
         {
             // Handle when your app starts
+
+            // Make sure you set the application name before doing any inserts or gets
+            BlobCache.ApplicationName = "StatisticsRomania";
         }
 
         protected override void OnSleep()

@@ -1,18 +1,17 @@
-﻿using System;
+﻿using PropertyChanged;
+using StatisticsRomania.BusinessObjects;
+using StatisticsRomania.Lib;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using PropertyChanged;
-using StatisticsRomania.Lib;
-using System.Diagnostics;
 
 namespace StatisticsRomania.ViewModels
 {
     [ImplementPropertyChanged]
     public class CountyStandingsViewModel : BaseViewModel
     {
+        public const string AllYearText = "──────";
         private readonly ObservableCollection<StandingItem> _standings;
 
         public List<string> YearList { get; set; }
@@ -43,7 +42,9 @@ namespace StatisticsRomania.ViewModels
 
             ValueColumnCaption = UnitOfMeasureList[chapter];
 
-            var data = await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction);
+            var internetData = await InternetDataProvider.GetStandingsFromCacheOrInternet(chapter, year, yearFraction);
+
+            var data = internetData == null ? await CountyStandingsProvider.GetData(ChapterList[chapter], year, yearFraction) : internetData.Data;
 
             //var y2015 = await CountyStandingsProvider.GetData(ChapterList[chapter], 2015, -1);
             //var y2016 = await CountyStandingsProvider.GetData(ChapterList[chapter], 2016, -1);
@@ -68,7 +69,11 @@ namespace StatisticsRomania.ViewModels
 
             if (DoesNotHaveData)
             {
-                var lastData = (await CountyDetailsProvider.GetData(1, ChapterList[chapter]))
+                var countyDetailsFromInternetOrCache = await InternetDataProvider.GetCountyDetailsFromCacheOrInternet(1, 0, chapter);
+
+                var countyDetailsData = countyDetailsFromInternetOrCache == null ? await CountyDetailsProvider.GetData(1, ChapterList[chapter]) : countyDetailsFromInternetOrCache.Data.Cast<Data>().ToList();
+
+                var lastData = countyDetailsData
                     .OrderByDescending(x => x.Year)
                     .ThenByDescending(x => x.YearFraction)
                     .FirstOrDefault();
@@ -79,12 +84,12 @@ namespace StatisticsRomania.ViewModels
 
         internal void GetYears()
         {
-            YearList = Enumerable.Range(2014, 5).Select(x => x.ToString()).ToList();
+            YearList = Enumerable.Range(2014, 20).Select(x => x.ToString()).ToList();
         }
 
         internal void GetYearFractions()
         {
-            YearFractionList = Enumerable.Range(0, 13).Select(x => x == 0 ? "──────" : x.ToString()).ToList();
+            YearFractionList = Enumerable.Range(0, 13).Select(x => x == 0 ? AllYearText : x.ToString()).ToList();
         }
     }
 }

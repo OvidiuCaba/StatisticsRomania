@@ -24,11 +24,6 @@ namespace StatisticsRomania.ViewModels
             get { return _chapterData; }
         }
 
-        public ObservableCollection<Data> ChapterDataReversed
-        {
-            get { return _chapterDataReversed; }
-        }
-
         public Dictionary<string, string> CountyAbbreviations
         {
             get { return _countyAbbreviations; }
@@ -107,19 +102,24 @@ namespace StatisticsRomania.ViewModels
 
             ValueColumnCaption = string.Format("{0} {1}", UnitOfMeasureList[chapter], CountyAbbreviations[CountyList.First(x => x.Value == countyId).Key]);
 
-            var data = await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]);
+            var internetData = await InternetDataProvider.GetCountyDetailsFromCacheOrInternet(countyId, countyId2, chapter);
+
+            var data = internetData == null ? await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]) : internetData.Data.Cast<Data>().ToList();
 
             HasData = data.Count > 0;
 
             if (countyId2 >= 1 && countyId != countyId2)
             {
-                var data2 = await CountyDetailsProvider.GetData(countyId2, ChapterList[chapter]);
-                foreach (var item2 in data2)
+                if (internetData == null)
                 {
-                    var item = data.FirstOrDefault(x => x.Year == item2.Year && x.YearFraction == item2.YearFraction);
-                    if (item != null)
+                    var data2 = await CountyDetailsProvider.GetData(countyId2, ChapterList[chapter]);
+                    foreach (var item2 in data2)
                     {
-                        item.Value2 = item2.Value;
+                        var item = data.FirstOrDefault(x => x.Year == item2.Year && x.YearFraction == item2.YearFraction);
+                        if (item != null)
+                        {
+                            item.Value2 = item2.Value;
+                        }
                     }
                 }
 
@@ -133,12 +133,10 @@ namespace StatisticsRomania.ViewModels
             }
 
             ChapterData.Clear();
-            ChapterDataReversed.Clear();
 
             foreach (var item in data)
             {
                 ChapterData.Add(item);
-                ChapterDataReversed.Insert(0, item);
             }
         }
     }

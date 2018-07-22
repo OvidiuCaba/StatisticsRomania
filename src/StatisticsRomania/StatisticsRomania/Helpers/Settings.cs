@@ -1,5 +1,6 @@
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using System;
 
 namespace StatisticsRomania.Helpers
 {
@@ -19,6 +20,8 @@ namespace StatisticsRomania.Helpers
         private const string LastCounty2Key = "last_county2";
         private const string LastSelectedChapterKey = "last_selected_chapter";
         private const string LastSelectedStandingsChapterKey = "last_selected_standings_chapter";
+        private const string LastSelectedYearKey = "last_year";
+        private const string LastSelectedMonthKey = "last_month";
 
         public static int County1
         {
@@ -43,5 +46,18 @@ namespace StatisticsRomania.Helpers
             get { return AppSettings.GetValueOrDefault<int>(LastSelectedStandingsChapterKey); }
             set { AppSettings.AddOrUpdateValue<int>(LastSelectedStandingsChapterKey, value); }
         }
+
+        public static int Year
+        {
+            get { return AppSettings.GetValueOrDefault<int>(LastSelectedYearKey, DateTime.Now.Year); }
+            set { AppSettings.AddOrUpdateValue<int>(LastSelectedYearKey, value); }
+        }
+
+        public static int Month
+        {
+            get { return AppSettings.GetValueOrDefault<int>(LastSelectedMonthKey, DateTime.Now.Month); }
+            set { AppSettings.AddOrUpdateValue<int>(LastSelectedMonthKey, value); }
+        }
+
     }
 }

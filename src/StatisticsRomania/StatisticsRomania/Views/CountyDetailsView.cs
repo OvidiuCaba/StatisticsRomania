@@ -100,7 +100,7 @@ namespace StatisticsRomania.Views
             valueColumn2.SetBinding(TextColumn.CaptionProperty, new Binding("Value2ColumnCaption", source: _viewModel));
             valueColumn2.SetBinding(TextColumn.IsVisibleProperty, new Binding("Value2ColumnVisibility", source: _viewModel));
             _degChapterData.Columns.Add(valueColumn2);
-            _degChapterData.ItemsSource = _viewModel.ChapterDataReversed;
+            _degChapterData.ItemsSource = _viewModel.ChapterData;
             _degChapterData.RowTap += degChapterData_RowTap;
 
             _plotView = new PlotView();
