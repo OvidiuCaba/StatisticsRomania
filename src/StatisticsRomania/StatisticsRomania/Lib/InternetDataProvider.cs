@@ -29,6 +29,15 @@ namespace StatisticsRomania.Lib
                 }
             }
 
+            try
+            {
+                await BlobCache.LocalMachine.Invalidate(key);
+            }
+            catch
+            {
+                // I don't care if I didn't find the key
+            }
+
             return await BlobCache.LocalMachine.GetOrFetchObject(
                 key,
                 async () => await GetCountyDetailsFromInternet(countyId, countyId2, chapter),
@@ -50,6 +59,15 @@ namespace StatisticsRomania.Lib
                 {
                     return null;
                 }
+            }
+
+            try
+            {
+                await BlobCache.LocalMachine.Invalidate(key);
+            }
+            catch
+            {
+                // I don't care if I didn't find the key
             }
 
             return await BlobCache.LocalMachine.GetOrFetchObject(

@@ -17,6 +17,8 @@ namespace StatisticsRomania.Droid
         {
             base.OnCreate(bundle);
 
+            AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
+
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             DevExpress.Mobile.Forms.Init();
@@ -38,6 +40,13 @@ namespace StatisticsRomania.Droid
         {
             var libraryPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             return Path.Combine(libraryPath, App.SqliteFilename);
+        }
+
+        protected void HandleUnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Exception e = (Exception)args.ExceptionObject;
+
+            //Console.WriteLine("========= MyHandler caught : " + e.Message);
         }
     }
 }
