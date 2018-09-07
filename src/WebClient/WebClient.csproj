@@ -5,6 +5,7 @@
     <IsPackable>false</IsPackable>
     <ApplicationInsightsResourceId>/subscriptions/771a1eaa-ca0f-408b-8913-59877d081379/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebClient</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/771a1eaa-ca0f-408b-8913-59877d081379/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/WebClient</ApplicationInsightsAnnotationResourceId>
+    <UserSecretsId>378eccc5-8987-4551-887a-920296122399</UserSecretsId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>latest</LangVersion>
@@ -14,12 +15,12 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CoreCompat.System.Drawing.v2" Version="5.2.0-preview1-r131" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- Files not to show in IDE -->

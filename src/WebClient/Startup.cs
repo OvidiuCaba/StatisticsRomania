@@ -21,7 +21,7 @@ namespace WebClient
             Configuration = builder.Build();
 
             RepositoryFactory.IsWebSite = true;
-            CultureInfo.CurrentCulture = new CultureInfo("ro-RO"); ;
+            CultureInfo.CurrentCulture = new CultureInfo("ro-RO");
         }
 
         public IConfigurationRoot Configuration { get; }
