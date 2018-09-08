@@ -117,9 +117,11 @@ namespace StatisticsRomania.Lib
                 (await repository.GetAll(x => (x.Year == year && x.YearFraction <= yearFraction) || (x.Year == year - 1 && x.YearFraction > yearFraction)));
             var data = query.Cast<Data>().ToList();
 
+            var countyRepository = RepositoryFactory.GetCountyRepository();
+
             foreach (var item in data)
             {
-                await repository.GetChild((T)item, x => x.County);
+                item.County = await countyRepository.Get(item.CountyId ?? 0);
             }
 
             data = data.GroupBy(x => x.CountyId)

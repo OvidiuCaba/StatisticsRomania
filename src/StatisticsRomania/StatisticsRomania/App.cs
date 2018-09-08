@@ -1,5 +1,5 @@
 ﻿using Akavache;
-using SQLite.Net.Async;
+using SQLite;
 using StatisticsRomania.Views;
 using Xamarin.Forms;
 

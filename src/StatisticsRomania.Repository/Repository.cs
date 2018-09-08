@@ -1,5 +1,4 @@
-﻿using SQLite.Net.Async;
-using SQLiteNetExtensionsAsync.Extensions;
+﻿using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,8 +76,6 @@ namespace StatisticsRomania.Repository
         public async Task<int> Insert(T entity)
         {
             return await db.InsertAsync(entity);
-            //await db.InsertWithChildrenAsync(entity);
-            return 1;
         }
 
         public async Task<int> Update(T entity)
@@ -91,9 +88,15 @@ namespace StatisticsRomania.Repository
             return await db.DeleteAsync(entity);
         }
 
-        public async Task GetChild(T entity, Expression<Func<T, object>> propertyExpression)
+        /// <summary>
+        /// TODO: Deprecated - no longer in use; should be removed
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="propertyExpression"></param>
+        /// <returns></returns>
+        public Task GetChild(T entity, Expression<Func<T, object>> propertyExpression)
         {
-            await db.GetChildAsync(entity, propertyExpression);
+            return Task.FromResult(0);
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Net;
-using SQLite.Net.Async;
-using SQLite.Net.Interop;
+using SQLite;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Repository.Seeders;
 
@@ -11,8 +9,6 @@ namespace StatisticsRomania.Repository
 {
     public class Database
     {
-        public ISQLitePlatform SqlitePlatform { get; set; }
-
         public string Path { get; set; }
 
         SQLiteConnection _db;
@@ -27,9 +23,8 @@ namespace StatisticsRomania.Repository
 
         private void InitializeDatabase()
         {
-            var sqLiteConnectionWithLock = new SQLiteConnectionWithLock(SqlitePlatform, new SQLiteConnectionString(Path, true));
-            AsyncDb = new SQLiteAsyncConnection(() => sqLiteConnectionWithLock);
-            _db = new SQLiteConnection(SqlitePlatform, Path, true);
+            AsyncDb = new SQLiteAsyncConnection(Path, true);
+            _db = new SQLiteConnection(Path, true);
         }
 
         private void CreateDatabase()
@@ -49,7 +44,15 @@ namespace StatisticsRomania.Repository
         private void SeedDatabase()
         {
             var counties = CountiesSeeder.GetData();
-            _db.InsertOrReplaceAll(counties);
+            try
+            {
+                _db.InsertAll(counties);
+            }
+            catch
+            {
+                // If the counties are already there, I'll get a constraint exception;
+                // I don't care
+            }
 
             var averageGrossSalaries = AverageGrossSalarySeeder.GetData();
             _db.DeleteAll<AverageGrossSalary>();

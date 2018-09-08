@@ -21,5 +21,20 @@ namespace StatisticsRomania.Lib
         {
             return new InMemoryRepository<T>();
         }
+
+        public static IRepository<County> GetCountyRepository()
+        {
+            return IsWebSite ? GetWebClientCountyRepository() : GetMobileCountyRepository();
+        }
+
+        private static IRepository<County> GetMobileCountyRepository()
+        {
+            return new Repository<County>(App.AsyncDb);
+        }
+
+        private static IRepository<County> GetWebClientCountyRepository()
+        {
+            return new InMemoryRepository<County>();
+        }
     }
 }

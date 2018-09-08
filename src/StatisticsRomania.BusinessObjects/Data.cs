@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite.Net.Attributes;
+//using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
+using SQLite;
 
 namespace StatisticsRomania.BusinessObjects
 {
@@ -29,7 +30,7 @@ namespace StatisticsRomania.BusinessObjects
         [Ignore]
         public float Value2 { get; set; }
 
-        [ManyToOne(ReadOnly = true)]
+        [Ignore]
         public County County { get; set; }
 
         [Ignore]

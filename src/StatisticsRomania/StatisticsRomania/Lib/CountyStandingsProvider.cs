@@ -102,9 +102,11 @@ namespace StatisticsRomania.Lib
             var data = new List<StandingItem>();
             var index = 1;
 
+            var countyRepository = RepositoryFactory.GetCountyRepository();
+
             foreach (var item in rawData)
             {
-                await repository.GetChild((T) item, x => x.County);
+                item.County = await countyRepository.Get(item.CountyId ?? 0);
 
                 var standingItem = new StandingItem() {Position = index++, County = item.County.Name, Value = item.Value};
                 data.Add(standingItem);

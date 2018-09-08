@@ -26,7 +26,6 @@ namespace StatisticsRomania.Droid
 
             var database = new Database
             {
-                SqlitePlatform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid(),
                 Path = GetPath()
             };
             database.Initialize();
