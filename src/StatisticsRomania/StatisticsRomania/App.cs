@@ -30,8 +30,8 @@ namespace StatisticsRomania
     //  - un nou INDICATOR la statistici (in dropdown). Probabil asta nu o primesti de la INS, dar se poate calcula usor, iar impactul vizual este mare, altfel trebuie sa tot schimbi si sa faci comparatii intre doua harti.
     //      Ma refer la raport intre "efectiv salariati" si "nr someri" (sau invers someri la salariati).
     //      https://www.facebook.com/StatisticiRomaniaApp/posts/1885852421713334?comment_id=1893581804273729&comment_tracking=%7B%22tn%22%3A%22R%22%7D
-
-    // JUST TEST THIS: what happens if the caches expires (after 3 hours), but there's no internet; do we still return the cached data, or the data that is stored in the DB (which might be outdated)?
+    //  - remove unused Sqlite Nuget packages
+    
 
     public class App : Application
     {
