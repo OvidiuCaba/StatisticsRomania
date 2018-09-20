@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace StatisticsRomania.ViewModels
 {
-    [ImplementPropertyChanged]
     public class CountyStandingsViewModel : BaseViewModel
     {
         public const string AllYearText = "──────";

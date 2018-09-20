@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,10 @@ using StatisticsRomania.Repository;
 //TODO: nu arata bine pe Nexus S, probabil trebuie sa abreviez
 namespace StatisticsRomania.ViewModels
 {
-    public abstract class BaseViewModel
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         protected Dictionary<string, string> UnitOfMeasureList;
 
         public Dictionary<string, Type> ChapterList { get; set; }

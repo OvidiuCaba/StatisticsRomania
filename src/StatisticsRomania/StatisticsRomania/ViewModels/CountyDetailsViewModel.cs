@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace StatisticsRomania.ViewModels
 {
-    [ImplementPropertyChanged]
     public class CountyDetailsViewModel : BaseViewModel
     {
         private readonly IRepository<County> _countyRepository;
