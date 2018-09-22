@@ -25,38 +25,38 @@ namespace StatisticsRomania.Helpers
 
         public static int County1
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastCounty1Key); }
-            set { AppSettings.AddOrUpdateValue<int>(LastCounty1Key, value); }
+            get { return AppSettings.GetValueOrDefault(LastCounty1Key, 0); }
+            set { AppSettings.AddOrUpdateValue(LastCounty1Key, value); }
         }
 
         public static int County2
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastCounty2Key); }
-            set { AppSettings.AddOrUpdateValue<int>(LastCounty2Key, value); }
+            get { return AppSettings.GetValueOrDefault(LastCounty2Key, -1); }
+            set { AppSettings.AddOrUpdateValue(LastCounty2Key, value); }
         }
 
         public static int Chapter
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastSelectedChapterKey); }
-            set { AppSettings.AddOrUpdateValue<int>(LastSelectedChapterKey, value); }
+            get { return AppSettings.GetValueOrDefault(LastSelectedChapterKey, 0); }
+            set { AppSettings.AddOrUpdateValue(LastSelectedChapterKey, value); }
         }
 
         public static int StandingsChapter
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastSelectedStandingsChapterKey); }
-            set { AppSettings.AddOrUpdateValue<int>(LastSelectedStandingsChapterKey, value); }
+            get { return AppSettings.GetValueOrDefault(LastSelectedStandingsChapterKey, 0); }
+            set { AppSettings.AddOrUpdateValue(LastSelectedStandingsChapterKey, value); }
         }
 
         public static int Year
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastSelectedYearKey, DateTime.Now.Year); }
-            set { AppSettings.AddOrUpdateValue<int>(LastSelectedYearKey, value); }
+            get { return AppSettings.GetValueOrDefault(LastSelectedYearKey, DateTime.Now.Year); }
+            set { AppSettings.AddOrUpdateValue(LastSelectedYearKey, value); }
         }
 
         public static int Month
         {
-            get { return AppSettings.GetValueOrDefault<int>(LastSelectedMonthKey, DateTime.Now.Month); }
-            set { AppSettings.AddOrUpdateValue<int>(LastSelectedMonthKey, value); }
+            get { return AppSettings.GetValueOrDefault(LastSelectedMonthKey, DateTime.Now.Month); }
+            set { AppSettings.AddOrUpdateValue(LastSelectedMonthKey, value); }
         }
 
     }
