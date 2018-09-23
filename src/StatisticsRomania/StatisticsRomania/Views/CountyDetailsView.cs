@@ -133,7 +133,7 @@ namespace StatisticsRomania.Views
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200, GridUnitType.Absolute) });
             grid.ColumnDefinitions.Add(new ColumnDefinition());
 
             var firstRowOfHeader = new StackLayout()
@@ -219,7 +219,7 @@ namespace StatisticsRomania.Views
             //    _dataControls.Orientation = StackOrientation.Horizontal;
             //    _plotView.HeightRequest = -1;
             //    _plotView.WidthRequest = width / 2;
-            //    _degChapterData.ForceLayout();
+                _degChapterData.ForceLayout();
             //}
 
             // TODO: duplicate code, try to clean it
@@ -259,7 +259,7 @@ namespace StatisticsRomania.Views
             if (_plotView == null)
                 return;
 
-            _plotView.Model = new PlotModel();
+            _plotView.Model = _plotView.Model ?? new PlotModel();
             _plotView.Model.Title = "Evolutie indicator";
 
             if (Device.RuntimePlatform == Device.Android)
@@ -276,6 +276,8 @@ namespace StatisticsRomania.Views
             verticalAxis.Position = AxisPosition.Left;
             verticalAxis.IsPanEnabled = false;
             verticalAxis.IsZoomEnabled = false;
+
+            _plotView.Model.Axes.Clear();
 
             _plotView.Model.Axes.Add(dtAxis);
             _plotView.Model.Axes.Add(verticalAxis);
