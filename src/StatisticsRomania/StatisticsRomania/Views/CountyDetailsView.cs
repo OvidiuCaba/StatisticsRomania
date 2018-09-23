@@ -26,8 +26,6 @@ namespace StatisticsRomania.Views
         private GridControl _degChapterData;
         private PlotView _plotView;
 
-        private StackLayout _dataControls;
-
         public CountyDetailsView()
         {
             Title = "Statistici judetene";
@@ -78,6 +76,7 @@ namespace StatisticsRomania.Views
             }
 
             _degChapterData = new GridControl();
+            _degChapterData.SetBinding(GridControl.IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _degChapterData.IsReadOnly = true;
             _degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
@@ -104,6 +103,7 @@ namespace StatisticsRomania.Views
             _degChapterData.RowTap += degChapterData_RowTap;
 
             _plotView = new PlotView();
+            _plotView.SetBinding(PlotView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
             _plotView.VerticalOptions = LayoutOptions.FillAndExpand;
             _plotView.Model = new PlotModel();
@@ -114,23 +114,13 @@ namespace StatisticsRomania.Views
             if (Device.RuntimePlatform == Device.Android)
                 _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
-            _dataControls = new StackLayout()
-                               {
-                                   Orientation = StackOrientation.Vertical,
-                                   HorizontalOptions = LayoutOptions.FillAndExpand,
-                                   VerticalOptions = LayoutOptions.FillAndExpand,
-                                   Spacing = 0,
-                                   Children = {_degChapterData, _plotView}
-                               };
-            _dataControls.SetBinding(StackLayout.IsVisibleProperty, new Binding("HasData", source: _viewModel));
-
             var btnTest = new Button()
                               {
                                   Text = "Test"
                               };
             btnTest.Clicked += btnTest_Clicked;
 
-            this.Content = new StackLayout
+            var grid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Padding = new Thickness(
@@ -138,23 +128,31 @@ namespace StatisticsRomania.Views
                     right: 0,
                     bottom: 0,
                     top: Device.OnPlatform(iOS: 0, Android: 5, WinPhone: 0)),
-                Children = { 
-                    new StackLayout()
-                    {
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        Orientation = StackOrientation.Horizontal,
-                        Padding = new Thickness(0, 2),
-                        Children =
-                            {
-                                _pickerCounties, lblCompare, _pickerCounties2//, btnTest
-                            }
-                    },
-                    _pickerChapters,
-                    //degChapterData,
-                    //plotView
-                    _dataControls
+            };
+
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+            var firstRowOfHeader = new StackLayout()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Orientation = StackOrientation.Horizontal,
+                Padding = new Thickness(0, 2),
+                Children =
+                {
+                    _pickerCounties, lblCompare, _pickerCounties2//, btnTest
                 }
             };
+
+            grid.Children.Add(firstRowOfHeader, 0, 0);
+            grid.Children.Add(_pickerChapters, 0, 1);
+            grid.Children.Add(_degChapterData, 0, 2);
+            grid.Children.Add(_plotView, 0, 3);
+
+            this.Content = grid;
 
             _pickerCounties.SelectedIndex = Settings.County1;
             _pickerCounties2.SelectedIndex = Settings.County2;
@@ -194,7 +192,7 @@ namespace StatisticsRomania.Views
             if (width == _width && height == _height)
                 return;
 
-            if (_plotView == null || _dataControls == null)
+            if (_plotView == null || _degChapterData == null)
             {
                 return;
             }
@@ -204,23 +202,25 @@ namespace StatisticsRomania.Views
 
             var isPortrait = height > width;
 
+            // TODO: add the chart and resolve the orientation issue
+
             // Note: Ugly workaround to fix rotation to landscape issue
             //       When a transition from portrait to landscape happens, OnSizeAllocated() is called [at last] twice twice and HeightRequest must be set each time for this bug to go away
-            _dataControls.HeightRequest = _wasPortrait ? 100 : -1;
+            //_dataControls.HeightRequest = _wasPortrait ? 100 : -1;
 
-            if (isPortrait)
-            {
-                _plotView.HeightRequest = height/3;
-                _plotView.WidthRequest = -1;
-                _dataControls.Orientation = StackOrientation.Vertical;
-            }
-            else
-            {
-                _dataControls.Orientation = StackOrientation.Horizontal;
-                _plotView.HeightRequest = -1;
-                _plotView.WidthRequest = width / 2;
-                _degChapterData.ForceLayout();
-            }
+            //if (isPortrait)
+            //{
+            //    _plotView.HeightRequest = height/3;
+            //    _plotView.WidthRequest = -1;
+            //    _dataControls.Orientation = StackOrientation.Vertical;
+            //}
+            //else
+            //{
+            //    _dataControls.Orientation = StackOrientation.Horizontal;
+            //    _plotView.HeightRequest = -1;
+            //    _plotView.WidthRequest = width / 2;
+            //    _degChapterData.ForceLayout();
+            //}
 
             // TODO: duplicate code, try to clean it
             _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;

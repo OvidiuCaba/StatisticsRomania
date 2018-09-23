@@ -127,30 +127,35 @@ namespace StatisticsRomania.Views
             };
             stackNoData.SetBinding(Label.IsVisibleProperty, "DoesNotHaveData");
 
-            this.Content = new StackLayout
+            var grid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Padding = new Thickness(
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    top: Device.OnPlatform(iOS: 0, Android: 5, WinPhone: 0)),
-                Children = {
-                    _pickerChapters,
-                    new StackLayout()
-                    {
-                        HorizontalOptions = LayoutOptions.FillAndExpand,
-                        Orientation = StackOrientation.Horizontal,
-                        Padding = new Thickness(5, 0, 0, 0),
-                        Children =
-                            {
-                                lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
-                            }
-                    },
-                    _degStandings,
-                    stackNoData
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        top: Device.OnPlatform(iOS: 0, Android: 5, WinPhone: 0)),
+            };
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.ColumnDefinitions.Add(new ColumnDefinition());
+            grid.Children.Add(_pickerChapters, 0, 0);
+            var header = new StackLayout()
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                Orientation = StackOrientation.Horizontal,
+                Padding = new Thickness(5, 0, 0, 0),
+                Children =
+                {
+                    lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
                 }
             };
+            grid.Children.Add(header, 0, 1);
+            grid.Children.Add(_degStandings, 0, 2);
+            grid.Children.Add(stackNoData, 0, 2);
+
+            this.Content = grid;
 
             _pickerChapters.SelectedIndex = Settings.StandingsChapter;
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(Settings.Year.ToString());
