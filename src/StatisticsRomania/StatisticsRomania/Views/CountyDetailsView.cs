@@ -133,7 +133,7 @@ namespace StatisticsRomania.Views
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(200, GridUnitType.Absolute) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
             grid.ColumnDefinitions.Add(new ColumnDefinition());
 
             var firstRowOfHeader = new StackLayout()
@@ -208,6 +208,8 @@ namespace StatisticsRomania.Views
             //       When a transition from portrait to landscape happens, OnSizeAllocated() is called [at last] twice twice and HeightRequest must be set each time for this bug to go away
             //_dataControls.HeightRequest = _wasPortrait ? 100 : -1;
 
+            (this.Content as Grid).RowDefinitions.Last().Height = _height / 3;
+
             //if (isPortrait)
             //{
             //    _plotView.HeightRequest = height/3;
@@ -219,7 +221,7 @@ namespace StatisticsRomania.Views
             //    _dataControls.Orientation = StackOrientation.Horizontal;
             //    _plotView.HeightRequest = -1;
             //    _plotView.WidthRequest = width / 2;
-                _degChapterData.ForceLayout();
+            _degChapterData.ForceLayout();
             //}
 
             // TODO: duplicate code, try to clean it
