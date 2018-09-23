@@ -23,6 +23,7 @@ namespace StatisticsRomania.Views
         private PickerWithNoSpellCheck _pickerCounties;
         private PickerWithNoSpellCheck _pickerCounties2;
 
+        private StackLayout _firstRowOfHeader;
         private GridControl _degChapterData;
         private PlotView _plotView;
 
@@ -136,7 +137,7 @@ namespace StatisticsRomania.Views
             grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
             grid.ColumnDefinitions.Add(new ColumnDefinition());
 
-            var firstRowOfHeader = new StackLayout()
+            _firstRowOfHeader = new StackLayout()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Orientation = StackOrientation.Horizontal,
@@ -147,7 +148,7 @@ namespace StatisticsRomania.Views
                 }
             };
 
-            grid.Children.Add(firstRowOfHeader, 0, 0);
+            grid.Children.Add(_firstRowOfHeader, 0, 0);
             grid.Children.Add(_pickerChapters, 0, 1);
             grid.Children.Add(_degChapterData, 0, 2);
             grid.Children.Add(_plotView, 0, 3);
@@ -202,27 +203,44 @@ namespace StatisticsRomania.Views
 
             var isPortrait = height > width;
 
-            // TODO: add the chart and resolve the orientation issue
+            var grid = (this.Content as Grid);
 
-            // Note: Ugly workaround to fix rotation to landscape issue
-            //       When a transition from portrait to landscape happens, OnSizeAllocated() is called [at last] twice twice and HeightRequest must be set each time for this bug to go away
-            //_dataControls.HeightRequest = _wasPortrait ? 100 : -1;
+            if (isPortrait)
+            {
+                if (grid.RowDefinitions.Count < 4)
+                {
+                    grid.RowDefinitions.Last().Height = GridLength.Auto;
+                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
+                    grid.ColumnDefinitions.RemoveAt(1);
+                    grid.ColumnDefinitions.First().Width = _width;
+                }
+                else
+                {
+                    (this.Content as Grid).RowDefinitions.Last().Height = _height / 3;
+                }
 
-            (this.Content as Grid).RowDefinitions.Last().Height = _height / 3;
+                grid.Children.Remove(_plotView);
+                grid.Children.Add(_plotView, 0, 3);
 
-            //if (isPortrait)
-            //{
-            //    _plotView.HeightRequest = height/3;
-            //    _plotView.WidthRequest = -1;
-            //    _dataControls.Orientation = StackOrientation.Vertical;
-            //}
-            //else
-            //{
-            //    _dataControls.Orientation = StackOrientation.Horizontal;
-            //    _plotView.HeightRequest = -1;
-            //    _plotView.WidthRequest = width / 2;
-            _degChapterData.ForceLayout();
-            //}
+                Grid.SetColumnSpan(_firstRowOfHeader, 1);
+                Grid.SetColumnSpan(_pickerChapters, 1);
+            }
+            else
+            {
+                if (grid.RowDefinitions.Count == 4)
+                {
+                    grid.RowDefinitions.RemoveAt(3);
+                    grid.RowDefinitions.Last().Height = new GridLength(1, GridUnitType.Star);
+                    grid.ColumnDefinitions.First().Width = _width / 2;
+                    grid.ColumnDefinitions.Add(new ColumnDefinition());
+                }
+
+                grid.Children.Remove(_plotView);
+                grid.Children.Add(_plotView, 1, 2);
+
+                Grid.SetColumnSpan(_firstRowOfHeader, 2);
+                Grid.SetColumnSpan(_pickerChapters, 2);
+            }
 
             // TODO: duplicate code, try to clean it
             _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;
