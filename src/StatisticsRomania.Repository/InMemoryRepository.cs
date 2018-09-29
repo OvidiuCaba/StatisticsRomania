@@ -18,9 +18,10 @@ namespace StatisticsRomania.Repository
             throw new NotImplementedException();
         }
 
-        public Task<T> Get(int id)
+        public async Task<T> Get(int id)
         {
-            throw new NotImplementedException();
+            // Note: I know that I use this method only to load counties; if this changes in the future, then I need to change the implementation
+            return CountiesSeeder.GetData().First(x => x.Id == id) as T;
         }
 
         public Task<T> Get(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
