@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
@@ -43,6 +41,13 @@ namespace StatisticsRomania.Repository.Seeders
                 }
             }
             return items;
+        }
+
+        protected static List<string> GetDataFromResources(string resourceKey)
+        {
+            var dataFromResources = resourceKey.Split(',').Select(x => x.Replace(Environment.NewLine, string.Empty).Replace("\"", string.Empty)).ToList();
+            dataFromResources.RemoveAll(x => x == string.Empty);
+            return dataFromResources;
         }
     }
 }

@@ -17,4 +17,19 @@
     <ProjectReference Include="..\StatisticsRomania.BusinessObjects\StatisticsRomania.BusinessObjects.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Seeders\CountiesData.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CountiesData.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Seeders\CountiesData.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CountiesData.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
