@@ -74,7 +74,10 @@ namespace WebClient.Controllers
                                                         CurrentValue = currentValue.Value,
                                                         PreviousValue = previousValue.Value
                                                     })
-                                                    .OrderByWithDirection(x => x.CurrentValue - x.PreviousValue, chapter == "Forta de munca - numar someri")
+                                                    .OrderByWithDirection(x => x.CurrentValue - x.PreviousValue,    chapter == "Forta de munca - numar someri" || 
+                                                                                                                    chapter == "Populatie - decedati" || 
+                                                                                                                    chapter == "Populatie - decedati sub 1 an" ||
+                                                                                                                    chapter == "Populatie - divorturi")
                                                     .Select((x, index) => new { Position = index + 1, Performer = x })
                                                     .Where(x => favouriteCountiesIds.Contains(x.Performer.County.Id) || x.Position <= 5)
                                                     .Select(x => new Performer
