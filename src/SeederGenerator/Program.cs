@@ -79,7 +79,7 @@ namespace SeederGenerator
                 {"NaturalGrowthSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 3) },
                 {"MarriagesSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 4) },
                 {"DivorcesSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 5) },
-                {"DeceasedAfterOneYearSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 6) },
+                {"DeceasedUnderOneYearOldSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 6) },
                 {"BuildingPermitsSeeder", new Tuple<string, int>("AUTORIZAŢII DE CONSTRUIRE ELIBERATE PENTRU CLĂDIRI REZIDENŢIALE", 1) },
             };
 
@@ -102,7 +102,7 @@ namespace SeederGenerator
                 {"NaturalGrowthSeeder", string.Empty },
                 {"MarriagesSeeder", string.Empty },
                 {"DivorcesSeeder", string.Empty },
-                {"DeceasedAfterOneYearSeeder", string.Empty },
+                {"DeceasedUnderOneYearOldSeeder", string.Empty },
                 {"BuildingPermitsSeeder", string.Empty },
             };
 
