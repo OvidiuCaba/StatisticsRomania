@@ -161,10 +161,10 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 BistritaNasaud 2 1 3 1 3 0 2 1&quot;,
         ///&quot;2018 1 Botosani 8 1 5 3 3 4 1 1&quot;,
         ///&quot;2018 1 Brasov 2 3 5 2 3 5 4 4&quot;,
-        ///&quot;2018 1 Braila 6 2 - 3 - 1 3 2&quot;,
-        ///&quot;2018 1 Buzau 1 1 2 3 3 4 - 2&quot;,
+        ///&quot;2018 1 Braila 6 2 0 3 0 1 3 2&quot;,
+        ///&quot;2018 1 Buzau 1 1 2 3 3 4 0 2&quot;,
         ///&quot;2018 1 CarasSeverin 3 2 0 1 2 2 3 1&quot;,
-        ///&quot;2018 1 Calarasi 2 2 2 3 3 5 _ 3&quot;,
+        ///&quot;2018 1 Calarasi 2 2 2 3 3 5 0 3&quot;,
         ///&quot;2018 1 Cluj 4 5 3 0 5 3 1 7&quot;,
         ///&quot;2018 1 Constanta 1 4 3 4 6 1 5 3&quot;,
         ///&quot;2018 1 Covasna 1 3 1 2 1 [rest of string was truncated]&quot;;.
