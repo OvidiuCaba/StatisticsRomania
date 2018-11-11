@@ -64,33 +64,47 @@ namespace SeederGenerator
 
             // The second parameter of the tuple is the number of the row in the table that contains the data
             var chapterMapping = new Dictionary<string, Tuple<string, int>>
-                                     {
-                                         {"AverageGrossSalarySeeder", new Tuple<string, int>("CÂŞTIGUL SALARIAL MEDIU BRUT", 1)},
-                                         {"AverageNetSalarySeeder", new Tuple<string, int>("CÂŞTIGUL SALARIAL MEDIU NET", 1)},
-                                         {"NumberOfTouristsSeeder", new Tuple<string, int>("SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ", 1)},
-                                         {"NumberOfNightsSeeder", new Tuple<string, int>("ÎNNOPTĂRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ", 1)},
-                                         {"NumberOfEmployeesSeeder", new Tuple<string, int>("EFECTIVUL SALARIAŢILOR", 1)},
-                                         {"UnemployedSeeder", new Tuple<string, int>("NUMĂRUL ŞOMERILOR", 1)},
-                                         {"ExportFobSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 1)},
-                                         {"ImportCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 2)},
-                                         {"SoldFobCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 3)},
-                                     };
+            {
+                {"AverageGrossSalarySeeder", new Tuple<string, int>("CÂŞTIGUL SALARIAL MEDIU BRUT", 1)},
+                {"AverageNetSalarySeeder", new Tuple<string, int>("CÂŞTIGUL SALARIAL MEDIU NET", 1)},
+                {"NumberOfTouristsSeeder", new Tuple<string, int>("SOSIRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ", 1)},
+                {"NumberOfNightsSeeder", new Tuple<string, int>("ÎNNOPTĂRI ÎN PRINCIPALELE STRUCTURI DE PRIMIRE TURISTICĂ", 1)},
+                {"NumberOfEmployeesSeeder", new Tuple<string, int>("EFECTIVUL SALARIAŢILOR", 1)},
+                {"UnemployedSeeder", new Tuple<string, int>("NUMĂRUL ŞOMERILOR", 1)},
+                {"ExportFobSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 1)},
+                {"ImportCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 2)},
+                {"SoldFobCifSeeder", new Tuple<string, int>("COMERŢUL INTERNAŢIONAL CU BUNURI", 3)},
+                {"BornAliveSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 1) },
+                {"DeceasedSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 2) },
+                {"NaturalGrowthSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 3) },
+                {"MarriagesSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 4) },
+                {"DivorcesSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 5) },
+                {"DeceasedAfterOneYearSeeder", new Tuple<string, int>("MIŞCAREA NATURALĂ A POPULAŢIEI", 6) },
+                {"BuildingPermitsSeeder", new Tuple<string, int>("AUTORIZAŢII DE CONSTRUIRE ELIBERATE PENTRU CLĂDIRI REZIDENŢIALE", 1) },
+            };
 
             var year = 2018;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
             var res = new Dictionary<string, string>
-                          {
-                              {"AverageGrossSalarySeeder", string.Empty},
-                              {"AverageNetSalarySeeder", string.Empty},
-                              {"NumberOfTouristsSeeder", string.Empty},
-                              {"NumberOfNightsSeeder", string.Empty},
-                              {"NumberOfEmployeesSeeder", string.Empty},
-                              {"UnemployedSeeder", string.Empty},
-                              {"ExportFobSeeder", string.Empty},
-                              {"ImportCifSeeder", string.Empty},
-                              {"SoldFobCifSeeder", string.Empty},
-                          };
+            {
+                {"AverageGrossSalarySeeder", string.Empty},
+                {"AverageNetSalarySeeder", string.Empty},
+                {"NumberOfTouristsSeeder", string.Empty},
+                {"NumberOfNightsSeeder", string.Empty},
+                {"NumberOfEmployeesSeeder", string.Empty},
+                {"UnemployedSeeder", string.Empty},
+                {"ExportFobSeeder", string.Empty},
+                {"ImportCifSeeder", string.Empty},
+                {"SoldFobCifSeeder", string.Empty},
+                {"BornAliveSeeder", string.Empty },
+                {"DeceasedSeeder", string.Empty },
+                {"NaturalGrowthSeeder", string.Empty },
+                {"MarriagesSeeder", string.Empty },
+                {"DivorcesSeeder", string.Empty },
+                {"DeceasedAfterOneYearSeeder", string.Empty },
+                {"BuildingPermitsSeeder", string.Empty },
+            };
 
             foreach (var file in fileMapping)
             {
