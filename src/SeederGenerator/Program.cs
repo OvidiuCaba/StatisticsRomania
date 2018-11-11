@@ -150,7 +150,7 @@ namespace SeederGenerator
             {
                 var row = sheet.GetRow(rowIndex);
 
-                if (row == null) //null is when the row only contains empty cells 
+                if (row == null) // null is when the row only contains empty cells 
                     continue;
 
                 var cell = row.GetCell(0);
@@ -188,7 +188,11 @@ namespace SeederGenerator
             if (!cellsContainingTheValuesForCurrentYear.Any())
                 return null;
 
-            var text = cellsContainingTheValuesForCurrentYear.Select(x => x.CellType == CellType.String ? x.StringCellValue.Trim() : x.NumericCellValue.ToString(CultureInfo.InvariantCulture)).Aggregate((c, n) => c + " " + n);
+            var text = cellsContainingTheValuesForCurrentYear
+                .Select(x => x.CellType == CellType.String ? x.StringCellValue.Trim() : x.NumericCellValue.ToString(CultureInfo.InvariantCulture))
+                .Select(x => x == "-" ? "0" : x)
+                .Select(x => x == "_" ? "0" : x)
+                .Aggregate((c, n) => c + " " + n);
 
             return "\"" + year.ToString(CultureInfo.InvariantCulture) + " 1 " + county + " " + text + "\",";
         }
