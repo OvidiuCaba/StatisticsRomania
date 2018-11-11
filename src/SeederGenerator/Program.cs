@@ -14,7 +14,10 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var dir = @"d:\INS\Publicatie BSL Judete_ Excel_luna aug. 2018\";
+            var year = 2018;
+            var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
+
+            var dir = $@"d:\INS\Publicatie BSL Judete_ Excel_luna aug. {year}\";    // add {year + 1} for international commerce
 
             var fileMapping = new Dictionary<string, string>
                                   {
@@ -83,9 +86,6 @@ namespace SeederGenerator
                 {"BuildingPermitsSeeder", new Tuple<string, int>("AUTORIZAŢII DE CONSTRUIRE ELIBERATE PENTRU CLĂDIRI REZIDENŢIALE", 1) },
             };
 
-            var year = 2018;
-            var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
-
             var res = new Dictionary<string, string>
             {
                 {"AverageGrossSalarySeeder", string.Empty},
@@ -121,7 +121,7 @@ namespace SeederGenerator
 
             foreach (var chapter in chapterMapping.Keys)
             {
-                File.WriteAllText(targetDirectory + chapter + ".txt", res[chapter]);
+                File.WriteAllText(targetDirectory + year + chapter + ".txt", res[chapter]);
             }
         }
 
@@ -179,7 +179,10 @@ namespace SeederGenerator
 
             var numberOfMonths =
                 sheet.GetRow(chapterRowIndex + 1).Cells.Count(
-                    x => x.ColumnIndex >= columnYearStartIndex && months.Any(month => x.StringCellValue.StartsWith(month)));
+                    x => x.ColumnIndex >= columnYearStartIndex && months.Any(month => x.StringCellValue.Trim().StartsWith(month)));
+
+            if (numberOfMonths > 12)
+                numberOfMonths = 12;
 
             Debug.WriteLine("Current county: " + county + "; chapter: " + chapter);
 
