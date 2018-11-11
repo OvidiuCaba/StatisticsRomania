@@ -2,8 +2,6 @@
 using StatisticsRomania.BusinessObjects;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace WebClient.Controllers
 {
@@ -18,6 +16,13 @@ namespace WebClient.Controllers
         private const string NumarulSomerilor = "Forta de munca - numar someri";
         private const string InnoptariInStructurileDePrimireTuristica = "Turism - innoptari";
         private const string SosiriInStructurileDePrimireTuristica = "Turism - numar turisti";
+        private const string NascutiVii = "Populatie - nascuti vii";
+        private const string Decedati = "Populatie - decedati";
+        private const string SporNatural = "Populatie - spor natural";
+        private const string Casatorii = "Populatie - casatorii";
+        private const string Divorturi = "Populatie - divorturi";
+        private const string DecedatiSubUnAn = "Populatie - decedati sub 1 an";
+        private const string AutorizatiiDeConstruire = "Autorizatii de construire pentru cladiri rezidentiale";
 
         protected Dictionary<string, Type> ChapterList = new Dictionary<string, Type>()
             {
@@ -30,6 +35,13 @@ namespace WebClient.Controllers
                 { NumarulSomerilor, typeof(Unemployed) },
                 { InnoptariInStructurileDePrimireTuristica, typeof(NumberOfNights) },
                 { SosiriInStructurileDePrimireTuristica, typeof(NumberOfTourists) },
+                { NascutiVii, typeof(BornAlive) },
+                { Decedati, typeof(Deceased) },
+                { SporNatural, typeof(NaturalGrowth) },
+                { Casatorii, typeof(Marriages) },
+                { Divorturi, typeof(Divorces) },
+                { DecedatiSubUnAn, typeof(DeceasedUnderOneYearOld) },
+                { AutorizatiiDeConstruire, typeof(BuildingPermits) },
             };
 
         protected Dictionary<string, string> UnitOfMeasureList = new Dictionary<string, string>()
@@ -43,8 +55,15 @@ namespace WebClient.Controllers
                 { NumarulSomerilor, "Persoane" },
                 { InnoptariInStructurileDePrimireTuristica, "Innoptari" },
                 { SosiriInStructurileDePrimireTuristica, "Persoane" },
+                { NascutiVii, "Persoane" },
+                { Decedati, "Persoane" },
+                { SporNatural, "Persoane" },
+                { Casatorii, "Numar" },
+                { Divorturi, "Numar" },
+                { DecedatiSubUnAn, "Persoane" },
+                { AutorizatiiDeConstruire, "Numar" },
             };
 
-        protected List<string> IgnoredChapters => new List<string> { Importuri, Sold, CastigulSalarialMediuBrut };
+        protected List<string> IgnoredChapters => new List<string> { Importuri, Sold, CastigulSalarialMediuBrut, Casatorii, Divorturi };
     }
 }

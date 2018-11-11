@@ -227,7 +227,8 @@ export class StandingsComponent {
         }
         var total = this.standing.map(x => x.value).reduce((sum, current) => sum + current);
         this.total = (new Array<string>("Comert international - exporturi FOB", "Comert international - importuri CIF", "Comert international - sold FOB/CIF", "Turism - numar turisti",
-            "Turism - innoptari", "Forta de munca - efectiv salariati", "Forta de munca - numar someri")).indexOf(this.indicator) > -1 ? total : total / 42;
+            "Turism - innoptari", "Forta de munca - efectiv salariati", "Forta de munca - numar someri", "Populatie - nascuti vii", "Populatie - decedati", "Populatie - spor natural",
+            "Populatie - casatorii", "Populatie - divorturi", "Populatie - decedati sub 1 an", "Autorizatii de construire pentru cladiri rezidentiale")).indexOf(this.indicator) > -1 ? total : total / 42;
     }
 
     private InitializeMonths() {

@@ -55,6 +55,41 @@ namespace StatisticsRomania.Lib
                 return await GetData<Unemployed>(countyId, needToProcessAllYear);
             }
 
+            if (chapter == typeof(BornAlive))
+            {
+                return await GetData<BornAlive>(countyId, needToProcessAllYear);
+            }
+
+            if (chapter == typeof(Deceased))
+            {
+                return await GetData<Deceased>(countyId, needToProcessAllYear);
+            }
+
+            if (chapter == typeof(NaturalGrowth))
+            {
+                return await GetData<NaturalGrowth>(countyId, needToProcessAllYear);
+            }
+
+            if (chapter == typeof(Marriages))
+            {
+                return await GetData<Marriages>(countyId, needToProcessAllYear);
+            }
+
+            if (chapter == typeof(Divorces))
+            {
+                return await GetData<Divorces>(countyId, needToProcessAllYear);
+            }
+
+            if (chapter == typeof(DeceasedUnderOneYearOld))
+            {
+                return await GetData<DeceasedUnderOneYearOld>(countyId, needToProcessAllYear);
+            }
+
+            if (chapter == typeof(BuildingPermits))
+            {
+                return await GetData<BuildingPermits>(countyId, needToProcessAllYear);
+            }
+
             return null;
         }
 

@@ -55,6 +55,41 @@ namespace StatisticsRomania.Lib
                 return await GetData<Unemployed>(year, yearFraction);
             }
 
+            if (chapter == typeof(BornAlive))
+            {
+                return await GetData<BornAlive>(year, yearFraction, isSum: true);
+            }
+
+            if (chapter == typeof(Deceased))
+            {
+                return await GetData<Deceased>(year, yearFraction, isSum: true);
+            }
+
+            if (chapter == typeof(NaturalGrowth))
+            {
+                return await GetData<NaturalGrowth>(year, yearFraction, isSum: true);
+            }
+
+            if (chapter == typeof(Marriages))
+            {
+                return await GetData<Marriages>(year, yearFraction, isSum: true);
+            }
+
+            if (chapter == typeof(Divorces))
+            {
+                return await GetData<Divorces>(year, yearFraction, isSum: true);
+            }
+
+            if (chapter == typeof(DeceasedUnderOneYearOld))
+            {
+                return await GetData<DeceasedUnderOneYearOld>(year, yearFraction, isSum: true);
+            }
+
+            if (chapter == typeof(BuildingPermits))
+            {
+                return await GetData<BuildingPermits>(year, yearFraction, isSum: true);
+            }
+
             return null;
         }
 
@@ -103,6 +138,41 @@ namespace StatisticsRomania.Lib
             if (chapter == typeof(Unemployed))
             {
                 return await GetData<Unemployed>(year, yearFraction, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(BornAlive))
+            {
+                return await GetData<BornAlive>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(Deceased))
+            {
+                return await GetData<Deceased>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(NaturalGrowth))
+            {
+                return await GetData<NaturalGrowth>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(Marriages))
+            {
+                return await GetData<Marriages>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(Divorces))
+            {
+                return await GetData<Divorces>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(DeceasedUnderOneYearOld))
+            {
+                return await GetData<DeceasedUnderOneYearOld>(year, yearFraction, isSum: true, needSingleMonth: true);
+            }
+
+            if (chapter == typeof(BuildingPermits))
+            {
+                return await GetData<BuildingPermits>(year, yearFraction, isSum: true, needSingleMonth: true);
             }
 
             return null;
