@@ -124,11 +124,32 @@
   <data name="AverageNetSalarySeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AverageNetSalarySeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="BornAliveSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BornAliveSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="BuildingPermitsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BuildingPermitsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DeceasedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeceasedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DeceasedUnderOneYearOldSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeceasedUnderOneYearOldSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DivorcesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DivorcesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="ExportFobSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExportFobSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="ImportCifSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImportCifSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="MarriagesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MarriagesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="NaturalGrowthSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NaturalGrowthSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="NumberOfEmployeesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NumberOfEmployeesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
