@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Repository.Seeders
 {
     internal abstract class BaseSeeder
     {
+        internal static List<T> GetData<T>() where T : Data, new()
+        {
+            var rawData = GetDataFromResources<T>();
+
+            var items = GetItems<T>(rawData);
+
+            return items;
+        }
+
         protected static List<T> GetItems<T>(List<string> rawData) where T : Data, new()
         {
             var items = new List<T>();
@@ -43,7 +53,20 @@ namespace StatisticsRomania.Repository.Seeders
             return items;
         }
 
-        protected static List<string> GetDataFromResources(string resourceKey)
+        private static List<string> GetDataFromResources<T>()
+        {
+            var seederTypeName = typeof(T).Name;
+
+            var resourceKeys = typeof(CountiesData).GetProperties(BindingFlags.NonPublic | BindingFlags.Static).Where(x => x.Name.EndsWith($"{seederTypeName}Seeder")).Select(x => (string)x.GetValue(null)).ToList();
+
+            var res = new List<string>();
+
+            resourceKeys.ForEach(resourceKey => res.AddRange(GetDataFromResources(resourceKey)));
+
+            return res;
+        }
+
+        private static List<string> GetDataFromResources(string resourceKey)
         {
             var dataFromResources = resourceKey.Split(',').Select(x => x.Replace(Environment.NewLine, string.Empty).Replace("\"", string.Empty)).ToList();
             dataFromResources.RemoveAll(x => x == string.Empty);

@@ -61,6 +61,882 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 1880 1982 1959 1916 1919 1929 1980 1921 1948 1989 1981 2155&quot;,
+        ///&quot;2014 1 Arad 2016 2016 2081 2085 2058 2133 2165 2066 2118 2128 2202 2275&quot;,
+        ///&quot;2014 1 Arges 2178 2199 2225 2440 2442 2289 2506 2286 2310 2318 2347 2624&quot;,
+        ///&quot;2014 1 Bacau 1765 1765 1851 1838 1872 1860 1889 1867 1868 1889 1947 2089&quot;,
+        ///&quot;2014 1 Bihor 1653 1652 1709 1723 1698 1719 1745 1727 1742 1762 1799 1843&quot;,
+        ///&quot;2014 1 BistritaNasaud 1695 1665 1719 1719 1697 1720 1794 1813 1804 1816 1864 1869&quot;,
+        ///&quot;2014 1 Botosani 1663 1664 1710 1706 1651 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014AverageGrossSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2014AverageGrossSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 1363 1436 1417 1391 1387 1395 1430 1387 1409 1437 1430 1555&quot;,
+        ///&quot;2014 1 Arad 1459 1459 1503 1509 1487 1543 1562 1492 1532 1540 1593 1645&quot;,
+        ///&quot;2014 1 Arges 1572 1589 1609 1770 1759 1652 1807 1651 1668 1675 1697 1900&quot;,
+        ///&quot;2014 1 Bacau 1281 1284 1345 1335 1357 1349 1370 1351 1351 1367 1407 1511&quot;,
+        ///&quot;2014 1 Bihor 1193 1191 1234 1245 1225 1243 1265 1244 1262 1271 1296 1327&quot;,
+        ///&quot;2014 1 BistritaNasaud 1230 1213 1249 1249 1237 1249 1302 1313 1310 1317 1349 1353&quot;,
+        ///&quot;2014 1 Botosani 1205 1209 1239 1237 1197 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014AverageNetSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2014AverageNetSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 98621 93954 112096 122673 125567 120658 109156 112362 109075 89420 87054 83949&quot;,
+        ///&quot;2014 1 Arad 215744 229321 243810 265099 268160 232395 244758 179974 259537 266767 266887 192009&quot;,
+        ///&quot;2014 1 Arges 365891 415828 469867 427689 473827 456210 415188 250595 490164 486602 497824 363562&quot;,
+        ///&quot;2014 1 Bacau 30581 33030 36258 33497 37169 39485 42529 31291 37170 41145 41462 30591&quot;,
+        ///&quot;2014 1 Bihor 159242 149320 158458 157397 148049 159383 151458 143043 183307 187915 185874 141073&quot;,
+        ///&quot;2014 1 BistritaNasaud 532 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014ExportFobSeeder {
+            get {
+                return ResourceManager.GetString("_2014ExportFobSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 40043 49352 60733 70854 63942 65963 78723 75870 77549 48212 47661 45107&quot;,
+        ///&quot;2014 1 Arad 191728 209636 223260 206742 221573 207654 209164 154818 208936 230502 213119 177039&quot;,
+        ///&quot;2014 1 Arges 275908 296466 311076 300111 325696 323895 337878 193416 357776 365805 323459 272226&quot;,
+        ///&quot;2014 1 Bacau 26260 35315 39441 42811 48187 44183 52447 35151 45767 42854 39482 29312&quot;,
+        ///&quot;2014 1 Bihor 155279 151426 166652 173046 175699 164249 162119 135381 167326 190601 179009 135398&quot;,
+        ///&quot;2014 1 BistritaNasaud 34340 4266 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014ImportCifSeeder {
+            get {
+                return ResourceManager.GetString("_2014ImportCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 80764 80567 80663 80987 81117 81347 81456 81306 81457 81564 81472 81118&quot;,
+        ///&quot;2014 1 Arad 122436 122087 122182 122672 122868 123218 123382 123155 123384 123546 123407 122871&quot;,
+        ///&quot;2014 1 Arges 135089 134791 134981 135519 135734 136117 136298 136049 136300 136477 136325 135737&quot;,
+        ///&quot;2014 1 Bacau 103608 103309 103384 103795 103960 104253 104391 104201 104393 104529 104412 103962&quot;,
+        ///&quot;2014 1 Bihor 155145 154766 154939 155548 155792 156226 156430 156149 156433 156634 156461 155795&quot;,
+        ///&quot;2014 1 BistritaNasau [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014NumberOfEmployeesSeeder {
+            get {
+                return ResourceManager.GetString("_2014NumberOfEmployeesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 10252 11170 13448 14567 21068 20702 27465 32940 20943 17302 14510 12761&quot;,
+        ///&quot;2014 1 Arad 17462 19516 23193 23606 29993 33345 39393 45216 38940 34800 30121 22964&quot;,
+        ///&quot;2014 1 Arges 13157 14240 18426 22675 23425 28613 34253 34379 24788 21842 19739 21550&quot;,
+        ///&quot;2014 1 Bacau 9693 12072 15944 20275 23749 27061 37221 36167 29422 24053 19422 17187&quot;,
+        ///&quot;2014 1 Bihor 31043 35132 43929 49614 91971 108933 141794 164610 123703 104051 94330 66401&quot;,
+        ///&quot;2014 1 BistritaNasaud 4172 6102 6471 7108 13339 16174 22565 2230 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014NumberOfNightsSeeder {
+            get {
+                return ResourceManager.GetString("_2014NumberOfNightsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 5069 4980 6553 7544 10170 10704 13134 16295 10041 8718 7455 6047&quot;,
+        ///&quot;2014 1 Arad 12191 12398 14815 14778 17809 18347 21428 23723 20633 19241 15721 13757&quot;,
+        ///&quot;2014 1 Arges 7361 8025 10637 12230 12779 16855 20246 20714 14873 13345 10778 11643&quot;,
+        ///&quot;2014 1 Bacau 4913 6104 7492 8415 8530 12023 11613 11836 9986 9197 7430 7130&quot;,
+        ///&quot;2014 1 Bihor 13357 15109 16789 19228 25327 28400 34783 44009 32125 26768 22673 18912&quot;,
+        ///&quot;2014 1 BistritaNasaud 3052 3898 4533 4953 7414 6874 8937 9917 6976 5813 4386 4177&quot;,
+        ///&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014NumberOfTouristsSeeder {
+            get {
+                return ResourceManager.GetString("_2014NumberOfTouristsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 58578 44602 51363 51819 61625 54695 30433 36492 31526 41208 39393 38842&quot;,
+        ///&quot;2014 1 Arad 24016 19685 20550 58357 46587 24741 35594 25156 50601 36265 53768 14970&quot;,
+        ///&quot;2014 1 Arges 89983 119362 158791 127578 148131 132315 77310 57179 132388 120797 174365 91336&quot;,
+        ///&quot;2014 1 Bacau 4321 -2285 -3183 -9314 -11018 -4698 -9918 -3860 -8597 -1709 1980 1279&quot;,
+        ///&quot;2014 1 Bihor 3963 -2106 -8194 -15649 -27650 -4866 -10661 7662 15981 -2686 6865 5675&quot;,
+        ///&quot;2014 1 BistritaNasaud 18879 10003 8626 11345 16672 8726 13888 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014SoldFobCifSeeder {
+            get {
+                return ResourceManager.GetString("_2014SoldFobCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2014 1 Alba 19094 18518 16585 13187 10460 9871 10005 10067 10168 10380 10696 12508&quot;,
+        ///&quot;2014 1 Arad 7200 7358 6841 6516 6354 6318 6620 6699 6656 6668 6004 6071&quot;,
+        ///&quot;2014 1 Arges 19081 18860 17769 15727 14720 14508 14767 14381 14647 14693 15100 15334&quot;,
+        ///&quot;2014 1 Bacau 16295 16763 15443 14290 13875 14049 14941 15089 14981 14309 14327 14809&quot;,
+        ///&quot;2014 1 Bihor 11675 11720 11291 10667 9084 9131 9207 10303 10306 10159 9537 10030&quot;,
+        ///&quot;2014 1 BistritaNasaud 7432 7206 6475 5878 5487 5272 5655 5868 5936 5713 5801 6042&quot;,
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2014UnemployedSeeder {
+            get {
+                return ResourceManager.GetString("_2014UnemployedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 2042 2113 2130 2124 2118 2115 2150 2133 2163 2237 2277 2529&quot;,
+        ///&quot;2015 1 Arad 2138 2152 2217 2201 2162 2256 2337 2210 2290 2328 2403 2571&quot;,
+        ///&quot;2015 1 Arges 2256 2275 2350 2541 2493 2713 2666 2403 2409 2436 2420 2766&quot;,
+        ///&quot;2015 1 Bacau 1791 1782 1908 1903 1902 1941 1986 1971 1981 2017 2093 2303&quot;,
+        ///&quot;2015 1 Bihor 1771 1750 1823 1829 1823 1851 1896 1865 1901 1955 2004 2111&quot;,
+        ///&quot;2015 1 BistritaNasaud 1753 1731 1801 1799 1766 1794 1890 1866 1937 1981 1993 2068&quot;,
+        ///&quot;2015 1 Botosani 1817 1791 1819 1829 1800 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015AverageGrossSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2015AverageGrossSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 1476 1525 1538 1535 1526 1526 1550 1535 1560 1610 1638 1816&quot;,
+        ///&quot;2015 1 Arad 1545 1553 1602 1588 1559 1623 1682 1589 1650 1676 1728 1855&quot;,
+        ///&quot;2015 1 Arges 1627 1639 1695 1833 1794 1975 1923 1728 1738 1753 1740 1991&quot;,
+        ///&quot;2015 1 Bacau 1299 1291 1380 1381 1375 1403 1436 1423 1432 1459 1509 1661&quot;,
+        ///&quot;2015 1 Bihor 1276 1261 1314 1319 1313 1336 1363 1342 1369 1406 1439 1515&quot;,
+        ///&quot;2015 1 BistritaNasaud 1271 1256 1305 1306 1279 1300 1366 1347 1399 1429 1441 1486&quot;,
+        ///&quot;2015 1 Botosani 1316 1295 1316 1328 1304 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015AverageNetSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2015AverageNetSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 275 214 228 251 244 288 342 328 332 241 213 244&quot;,
+        ///&quot;2015 1 Arad 365 287 313 296 275 313 402 432 453 372 282 354&quot;,
+        ///&quot;2015 1 Arges 437 388 416 383 398 494 540 479 543 455 406 477&quot;,
+        ///&quot;2015 1 Bacau 527 453 538 491 486 594 772 808 747 619 462 515&quot;,
+        ///&quot;2015 1 Bihor 445 427 448 453 434 499 576 586 572 495 412 558&quot;,
+        ///&quot;2015 1 BistritaNasaud 289 244 250 252 255 265 371 398 311 290 246 301&quot;,
+        ///&quot;2015 1 Botosani 365 282 319 306 337 345 442 501 409 372 292 328&quot;,
+        ///&quot;2015 1 Brasov 569 422 514 499 479 527 593 641  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015BornAliveSeeder {
+            get {
+                return ResourceManager.GetString("_2015BornAliveSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 21 26 42 57 55 57 67 65 45 38 36 30&quot;,
+        ///&quot;2015 1 Arad 41 49 93 74 68 71 74 82 91 39 69 59&quot;,
+        ///&quot;2015 1 Arges 69 83 125 122 163 164 168 190 144 111 94 139&quot;,
+        ///&quot;2015 1 Bacau 54 60 86 92 119 105 111 155 83 49 67 79&quot;,
+        ///&quot;2015 1 Bihor 28 71 85 91 93 125 93 155 105 94 74 56&quot;,
+        ///&quot;2015 1 BistritaNasaud 15 23 44 47 65 70 57 97 58 54 29 27&quot;,
+        ///&quot;2015 1 Botosani 23 54 41 59 56 63 62 97 58 48 58 89&quot;,
+        ///&quot;2015 1 Brasov 30 22 73 51 60 60 52 48 33 63 22 73&quot;,
+        ///&quot;2015 1 Braila 17 28 41 27 54 50 56 48 47 64 50 48&quot;,
+        ///&quot;2015 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015BuildingPermitsSeeder {
+            get {
+                return ResourceManager.GetString("_2015BuildingPermitsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 425 406 453 388 393 344 360 336 367 358 328 451&quot;,
+        ///&quot;2015 1 Arad 548 538 609 532 522 465 506 452 419 445 484 597&quot;,
+        ///&quot;2015 1 Arges 700 688 758 636 599 555 604 542 538 610 643 627&quot;,
+        ///&quot;2015 1 Bacau 793 824 840 728 666 654 631 609 612 677 751 786&quot;,
+        ///&quot;2015 1 Bihor 697 678 719 634 605 590 612 595 522 629 609 673&quot;,
+        ///&quot;2015 1 BistritaNasaud 305 320 335 314 269 259 255 253 249 265 278 331&quot;,
+        ///&quot;2015 1 Botosani 590 492 552 559 458 471 425 402 402 479 521 538&quot;,
+        ///&quot;2015 1 Brasov 605 560 616 525 497 457 496 470  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015DeceasedSeeder {
+            get {
+                return ResourceManager.GetString("_2015DeceasedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 0 2 1 1 3 4 1 1 2 1 2 3&quot;,
+        ///&quot;2015 1 Arad 1 1 1 2 3 3 3 3 1 3 1 3&quot;,
+        ///&quot;2015 1 Arges 6 2 5 3 3 5 4 2 1 4 2 1&quot;,
+        ///&quot;2015 1 Bacau 5 3 6 7 2 4 5 5 4 5 4 1&quot;,
+        ///&quot;2015 1 Bihor 6 2 5 3 7 4 3 8 5 2 3 2&quot;,
+        ///&quot;2015 1 BistritaNasaud 3 3 0 1 0 2 3 3 4 1 3 2&quot;,
+        ///&quot;2015 1 Botosani 5 1 4 6 2 3 6 0 3 5 5 0&quot;,
+        ///&quot;2015 1 Brasov 3 7 2 5 2 3 5 6 4 4 0 2&quot;,
+        ///&quot;2015 1 Braila 3 1 0 0 2 3 0 3 2 0 1 0&quot;,
+        ///&quot;2015 1 Buzau 3 5 1 2 4 4 3 0 1 3 3 3&quot;,
+        ///&quot;2015 1 CarasSeverin 2 2 1 3 2 3 2 5 3 0 3 1&quot;,
+        ///&quot;2015 1 Calarasi 4 1 4 5 0 4 4 3 2 4 2 0&quot;, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015DeceasedUnderOneYearOldSeeder {
+            get {
+                return ResourceManager.GetString("_2015DeceasedUnderOneYearOldSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 79 62 58 33 71 29 26 69 57 61 49 34&quot;,
+        ///&quot;2015 1 Arad 5 34 35 53 82 39 58 46 21 40 31 43&quot;,
+        ///&quot;2015 1 Arges 5 103 66 72 81 59 115 90 59 107 88 64&quot;,
+        ///&quot;2015 1 Bacau 101 86 99 100 86 101 83 71 38 42 76 82&quot;,
+        ///&quot;2015 1 Bihor 19 56 94 91 81 77 82 40 122 85 99 82&quot;,
+        ///&quot;2015 1 BistritaNasaud 7 31 19 8 31 13 30 8 38 31 28 14&quot;,
+        ///&quot;2015 1 Botosani 5 93 58 62 72 39 91 65 79 123 94 78&quot;,
+        ///&quot;2015 1 Brasov 35 75 119 84 80 75 61 107 117 64 111 102&quot;,
+        ///&quot;2015 1 Braila 4 63 63 64 54 74 68 37 47 58 70 62&quot;,
+        ///&quot;2015 1 Buzau 5 6 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015DivorcesSeeder {
+            get {
+                return ResourceManager.GetString("_2015DivorcesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 86022 79499 102731 88834 88436 92635 92652 73633 77977 86215 87326 67581&quot;,
+        ///&quot;2015 1 Arad 233753 258932 272701 261730 253111 271469 273630 196922 294088 297293 287158 215092&quot;,
+        ///&quot;2015 1 Arges 397901 433232 477330 432647 469465 469853 472480 270302 481285 519605 482418 365826&quot;,
+        ///&quot;2015 1 Bacau 33024 35682 42472 38784 40532 42214 47635 31638 41329 42920 41380 35478&quot;,
+        ///&quot;2015 1 Bihor 145082 147545 174629 145370 145295 158657 163638 141256 174630 188087 173999 137474&quot;,
+        ///&quot;2015 1 BistritaNasaud 52147 533 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015ExportFobSeeder {
+            get {
+                return ResourceManager.GetString("_2015ExportFobSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 35758 48916 58239 46052 54023 52484 53825 44984 51495 53099 50993 58162&quot;,
+        ///&quot;2015 1 Arad 193974 209168 246185 226557 223233 239478 243639 198076 247669 253032 237445 186185&quot;,
+        ///&quot;2015 1 Arges 314047 323744 354820 332661 322119 348530 356185 216594 378952 366901 334302 301696&quot;,
+        ///&quot;2015 1 Bacau 32916 49463 55251 49980 48582 57307 54469 43033 55893 55412 51793 43054&quot;,
+        ///&quot;2015 1 Bihor 153467 157936 167516 161205 156043 159487 164475 138536 177700 184295 175206 151829&quot;,
+        ///&quot;2015 1 BistritaNasaud 43257 4202 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015ImportCifSeeder {
+            get {
+                return ResourceManager.GetString("_2015ImportCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 75 57 44 113 218 128 323 313 323 218 71 80&quot;,
+        ///&quot;2015 1 Arad 114 138 122 182 310 260 438 504 363 317 124 121&quot;,
+        ///&quot;2015 1 Arges 94 111 68 208 260 243 591 680 564 415 153 123&quot;,
+        ///&quot;2015 1 Bacau 154 148 109 184 288 250 609 1008 462 291 156 174&quot;,
+        ///&quot;2015 1 Bihor 116 123 113 204 431 296 557 558 530 399 142 90&quot;,
+        ///&quot;2015 1 BistritaNasaud 75 91 47 99 222 130 313 374 276 223 91 52&quot;,
+        ///&quot;2015 1 Botosani 82 71 51 135 183 118 321 536 295 195 102 133&quot;,
+        ///&quot;2015 1 Brasov 105 190 118 216 296 297 600 660 491 320 158 129&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015MarriagesSeeder {
+            get {
+                return ResourceManager.GetString("_2015MarriagesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba -150 -192 -225 -137 -149 -56 -18 -8 -35 -117 -115 -207&quot;,
+        ///&quot;2015 1 Arad -183 -251 -296 -236 -247 -152 -104 -20 34 -73 -202 -243&quot;,
+        ///&quot;2015 1 Arges -263 -300 -342 -253 -201 -61 -64 -63 5 -155 -237 -150&quot;,
+        ///&quot;2015 1 Bacau -266 -371 -302 -237 -180 -60 141 199 135 -58 -289 -271&quot;,
+        ///&quot;2015 1 Bihor -252 -251 -271 -181 -171 -91 -36 -8 50 -134 -197 -115&quot;,
+        ///&quot;2015 1 BistritaNasaud -16 -76 -85 -62 -14 6 116 145 62 25 -32 -30&quot;,
+        ///&quot;2015 1 Botosani -225 -210 -233 -253 -121 -126 17 99 7 -107 -229 -210&quot;,
+        ///&quot;2015 1 Bras [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015NaturalGrowthSeeder {
+            get {
+                return ResourceManager.GetString("_2015NaturalGrowthSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 80896 80968 81207 81413 81680 81948 82269 82390 82520 82561 82620 82287&quot;,
+        ///&quot;2015 1 Arad 126281 126310 126600 126922 127340 127759 128261 128451 128654 128717 128809 128289&quot;,
+        ///&quot;2015 1 Arges 136460 136635 137089 137433 137881 138330 138868 139071 139288 139356 139455 138898&quot;,
+        ///&quot;2015 1 Bacau 103808 103931 104266 104528 104868 105209 105617 105771 105936 105988 106063 105640&quot;,
+        ///&quot;2015 1 Bihor 156946 156760 156893 157285 157795 158305 158917 159148 159396 159473 159585 158952&quot;,
+        ///&quot;2015 1 BistritaNasau [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015NumberOfEmployeesSeeder {
+            get {
+                return ResourceManager.GetString("_2015NumberOfEmployeesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 12737 15030 16021 19951 29400 30065 40081 45626 30680 25193 25843 21384&quot;,
+        ///&quot;2015 1 Arad 18935 19790 24862 24910 32221 34724 46098 49831 39184 33520 30803 23109&quot;,
+        ///&quot;2015 1 Arges 17373 15750 16343 20759 23628 29437 42951 47000 36757 27638 24570 23567&quot;,
+        ///&quot;2015 1 Bacau 16594 16149 17939 17676 23509 34977 39471 46873 35542 29934 22476 19786&quot;,
+        ///&quot;2015 1 Bihor 31169 40097 42806 52261 84621 121405 158799 179431 135865 117816 105275 63451&quot;,
+        ///&quot;2015 1 BistritaNasaud 7566 7668 10042 9129 16217 18880 24235 3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015NumberOfNightsSeeder {
+            get {
+                return ResourceManager.GetString("_2015NumberOfNightsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 5723 6634 6835 9336 14848 15397 19913 23753 15548 12715 12726 10123&quot;,
+        ///&quot;2015 1 Arad 13625 13003 14886 15586 18689 19975 25910 26644 20188 17588 14388 13775&quot;,
+        ///&quot;2015 1 Arges 9523 9080 10385 13721 15370 17745 26528 28858 19551 16387 13692 12641&quot;,
+        ///&quot;2015 1 Bacau 6880 7176 7955 7832 9659 13093 13846 16422 12387 11173 8632 8500&quot;,
+        ///&quot;2015 1 Bihor 12621 15268 16453 20641 27871 34384 42307 50062 35147 32282 31008 24144&quot;,
+        ///&quot;2015 1 BistritaNasaud 3993 4142 4590 5176 8236 8377 10919 10795 8096 6399 5354 42 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015NumberOfTouristsSeeder {
+            get {
+                return ResourceManager.GetString("_2015NumberOfTouristsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 50264 30583 44492 42782 34413 40151 38827 28649 26482 33116 36333 9419&quot;,
+        ///&quot;2015 1 Arad 39779 49764 26516 35173 29878 31991 29991 -1154 46419 44261 49713 28907&quot;,
+        ///&quot;2015 1 Arges 83854 109488 122510 99986 147346 121323 116295 53708 102333 152704 148116 64130&quot;,
+        ///&quot;2015 1 Bacau 108 -13781 -12779 -11196 -8050 -15093 -6834 -11395 -14564 -12492 -10413 -7576&quot;,
+        ///&quot;2015 1 Bihor -8385 -10391 7113 -15835 -10748 -830 -837 2720 -3070 3792 -1207 -14355&quot;,
+        ///&quot;2015 1 BistritaNasaud 8890 11308 10332 11309 7960 1455 7 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015SoldFobCifSeeder {
+            get {
+                return ResourceManager.GetString("_2015SoldFobCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2015 1 Alba 15312 16406 15766 14846 14138 13059 10694 9812 9212 9102 9165 9394&quot;,
+        ///&quot;2015 1 Arad 6106 5990 5778 5608 5380 5335 5275 5264 5112 4993 4983 5104&quot;,
+        ///&quot;2015 1 Arges 15523 16024 15632 14926 14185 13715 13400 12880 12941 12962 12934 13015&quot;,
+        ///&quot;2015 1 Bacau 14978 15309 14867 13894 13671 13722 13980 14127 14105 14009 14229 14254&quot;,
+        ///&quot;2015 1 Bihor 10769 11111 10677 10339 9721 8734 9635 9873 9893 9965 9299 9601&quot;,
+        ///&quot;2015 1 BistritaNasaud 5949 5787 4946 4542 4508 4258 4504 4631 4751 4645 4575 4695&quot;,
+        ///&quot;2015 1  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2015UnemployedSeeder {
+            get {
+                return ResourceManager.GetString("_2015UnemployedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 2342 2409 2488 2488 2501 2539 2550 2565 2602 2651 2720 2956&quot;,
+        ///&quot;2016 1 Arad 2358 2391 2462 2499 2558 2638 2613 2571 2648 2691 2767 2942&quot;,
+        ///&quot;2016 1 Arges 2449 2476 2488 3064 2757 2634 2828 2655 2665 2681 2680 3003&quot;,
+        ///&quot;2016 1 Bacau 2228 2237 2341 2331 2361 2435 2442 2505 2571 2496 2585 2889&quot;,
+        ///&quot;2016 1 Bihor 2057 2024 2087 2100 2194 2204 2218 2234 2258 2284 2341 2441&quot;,
+        ///&quot;2016 1 BistritaNasaud 2038 1996 2073 2069 2190 2129 2221 2170 2137 2156 2254 2283&quot;,
+        ///&quot;2016 1 Botosani 2074 2062 2101 2138 2145 2 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016AverageGrossSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2016AverageGrossSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 1689 1737 1795 1792 1800 1827 1832 1843 1872 1903 1950 2121&quot;,
+        ///&quot;2016 1 Arad 1705 1729 1781 1809 1846 1903 1883 1852 1910 1936 1990 2118&quot;,
+        ///&quot;2016 1 Arges 1772 1792 1801 2231 1988 1903 2036 1918 1927 1932 1927 2160&quot;,
+        ///&quot;2016 1 Bacau 1611 1619 1697 1685 1701 1758 1760 1803 1850 1796 1861 2083&quot;,
+        ///&quot;2016 1 Bihor 1486 1464 1508 1518 1583 1590 1601 1611 1628 1645 1684 1753&quot;,
+        ///&quot;2016 1 BistritaNasaud 1484 1454 1520 1504 1587 1551 1609 1570 1548 1562 1630 1653&quot;,
+        ///&quot;2016 1 Botosani 1502 1497 1530 1556 1557 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016AverageNetSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2016AverageNetSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 224 213 226 237 231 254 274 316 314 257 263 228&quot;,
+        ///&quot;2016 1 Arad 311 266 288 251 329 327 352 440 394 371 318 349&quot;,
+        ///&quot;2016 1 Arges 418 416 427 378 416 420 423 537 496 471 461 434&quot;,
+        ///&quot;2016 1 Bacau 520 426 446 424 442 442 510 682 605 556 469 473&quot;,
+        ///&quot;2016 1 Bihor 468 367 439 429 428 483 484 580 541 505 482 511&quot;,
+        ///&quot;2016 1 BistritaNasaud 267 231 237 234 235 273 288 323 295 300 241 283&quot;,
+        ///&quot;2016 1 Botosani 303 296 268 289 279 313 316 396 390 334 301 275&quot;,
+        ///&quot;2016 1 Brasov 495 413 500 412 507 517 520 558  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016BornAliveSeeder {
+            get {
+                return ResourceManager.GetString("_2016BornAliveSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 14 41 42 46 51 64 57 83 67 53 43 44&quot;,
+        ///&quot;2016 1 Arad 34 63 78 96 78 108 63 105 83 63 143 56&quot;,
+        ///&quot;2016 1 Arges 52 78 132 139 130 118 127 138 123 125 91 65&quot;,
+        ///&quot;2016 1 Bacau 40 54 92 78 97 152 81 100 111 89 78 73&quot;,
+        ///&quot;2016 1 Bihor 27 75 95 116 98 90 99 95 120 110 92 67&quot;,
+        ///&quot;2016 1 BistritaNasaud 23 43 82 55 61 58 46 80 79 53 39 38&quot;,
+        ///&quot;2016 1 Botosani 29 23 59 112 31 21 20 26 84 26 34 18&quot;,
+        ///&quot;2016 1 Brasov 21 14 48 38 67 35 61 37 46 38 23 51&quot;,
+        ///&quot;2016 1 Braila 20 9 34 31 26 43 34 61 31 55 28 43&quot;,
+        ///&quot;2016  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016BuildingPermitsSeeder {
+            get {
+                return ResourceManager.GetString("_2016BuildingPermitsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 387 370 383 363 394 331 328 337 343 340 343 507&quot;,
+        ///&quot;2016 1 Arad 559 456 497 460 501 430 468 479 448 497 494 520&quot;,
+        ///&quot;2016 1 Arges 701 601 680 650 623 603 540 507 538 649 667 716&quot;,
+        ///&quot;2016 1 Bacau 793 662 780 711 659 711 615 743 642 682 721 911&quot;,
+        ///&quot;2016 1 Bihor 625 621 642 613 637 570 548 542 512 651 591 696&quot;,
+        ///&quot;2016 1 BistritaNasaud 286 278 321 252 260 266 254 254 231 277 267 305&quot;,
+        ///&quot;2016 1 Botosani 508 517 486 482 505 436 406 440 433 543 481 549&quot;,
+        ///&quot;2016 1 Brasov 519 523 547 496 480 457 467 480  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016DeceasedSeeder {
+            get {
+                return ResourceManager.GetString("_2016DeceasedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 2 1 3 2 1 1 2 3 2 4 0 0&quot;,
+        ///&quot;2016 1 Arad 2 2 3 0 0 3 2 3 3 1 1 5&quot;,
+        ///&quot;2016 1 Arges 2 2 4 2 4 5 3 4 3 6 4 1&quot;,
+        ///&quot;2016 1 Bacau 3 4 6 10 4 5 1 2 3 4 1 8&quot;,
+        ///&quot;2016 1 Bihor 8 4 3 3 6 2 5 5 2 4 3 6&quot;,
+        ///&quot;2016 1 BistritaNasaud 0 3 0 2 4 2 5 1 2 0 1 3&quot;,
+        ///&quot;2016 1 Botosani 2 3 3 5 5 3 5 3 3 2 1 2&quot;,
+        ///&quot;2016 1 Brasov 3 6 3 1 2 6 2 5 5 3 4 4&quot;,
+        ///&quot;2016 1 Braila 1 1 4 1 1 2 4 2 3 3 2 1&quot;,
+        ///&quot;2016 1 Buzau 3 3 2 2 5 3 2 3 2 3 2 0&quot;,
+        ///&quot;2016 1 CarasSeverin 1 1 2 2 1 2 2 0 4 1 3 3&quot;,
+        ///&quot;2016 1 Calarasi 4 0 3 4 4 5 4 5 2 5 0 0&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016DeceasedUnderOneYearOldSeeder {
+            get {
+                return ResourceManager.GetString("_2016DeceasedUnderOneYearOldSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 13 52 55 39 85 51 55 82 15 30 34 57&quot;,
+        ///&quot;2016 1 Arad 0 52 56 41 70 58 49 28 42 23 36 17&quot;,
+        ///&quot;2016 1 Arges 4 103 64 65 82 81 61 88 73 41 45 24&quot;,
+        ///&quot;2016 1 Bacau 109 92 111 72 79 103 71 46 64 73 74 84&quot;,
+        ///&quot;2016 1 Bihor 23 92 69 102 82 82 60 56 116 95 103 66&quot;,
+        ///&quot;2016 1 BistritaNasaud 1 36 29 18 26 17 12 18 16 23 18 49&quot;,
+        ///&quot;2016 1 Botosani 8 69 61 41 62 25 33 55 76 29 82 53&quot;,
+        ///&quot;2016 1 Brasov 36 64 88 102 88 90 59 102 98 71 66 127&quot;,
+        ///&quot;2016 1 Braila 14 70 76 57 74 43 50 84 32 51 40 54&quot;,
+        ///&quot;2016 1 Buzau 7 6 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016DivorcesSeeder {
+            get {
+                return ResourceManager.GetString("_2016DivorcesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 82110 76063 96808 87551 91599 111128 109819 108745 145791 134473 151114 126852&quot;,
+        ///&quot;2016 1 Arad 255447 279973 303773 292941 273783 288997 257969 242231 301509 284028 306355 217652&quot;,
+        ///&quot;2016 1 Arges 435612 476147 545232 528482 526704 533762 454204 289198 508830 527505 526505 437148&quot;,
+        ///&quot;2016 1 Bacau 37955 39592 42992 43668 43145 45443 44583 34781 45145 38017 43646 31488&quot;,
+        ///&quot;2016 1 Bihor 151169 151020 156177 141238 144077 150207 149741 136603 166024 147995 157996 127421&quot;,
+        ///&quot;2016 1 BistritaNasaud 549 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016ExportFobSeeder {
+            get {
+                return ResourceManager.GetString("_2016ExportFobSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 47767 57887 60520 61974 65397 62505 68946 66042 85578 90091 96713 113033&quot;,
+        ///&quot;2016 1 Arad 209918 254330 270416 246893 252250 259097 227792 229090 264527 250415 248779 211745&quot;,
+        ///&quot;2016 1 Arges 320133 357075 392423 380415 396492 350279 351754 234356 385076 413516 377730 327035&quot;,
+        ///&quot;2016 1 Bacau 39888 54368 67925 61393 62584 62489 58275 58445 64606 59670 56554 49244&quot;,
+        ///&quot;2016 1 Bihor 143186 152731 155104 154175 158608 158189 163775 134604 156936 156252 158055 122241&quot;,
+        ///&quot;2016 1 BistritaNasaud 49925 578 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016ImportCifSeeder {
+            get {
+                return ResourceManager.GetString("_2016ImportCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 64 78 85 51 232 229 355 316 328 238 86 101&quot;,
+        ///&quot;2016 1 Arad 141 154 172 133 319 316 405 507 399 310 142 126&quot;,
+        ///&quot;2016 1 Arges 113 100 123 99 327 473 643 592 587 416 156 101&quot;,
+        ///&quot;2016 1 Bacau 129 179 154 89 329 327 617 1054 533 328 171 199&quot;,
+        ///&quot;2016 1 Bihor 126 138 149 148 455 401 541 495 507 393 177 102&quot;,
+        ///&quot;2016 1 BistritaNasaud 94 89 87 43 204 186 355 364 280 221 84 47&quot;,
+        ///&quot;2016 1 Botosani 87 94 73 54 199 171 390 485 345 200 102 135&quot;,
+        ///&quot;2016 1 Brasov 132 159 214 156 337 414 582 646 509 386 171 158&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016MarriagesSeeder {
+            get {
+                return ResourceManager.GetString("_2016MarriagesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba -163 -157 -157 -126 -163 -77 -54 -21 -29 -83 -80 -279&quot;,
+        ///&quot;2016 1 Arad -248 -190 -209 -209 -172 -103 -116 -39 -54 -126 -176 -171&quot;,
+        ///&quot;2016 1 Arges -283 -185 -253 -272 -207 -183 -117 30 -42 -178 -206 -282&quot;,
+        ///&quot;2016 1 Bacau -273 -236 -334 -287 -217 -269 -105 -61 -37 -126 -252 -438&quot;,
+        ///&quot;2016 1 Bihor -157 -254 -203 -184 -209 -87 -64 38 29 -146 -109 -185&quot;,
+        ///&quot;2016 1 BistritaNasaud -19 -47 -84 -18 -25 7 34 69 64 23 -26 -22&quot;,
+        ///&quot;2016 1 Botosani -205 -221 -218 -193 -226 -123 -90 -44 -43 -209 -180 -274&quot;,
+        ///&quot;20 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016NaturalGrowthSeeder {
+            get {
+                return ResourceManager.GetString("_2016NaturalGrowthSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 84473 84995 85485 85702 85890 86158 86506 86670 86832 86971 87005 86683&quot;,
+        ///&quot;2016 1 Arad 129258 130092 130877 131211 131499 131909 132443 132695 132943 133156 133209 132715&quot;,
+        ///&quot;2016 1 Arges 142007 142888 143716 144078 144392 144838 145419 145693 145964 146195 146252 145715&quot;,
+        ///&quot;2016 1 Bacau 106834 107528 108181 108453 108688 109023 109459 109665 109868 110042 110084 109681&quot;,
+        ///&quot;2016 1 Bihor 163041 164197 165292 165706 166063 166572 167235 167548 167856 168120 168185 167573&quot;,
+        ///&quot;2016 1 BistritaNasau [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016NumberOfEmployeesSeeder {
+            get {
+                return ResourceManager.GetString("_2016NumberOfEmployeesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 18065 17659 17234 19249 24768 28866 38871 45868 30365 23011 21411 21357&quot;,
+        ///&quot;2016 1 Arad 18060 22017 26715 28914 37326 34750 42549 44335 38173 33597 32633 20918&quot;,
+        ///&quot;2016 1 Arges 18571 20203 20028 19653 25145 31392 44979 53836 35058 30112 22742 22205&quot;,
+        ///&quot;2016 1 Bacau 15525 17265 20357 25424 32878 31529 39374 43359 31721 27749 27079 19440&quot;,
+        ///&quot;2016 1 Bihor 55043 57778 58479 80340 120268 143813 185407 210698 166701 132077 105903 69979&quot;,
+        ///&quot;2016 1 BistritaNasaud 6818 8160 9249 9663 16095 20078 25547 3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016NumberOfNightsSeeder {
+            get {
+                return ResourceManager.GetString("_2016NumberOfNightsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 8829 9336 10201 10996 14219 15775 20486 24358 16796 12474 11310 10149&quot;,
+        ///&quot;2016 1 Arad 12477 13748 15062 15820 17515 17730 20694 22356 18970 16784 15543 12318&quot;,
+        ///&quot;2016 1 Arges 11029 12039 12673 13100 15841 18799 26575 31417 20951 17330 13991 12822&quot;,
+        ///&quot;2016 1 Bacau 7362 7699 8983 10449 12048 12107 13706 15272 11811 11049 10933 9561&quot;,
+        ///&quot;2016 1 Bihor 22823 23435 23861 27564 34173 37379 48887 57358 43261 35739 30809 25600&quot;,
+        ///&quot;2016 1 BistritaNasaud 3918 4453 5175 5410 8355 10006 10752 14286 9683 7327 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016NumberOfTouristsSeeder {
+            get {
+                return ResourceManager.GetString("_2016NumberOfTouristsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 34343 18176 36288 25577 26202 48623 40873 42703 60213 44382 54401 13819&quot;,
+        ///&quot;2016 1 Arad 45529 25643 33357 46048 21533 29900 30177 13141 36982 33613 57576 5907&quot;,
+        ///&quot;2016 1 Arges 115479 119072 152809 148067 130212 183483 102450 54842 123754 113989 148775 110113&quot;,
+        ///&quot;2016 1 Bacau -1933 -14776 -24933 -17725 -19439 -17046 -13692 -23664 -19461 -21653 -12908 -17756&quot;,
+        ///&quot;2016 1 Bihor 7983 -1711 1073 -12937 -14531 -7982 -14034 1999 9088 -8257 -59 5180&quot;,
+        ///&quot;2016 1 BistritaNasaud 5023 5860 6904 19583 4882 991 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016SoldFobCifSeeder {
+            get {
+                return ResourceManager.GetString("_2016SoldFobCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2016 1 Alba 9301 8935 8970 8628 8620 8637 8629 8665 8140 8167 8221 8566&quot;,
+        ///&quot;2016 1 Arad 4887 4834 4881 4837 4938 4938 5074 5114 5121 4948 4440 4937&quot;,
+        ///&quot;2016 1 Arges 12807 12761 12478 12073 11931 12268 12510 12789 12476 12364 11906 12115&quot;,
+        ///&quot;2016 1 Bacau 15267 14189 13466 14476 14615 14334 14605 14100 13800 13898 14180 14560&quot;,
+        ///&quot;2016 1 Bihor 9704 9822 9223 9033 8920 8752 9037 9133 8783 8713 8047 8155&quot;,
+        ///&quot;2016 1 BistritaNasaud 4086 4361 4204 4049 3905 3888 4173 4271 4653 5265 4477 4857&quot;,
+        ///&quot;2016 1 Botosani 72 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2016UnemployedSeeder {
+            get {
+                return ResourceManager.GetString("_2016UnemployedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 2561 2657 2829 2804 2794 2813 2851 2817 2837 2883 2945 3066&quot;,
+        ///&quot;2017 1 Arad 2808 2801 2932 2948 2950 2993 2990 2915 2996 2996 3124 3195&quot;,
+        ///&quot;2017 1 Arges 2811 2849 2931 3247 3478 3034 3216 3035 3021 3060 3112 3419&quot;,
+        ///&quot;2017 1 Bacau 2585 2608 2802 2740 2880 2842 2822 2943 2872 2849 3010 3234&quot;,
+        ///&quot;2017 1 Bihor 2467 2521 2586 2600 2626 2621 2666 2674 2661 2721 2795 2844&quot;,
+        ///&quot;2017 1 BistritaNasaud 2455 2431 2552 2507 2556 2573 2690 2611 2630 2661 2803 2695&quot;,
+        ///&quot;2017 1 Botosani 2471 2595 2684 2682 2684 2 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017AverageGrossSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2017AverageGrossSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 1850 1906 2027 2010 2002 2016 2044 2016 2031 2065 2108 2197&quot;,
+        ///&quot;2017 1 Arad 2025 2013 2106 2120 2118 2147 2143 2091 2148 2148 2239 2292&quot;,
+        ///&quot;2017 1 Arges 2027 2046 2105 2327 2486 2173 2298 2172 2162 2194 2227 2445&quot;,
+        ///&quot;2017 1 Bacau 1865 1874 2017 1970 2067 2041 2025 2112 2062 2045 2157 2324&quot;,
+        ///&quot;2017 1 Bihor 1773 1810 1854 1867 1886 1877 1914 1921 1905 1953 2003 2038&quot;,
+        ///&quot;2017 1 BistritaNasaud 1792 1754 1838 1807 1841 1854 1935 1879 1892 1913 2011 1936&quot;,
+        ///&quot;2017 1 Botosani 1785 1865 1931 1932 1929 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017AverageNetSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2017AverageNetSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 243 215 253 217 275 242 259 305 287 255 236 224&quot;,
+        ///&quot;2017 1 Arad 359 283 323 237 335 345 379 382 406 321 304 319&quot;,
+        ///&quot;2017 1 Arges 422 394 443 369 425 412 515 515 470 535 404 418&quot;,
+        ///&quot;2017 1 Bacau 470 371 425 391 462 508 506 651 570 551 524 460&quot;,
+        ///&quot;2017 1 Bihor 435 409 444 384 469 511 533 608 528 575 471 479&quot;,
+        ///&quot;2017 1 BistritaNasaud 235 218 237 229 290 261 274 355 295 325 230 242&quot;,
+        ///&quot;2017 1 Botosani 314 247 265 242 315 297 387 417 342 367 265 279&quot;,
+        ///&quot;2017 1 Brasov 452 419 458 419 551 492 532 601  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017BornAliveSeeder {
+            get {
+                return ResourceManager.GetString("_2017BornAliveSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 30 32 67 43 63 82 71 44 73 67 37 42&quot;,
+        ///&quot;2017 1 Arad 31 30 47 47 79 64 100 103 94 181 88 80&quot;,
+        ///&quot;2017 1 Arges 55 65 114 136 158 139 135 159 160 118 108 87&quot;,
+        ///&quot;2017 1 Bacau 37 76 102 66 117 127 106 117 103 91 82 54&quot;,
+        ///&quot;2017 1 Bihor 44 58 129 139 167 147 122 100 181 186 109 56&quot;,
+        ///&quot;2017 1 BistritaNasaud 41 33 79 53 85 73 70 86 64 53 46 42&quot;,
+        ///&quot;2017 1 Botosani 21 31 83 66 55 72 49 45 30 35 38 45&quot;,
+        ///&quot;2017 1 Brasov 35 52 65 69 99 98 60 64 73 102 66 64&quot;,
+        ///&quot;2017 1 Braila 24 31 42 19 54 64 41 57 37 30 43 3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017BuildingPermitsSeeder {
+            get {
+                return ResourceManager.GetString("_2017BuildingPermitsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 507 394 348 364 334 318 390 324 327 367 335 368&quot;,
+        ///&quot;2017 1 Arad 714 587 535 464 464 445 471 528 463 481 524 595&quot;,
+        ///&quot;2017 1 Arges 889 668 630 641 586 593 580 609 546 617 667 637&quot;,
+        ///&quot;2017 1 Bacau 1004 704 772 692 672 653 666 655 585 688 734 816&quot;,
+        ///&quot;2017 1 Bihor 797 666 638 589 592 581 553 593 520 621 600 647&quot;,
+        ///&quot;2017 1 BistritaNasaud 394 317 339 243 289 316 266 271 249 260 267 329&quot;,
+        ///&quot;2017 1 Botosani 647 544 522 457 479 467 402 456 369 480 485 560&quot;,
+        ///&quot;2017 1 Brasov 696 521 585 508 488 494 454 538 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017DeceasedSeeder {
+            get {
+                return ResourceManager.GetString("_2017DeceasedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 1 2 1 2 2 3 3 2 2 0 2 2&quot;,
+        ///&quot;2017 1 Arad 3 6 1 3 1 5 2 1 1 1 1 1&quot;,
+        ///&quot;2017 1 Arges 7 4 1 1 3 1 3 2 4 2 1 2&quot;,
+        ///&quot;2017 1 Bacau 8 2 7 3 2 1 5 4 5 4 2 3&quot;,
+        ///&quot;2017 1 Bihor 4 3 3 1 4 2 3 2 1 4 5 3&quot;,
+        ///&quot;2017 1 BistritaNasaud 1 2 2 2 2 2 3 3 2 3 4 2&quot;,
+        ///&quot;2017 1 Botosani 8 0 4 7 4 5 2 4 7 2 1 3&quot;,
+        ///&quot;2017 1 Brasov 5 3 3 3 4 6 1 8 4 1 8 1&quot;,
+        ///&quot;2017 1 Braila 3 0 2 3 3 1 5 1 0 1 0 2&quot;,
+        ///&quot;2017 1 Buzau 4 1 3 2 0 1 0 2 1 4 2 0&quot;,
+        ///&quot;2017 1 CarasSeverin 3 2 2 3 1 2 1 3 2 2 2 0&quot;,
+        ///&quot;2017 1 Calarasi 9 1 2 2 1 1 4 1 4 2 5 0&quot;, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017DeceasedUnderOneYearOldSeeder {
+            get {
+                return ResourceManager.GetString("_2017DeceasedUnderOneYearOldSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 12 73 42 56 53 44 13 47 74 23 103 53&quot;,
+        ///&quot;2017 1 Arad 0 44 33 34 34 44 42 29 84 70 63 141&quot;,
+        ///&quot;2017 1 Arges 4 78 150 94 118 109 58 110 141 127 59 69&quot;,
+        ///&quot;2017 1 Bacau 85 84 80 102 86 104 102 78 84 86 75 92&quot;,
+        ///&quot;2017 1 Bihor 30 49 111 82 136 58 51 68 115 74 78 72&quot;,
+        ///&quot;2017 1 BistritaNasaud 15 30 18 25 56 17 15 7 68 29 12 49&quot;,
+        ///&quot;2017 1 Botosani 5 58 29 91 39 34 30 38 66 106 117 174&quot;,
+        ///&quot;2017 1 Brasov 30 98 102 63 94 85 70 90 92 109 102 73&quot;,
+        ///&quot;2017 1 Braila 17 59 58 56 59 65 44 58 47 51 48 52&quot;,
+        ///&quot;2017 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017DivorcesSeeder {
+            get {
+                return ResourceManager.GetString("_2017DivorcesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 181079 223595 227484 202695 229548 204702 222656 196629 205705 191608 230649 141536&quot;,
+        ///&quot;2017 1 Arad 279361 282133 319049 281819 305549 284132 264032 254408 308498 311011 329867 222538&quot;,
+        ///&quot;2017 1 Arges 492665 503751 582592 473897 561357 526866 465475 301943 524488 585979 540124 456329&quot;,
+        ///&quot;2017 1 Bacau 41307 39297 50391 40498 51926 52336 48192 41674 49370 47486 52532 38437&quot;,
+        ///&quot;2017 1 Bihor 127937 141795 159090 133272 157423 148868 150468 135953 161819 161192 167551 126415&quot;,
+        ///&quot;2017 1 BistritaNasau [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017ExportFobSeeder {
+            get {
+                return ResourceManager.GetString("_2017ExportFobSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 83516 91958 142254 131684 137243 112214 114912 114898 121216 132802 111892 118114&quot;,
+        ///&quot;2017 1 Arad 238043 253779 289022 240080 293325 266803 247476 245320 272906 276338 268298 215830&quot;,
+        ///&quot;2017 1 Arges 344639 351083 407969 360486 413335 405044 374621 284177 414931 470833 424476 377003&quot;,
+        ///&quot;2017 1 Bacau 45267 52154 76393 63216 75136 67699 66594 63835 75192 74008 65179 60584&quot;,
+        ///&quot;2017 1 Bihor 131732 139369 172922 151509 171092 160969 157513 137009 151914 165835 163541 127812&quot;,
+        ///&quot;2017 1 BistritaNasaud  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017ImportCifSeeder {
+            get {
+                return ResourceManager.GetString("_2017ImportCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 77 90 40 125 217 163 404 381 328 208 82 69&quot;,
+        ///&quot;2017 1 Arad 120 139 141 173 341 300 433 517 466 256 165 134&quot;,
+        ///&quot;2017 1 Arges 115 110 85 274 295 387 633 657 597 369 155 96&quot;,
+        ///&quot;2017 1 Bacau 172 151 128 204 282 280 731 970 595 305 171 192&quot;,
+        ///&quot;2017 1 Bihor 96 162 129 234 442 335 554 526 570 341 163 112&quot;,
+        ///&quot;2017 1 BistritaNasaud 85 72 50 117 203 153 372 357 302 164 69 52&quot;,
+        ///&quot;2017 1 Botosani 88 110 73 129 194 171 373 541 340 185 106 159&quot;,
+        ///&quot;2017 1 Brasov 149 159 140 241 335 359 653 677 590 327 202 130 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017MarriagesSeeder {
+            get {
+                return ResourceManager.GetString("_2017MarriagesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba -264 -179 -95 -147 -59 -76 -131 -19 -40 -112 -99 -144&quot;,
+        ///&quot;2017 1 Arad -355 -304 -212 -227 -129 -100 -92 -146 -57 -160 -220 -276&quot;,
+        ///&quot;2017 1 Arges -467 -274 -187 -272 -161 -181 -65 -94 -76 -82 -263 -219&quot;,
+        ///&quot;2017 1 Bacau -534 -333 -347 -301 -210 -145 -160 -4 -15 -137 -210 -356&quot;,
+        ///&quot;2017 1 Bihor -362 -257 -194 -205 -123 -70 -20 15 8 -46 -129 -168&quot;,
+        ///&quot;2017 1 BistritaNasaud -159 -99 -102 -14 1 -55 8 84 46 65 -37 -87&quot;,
+        ///&quot;2017 1 Botosani -333 -297 -257 -215 -164 -170 -15 -39 -27 -113 -220 -281&quot;,
+        ///&quot;2017  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017NaturalGrowthSeeder {
+            get {
+                return ResourceManager.GetString("_2017NaturalGrowthSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 88584 88926 89575 89632 89957 90072 90191 90238 90367 90414 90413 90032&quot;,
+        ///&quot;2017 1 Arad 131863 132286 133165 133251 133735 133906 134084 134154 134346 134416 134415 133847&quot;,
+        ///&quot;2017 1 Arges 149911 150449 151502 151598 152145 152338 152538 152618 152834 152913 152912 152271&quot;,
+        ///&quot;2017 1 Bacau 108473 108765 109427 109497 109890 110029 110174 110231 110387 110444 110443 109981&quot;,
+        ///&quot;2017 1 Bihor 169822 170435 171625 171733 172347 172563 172788 172878 173120 173210 173208 172488&quot;,
+        ///&quot;2017 1 BistritaNasau [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017NumberOfEmployeesSeeder {
+            get {
+                return ResourceManager.GetString("_2017NumberOfEmployeesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 18818 18963 20316 23545 32003 36216 48333 49561 32126 23879 19891 20203&quot;,
+        ///&quot;2017 1 Arad 16913 17913 21474 26755 30320 35972 39419 44973 39319 37050 30590 22696&quot;,
+        ///&quot;2017 1 Arges 20010 21960 21334 23180 25543 35626 49884 52260 38594 28676 22550 26344&quot;,
+        ///&quot;2017 1 Bacau 17843 23831 23403 22608 24889 33749 42627 47458 37842 37281 27786 20503&quot;,
+        ///&quot;2017 1 Bihor 50762 61590 57942 82397 91320 123630 166714 199335 146901 122442 111183 78428&quot;,
+        ///&quot;2017 1 BistritaNasaud 8632 8190 10068 13331 21093 25165 31319  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017NumberOfNightsSeeder {
+            get {
+                return ResourceManager.GetString("_2017NumberOfNightsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 8850 8707 9686 11818 16799 18169 21007 24739 16666 12977 10378 9849&quot;,
+        ///&quot;2017 1 Arad 11723 11984 13479 15381 17564 18159 21214 24220 20211 16462 15431 13588&quot;,
+        ///&quot;2017 1 Arges 13182 12729 13376 14017 16134 21881 29251 31996 25207 18395 15269 15509&quot;,
+        ///&quot;2017 1 Bacau 8559 10232 10653 10559 11732 13159 15092 15940 13514 12161 11282 9078&quot;,
+        ///&quot;2017 1 Bihor 22450 25072 26996 33847 37848 47213 58723 66875 47824 39037 39008 32301&quot;,
+        ///&quot;2017 1 BistritaNasaud 5482 5594 5838 7439 10077 11035 13740 16003 11521 86 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017NumberOfTouristsSeeder {
+            get {
+                return ResourceManager.GetString("_2017NumberOfTouristsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 97563 131637 85230 71011 92305 92488 107744 81731 84489 58806 118757 23422&quot;,
+        ///&quot;2017 1 Arad 41318 28354 30027 41739 12224 17329 16556 9088 35592 34673 61569 6708&quot;,
+        ///&quot;2017 1 Arges 148026 152668 174623 113411 148022 121822 90854 17766 109557 115146 115648 79326&quot;,
+        ///&quot;2017 1 Bacau -3960 -12857 -26002 -22718 -23210 -15363 -18402 -22161 -25822 -26522 -12647 -22147&quot;,
+        ///&quot;2017 1 Bihor -3795 2426 -13832 -18237 -13669 -12101 -7045 -1056 9905 -4643 4010 -1397&quot;,
+        ///&quot;2017 1 BistritaNasaud 13551 12813 17670 15404  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017SoldFobCifSeeder {
+            get {
+                return ResourceManager.GetString("_2017SoldFobCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2017 1 Alba 8643 8621 8449 8006 7273 6928 6371 6044 5664 5899 5933 6163&quot;,
+        ///&quot;2017 1 Arad 5597 4993 4879 2777 2777 2821 2796 3069 3069 2901 3209 3245&quot;,
+        ///&quot;2017 1 Arges 11992 11709 11304 10658 10111 9998 10989 11178 10942 10675 10497 10322&quot;,
+        ///&quot;2017 1 Bacau 14920 14220 13300 12720 12503 12620 12997 13100 13120 13000 13624 14032&quot;,
+        ///&quot;2017 1 Bihor 8875 8427 7317 7184 6810 6682 6974 6543 6507 6353 6450 6497&quot;,
+        ///&quot;2017 1 BistritaNasaud 5128 5262 4958 4817 4662 4562 3484 3763 3851 3834 3841 4043&quot;,
+        ///&quot;2017 1 Botosani 719 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2017UnemployedSeeder {
+            get {
+                return ResourceManager.GetString("_2017UnemployedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;2018 1 Alba 3648 3849 3966 3949 3970 3988 4187 4090&quot;,
         ///&quot;2018 1 Arad 3650 3621 3804 3837 3847 3997 3854 3804&quot;,
         ///&quot;2018 1 Arges 3786 3747 3891 4248 4350 4163 4416 4025&quot;,
@@ -71,9 +947,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Brasov 3978 4040 4344 4383 4290 4465 4280 4280&quot;,
         ///&quot;2018 1 Braila 3372 3300 3529 3613 3582 3563  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string AverageGrossSalarySeeder {
+        internal static string _2018AverageGrossSalarySeeder {
             get {
-                return ResourceManager.GetString("AverageGrossSalarySeeder", resourceCulture);
+                return ResourceManager.GetString("_2018AverageGrossSalarySeeder", resourceCulture);
             }
         }
         
@@ -88,9 +964,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Brasov 2384 2437 2622 2636 2584 2687 2575 2575&quot;,
         ///&quot;2018 1 Braila 2033 2003 2130 2179 2161 2146  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string AverageNetSalarySeeder {
+        internal static string _2018AverageNetSalarySeeder {
             get {
-                return ResourceManager.GetString("AverageNetSalarySeeder", resourceCulture);
+                return ResourceManager.GetString("_2018AverageNetSalarySeeder", resourceCulture);
             }
         }
         
@@ -107,9 +983,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Buzau 343 224 253 235 219 277 323 300&quot;,
         ///&quot;2018 1 Ca [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BornAliveSeeder {
+        internal static string _2018BornAliveSeeder {
             get {
-                return ResourceManager.GetString("BornAliveSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018BornAliveSeeder", resourceCulture);
             }
         }
         
@@ -127,9 +1003,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 CarasSeverin 9 10 20 13 21 21 17 21&quot;,
         ///&quot;2018 1 Calarasi 18 24 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string BuildingPermitsSeeder {
+        internal static string _2018BuildingPermitsSeeder {
             get {
-                return ResourceManager.GetString("BuildingPermitsSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018BuildingPermitsSeeder", resourceCulture);
             }
         }
         
@@ -146,9 +1022,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Buzau 629 628 672 585 590 522 472 521&quot;,
         ///&quot;2018 1 Ca [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string DeceasedSeeder {
+        internal static string _2018DeceasedSeeder {
             get {
-                return ResourceManager.GetString("DeceasedSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018DeceasedSeeder", resourceCulture);
             }
         }
         
@@ -169,9 +1045,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Constanta 1 4 3 4 6 1 5 3&quot;,
         ///&quot;2018 1 Covasna 1 3 1 2 1 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string DeceasedUnderOneYearOldSeeder {
+        internal static string _2018DeceasedUnderOneYearOldSeeder {
             get {
-                return ResourceManager.GetString("DeceasedUnderOneYearOldSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018DeceasedUnderOneYearOldSeeder", resourceCulture);
             }
         }
         
@@ -189,9 +1065,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 CarasSeverin 5 46 54 33 51 40 63 49&quot;,
         ///&quot;2018 1 Calarasi 7 42 40 47 39 52 20 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string DivorcesSeeder {
+        internal static string _2018DivorcesSeeder {
             get {
-                return ResourceManager.GetString("DivorcesSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018DivorcesSeeder", resourceCulture);
             }
         }
         
@@ -206,9 +1082,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Brasov 279719 287182 324297 287728 316732 320984&quot;,
         ///&quot;2018 1 Braila 25300 24522 33880 27934 36794 34 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ExportFobSeeder {
+        internal static string _2018ExportFobSeeder {
             get {
-                return ResourceManager.GetString("ExportFobSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018ExportFobSeeder", resourceCulture);
             }
         }
         
@@ -223,9 +1099,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Brasov 249203 255022 281412 252157 276184 283064&quot;,
         ///&quot;2018 1 Braila 12331 12842 23560 19528 18352 20 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string ImportCifSeeder {
+        internal static string _2018ImportCifSeeder {
             get {
-                return ResourceManager.GetString("ImportCifSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018ImportCifSeeder", resourceCulture);
             }
         }
         
@@ -242,9 +1118,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Buzau 69 91 59 159 173 230 303 390&quot;,
         ///&quot;2018 1 CarasSeverin 90  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string MarriagesSeeder {
+        internal static string _2018MarriagesSeeder {
             get {
-                return ResourceManager.GetString("MarriagesSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018MarriagesSeeder", resourceCulture);
             }
         }
         
@@ -260,9 +1136,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Braila -258 -193 -295 -258 -160 -198 -172 -135&quot;,
         ///&quot;2018 1 Buzau -286 -404 -4 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string NaturalGrowthSeeder {
+        internal static string _2018NaturalGrowthSeeder {
             get {
-                return ResourceManager.GetString("NaturalGrowthSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018NaturalGrowthSeeder", resourceCulture);
             }
         }
         
@@ -276,9 +1152,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Botosani 55483 55773 56057 56112 56221 56322 56390 56318&quot;,
         ///&quot;2018 1 Brasov  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string NumberOfEmployeesSeeder {
+        internal static string _2018NumberOfEmployeesSeeder {
             get {
-                return ResourceManager.GetString("NumberOfEmployeesSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018NumberOfEmployeesSeeder", resourceCulture);
             }
         }
         
@@ -292,9 +1168,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Botosani 5536 4621 5303 5939 5795 7589 7969 9887&quot;,
         ///&quot;2018 1 Brasov 233925 213648 152709 166700 183411 202 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string NumberOfNightsSeeder {
+        internal static string _2018NumberOfNightsSeeder {
             get {
-                return ResourceManager.GetString("NumberOfNightsSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018NumberOfNightsSeeder", resourceCulture);
             }
         }
         
@@ -308,9 +1184,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Botosani 3676 3013 3508 3728 3647 4284 4430 5011&quot;,
         ///&quot;2018 1 Brasov 107046 103591 81660 88413 102660 110831 135622 16 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string NumberOfTouristsSeeder {
+        internal static string _2018NumberOfTouristsSeeder {
             get {
-                return ResourceManager.GetString("NumberOfTouristsSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018NumberOfTouristsSeeder", resourceCulture);
             }
         }
         
@@ -326,9 +1202,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Braila 12969 11680 10320 8406 18442 14842&quot;,
         ///&quot;2018 1 Buzau 21620 1 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string SoldFobCifSeeder {
+        internal static string _2018SoldFobCifSeeder {
             get {
-                return ResourceManager.GetString("SoldFobCifSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018SoldFobCifSeeder", resourceCulture);
             }
         }
         
@@ -343,9 +1219,9 @@ namespace StatisticsRomania.Repository.Seeders {
         ///&quot;2018 1 Brasov 7344 7164 7060 6566 6217 6394 6339 6331&quot;,
         ///&quot;2018 1 Braila 6410 6366 6188 5815  [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string UnemployedSeeder {
+        internal static string _2018UnemployedSeeder {
             get {
-                return ResourceManager.GetString("UnemployedSeeder", resourceCulture);
+                return ResourceManager.GetString("_2018UnemployedSeeder", resourceCulture);
             }
         }
     }
