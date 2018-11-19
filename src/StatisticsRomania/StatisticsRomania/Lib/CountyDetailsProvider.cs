@@ -106,7 +106,8 @@ namespace StatisticsRomania.Lib
                     {
                         CountyId = countyId,
                         Year = group.Key,
-                        Value = new[] { "ExportFob", "ImportCif", "SoldFobCif", "NumberOfTourists", "NumberOfNights" }.Contains(typeof(T).Name) ? group.Sum(x => x.Value) : group.Sum(x => x.Value) / group.Count()
+                        Value = new[] { "ExportFob", "ImportCif", "SoldFobCif", "NumberOfTourists", "NumberOfNights", "BornAlive", "Deceased", "NaturalGrowth", "DeceasedUnderOneYearOld", "BuildingPermits", "Divorces", "Marriages" }
+                                        .Contains(typeof(T).Name) ? group.Sum(x => x.Value) : group.Sum(x => x.Value) / group.Count()
                     })
                     .ToList();
             }
