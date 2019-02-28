@@ -15,7 +15,7 @@ namespace SeederGenerator
         private static void Main(string[] args)
         {
             var year = 2018;
-            var month = 11;
+            var month = 12;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
             var dir = $@"d:\INS\Publicatie BSL Judete_ Excel_luna {months[month - 1]}. {year}\";    // add {year + 1} for international commerce
