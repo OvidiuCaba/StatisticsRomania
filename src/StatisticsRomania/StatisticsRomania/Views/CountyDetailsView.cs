@@ -80,6 +80,7 @@ namespace StatisticsRomania.Views
             _degChapterData = new GridControl();
             _degChapterData.SetBinding(GridControl.IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _degChapterData.IsReadOnly = true;
+            _degChapterData.AllowResizeColumns = false;
             _degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False });

@@ -81,6 +81,7 @@ namespace StatisticsRomania.Views
 
             _degStandings = new GridControl();
             _degStandings.IsReadOnly = true;
+            _degStandings.AllowResizeColumns = false;
             _degStandings.HorizontalOptions = LayoutOptions.FillAndExpand;
             _degStandings.TotalSummaryVisibility = DevExpress.Mobile.Core.VisibilityState.Always;
             _degStandings.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
