@@ -58,6 +58,8 @@ namespace StatisticsRomania.Repository.Seeders
             var seederTypeName = typeof(T).Name;
 
             var resourceKeys = typeof(CountiesData).GetProperties(BindingFlags.NonPublic | BindingFlags.Static).Where(x => x.Name.EndsWith($"{seederTypeName}Seeder")).Select(x => (string)x.GetValue(null)).ToList();
+            resourceKeys.Sort();
+            resourceKeys = resourceKeys.Skip(resourceKeys.Count - 3).ToList();
 
             var res = new List<string>();
 
@@ -68,8 +70,10 @@ namespace StatisticsRomania.Repository.Seeders
 
         private static List<string> GetDataFromResources(string resourceKey)
         {
-            var dataFromResources = resourceKey.Split(',').Select(x => x.Replace(Environment.NewLine, string.Empty).Replace("\"", string.Empty)).ToList();
+            var dataFromResources = resourceKey.Split(',').Select(x => x.Replace(Environment.NewLine, string.Empty).Replace("\r", string.Empty).Replace("\"", string.Empty)).ToList();
             dataFromResources.RemoveAll(x => x == string.Empty);
+            dataFromResources.RemoveAll(x => x == Environment.NewLine);
+            dataFromResources.RemoveAll(x => x == "\r");
             return dataFromResources;
         }
     }
