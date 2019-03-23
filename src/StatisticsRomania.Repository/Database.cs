@@ -43,15 +43,24 @@ namespace StatisticsRomania.Repository
 
         private void SeedDatabase()
         {
-            var counties = CountiesSeeder.GetData();
-            try
+            var numberOfCountiesInDb = _db.Table<County>().Count();
+
+            var tooManyCountiesInDb = numberOfCountiesInDb > 42;    // for some reasons, on some devices, SQLite lets the code to insert more PKs with the same values
+            if (tooManyCountiesInDb)
+                _db.DeleteAll<County>();
+
+            if (numberOfCountiesInDb == 0)
             {
-                _db.InsertAll(counties);
-            }
-            catch
-            {
-                // If the counties are already there, I'll get a constraint exception;
-                // I don't care
+                var counties = CountiesSeeder.GetData();
+                try
+                {
+                    _db.InsertAll(counties);
+                }
+                catch
+                {
+                    // If the counties are already there, I'll get a constraint exception;
+                    // I don't care
+                }
             }
 
             var averageGrossSalaries = AverageGrossSalarySeeder.GetData();
