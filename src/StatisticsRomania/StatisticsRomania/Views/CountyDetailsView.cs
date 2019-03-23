@@ -37,13 +37,6 @@ namespace StatisticsRomania.Views
             Init();
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-
-            await LoadData();
-        }
-
         private async Task Init()
         {
             _viewModel = new CountyDetailsViewModel();
@@ -171,6 +164,8 @@ namespace StatisticsRomania.Views
             _pickerCounties.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerCounties2.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
+
+            await LoadData();
         }
 
         private async void btnTest_Clicked(object sender, EventArgs e)
