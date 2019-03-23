@@ -29,6 +29,13 @@ namespace StatisticsRomania.Views
             Init();
         }
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await LoadData();
+        }
+
         private async Task Init()
         {
             _viewModel = new CountyStandingsViewModel();
@@ -164,11 +171,9 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerYears.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged += picker_SelectedIndexChanged;
-
-            await LoadData();
         }
 
-        async void btnForceDataLoading_Clicked(object sender, EventArgs e)
+        private async void btnForceDataLoading_Clicked(object sender, EventArgs e)
         {
             _pickerYears.SelectedIndexChanged -= picker_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged -= picker_SelectedIndexChanged;
@@ -182,7 +187,7 @@ namespace StatisticsRomania.Views
             await LoadData();
         }
 
-        void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
+        private void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
         {
             // Disable row selection on row tapping
             var grid = sender as GridControl;
