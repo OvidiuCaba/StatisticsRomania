@@ -1054,13 +1054,12 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2018 1 Alba 209463 216299 237185 211915 226458 225416 232406 189616 207728 216631&quot;,
-        ///&quot;2018 1 Arad 306518 304380 324262 291786 355804 312667 278302 239773 285891 320588&quot;,
-        ///&quot;2018 1 Arges 540920 528244 572135 510109 575994 555154 522472 282019 517936 583833&quot;,
-        ///&quot;2018 1 Bacau 47935 49002 51944 45160 57016 50058 53589 43892 47440 50105&quot;,
-        ///&quot;2018 1 Bihor 140050 155619 168063 133873 156510 168406 161238 144358 164866 171063&quot;,
-        ///&quot;2018 1 BistritaNasaud 69885 65951 76248 64364 71399 71068 71265 56617 64627 73966&quot;,
-        ///&quot;20 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2018 1 Alba 209440 216219 237152 211601 226399 222359 232342 189681 207841 216649 211813&quot;,
+        ///&quot;2018 1 Arad 306539 304464 324236 291823 355855 312770 278299 239834 286030 320612 310844&quot;,
+        ///&quot;2018 1 Arges 540665 528232 573039 510108 575713 555326 523684 281991 517951 583940 584636&quot;,
+        ///&quot;2018 1 Bacau 47940 48979 51935 45172 57038 50108 53592 43912 47246 49971 55365&quot;,
+        ///&quot;2018 1 Bihor 140084 155546 168009 133912 156596 168675 161315 144509 165069 171769 171814&quot;,
+        ///&quot;2018 1 BistritaNasaud 69888 65929 76239 64377 71412 71 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2018ExportFobSeeder {
             get {
@@ -1069,13 +1068,12 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2018 1 Alba 174264 168693 209439 162628 169654 209734 183069 164394 172364 195568&quot;,
-        ///&quot;2018 1 Arad 261048 259352 283062 252977 285916 278063 256529 227374 256126 300934&quot;,
-        ///&quot;2018 1 Arges 388681 397252 418722 397604 428211 414668 397449 236632 403701 459583&quot;,
-        ///&quot;2018 1 Bacau 59947 62115 73979 67581 80059 81273 84862 72304 70979 85861&quot;,
-        ///&quot;2018 1 Bihor 148794 144001 154299 147970 165475 161609 172639 139165 150994 191391&quot;,
-        ///&quot;2018 1 BistritaNasaud 53843 56681 61521 52996 53527 61457 65077 47732 60020 72037&quot;,
-        ///&quot;20 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2018 1 Alba 174237 168677 209485 162678 169457 209718 183126 164349 172313 195311 177008&quot;,
+        ///&quot;2018 1 Arad 261012 259347 283089 252932 285917 278023 256380 227471 256091 300559 269403&quot;,
+        ///&quot;2018 1 Arges 388648 397220 418699 397596 428150 414844 397477 236505 404259 456188 431365&quot;,
+        ///&quot;2018 1 Bacau 59925 62094 73971 67530 80021 81246 84745 72271 71449 87012 63176&quot;,
+        ///&quot;2018 1 Bihor 148727 143954 154280 147837 165410 161549 172376 139044 151551 190378 166168&quot;,
+        ///&quot;2018 1 BistritaNasaud 53829 56659 61515 52964 53509 61 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2018ImportCifSeeder {
             get {
@@ -1158,13 +1156,12 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2018 1 Alba 35199 47606 27746 49287 56804 15682 49337 25222 35364 21063&quot;,
-        ///&quot;2018 1 Arad 45470 45028 41200 38809 69888 34604 21773 12399 29765 19654&quot;,
-        ///&quot;2018 1 Arges 152239 130992 153413 112505 147783 140486 125023 45387 114235 124250&quot;,
-        ///&quot;2018 1 Bacau -12012 -13113 -22035 -22421 -23043 -31215 -31273 -28412 -23539 -35756&quot;,
-        ///&quot;2018 1 Bihor -8744 11618 13764 -14097 -8965 6797 -11401 5193 13872 -20328&quot;,
-        ///&quot;2018 1 BistritaNasaud 16042 9270 14727 11368 17872 9611 6188 8885 4607 1929&quot;,
-        ///&quot;2018 1 Botosani 9271 5252 45 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2018 1 Alba 35203 47542 27667 48923 56942 12641 49216 25332 35528 21338 34805&quot;,
+        ///&quot;2018 1 Arad 45527 45117 41147 38891 69938 34747 21919 12363 29939 20053 41441&quot;,
+        ///&quot;2018 1 Arges 152017 131012 154340 112512 147563 140482 126207 45486 113692 127752 153271&quot;,
+        ///&quot;2018 1 Bacau -11985 -13115 -22036 -22358 -22983 -31138 -31153 -28359 -24203 -37041 -7811&quot;,
+        ///&quot;2018 1 Bihor -8643 11592 13729 -13925 -8814 7126 -11061 5465 13518 -18609 5646&quot;,
+        ///&quot;2018 1 BistritaNasaud 16059 9270 14724 11413 17903 9644 6216 8910 4698 1848 70 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2018SoldFobCifSeeder {
             get {
@@ -1184,6 +1181,560 @@ namespace StatisticsRomania.Repository.Seeders {
         internal static string _2018UnemployedSeeder {
             get {
                 return ResourceManager.GetString("_2018UnemployedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 4218&quot;,
+        ///&quot;2019 1 Arad 4315&quot;,
+        ///&quot;2019 1 Arges 4324&quot;,
+        ///&quot;2019 1 Bacau 4325&quot;,
+        ///&quot;2019 1 Bihor 3903&quot;,
+        ///&quot;2019 1 BistritaNasaud 3989&quot;,
+        ///&quot;2019 1 Botosani 4179&quot;,
+        ///&quot;2019 1 Brasov 4637&quot;,
+        ///&quot;2019 1 Braila 3973&quot;,
+        ///&quot;2019 1 Buzau 4004&quot;,
+        ///&quot;2019 1 CarasSeverin 4074&quot;,
+        ///&quot;2019 1 Calarasi 4141&quot;,
+        ///&quot;2019 1 Cluj 5277&quot;,
+        ///&quot;2019 1 Constanta 4191&quot;,
+        ///&quot;2019 1 Covasna 4460&quot;,
+        ///&quot;2019 1 Dambovita 4234&quot;,
+        ///&quot;2019 1 Dolj 4373&quot;,
+        ///&quot;2019 1 Galati 4416&quot;,
+        ///&quot;2019 1 Giurgiu 4235&quot;,
+        ///&quot;2019 1 Gorj 4245&quot;,
+        ///&quot;2019 1 Harghita 3794&quot;,
+        ///&quot;2019 1 Hunedoa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019AverageGrossSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2019AverageGrossSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 2554&quot;,
+        ///&quot;2019 1 Arad 2636&quot;,
+        ///&quot;2019 1 Arges 2638&quot;,
+        ///&quot;2019 1 Bacau 2627&quot;,
+        ///&quot;2019 1 Bihor 2368&quot;,
+        ///&quot;2019 1 BistritaNasaud 2427&quot;,
+        ///&quot;2019 1 Botosani 2507&quot;,
+        ///&quot;2019 1 Brasov 2802&quot;,
+        ///&quot;2019 1 Braila 2412&quot;,
+        ///&quot;2019 1 Buzau 2414&quot;,
+        ///&quot;2019 1 CarasSeverin 2465&quot;,
+        ///&quot;2019 1 Calarasi 2504&quot;,
+        ///&quot;2019 1 Cluj 3236&quot;,
+        ///&quot;2019 1 Constanta 2546&quot;,
+        ///&quot;2019 1 Covasna 2691&quot;,
+        ///&quot;2019 1 Dambovita 2558&quot;,
+        ///&quot;2019 1 Dolj 2633&quot;,
+        ///&quot;2019 1 Galati 2703&quot;,
+        ///&quot;2019 1 Giurgiu 2580&quot;,
+        ///&quot;2019 1 Gorj 2571&quot;,
+        ///&quot;2019 1 Harghita 2330&quot;,
+        ///&quot;2019 1 Hunedoa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019AverageNetSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2019AverageNetSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 281&quot;,
+        ///&quot;2019 1 Arad 344&quot;,
+        ///&quot;2019 1 Arges 476&quot;,
+        ///&quot;2019 1 Bacau 514&quot;,
+        ///&quot;2019 1 Bihor 504&quot;,
+        ///&quot;2019 1 BistritaNasaud 293&quot;,
+        ///&quot;2019 1 Botosani 387&quot;,
+        ///&quot;2019 1 Brasov 580&quot;,
+        ///&quot;2019 1 Braila 225&quot;,
+        ///&quot;2019 1 Buzau 327&quot;,
+        ///&quot;2019 1 CarasSeverin 206&quot;,
+        ///&quot;2019 1 Calarasi 235&quot;,
+        ///&quot;2019 1 Cluj 583&quot;,
+        ///&quot;2019 1 Constanta 617&quot;,
+        ///&quot;2019 1 Covasna 219&quot;,
+        ///&quot;2019 1 Dambovita 374&quot;,
+        ///&quot;2019 1 Dolj 493&quot;,
+        ///&quot;2019 1 Galati 372&quot;,
+        ///&quot;2019 1 Giurgiu 189&quot;,
+        ///&quot;2019 1 Gorj 243&quot;,
+        ///&quot;2019 1 Harghita 309&quot;,
+        ///&quot;2019 1 Hunedoara 308&quot;,
+        ///&quot;2019 1 Ial [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019BornAliveSeeder {
+            get {
+                return ResourceManager.GetString("_2019BornAliveSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 38&quot;,
+        ///&quot;2019 1 Arad 42&quot;,
+        ///&quot;2019 1 Arges 79&quot;,
+        ///&quot;2019 1 Bacau 56&quot;,
+        ///&quot;2019 1 Bihor 41&quot;,
+        ///&quot;2019 1 BistritaNasaud 29&quot;,
+        ///&quot;2019 1 Botosani 32&quot;,
+        ///&quot;2019 1 Brasov 81&quot;,
+        ///&quot;2019 1 Braila 36&quot;,
+        ///&quot;2019 1 Buzau 24&quot;,
+        ///&quot;2019 1 CarasSeverin 4&quot;,
+        ///&quot;2019 1 Calarasi 17&quot;,
+        ///&quot;2019 1 Cluj 109&quot;,
+        ///&quot;2019 1 Constanta 97&quot;,
+        ///&quot;2019 1 Covasna 7&quot;,
+        ///&quot;2019 1 Dambovita 64&quot;,
+        ///&quot;2019 1 Dolj 49&quot;,
+        ///&quot;2019 1 Galati 67&quot;,
+        ///&quot;2019 1 Giurgiu 37&quot;,
+        ///&quot;2019 1 Gorj 26&quot;,
+        ///&quot;2019 1 Harghita 7&quot;,
+        ///&quot;2019 1 Hunedoara 17&quot;,
+        ///&quot;2019 1 Ialomita 23&quot;,
+        ///&quot;2019 1 Iasi [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019BuildingPermitsSeeder {
+            get {
+                return ResourceManager.GetString("_2019BuildingPermitsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 417&quot;,
+        ///&quot;2019 1 Arad 636&quot;,
+        ///&quot;2019 1 Arges 797&quot;,
+        ///&quot;2019 1 Bacau 939&quot;,
+        ///&quot;2019 1 Bihor 700&quot;,
+        ///&quot;2019 1 BistritaNasaud 348&quot;,
+        ///&quot;2019 1 Botosani 572&quot;,
+        ///&quot;2019 1 Brasov 663&quot;,
+        ///&quot;2019 1 Braila 529&quot;,
+        ///&quot;2019 1 Buzau 782&quot;,
+        ///&quot;2019 1 CarasSeverin 339&quot;,
+        ///&quot;2019 1 Calarasi 468&quot;,
+        ///&quot;2019 1 Cluj 749&quot;,
+        ///&quot;2019 1 Constanta 854&quot;,
+        ///&quot;2019 1 Covasna 275&quot;,
+        ///&quot;2019 1 Dambovita 724&quot;,
+        ///&quot;2019 1 Dolj 923&quot;,
+        ///&quot;2019 1 Galati 768&quot;,
+        ///&quot;2019 1 Giurgiu 484&quot;,
+        ///&quot;2019 1 Gorj 437&quot;,
+        ///&quot;2019 1 Harghita 384&quot;,
+        ///&quot;2019 1 Hunedoara 563&quot;,
+        ///&quot;2019 1 Ial [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019DeceasedSeeder {
+            get {
+                return ResourceManager.GetString("_2019DeceasedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 1&quot;,
+        ///&quot;2019 1 Arad 5&quot;,
+        ///&quot;2019 1 Arges 2&quot;,
+        ///&quot;2019 1 Bacau 5&quot;,
+        ///&quot;2019 1 Bihor 4&quot;,
+        ///&quot;2019 1 BistritaNasaud 2&quot;,
+        ///&quot;2019 1 Botosani 1&quot;,
+        ///&quot;2019 1 Brasov 6&quot;,
+        ///&quot;2019 1 Braila 1&quot;,
+        ///&quot;2019 1 Buzau 0&quot;,
+        ///&quot;2019 1 CarasSeverin 5&quot;,
+        ///&quot;2019 1 Calarasi 3&quot;,
+        ///&quot;2019 1 Cluj 3&quot;,
+        ///&quot;2019 1 Constanta 10&quot;,
+        ///&quot;2019 1 Covasna 0&quot;,
+        ///&quot;2019 1 Dambovita 2&quot;,
+        ///&quot;2019 1 Dolj 3&quot;,
+        ///&quot;2019 1 Galati 3&quot;,
+        ///&quot;2019 1 Giurgiu 0&quot;,
+        ///&quot;2019 1 Gorj 4&quot;,
+        ///&quot;2019 1 Harghita 2&quot;,
+        ///&quot;2019 1 Hunedoara 2&quot;,
+        ///&quot;2019 1 Ialomita 0&quot;,
+        ///&quot;2019 1 Iasi 1&quot;,
+        ///&quot;2019 1 Ilfov  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019DeceasedUnderOneYearOldSeeder {
+            get {
+                return ResourceManager.GetString("_2019DeceasedUnderOneYearOldSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 8&quot;,
+        ///&quot;2019 1 Arad 3&quot;,
+        ///&quot;2019 1 Arges 32&quot;,
+        ///&quot;2019 1 Bacau 86&quot;,
+        ///&quot;2019 1 Bihor 15&quot;,
+        ///&quot;2019 1 BistritaNasaud 12&quot;,
+        ///&quot;2019 1 Botosani 4&quot;,
+        ///&quot;2019 1 Brasov 30&quot;,
+        ///&quot;2019 1 Braila 23&quot;,
+        ///&quot;2019 1 Buzau 9&quot;,
+        ///&quot;2019 1 CarasSeverin 3&quot;,
+        ///&quot;2019 1 Calarasi 4&quot;,
+        ///&quot;2019 1 Cluj 18&quot;,
+        ///&quot;2019 1 Constanta 41&quot;,
+        ///&quot;2019 1 Covasna 1&quot;,
+        ///&quot;2019 1 Dambovita 21&quot;,
+        ///&quot;2019 1 Dolj 42&quot;,
+        ///&quot;2019 1 Galati 13&quot;,
+        ///&quot;2019 1 Giurgiu 6&quot;,
+        ///&quot;2019 1 Gorj 21&quot;,
+        ///&quot;2019 1 Harghita 17&quot;,
+        ///&quot;2019 1 Hunedoara 39&quot;,
+        ///&quot;2019 1 Ialomita 4&quot;,
+        ///&quot;2019 1 Iasi 46&quot;,
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019DivorcesSeeder {
+            get {
+                return ResourceManager.GetString("_2019DivorcesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///.
+        /// </summary>
+        internal static string _2019ExportFobSeeder {
+            get {
+                return ResourceManager.GetString("_2019ExportFobSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///.
+        /// </summary>
+        internal static string _2019ImportCifSeeder {
+            get {
+                return ResourceManager.GetString("_2019ImportCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 56&quot;,
+        ///&quot;2019 1 Arad 90&quot;,
+        ///&quot;2019 1 Arges 99&quot;,
+        ///&quot;2019 1 Bacau 173&quot;,
+        ///&quot;2019 1 Bihor 102&quot;,
+        ///&quot;2019 1 BistritaNasaud 52&quot;,
+        ///&quot;2019 1 Botosani 99&quot;,
+        ///&quot;2019 1 Brasov 143&quot;,
+        ///&quot;2019 1 Braila 60&quot;,
+        ///&quot;2019 1 Buzau 76&quot;,
+        ///&quot;2019 1 CarasSeverin 73&quot;,
+        ///&quot;2019 1 Calarasi 40&quot;,
+        ///&quot;2019 1 Cluj 133&quot;,
+        ///&quot;2019 1 Constanta 206&quot;,
+        ///&quot;2019 1 Covasna 57&quot;,
+        ///&quot;2019 1 Dambovita 106&quot;,
+        ///&quot;2019 1 Dolj 101&quot;,
+        ///&quot;2019 1 Galati 160&quot;,
+        ///&quot;2019 1 Giurgiu 84&quot;,
+        ///&quot;2019 1 Gorj 76&quot;,
+        ///&quot;2019 1 Harghita 57&quot;,
+        ///&quot;2019 1 Hunedoara 94&quot;,
+        ///&quot;2019 1 Ialomita 48&quot;,
+        ///&quot;2 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019MarriagesSeeder {
+            get {
+                return ResourceManager.GetString("_2019MarriagesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba -136&quot;,
+        ///&quot;2019 1 Arad -292&quot;,
+        ///&quot;2019 1 Arges -321&quot;,
+        ///&quot;2019 1 Bacau -425&quot;,
+        ///&quot;2019 1 Bihor -196&quot;,
+        ///&quot;2019 1 BistritaNasaud -55&quot;,
+        ///&quot;2019 1 Botosani -185&quot;,
+        ///&quot;2019 1 Brasov -83&quot;,
+        ///&quot;2019 1 Braila -304&quot;,
+        ///&quot;2019 1 Buzau -455&quot;,
+        ///&quot;2019 1 CarasSeverin -133&quot;,
+        ///&quot;2019 1 Calarasi -233&quot;,
+        ///&quot;2019 1 Cluj -166&quot;,
+        ///&quot;2019 1 Constanta -237&quot;,
+        ///&quot;2019 1 Covasna -56&quot;,
+        ///&quot;2019 1 Dambovita -350&quot;,
+        ///&quot;2019 1 Dolj -430&quot;,
+        ///&quot;2019 1 Galati -396&quot;,
+        ///&quot;2019 1 Giurgiu -295&quot;,
+        ///&quot;2019 1 Gorj -194&quot;,
+        ///&quot;2019 1 Harghita -75&quot;,
+        ///&quot;2019 1 Hunedoara - [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019NaturalGrowthSeeder {
+            get {
+                return ResourceManager.GetString("_2019NaturalGrowthSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 95519&quot;,
+        ///&quot;2019 1 Arad 137734&quot;,
+        ///&quot;2019 1 Arges 161515&quot;,
+        ///&quot;2019 1 Bacau 113776&quot;,
+        ///&quot;2019 1 Bihor 177469&quot;,
+        ///&quot;2019 1 BistritaNasaud 72293&quot;,
+        ///&quot;2019 1 Botosani 56699&quot;,
+        ///&quot;2019 1 Brasov 191202&quot;,
+        ///&quot;2019 1 Braila 73372&quot;,
+        ///&quot;2019 1 Buzau 85674&quot;,
+        ///&quot;2019 1 CarasSeverin 56426&quot;,
+        ///&quot;2019 1 Calarasi 45183&quot;,
+        ///&quot;2019 1 Cluj 255724&quot;,
+        ///&quot;2019 1 Constanta 186498&quot;,
+        ///&quot;2019 1 Covasna 51460&quot;,
+        ///&quot;2019 1 Dambovita 83441&quot;,
+        ///&quot;2019 1 Dolj 135371&quot;,
+        ///&quot;2019 1 Galati 118921&quot;,
+        ///&quot;2019 1 Giurgiu 36979&quot;,
+        ///&quot;2019 1 Gorj 74762&quot;,
+        ///&quot;2019 1 Har [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019NumberOfEmployeesSeeder {
+            get {
+                return ResourceManager.GetString("_2019NumberOfEmployeesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 19871&quot;,
+        ///&quot;2019 1 Arad 20950&quot;,
+        ///&quot;2019 1 Arges 21774&quot;,
+        ///&quot;2019 1 Bacau 21008&quot;,
+        ///&quot;2019 1 Bihor 72812&quot;,
+        ///&quot;2019 1 BistritaNasaud 8483&quot;,
+        ///&quot;2019 1 Botosani 5437&quot;,
+        ///&quot;2019 1 Brasov 250662&quot;,
+        ///&quot;2019 1 Braila 7450&quot;,
+        ///&quot;2019 1 Buzau 9741&quot;,
+        ///&quot;2019 1 CarasSeverin 34981&quot;,
+        ///&quot;2019 1 Calarasi 3110&quot;,
+        ///&quot;2019 1 Cluj 65478&quot;,
+        ///&quot;2019 1 Constanta 35864&quot;,
+        ///&quot;2019 1 Covasna 14558&quot;,
+        ///&quot;2019 1 Dambovita 12294&quot;,
+        ///&quot;2019 1 Dolj 14763&quot;,
+        ///&quot;2019 1 Galati 8723&quot;,
+        ///&quot;2019 1 Giurgiu 2958&quot;,
+        ///&quot;2019 1 Gorj 17663&quot;,
+        ///&quot;2019 1 Harghita 32098&quot;,
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019NumberOfNightsSeeder {
+            get {
+                return ResourceManager.GetString("_2019NumberOfNightsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 10428&quot;,
+        ///&quot;2019 1 Arad 13823&quot;,
+        ///&quot;2019 1 Arges 13594&quot;,
+        ///&quot;2019 1 Bacau 9792&quot;,
+        ///&quot;2019 1 Bihor 31419&quot;,
+        ///&quot;2019 1 BistritaNasaud 5351&quot;,
+        ///&quot;2019 1 Botosani 3557&quot;,
+        ///&quot;2019 1 Brasov 119122&quot;,
+        ///&quot;2019 1 Braila 4069&quot;,
+        ///&quot;2019 1 Buzau 5682&quot;,
+        ///&quot;2019 1 CarasSeverin 13599&quot;,
+        ///&quot;2019 1 Calarasi 1221&quot;,
+        ///&quot;2019 1 Cluj 34481&quot;,
+        ///&quot;2019 1 Constanta 17077&quot;,
+        ///&quot;2019 1 Covasna 6204&quot;,
+        ///&quot;2019 1 Dambovita 6559&quot;,
+        ///&quot;2019 1 Dolj 8273&quot;,
+        ///&quot;2019 1 Galati 4859&quot;,
+        ///&quot;2019 1 Giurgiu 1297&quot;,
+        ///&quot;2019 1 Gorj 9117&quot;,
+        ///&quot;2019 1 Harghita 14959&quot;,
+        ///&quot;2019 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019NumberOfTouristsSeeder {
+            get {
+                return ResourceManager.GetString("_2019NumberOfTouristsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///
+        ///.
+        /// </summary>
+        internal static string _2019SoldFobCifSeeder {
+            get {
+                return ResourceManager.GetString("_2019SoldFobCifSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 5486&quot;,
+        ///&quot;2019 1 Arad 3022&quot;,
+        ///&quot;2019 1 Arges 8509&quot;,
+        ///&quot;2019 1 Bacau 12506&quot;,
+        ///&quot;2019 1 Bihor 3589&quot;,
+        ///&quot;2019 1 BistritaNasaud 4097&quot;,
+        ///&quot;2019 1 Botosani 4402&quot;,
+        ///&quot;2019 1 Brasov 5948&quot;,
+        ///&quot;2019 1 Braila 5151&quot;,
+        ///&quot;2019 1 Buzau 12414&quot;,
+        ///&quot;2019 1 CarasSeverin 3540&quot;,
+        ///&quot;2019 1 Calarasi 3894&quot;,
+        ///&quot;2019 1 Cluj 4855&quot;,
+        ///&quot;2019 1 Constanta 8121&quot;,
+        ///&quot;2019 1 Covasna 3150&quot;,
+        ///&quot;2019 1 Dambovita 7329&quot;,
+        ///&quot;2019 1 Dolj 20097&quot;,
+        ///&quot;2019 1 Galati 11698&quot;,
+        ///&quot;2019 1 Giurgiu 1964&quot;,
+        ///&quot;2019 1 Gorj 5900&quot;,
+        ///&quot;2019 1 Harghita 5709&quot;,
+        ///&quot;2019 1 Hun [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2019UnemployedSeeder {
+            get {
+                return ResourceManager.GetString("_2019UnemployedSeeder", resourceCulture);
             }
         }
     }
