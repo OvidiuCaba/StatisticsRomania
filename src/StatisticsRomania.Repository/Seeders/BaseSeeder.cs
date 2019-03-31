@@ -59,7 +59,8 @@ namespace StatisticsRomania.Repository.Seeders
 
             var resourceKeys = typeof(CountiesData).GetProperties(BindingFlags.NonPublic | BindingFlags.Static).Where(x => x.Name.EndsWith($"{seederTypeName}Seeder")).Select(x => (string)x.GetValue(null)).ToList();
             resourceKeys.Sort();
-            resourceKeys = resourceKeys.Skip(resourceKeys.Count - 3).ToList();
+            // TODO: if mobile, we would like to take only last 3 years; but for web we want everything
+            //resourceKeys = resourceKeys.Skip(resourceKeys.Count - 3).ToList();
 
             var res = new List<string>();
 
