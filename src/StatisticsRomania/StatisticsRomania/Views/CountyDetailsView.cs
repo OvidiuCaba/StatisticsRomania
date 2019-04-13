@@ -190,7 +190,14 @@ namespace StatisticsRomania.Views
 
         protected override void OnSizeAllocated(double width, double height)
         {
-            base.OnSizeAllocated(width, height);
+            try
+            {
+                base.OnSizeAllocated(width, height);
+            }
+            catch
+            {
+                // I have no idea why the exception is thrown, but it looks like we can ignore it
+            }
 
             if (width == _width && height == _height)
                 return;
