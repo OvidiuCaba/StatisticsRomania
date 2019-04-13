@@ -8,6 +8,9 @@ using Android.Widget;
 using Android.OS;
 using StatisticsRomania.Repository;
 
+// ca-app-pub-4024802291999001~8046647573 - app ID
+// ca-app-pub-4024802291999001/1426356760 - ad unit ID
+
 namespace StatisticsRomania.Droid
 {
     [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
