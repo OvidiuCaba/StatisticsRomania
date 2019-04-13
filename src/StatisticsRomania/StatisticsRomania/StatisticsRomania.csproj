@@ -8,7 +8,7 @@
     <PackageReference Include="akavache" Version="6.0.20" />
     <PackageReference Include="akavache.core" Version="6.0.20" />
     <PackageReference Include="akavache.sqlite3" Version="6.0.20" />
-    <PackageReference Include="DevExpress.Mobile.Grid" Version="18.1.4" />
+    <PackageReference Include="DevExpress.Mobile.Grid" Version="18.2.3" />
     <PackageReference Include="Fody" Version="3.2.4" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.1.1" />
     <PackageReference Include="Microsoft.NETCore.Targets" Version="2.1.0" />
@@ -54,7 +54,7 @@
     <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.2.0" />
     <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="Xamarin.Forms" Version="3.6.0.264807" />
   </ItemGroup>
 
   <ItemGroup>
