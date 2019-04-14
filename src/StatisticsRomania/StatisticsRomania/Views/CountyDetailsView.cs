@@ -117,12 +117,6 @@ namespace StatisticsRomania.Views
             if (Device.RuntimePlatform == Device.Android)
                 _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
-            var btnTest = new Button()
-            {
-                Text = "Test"
-            };
-            btnTest.Clicked += btnTest_Clicked;
-
             var grid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -146,7 +140,7 @@ namespace StatisticsRomania.Views
                 Padding = new Thickness(0, 2),
                 Children =
             {
-                _pickerCounties, lblCompare, _pickerCounties2//, btnTest
+                _pickerCounties, lblCompare, _pickerCounties2
             }
             };
 
@@ -167,12 +161,6 @@ namespace StatisticsRomania.Views
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
 
             await LoadData();
-        }
-
-        private async void btnTest_Clicked(object sender, EventArgs e)
-        {
-            var view = new SelectorView("Selecteaza judetul", _viewModel.CountyList.Keys.ToList());
-            await Navigation.PushModalAsync(view);
         }
 
         private void degChapterData_RowTap(object sender, RowTapEventArgs e)
