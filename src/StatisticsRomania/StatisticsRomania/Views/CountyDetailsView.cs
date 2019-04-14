@@ -31,6 +31,8 @@ namespace StatisticsRomania.Views
         private GridControl _degChapterData;
         private PlotView _plotView;
 
+        private AdMobView _adMobView;
+
         public CountyDetailsView()
         {
             Title = "Statistici judetene";
@@ -152,6 +154,12 @@ namespace StatisticsRomania.Views
             _pickerCounties2.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
 
+            _adMobView = new AdMobView
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+
             await LoadData();
         }
 
@@ -200,8 +208,9 @@ namespace StatisticsRomania.Views
             {
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
@@ -209,12 +218,14 @@ namespace StatisticsRomania.Views
                 _grid.Children.Add(_pickerChapters, 0, 1);
                 _grid.Children.Add(_degChapterData, 0, 2);
                 _grid.Children.Add(_plotView, 0, 3);
+                _grid.Children.Add(_adMobView, 0, 4);
             }
             else
             {
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -223,6 +234,7 @@ namespace StatisticsRomania.Views
                 _grid.Children.Add(_pickerChapters, 0, 2, 1, 2);
                 _grid.Children.Add(_degChapterData, 0, 2);
                 _grid.Children.Add(_plotView, 1, 2);
+                _grid.Children.Add(_adMobView, 0, 2, 3, 4);
             }
 
             // TODO: duplicate code, try to clean it
