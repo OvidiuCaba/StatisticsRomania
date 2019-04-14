@@ -20,6 +20,9 @@ namespace StatisticsRomania.Views
     public class CountyDetailsView : ContentPage
     {
         private CountyDetailsViewModel _viewModel;
+
+        private Grid _grid;
+
         private PickerWithNoSpellCheck _pickerChapters;
         private PickerWithNoSpellCheck _pickerCounties;
         private PickerWithNoSpellCheck _pickerCounties2;
@@ -117,7 +120,7 @@ namespace StatisticsRomania.Views
             if (Device.RuntimePlatform == Device.Android)
                 _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
-            var grid = new Grid
+            _grid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Padding = new Thickness(
@@ -126,12 +129,6 @@ namespace StatisticsRomania.Views
                     bottom: 0,
                     top: Device.OnPlatform(iOS: 0, Android: 5, WinPhone: 0)),
             };
-
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
-            grid.ColumnDefinitions.Add(new ColumnDefinition());
 
             _firstRowOfHeader = new StackLayout()
             {
@@ -144,12 +141,7 @@ namespace StatisticsRomania.Views
             }
             };
 
-            grid.Children.Add(_firstRowOfHeader, 0, 0);
-            grid.Children.Add(_pickerChapters, 0, 1);
-            grid.Children.Add(_degChapterData, 0, 2);
-            grid.Children.Add(_plotView, 0, 3);
-
-            this.Content = grid;
+            this.Content = _grid;
 
             _pickerCounties.SelectedIndex = Settings.County1;
             _pickerCounties2.SelectedIndex = Settings.County2;
@@ -200,43 +192,38 @@ namespace StatisticsRomania.Views
 
             var isPortrait = height > width;
 
-            var grid = (this.Content as Grid);
+            _grid.RowDefinitions.Clear();
+            _grid.ColumnDefinitions.Clear();
+            _grid.Children.Clear();
 
             if (isPortrait)
             {
-                if (grid.RowDefinitions.Count < 4)
-                {
-                    grid.RowDefinitions.Last().Height = GridLength.Auto;
-                    grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
-                    grid.ColumnDefinitions.RemoveAt(1);
-                    grid.ColumnDefinitions.First().Width = _width;
-                }
-                else
-                {
-                    (this.Content as Grid).RowDefinitions.Last().Height = _height / 3;
-                }
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
 
-                grid.Children.Remove(_plotView);
-                grid.Children.Add(_plotView, 0, 3);
+                _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                Grid.SetColumnSpan(_firstRowOfHeader, 1);
-                Grid.SetColumnSpan(_pickerChapters, 1);
+                _grid.Children.Add(_firstRowOfHeader, 0, 0);
+                _grid.Children.Add(_pickerChapters, 0, 1);
+                _grid.Children.Add(_degChapterData, 0, 2);
+                _grid.Children.Add(_plotView, 0, 3);
             }
             else
             {
-                if (grid.RowDefinitions.Count == 4)
-                {
-                    grid.RowDefinitions.RemoveAt(3);
-                    grid.RowDefinitions.Last().Height = new GridLength(1, GridUnitType.Star);
-                    grid.ColumnDefinitions.First().Width = _width / 2;
-                    grid.ColumnDefinitions.Add(new ColumnDefinition());
-                }
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
 
-                grid.Children.Remove(_plotView);
-                grid.Children.Add(_plotView, 1, 2);
+                // TODO: perhaps it should be two column X star?
+                _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(_width / 2, GridUnitType.Absolute) });
+                _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                Grid.SetColumnSpan(_firstRowOfHeader, 2);
-                Grid.SetColumnSpan(_pickerChapters, 2);
+                _grid.Children.Add(_firstRowOfHeader, 0, 2, 0, 1);
+                _grid.Children.Add(_pickerChapters, 0, 2, 1, 2);
+                _grid.Children.Add(_degChapterData, 0, 2);
+                _grid.Children.Add(_plotView, 1, 2);
             }
 
             // TODO: duplicate code, try to clean it
