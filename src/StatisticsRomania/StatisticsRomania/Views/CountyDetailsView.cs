@@ -216,8 +216,7 @@ namespace StatisticsRomania.Views
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
 
-                // TODO: perhaps it should be two column X star?
-                _grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(_width / 2, GridUnitType.Absolute) });
+                _grid.ColumnDefinitions.Add(new ColumnDefinition());
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
                 _grid.Children.Add(_firstRowOfHeader, 0, 2, 0, 1);
