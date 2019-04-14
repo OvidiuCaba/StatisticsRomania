@@ -139,6 +139,7 @@ namespace StatisticsRomania.Views
             };
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.ColumnDefinitions.Add(new ColumnDefinition());
             grid.Children.Add(_pickerChapters, 0, 0);
@@ -155,6 +156,13 @@ namespace StatisticsRomania.Views
             grid.Children.Add(header, 0, 1);
             grid.Children.Add(_degStandings, 0, 2);
             grid.Children.Add(stackNoData, 0, 2);
+
+            var adMobView = new AdMobView
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+            grid.Children.Add(adMobView, 0, 3);
 
             this.Content = grid;
 
