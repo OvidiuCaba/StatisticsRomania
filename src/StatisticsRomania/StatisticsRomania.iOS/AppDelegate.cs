@@ -7,6 +7,8 @@ using Foundation;
 using UIKit;
 using StatisticsRomania.Repository;
 
+// TODO: Add AdMob: https://xamarininsider.com/2019/04/10/monetising-your-xamarin-forms-app-with-admob/?utm_campaign=Weekly%2BXamarin&utm_medium=email&utm_source=Weekly_Xamarin_202
+
 namespace StatisticsRomania.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
