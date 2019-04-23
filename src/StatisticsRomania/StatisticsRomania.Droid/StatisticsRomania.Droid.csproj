@@ -43,6 +43,7 @@
     <AndroidSupportedAbis>
     </AndroidSupportedAbis>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
