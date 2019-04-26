@@ -20,7 +20,6 @@ namespace WebClient
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            RepositoryFactory.IsWebSite = true;
             CultureInfo.CurrentCulture = new CultureInfo("ro-RO");
         }
 
