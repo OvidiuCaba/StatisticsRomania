@@ -132,9 +132,6 @@
     <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLiteNetExtensions.2.1.0\lib\netstandard1.1\SQLiteNetExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="SQLiteNetExtensionsAsync, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SQLiteNetExtensions.Async.2.1.0\lib\netstandard1.1\SQLiteNetExtensionsAsync.dll</HintPath>
-    </Reference>
     <Reference Include="SQLitePCLRaw.batteries_e_sqlite3, Version=1.1.11.121, Culture=neutral, PublicKeyToken=17faffbb2a73a73f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.11\lib\MonoAndroid\SQLitePCLRaw.batteries_e_sqlite3.dll</HintPath>
     </Reference>
