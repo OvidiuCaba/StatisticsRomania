@@ -36,9 +36,6 @@ namespace StatisticsRomania
 
     public class App : Application
     {
-        public static string SqliteFilename = "database.db3";
-        public static SQLiteAsyncConnection AsyncDb;
-
         public App()
         {
             // The root page of your application

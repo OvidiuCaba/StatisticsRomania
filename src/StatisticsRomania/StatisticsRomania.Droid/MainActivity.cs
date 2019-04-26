@@ -29,21 +29,7 @@ namespace StatisticsRomania.Droid
             DevExpress.Mobile.Forms.Init();
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
 
-            var database = new Database
-            {
-                Path = GetPath()
-            };
-            database.Initialize();
-
-            App.AsyncDb = database.AsyncDb;
-
             LoadApplication(new App());
-        }
-
-        private static string GetPath()
-        {
-            var libraryPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            return Path.Combine(libraryPath, App.SqliteFilename);
         }
 
         protected void HandleUnhandledException(object sender, UnhandledExceptionEventArgs args)

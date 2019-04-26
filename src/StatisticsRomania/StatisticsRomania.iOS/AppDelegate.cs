@@ -31,30 +31,9 @@ namespace StatisticsRomania.iOS
             DevExpress.Mobile.Forms.Init();
             OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
 
-            var database = new Database
-            {
-                Path = GetPath()
-            };
-            database.Initialize();
-
-            App.AsyncDb = database.AsyncDb;
-
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
-        }
-
-        private static string GetPath()
-        {
-            string docFolder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string libFolder = Path.Combine(docFolder, "..", "Library", "Databases");
-
-            if (!Directory.Exists(libFolder))
-            {
-                Directory.CreateDirectory(libFolder);
-            }
-
-            return Path.Combine(libFolder, App.SqliteFilename);
         }
     }
 }
