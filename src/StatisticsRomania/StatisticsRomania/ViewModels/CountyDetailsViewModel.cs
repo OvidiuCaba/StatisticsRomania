@@ -1,7 +1,6 @@
-﻿using PropertyChanged;
-using StatisticsRomania.BusinessObjects;
+﻿using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Lib;
-using StatisticsRomania.Repository;
+using StatisticsRomania.Repository.Seeders;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,7 +10,6 @@ namespace StatisticsRomania.ViewModels
 {
     public class CountyDetailsViewModel : BaseViewModel
     {
-        private readonly IRepository<County> _countyRepository;
         private readonly ObservableCollection<Data> _chapterData;
         private readonly ObservableCollection<Data> _chapterDataReversed;
         private readonly Dictionary<string, string> _countyAbbreviations;
@@ -38,7 +36,6 @@ namespace StatisticsRomania.ViewModels
 
         public CountyDetailsViewModel()
         {
-            _countyRepository = new Repository<County>(App.AsyncDb);
             _chapterData = new ObservableCollection<Data>();
             _chapterDataReversed = new ObservableCollection<Data>();
 
@@ -91,7 +88,7 @@ namespace StatisticsRomania.ViewModels
 
         public async Task GetCounties()
         {
-            CountyList = (await _countyRepository.GetAll()).ToDictionary(x => x.Name, x => x.Id);
+            CountyList = CountiesSeeder.GetData().ToDictionary(x => x.Name, x => x.Id);
         }
 
         public async Task GetChapterData(int countyId, int countyId2, string chapter)
