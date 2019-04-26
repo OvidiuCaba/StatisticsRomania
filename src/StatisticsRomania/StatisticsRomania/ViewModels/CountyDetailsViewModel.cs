@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 
 namespace StatisticsRomania.ViewModels
 {
+    // TODO: When the data is loaded from the resources, it is not correctly ordered (put the app in airplane mode and try to display something we don't have cache for)
+
     public class CountyDetailsViewModel : BaseViewModel
     {
         private readonly ObservableCollection<Data> _chapterData;
