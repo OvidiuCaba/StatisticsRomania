@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 
 namespace StatisticsRomania.ViewModels
 {
-    // TODO: When the data is loaded from the resources, it is not correctly ordered (put the app in airplane mode and try to display something we don't have cache for)
-
     public class CountyDetailsViewModel : BaseViewModel
     {
         private readonly ObservableCollection<Data> _chapterData;
@@ -103,6 +101,11 @@ namespace StatisticsRomania.ViewModels
             var internetData = await InternetDataProvider.GetCountyDetailsFromCacheOrInternet(countyId, countyId2, chapter);
 
             var data = internetData == null ? await CountyDetailsProvider.GetData(countyId, ChapterList[chapter]) : internetData.Data.Cast<Data>().ToList();
+
+            var dataIsOrdered = data.First().Year > data.Last().Year;
+
+            if (!dataIsOrdered)
+                data = data.OrderByDescending(x => x.Year).ThenByDescending(x => x.YearFraction).ToList();
 
             HasData = data.Count > 0;
 
