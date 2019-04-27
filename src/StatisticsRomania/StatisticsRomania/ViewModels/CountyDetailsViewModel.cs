@@ -88,7 +88,7 @@ namespace StatisticsRomania.ViewModels
                                        };
         }
 
-        public async Task GetCounties()
+        public void GetCounties()
         {
             CountyList = CountiesSeeder.GetData().ToDictionary(x => x.Name, x => x.Id);
         }

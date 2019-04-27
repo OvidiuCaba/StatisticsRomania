@@ -45,7 +45,7 @@ namespace StatisticsRomania.Views
         private async Task Init()
         {
             _viewModel = new CountyDetailsViewModel();
-            await _viewModel.GetCounties();
+            _viewModel.GetCounties();
             _viewModel.GetChapters();
 
             _pickerCounties = new PickerWithNoSpellCheck()
