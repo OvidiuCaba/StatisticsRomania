@@ -216,7 +216,8 @@ namespace StatisticsRomania.Views
                                       ? _pickerChapters.Items[_pickerChapters.SelectedIndex]
                                       : string.Empty;
 
-            _degStandings.TotalSummaries.First(x => x.FieldName == "Value").Type = new[] { "ExportFob", "ImportCif", "SoldFobCif", "NumberOfTourists", "NumberOfNights", "NumberOfEmployees", "Unemployed" }.Contains(_viewModel.ChapterList[selectedChapter].Name) ? SummaryType.Sum : SummaryType.Average;
+            _degStandings.TotalSummaries.First(x => x.FieldName == "Value").Type = new[] { "ExportFob", "ImportCif", "SoldFobCif", "NumberOfTourists", "NumberOfNights", "NumberOfEmployees", "Unemployed", "BornAlive", "Deceased", "NaturalGrowth", "Marriages", "Divorces", "DeceasedUnderOneYearOld", "BuildingPermits" }
+                                                                                                .Contains(_viewModel.ChapterList[selectedChapter].Name) ? SummaryType.Sum : SummaryType.Average;
 
             var selectedYear = _pickerYears.SelectedIndex >= 0 ? int.Parse(_pickerYears.Items[_pickerYears.SelectedIndex]) : -1;
 

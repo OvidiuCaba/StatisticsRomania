@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using StatisticsRomania.BusinessObjects;
-using StatisticsRomania.Repository;
 //TODO: nu arata bine pe Nexus S, probabil trebuie sa abreviez
 namespace StatisticsRomania.ViewModels
 {
@@ -26,6 +22,13 @@ namespace StatisticsRomania.ViewModels
         private const string NumarulSomerilor = "Forta de munca - numar someri";
         private const string InnoptariInStructurileDePrimireTuristica = "Turism - innoptari";
         private const string SosiriInStructurileDePrimireTuristica = "Turism - numar turisti";
+        private const string NascutiVii = "Populatie - nascuti vii";
+        private const string Decedati = "Populatie - decedati";
+        private const string SporNatural = "Populatie - spor natural";
+        private const string Casatorii = "Populatie - casatorii";
+        private const string Divorturi = "Populatie - divorturi";
+        private const string DecedatiSubUnAn = "Populatie - decedati sub un an";
+        private const string AutorizatiiDeConstruire = "Autorizatii de construire pt. cladiri rezidentiale";
 
         public void GetChapters()
         {
@@ -40,6 +43,13 @@ namespace StatisticsRomania.ViewModels
                 { NumarulSomerilor, typeof(Unemployed) },
                 { InnoptariInStructurileDePrimireTuristica, typeof(NumberOfNights) },
                 { SosiriInStructurileDePrimireTuristica, typeof(NumberOfTourists) },
+                { NascutiVii, typeof(BornAlive) },
+                { Decedati, typeof(Deceased) },
+                { SporNatural, typeof(NaturalGrowth) },
+                { Casatorii, typeof(Marriages) },
+                { Divorturi, typeof(Divorces) },
+                { DecedatiSubUnAn, typeof(DeceasedUnderOneYearOld) },
+                { AutorizatiiDeConstruire, typeof(BuildingPermits) },
             };
 
             UnitOfMeasureList = new Dictionary<string, string>()
@@ -53,6 +63,13 @@ namespace StatisticsRomania.ViewModels
                 { NumarulSomerilor, "Persoane" },
                 { InnoptariInStructurileDePrimireTuristica, "Innoptari" },
                 { SosiriInStructurileDePrimireTuristica, "Persoane" },
+                { NascutiVii, "Persoane" },
+                { Decedati, "Persoane" },
+                { SporNatural, "Persoane" },
+                { Casatorii, "Numar" },
+                { Divorturi, "Numar" },
+                { DecedatiSubUnAn, "Persoane" },
+                { AutorizatiiDeConstruire, "Numar" },
             };
         }
     }
