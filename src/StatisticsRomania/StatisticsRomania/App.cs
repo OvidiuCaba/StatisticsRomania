@@ -31,8 +31,8 @@ namespace StatisticsRomania
     //      Ma refer la raport intre "efectiv salariati" si "nr someri" (sau invers someri la salariati).
     //      https://www.facebook.com/StatisticiRomaniaApp/posts/1885852421713334?comment_id=1893581804273729&comment_tracking=%7B%22tn%22%3A%22R%22%7D
     //  - remove unused Sqlite Nuget packages
-    //  - complete the unfilled months from 2014 or remove the year 2014 entirely
-    
+    //  - sper ca pe viitor să reușești să adaugi noi indicatori și o statistica pe orașe. poate o statistica cu numărul de locuitori
+
 
     public class App : Application
     {
