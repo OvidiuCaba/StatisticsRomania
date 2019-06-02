@@ -1,42 +1,42 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"2019 1 Alba 31775",
+"2019 1 Arad 28604",
+"2019 1 Arges 152350",
+"2019 1 Bacau -4654",
+"2019 1 Bihor -4877",
+"2019 1 BistritaNasaud 6649",
+"2019 1 Botosani 5081",
+"2019 1 Brasov 28848",
+"2019 1 Braila -2486",
+"2019 1 Buzau 25486",
+"2019 1 CarasSeverin 6522",
+"2019 1 Calarasi 2083",
+"2019 1 Cluj -56040",
+"2019 1 Constanta -89597",
+"2019 1 Covasna 4631",
+"2019 1 Dambovita 3665",
+"2019 1 Dolj 32257",
+"2019 1 Galati -18828",
+"2019 1 Giurgiu -5542",
+"2019 1 Gorj -1098",
+"2019 1 Harghita -7979",
+"2019 1 Hunedoara 8571",
+"2019 1 Ialomita -1042",
+"2019 1 Iasi -7184",
+"2019 1 Ilfov -322246",
+"2019 1 Maramures +40763",
+"2019 1 Mehedinti 6811",
+"2019 1 Mures -39739",
+"2019 1 Neamt 6709",
+"2019 1 Olt 61686",
+"2019 1 Prahova -122674",
+"2019 1 SatuMare 138",
+"2019 1 Salaj 14789",
+"2019 1 Sibiu 62777",
+"2019 1 Suceava -7040",
+"2019 1 Teleorman 218",
+"2019 1 Timis 90508",
+"2019 1 Tulcea -6204",
+"2019 1 Vaslui 4459",
+"2019 1 Valcea 8165",
+"2019 1 Vrancea -4524",
+"2019 1 Bucuresti -1182920",

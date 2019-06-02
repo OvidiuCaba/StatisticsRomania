@@ -15,7 +15,7 @@ namespace SeederGenerator
         private static void Main(string[] args)
         {
             var year = 2019;    // year - 1 for international commerce
-            var month = 2;
+            var month = 3;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
             var dir = $@"d:\INS\Publicatie BSL Judete_ Excel_luna {months[month - 1]}. {year}\";    // add {year + 1} for international commerce
@@ -138,6 +138,14 @@ namespace SeederGenerator
             // Sometimes INS provides xls, sometimes it provides xlsx; so let's check for xlsx, too
             if (!File.Exists(file))
                 file = file.Replace(".xls", ".xlsx");
+
+            // Sometimes INS provides Bucuresti, sometimes it provides București; so let's check for București, too
+            if (!File.Exists(file) && county == "Bucuresti")
+                file = file.Replace("Bucuresti", "București");
+
+            // If București.xlsx is not found, let's look for București.xls
+            if (!File.Exists(file))
+                file = file.Replace(".xlsx", ".xls");
 
             using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
             {
