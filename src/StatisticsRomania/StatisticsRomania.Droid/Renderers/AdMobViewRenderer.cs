@@ -31,6 +31,9 @@ namespace StatisticsRomania.Droid.Renderers
                 LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent)
             };
 
+            int heightPixels = AdSize.SmartBanner.GetHeightInPixels(this.Context);
+            adView.SetMinimumHeight(heightPixels);
+
             adView.LoadAd(new AdRequest.Builder().Build());
 
             return adView;
