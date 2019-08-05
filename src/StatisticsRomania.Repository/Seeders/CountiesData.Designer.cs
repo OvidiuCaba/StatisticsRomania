@@ -1185,20 +1185,18 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 4218 4223 4510 4487&quot;,
-        ///&quot;2019 1 Arad 4315 4301 4447 4516&quot;,
-        ///&quot;2019 1 Arges 4324 4343 4449 4650&quot;,
-        ///&quot;2019 1 Bacau 4325 4324 4481 4460&quot;,
-        ///&quot;2019 1 Bihor 3903 3937 3969 4019&quot;,
-        ///&quot;2019 1 BistritaNasaud 3989 3991 4215 4172&quot;,
-        ///&quot;2019 1 Botosani 4179 4204 4296 4257&quot;,
-        ///&quot;2019 1 Brasov 4637 4558 4796 4805&quot;,
-        ///&quot;2019 1 Braila 3973 4078 4088 4224&quot;,
-        ///&quot;2019 1 Buzau 4004 3997 4177 4143&quot;,
-        ///&quot;2019 1 CarasSeverin 4074 4094 4189 4148&quot;,
-        ///&quot;2019 1 Calarasi 4141 4149 4265 4262&quot;,
-        ///&quot;2019 1 Cluj 5277 5262 5637 5535&quot;,
-        ///&quot;2019 1 Co [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 4218 4223 4510 4487 4395&quot;,
+        ///&quot;2019 1 Arad 4315 4301 4447 4516 4465&quot;,
+        ///&quot;2019 1 Arges 4324 4343 4449 4650 4786&quot;,
+        ///&quot;2019 1 Bacau 4325 4324 4481 4460 4544&quot;,
+        ///&quot;2019 1 Bihor 3903 3937 3969 4019 4097&quot;,
+        ///&quot;2019 1 BistritaNasaud 3989 3991 4215 4172 4106&quot;,
+        ///&quot;2019 1 Botosani 4179 4204 4296 4257 4393&quot;,
+        ///&quot;2019 1 Brasov 4637 4558 4796 4805 4767&quot;,
+        ///&quot;2019 1 Braila 3973 4078 4088 4224 4154&quot;,
+        ///&quot;2019 1 Buzau 4004 3997 4177 4143 4120&quot;,
+        ///&quot;2019 1 CarasSeverin 4074 4094 4189 4148 4159&quot;,
+        ///&quot;2019 1 Calarasi 4141 4149 4265 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019AverageGrossSalarySeeder {
             get {
@@ -1207,20 +1205,18 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 2554 2564 2736 2743&quot;,
-        ///&quot;2019 1 Arad 2636 2642 2737 2784&quot;,
-        ///&quot;2019 1 Arges 2638 2656 2728 2851&quot;,
-        ///&quot;2019 1 Bacau 2627 2640 2745 2746&quot;,
-        ///&quot;2019 1 Bihor 2368 2396 2416 2455&quot;,
-        ///&quot;2019 1 BistritaNasaud 2427 2447 2586 2567&quot;,
-        ///&quot;2019 1 Botosani 2507 2534 2594 2581&quot;,
-        ///&quot;2019 1 Brasov 2802 2762 2902 2920&quot;,
-        ///&quot;2019 1 Braila 2412 2488 2489 2583&quot;,
-        ///&quot;2019 1 Buzau 2414 2433 2543 2532&quot;,
-        ///&quot;2019 1 CarasSeverin 2465 2840 2551 2523&quot;,
-        ///&quot;2019 1 Calarasi 2504 2531 2592 2606&quot;,
-        ///&quot;2019 1 Cluj 3236 3240 3478 3414&quot;,
-        ///&quot;2019 1 Co [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 2554 2564 2736 2743 2702&quot;,
+        ///&quot;2019 1 Arad 2636 2642 2737 2784 2749&quot;,
+        ///&quot;2019 1 Arges 2638 2656 2728 2851 2933&quot;,
+        ///&quot;2019 1 Bacau 2627 2640 2745 2746 2792&quot;,
+        ///&quot;2019 1 Bihor 2368 2396 2416 2455 2502&quot;,
+        ///&quot;2019 1 BistritaNasaud 2427 2447 2586 2567 2522&quot;,
+        ///&quot;2019 1 Botosani 2507 2534 2594 2581 2681&quot;,
+        ///&quot;2019 1 Brasov 2802 2762 2902 2920 2891&quot;,
+        ///&quot;2019 1 Braila 2412 2488 2489 2583 2565&quot;,
+        ///&quot;2019 1 Buzau 2414 2433 2543 2532 2519&quot;,
+        ///&quot;2019 1 CarasSeverin 2465 2840 2551 2523 2528&quot;,
+        ///&quot;2019 1 Calarasi 2504 2531 2592 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019AverageNetSalarySeeder {
             get {
@@ -1229,21 +1225,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 281 189 199 203&quot;,
-        ///&quot;2019 1 Arad 344 249 217 250&quot;,
-        ///&quot;2019 1 Arges 476 386 388 412&quot;,
-        ///&quot;2019 1 Bacau 514 343 330 386&quot;,
-        ///&quot;2019 1 Bihor 504 389 388 454&quot;,
-        ///&quot;2019 1 BistritaNasaud 293 215 203 232&quot;,
-        ///&quot;2019 1 Botosani 387 196 246 259&quot;,
-        ///&quot;2019 1 Brasov 580 398 456 401&quot;,
-        ///&quot;2019 1 Braila 225 163 148 149&quot;,
-        ///&quot;2019 1 Buzau 327 215 279 239&quot;,
-        ///&quot;2019 1 CarasSeverin 206 123 136 143&quot;,
-        ///&quot;2019 1 Calarasi 235 159 155 159&quot;,
-        ///&quot;2019 1 Cluj 583 515 513 525&quot;,
-        ///&quot;2019 1 Constanta 617 423 417 454&quot;,
-        ///&quot;2019 1 Covasna 219 140 1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 281 189 199 203 233&quot;,
+        ///&quot;2019 1 Arad 344 249 217 250 332&quot;,
+        ///&quot;2019 1 Arges 476 386 388 412 454&quot;,
+        ///&quot;2019 1 Bacau 514 343 330 386 470&quot;,
+        ///&quot;2019 1 Bihor 504 389 388 454 487&quot;,
+        ///&quot;2019 1 BistritaNasaud 293 215 203 232 271&quot;,
+        ///&quot;2019 1 Botosani 387 196 246 259 333&quot;,
+        ///&quot;2019 1 Brasov 580 398 456 401 553&quot;,
+        ///&quot;2019 1 Braila 225 163 148 149 206&quot;,
+        ///&quot;2019 1 Buzau 327 215 279 239 295&quot;,
+        ///&quot;2019 1 CarasSeverin 206 123 136 143 165&quot;,
+        ///&quot;2019 1 Calarasi 235 159 155 159 199&quot;,
+        ///&quot;2019 1 Cluj 583 515 513 525 588&quot;,
+        ///&quot;2019 1 Co [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019BornAliveSeeder {
             get {
@@ -1252,23 +1247,21 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 38 51 45 43&quot;,
-        ///&quot;2019 1 Arad 42 47 81 77&quot;,
-        ///&quot;2019 1 Arges 79 86 144 141&quot;,
-        ///&quot;2019 1 Bacau 56 67 75 129&quot;,
-        ///&quot;2019 1 Bihor 41 96 137 125&quot;,
-        ///&quot;2019 1 BistritaNasaud 29 37 58 68&quot;,
-        ///&quot;2019 1 Botosani 32 34 55 41&quot;,
-        ///&quot;2019 1 Brasov 81 86 98 124&quot;,
-        ///&quot;2019 1 Braila 36 54 64 43&quot;,
-        ///&quot;2019 1 Buzau 24 37 42 43&quot;,
-        ///&quot;2019 1 CarasSeverin 4 9 20 20&quot;,
-        ///&quot;2019 1 Calarasi 17 29 42 42&quot;,
-        ///&quot;2019 1 Cluj 109 128 137 96&quot;,
-        ///&quot;2019 1 Constanta 97 156 159 160&quot;,
-        ///&quot;2019 1 Covasna 7 15 27 23&quot;,
-        ///&quot;2019 1 Dambovita 64 110 124 93&quot;,
-        ///&quot;2019  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 38 51 45 43 56&quot;,
+        ///&quot;2019 1 Arad 42 47 81 77 71&quot;,
+        ///&quot;2019 1 Arges 79 86 144 141 167&quot;,
+        ///&quot;2019 1 Bacau 56 67 75 129 122&quot;,
+        ///&quot;2019 1 Bihor 41 96 137 125 149&quot;,
+        ///&quot;2019 1 BistritaNasaud 29 37 58 68 90&quot;,
+        ///&quot;2019 1 Botosani 32 34 55 41 57&quot;,
+        ///&quot;2019 1 Brasov 81 86 98 124 91&quot;,
+        ///&quot;2019 1 Braila 36 54 64 43 68&quot;,
+        ///&quot;2019 1 Buzau 24 37 42 43 40&quot;,
+        ///&quot;2019 1 CarasSeverin 4 9 20 20 11&quot;,
+        ///&quot;2019 1 Calarasi 17 29 42 42 61&quot;,
+        ///&quot;2019 1 Cluj 109 128 137 96 162&quot;,
+        ///&quot;2019 1 Constanta 97 156 159 160 165&quot;,
+        ///&quot;2019 1 Covasna 7 15 27  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019BuildingPermitsSeeder {
             get {
@@ -1277,21 +1270,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 417 366 422 346&quot;,
-        ///&quot;2019 1 Arad 636 470 511 518&quot;,
-        ///&quot;2019 1 Arges 797 690 714 648&quot;,
-        ///&quot;2019 1 Bacau 939 726 767 756&quot;,
-        ///&quot;2019 1 Bihor 700 599 676 595&quot;,
-        ///&quot;2019 1 BistritaNasaud 348 272 312 277&quot;,
-        ///&quot;2019 1 Botosani 572 488 483 558&quot;,
-        ///&quot;2019 1 Brasov 663 535 579 516&quot;,
-        ///&quot;2019 1 Braila 529 440 448 396&quot;,
-        ///&quot;2019 1 Buzau 782 656 616 555&quot;,
-        ///&quot;2019 1 CarasSeverin 339 357 398 337&quot;,
-        ///&quot;2019 1 Calarasi 468 416 366 330&quot;,
-        ///&quot;2019 1 Cluj 749 709 727 633&quot;,
-        ///&quot;2019 1 Constanta 854 654 655 638&quot;,
-        ///&quot;2019 1 Covasna 275 194 2 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 417 366 422 346 353&quot;,
+        ///&quot;2019 1 Arad 636 470 511 518 454&quot;,
+        ///&quot;2019 1 Arges 797 690 714 648 608&quot;,
+        ///&quot;2019 1 Bacau 939 726 767 756 739&quot;,
+        ///&quot;2019 1 Bihor 700 599 676 595 628&quot;,
+        ///&quot;2019 1 BistritaNasaud 348 272 312 277 267&quot;,
+        ///&quot;2019 1 Botosani 572 488 483 558 449&quot;,
+        ///&quot;2019 1 Brasov 663 535 579 516 597&quot;,
+        ///&quot;2019 1 Braila 529 440 448 396 430&quot;,
+        ///&quot;2019 1 Buzau 782 656 616 555 553&quot;,
+        ///&quot;2019 1 CarasSeverin 339 357 398 337 365&quot;,
+        ///&quot;2019 1 Calarasi 468 416 366 330 327&quot;,
+        ///&quot;2019 1 Cluj 749 709 727 633 616&quot;,
+        ///&quot;2019 1 Co [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019DeceasedSeeder {
             get {
@@ -1300,26 +1292,24 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 1 2 4 2&quot;,
-        ///&quot;2019 1 Arad 5 1 1 4&quot;,
-        ///&quot;2019 1 Arges 2 2 2 2&quot;,
-        ///&quot;2019 1 Bacau 5 8 3 1&quot;,
-        ///&quot;2019 1 Bihor 4 4 6 5&quot;,
-        ///&quot;2019 1 BistritaNasaud 2 1 3 1&quot;,
-        ///&quot;2019 1 Botosani 1 1 1 1&quot;,
-        ///&quot;2019 1 Brasov 6 5 6 3&quot;,
-        ///&quot;2019 1 Braila 1 4 0 1&quot;,
-        ///&quot;2019 1 Buzau 0 3 2 3&quot;,
-        ///&quot;2019 1 CarasSeverin 5 1 0 1&quot;,
-        ///&quot;2019 1 Calarasi 3 2 2 0&quot;,
-        ///&quot;2019 1 Cluj 3 5 0 5&quot;,
-        ///&quot;2019 1 Constanta 10 3 7 6&quot;,
-        ///&quot;2019 1 Covasna 0 2 0 0&quot;,
-        ///&quot;2019 1 Dambovita 2 2 3 0&quot;,
-        ///&quot;2019 1 Dolj 3 4 2 3&quot;,
-        ///&quot;2019 1 Galati 3 3 7 2&quot;,
-        ///&quot;2019 1 Giurgiu 0 0 1 4&quot;,
-        ///&quot;20 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 1 2 4 2 0&quot;,
+        ///&quot;2019 1 Arad 5 1 1 4 2&quot;,
+        ///&quot;2019 1 Arges 2 2 2 2 3&quot;,
+        ///&quot;2019 1 Bacau 5 8 3 1 4&quot;,
+        ///&quot;2019 1 Bihor 4 4 6 5 5&quot;,
+        ///&quot;2019 1 BistritaNasaud 2 1 3 1 4&quot;,
+        ///&quot;2019 1 Botosani 1 1 1 1 2&quot;,
+        ///&quot;2019 1 Brasov 6 5 6 3 2&quot;,
+        ///&quot;2019 1 Braila 1 4 0 1 2&quot;,
+        ///&quot;2019 1 Buzau 0 3 2 3 2&quot;,
+        ///&quot;2019 1 CarasSeverin 5 1 0 1 0&quot;,
+        ///&quot;2019 1 Calarasi 3 2 2 0 1&quot;,
+        ///&quot;2019 1 Cluj 3 5 0 5 1&quot;,
+        ///&quot;2019 1 Constanta 10 3 7 6 3&quot;,
+        ///&quot;2019 1 Covasna 0 2 0 0 2&quot;,
+        ///&quot;2019 1 Dambovita 2 2 3 0 2&quot;,
+        ///&quot;2019 1 Dolj 3 4 2 3 3&quot;,
+        ///&quot;2019 1 Galati 3 3 7 2 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019DeceasedUnderOneYearOldSeeder {
             get {
@@ -1328,23 +1318,22 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 8 47 75 61&quot;,
-        ///&quot;2019 1 Arad 3 33 46 28&quot;,
-        ///&quot;2019 1 Arges 32 113 75 31&quot;,
-        ///&quot;2019 1 Bacau 86 68 116 82&quot;,
-        ///&quot;2019 1 Bihor 15 69 106 74&quot;,
-        ///&quot;2019 1 BistritaNasaud 12 15 25 8&quot;,
-        ///&quot;2019 1 Botosani 4 37 74 34&quot;,
-        ///&quot;2019 1 Brasov 30 91 133 112&quot;,
-        ///&quot;2019 1 Braila 23 55 48 62&quot;,
-        ///&quot;2019 1 Buzau 9 39 42 47&quot;,
-        ///&quot;2019 1 CarasSeverin 3 56 34 31&quot;,
-        ///&quot;2019 1 Calarasi 4 45 49 35&quot;,
-        ///&quot;2019 1 Cluj 18 77 90 88&quot;,
-        ///&quot;2019 1 Constanta 41 129 142 101&quot;,
-        ///&quot;2019 1 Covasna 1 29 18 40&quot;,
-        ///&quot;2019 1 Dambovita 21 63 91 64&quot;,
-        ///&quot;2019 1 Dolj 42 2 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 8 47 75 61 58&quot;,
+        ///&quot;2019 1 Arad 3 33 46 28 16&quot;,
+        ///&quot;2019 1 Arges 32 113 75 31 154&quot;,
+        ///&quot;2019 1 Bacau 86 68 116 82 106&quot;,
+        ///&quot;2019 1 Bihor 15 69 106 74 83&quot;,
+        ///&quot;2019 1 BistritaNasaud 12 15 25 8 15&quot;,
+        ///&quot;2019 1 Botosani 4 37 74 34 56&quot;,
+        ///&quot;2019 1 Brasov 30 91 133 112 82&quot;,
+        ///&quot;2019 1 Braila 23 55 48 62 47&quot;,
+        ///&quot;2019 1 Buzau 9 39 42 47 53&quot;,
+        ///&quot;2019 1 CarasSeverin 3 56 34 31 36&quot;,
+        ///&quot;2019 1 Calarasi 4 45 49 35 36&quot;,
+        ///&quot;2019 1 Cluj 18 77 90 88 52&quot;,
+        ///&quot;2019 1 Constanta 41 129 142 101 124&quot;,
+        ///&quot;2019 1 Covasna 1 29 18 40 17&quot;,
+        ///&quot;2 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019DivorcesSeeder {
             get {
@@ -1353,23 +1342,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 195535 212038&quot;,
-        ///&quot;2019 1 Arad 277981 306297&quot;,
-        ///&quot;2019 1 Arges 577572 548635&quot;,
-        ///&quot;2019 1 Bacau 54951 67536&quot;,
-        ///&quot;2019 1 Bihor 154604 163747&quot;,
-        ///&quot;2019 1 BistritaNasaud 63313 60525&quot;,
-        ///&quot;2019 1 Botosani 26875 30121&quot;,
-        ///&quot;2019 1 Brasov 284978 293120&quot;,
-        ///&quot;2019 1 Braila 9160 9799&quot;,
-        ///&quot;2019 1 Buzau 56556 65132&quot;,
-        ///&quot;2019 1 CarasSeverin 31374 31826&quot;,
-        ///&quot;2019 1 Calarasi 27283 31719&quot;,
-        ///&quot;2019 1 Cluj 146245 151951&quot;,
-        ///&quot;2019 1 Constanta 129667 137182&quot;,
-        ///&quot;2019 1 Covasna 26545 29196&quot;,
-        ///&quot;2019 1 Dambovita 51787 59252&quot;,
-        ///&quot;2019 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 195558 211710 200521&quot;,
+        ///&quot;2019 1 Arad 278186 306086 316484&quot;,
+        ///&quot;2019 1 Arges 577678 548618 633572&quot;,
+        ///&quot;2019 1 Bacau 55099 67390 70347&quot;,
+        ///&quot;2019 1 Bihor 153786 163070 181115&quot;,
+        ///&quot;2019 1 BistritaNasaud 63313 60525 60350&quot;,
+        ///&quot;2019 1 Botosani 26889 30339 30232&quot;,
+        ///&quot;2019 1 Brasov 285283 293238 316496&quot;,
+        ///&quot;2019 1 Braila 9207 9751 12804&quot;,
+        ///&quot;2019 1 Buzau 56590 65165 68469&quot;,
+        ///&quot;2019 1 CarasSeverin 31357 31786 31727&quot;,
+        ///&quot;2019 1 Calarasi 27301 31240 24929&quot;,
+        ///&quot;2019 1 Cluj 146615 152073 162114&quot;,
+        ///&quot;2019 1 Constanta 12 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019ExportFobSeeder {
             get {
@@ -1378,23 +1364,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 163249 164729&quot;,
-        ///&quot;2019 1 Arad 249633 273594&quot;,
-        ///&quot;2019 1 Arges 424869 443439&quot;,
-        ///&quot;2019 1 Bacau 59456 76871&quot;,
-        ///&quot;2019 1 Bihor 160140 159035&quot;,
-        ///&quot;2019 1 BistritaNasaud 56526 51206&quot;,
-        ///&quot;2019 1 Botosani 21707 23389&quot;,
-        ///&quot;2019 1 Brasov 256641 256900&quot;,
-        ///&quot;2019 1 Braila 11532 18630&quot;,
-        ///&quot;2019 1 Buzau 30930 30622&quot;,
-        ///&quot;2019 1 CarasSeverin 24623 22560&quot;,
-        ///&quot;2019 1 Calarasi 25483 19483&quot;,
-        ///&quot;2019 1 Cluj 204648 213180&quot;,
-        ///&quot;2019 1 Constanta 219775 267041&quot;,
-        ///&quot;2019 1 Covasna 21788 22513&quot;,
-        ///&quot;2019 1 Dambovita 47927 52058&quot;,
-        ///&quot;20 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 163085 164698 141357&quot;,
+        ///&quot;2019 1 Arad 249300 273223 284073&quot;,
+        ///&quot;2019 1 Arges 425275 443156 429318&quot;,
+        ///&quot;2019 1 Bacau 58705 76783 93055&quot;,
+        ///&quot;2019 1 Bihor 158952 159551 167249&quot;,
+        ///&quot;2019 1 BistritaNasaud 56526 51206 54986&quot;,
+        ///&quot;2019 1 Botosani 21761 23323 22138&quot;,
+        ///&quot;2019 1 Brasov 257104 256968 281235&quot;,
+        ///&quot;2019 1 Braila 11576 18806 17728&quot;,
+        ///&quot;2019 1 Buzau 31107 30969 63332&quot;,
+        ///&quot;2019 1 CarasSeverin 24499 22550 21999&quot;,
+        ///&quot;2019 1 Calarasi 27389 20563 29645&quot;,
+        ///&quot;2019 1 Cluj 205191 213149 231822&quot;,
+        ///&quot;2019 1 Constanta  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019ImportCifSeeder {
             get {
@@ -1403,22 +1386,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 56 75 69 50&quot;,
-        ///&quot;2019 1 Arad 90 157 196 166&quot;,
-        ///&quot;2019 1 Arges 99 139 150 83&quot;,
-        ///&quot;2019 1 Bacau 173 173 166 187&quot;,
-        ///&quot;2019 1 Bihor 102 136 180 160&quot;,
-        ///&quot;2019 1 BistritaNasaud 52 71 67 67&quot;,
-        ///&quot;2019 1 Botosani 99 105 67 116&quot;,
-        ///&quot;2019 1 Brasov 143 186 218 152&quot;,
-        ///&quot;2019 1 Braila 60 58 93 71&quot;,
-        ///&quot;2019 1 Buzau 76 88 84 55&quot;,
-        ///&quot;2019 1 CarasSeverin 73 77 86 86&quot;,
-        ///&quot;2019 1 Calarasi 40 55 72 63&quot;,
-        ///&quot;2019 1 Cluj 133 169 225 185&quot;,
-        ///&quot;2019 1 Constanta 206 161 204 180&quot;,
-        ///&quot;2019 1 Covasna 57 57 70 82&quot;,
-        ///&quot;2019 1 Dambovita 106 1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 56 75 69 50 229&quot;,
+        ///&quot;2019 1 Arad 90 157 196 166 324&quot;,
+        ///&quot;2019 1 Arges 99 139 150 83 369&quot;,
+        ///&quot;2019 1 Bacau 173 173 166 187 350&quot;,
+        ///&quot;2019 1 Bihor 102 136 180 160 444&quot;,
+        ///&quot;2019 1 BistritaNasaud 52 71 67 67 214&quot;,
+        ///&quot;2019 1 Botosani 99 105 67 116 195&quot;,
+        ///&quot;2019 1 Brasov 143 186 218 152 376&quot;,
+        ///&quot;2019 1 Braila 60 58 93 71 147&quot;,
+        ///&quot;2019 1 Buzau 76 88 84 55 230&quot;,
+        ///&quot;2019 1 CarasSeverin 73 77 86 86 124&quot;,
+        ///&quot;2019 1 Calarasi 40 55 72 63 155&quot;,
+        ///&quot;2019 1 Cluj 133 169 225 185 665&quot;,
+        ///&quot;2019 1 Constanta 206 161 204 180 397&quot;, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019MarriagesSeeder {
             get {
@@ -1427,20 +1408,18 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba -136 -177 -223 -143&quot;,
-        ///&quot;2019 1 Arad -292 -221 -294 -268&quot;,
-        ///&quot;2019 1 Arges -321 -304 -326 -236&quot;,
-        ///&quot;2019 1 Bacau -425 -383 -437 -370&quot;,
-        ///&quot;2019 1 Bihor -196 -210 -288 -141&quot;,
-        ///&quot;2019 1 BistritaNasaud -55 -57 -109 -45&quot;,
-        ///&quot;2019 1 Botosani -185 -292 -237 -299&quot;,
-        ///&quot;2019 1 Brasov -83 -137 -123 -115&quot;,
-        ///&quot;2019 1 Braila -304 -277 -300 -247&quot;,
-        ///&quot;2019 1 Buzau -455 -441 -337 -316&quot;,
-        ///&quot;2019 1 CarasSeverin -133 -234 -262 -194&quot;,
-        ///&quot;2019 1 Calarasi -233 -257 -211 -171&quot;,
-        ///&quot;2019 1 Cluj -166 -194 -214 -108&quot;,
-        ///&quot;2019 1 Consta [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba -136 -177 -223 -143 -120&quot;,
+        ///&quot;2019 1 Arad -292 -221 -294 -268 -122&quot;,
+        ///&quot;2019 1 Arges -321 -304 -326 -236 -154&quot;,
+        ///&quot;2019 1 Bacau -425 -383 -437 -370 -269&quot;,
+        ///&quot;2019 1 Bihor -196 -210 -288 -141 -141&quot;,
+        ///&quot;2019 1 BistritaNasaud -55 -57 -109 -45 4&quot;,
+        ///&quot;2019 1 Botosani -185 -292 -237 -299 -116&quot;,
+        ///&quot;2019 1 Brasov -83 -137 -123 -115 -44&quot;,
+        ///&quot;2019 1 Braila -304 -277 -300 -247 -224&quot;,
+        ///&quot;2019 1 Buzau -455 -441 -337 -316 -258&quot;,
+        ///&quot;2019 1 CarasSeverin -133 -234 -262 -194 -200&quot;,
+        ///&quot;2019 1 Calarasi -233 -257 -211 -171 -1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019NaturalGrowthSeeder {
             get {
@@ -1449,18 +1428,17 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 95519 95941 96282 96283&quot;,
-        ///&quot;2019 1 Arad 137734 138473 139094 139096&quot;,
-        ///&quot;2019 1 Arges 161515 162445 163239 163241&quot;,
-        ///&quot;2019 1 Bacau 113776 114241 114610 114611&quot;,
-        ///&quot;2019 1 Bihor 177469 178442 179266 179268&quot;,
-        ///&quot;2019 1 BistritaNasaud 72293 72715 73076 73076&quot;,
-        ///&quot;2019 1 Botosani 56699 56981 57214 57214&quot;,
-        ///&quot;2019 1 Brasov 191202 192158 192952 192954&quot;,
-        ///&quot;2019 1 Braila 73372 73671 73907 73907&quot;,
-        ///&quot;2019 1 Buzau 85674 86077 86408 86409&quot;,
-        ///&quot;2019 1 CarasSeverin 56426 56705 56937 56938&quot;,
-        ///&quot;2019 1 Calarasi 45183 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 95519 95941 96282 96283 96298&quot;,
+        ///&quot;2019 1 Arad 137734 138473 139094 139096 139117&quot;,
+        ///&quot;2019 1 Arges 161515 162445 163239 163241 163266&quot;,
+        ///&quot;2019 1 Bacau 113776 114241 114610 114611 114629&quot;,
+        ///&quot;2019 1 Bihor 177469 178442 179266 179268 179295&quot;,
+        ///&quot;2019 1 BistritaNasaud 72293 72715 73076 73076 73088&quot;,
+        ///&quot;2019 1 Botosani 56699 56981 57214 57214 57223&quot;,
+        ///&quot;2019 1 Brasov 191202 192158 192952 192954 192984&quot;,
+        ///&quot;2019 1 Braila 73372 73671 73907 73907 73919&quot;,
+        ///&quot;2019 1 Buzau 85674 86077 86408 86409 86442&quot;,
+        ///&quot;2019 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019NumberOfEmployeesSeeder {
             get {
@@ -1469,19 +1447,17 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 19871 18988 15639 24310&quot;,
-        ///&quot;2019 1 Arad 20950 22231 25466 25641&quot;,
-        ///&quot;2019 1 Arges 21774 19080 23230 26671&quot;,
-        ///&quot;2019 1 Bacau 21008 20740 27123 28231&quot;,
-        ///&quot;2019 1 Bihor 72812 73014 72730 97236&quot;,
-        ///&quot;2019 1 BistritaNasaud 8483 8893 10026 11765&quot;,
-        ///&quot;2019 1 Botosani 5437 5217 5855 5141&quot;,
-        ///&quot;2019 1 Brasov 250662 219397 167054 186499&quot;,
-        ///&quot;2019 1 Braila 7450 8490 12507 15397&quot;,
-        ///&quot;2019 1 Buzau 9741 10201 10655 12494&quot;,
-        ///&quot;2019 1 CarasSeverin 34981 35982 34610 45961&quot;,
-        ///&quot;2019 1 Calarasi 3110 3326 4768 4352&quot;,
-        ///&quot;2019 1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 19871 18988 15639 24310 31185&quot;,
+        ///&quot;2019 1 Arad 20950 22231 25466 25641 32831&quot;,
+        ///&quot;2019 1 Arges 21774 19080 23230 26671 28265&quot;,
+        ///&quot;2019 1 Bacau 21008 20740 27123 28231 36828&quot;,
+        ///&quot;2019 1 Bihor 72812 73014 72730 97236 126614&quot;,
+        ///&quot;2019 1 BistritaNasaud 8483 8893 10026 11765 16631&quot;,
+        ///&quot;2019 1 Botosani 5437 5217 5855 5141 7978&quot;,
+        ///&quot;2019 1 Brasov 250662 219397 167054 186499 197104&quot;,
+        ///&quot;2019 1 Braila 7450 8490 12507 15397 20912&quot;,
+        ///&quot;2019 1 Buzau 9741 10201 10655 12494 15141&quot;,
+        ///&quot;2019 1 CarasSeverin 34981 35982 3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019NumberOfNightsSeeder {
             get {
@@ -1490,19 +1466,17 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 10428 9759 9225 12813&quot;,
-        ///&quot;2019 1 Arad 13823 13719 16563 15648&quot;,
-        ///&quot;2019 1 Arges 13594 12950 15621 17891&quot;,
-        ///&quot;2019 1 Bacau 9792 9983 12108 11918&quot;,
-        ///&quot;2019 1 Bihor 31419 32536 33750 39327&quot;,
-        ///&quot;2019 1 BistritaNasaud 5351 5630 6149 7365&quot;,
-        ///&quot;2019 1 Botosani 3557 3447 3731 3351&quot;,
-        ///&quot;2019 1 Brasov 119122 103889 88325 97800&quot;,
-        ///&quot;2019 1 Braila 4069 4811 5997 6298&quot;,
-        ///&quot;2019 1 Buzau 5682 5565 5967 6529&quot;,
-        ///&quot;2019 1 CarasSeverin 13599 12616 13468 16820&quot;,
-        ///&quot;2019 1 Calarasi 1221 1320 1800 1892&quot;,
-        ///&quot;2019 1 Cluj 34481 3 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 10428 9759 9225 12813 17464&quot;,
+        ///&quot;2019 1 Arad 13823 13719 16563 15648 20666&quot;,
+        ///&quot;2019 1 Arges 13594 12950 15621 17891 19551&quot;,
+        ///&quot;2019 1 Bacau 9792 9983 12108 11918 16653&quot;,
+        ///&quot;2019 1 Bihor 31419 32536 33750 39327 51518&quot;,
+        ///&quot;2019 1 BistritaNasaud 5351 5630 6149 7365 10939&quot;,
+        ///&quot;2019 1 Botosani 3557 3447 3731 3351 5128&quot;,
+        ///&quot;2019 1 Brasov 119122 103889 88325 97800 107429&quot;,
+        ///&quot;2019 1 Braila 4069 4811 5997 6298 8079&quot;,
+        ///&quot;2019 1 Buzau 5682 5565 5967 6529 7917&quot;,
+        ///&quot;2019 1 CarasSeverin 13599 12616 13468 16820 22055 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019NumberOfTouristsSeeder {
             get {
@@ -1511,23 +1485,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 32286 47309&quot;,
-        ///&quot;2019 1 Arad 28348 32703&quot;,
-        ///&quot;2019 1 Arges 152703 105196&quot;,
-        ///&quot;2019 1 Bacau -4505 -9335&quot;,
-        ///&quot;2019 1 Bihor -5536 4712&quot;,
-        ///&quot;2019 1 BistritaNasaud 6787 9319&quot;,
-        ///&quot;2019 1 Botosani 5168 6732&quot;,
-        ///&quot;2019 1 Brasov 28337 36220&quot;,
-        ///&quot;2019 1 Braila -2372 -8831&quot;,
-        ///&quot;2019 1 Buzau 25626 34510&quot;,
-        ///&quot;2019 1 CarasSeverin 6751 9266&quot;,
-        ///&quot;2019 1 Calarasi 1800 12236&quot;,
-        ///&quot;2019 1 Cluj -58403 -61229&quot;,
-        ///&quot;2019 1 Constanta -90108 -129859&quot;,
-        ///&quot;2019 1 Covasna 4757 6683&quot;,
-        ///&quot;2019 1 Dambovita 3665 7194&quot;,
-        ///&quot;2019 1 Dolj 32692 368 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 32473 47012 59164&quot;,
+        ///&quot;2019 1 Arad 28886 32863 32411&quot;,
+        ///&quot;2019 1 Arges 152403 105462 204254&quot;,
+        ///&quot;2019 1 Bacau -3606 -9393 -22708&quot;,
+        ///&quot;2019 1 Bihor -5166 3519 13866&quot;,
+        ///&quot;2019 1 BistritaNasaud 6787 9319 5364&quot;,
+        ///&quot;2019 1 Botosani 5128 7016 8094&quot;,
+        ///&quot;2019 1 Brasov 28179 36270 35261&quot;,
+        ///&quot;2019 1 Braila -2369 -9055 -4924&quot;,
+        ///&quot;2019 1 Buzau 25483 34196 5137&quot;,
+        ///&quot;2019 1 CarasSeverin 6858 9236 9728&quot;,
+        ///&quot;2019 1 Calarasi -88 10677 -4716&quot;,
+        ///&quot;2019 1 Cluj -58576 -61076 -69708&quot;,
+        ///&quot;2019 1 Constanta -90272 -130218 -111190&quot;, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019SoldFobCifSeeder {
             get {
@@ -1536,20 +1507,18 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2019 1 Alba 5486 5673 5294 4877&quot;,
-        ///&quot;2019 1 Arad 3022 2937 2797 2563&quot;,
-        ///&quot;2019 1 Arges 8509 8391 7992 7357&quot;,
-        ///&quot;2019 1 Bacau 12506 12574 12133 11434&quot;,
-        ///&quot;2019 1 Bihor 3589 3227 3077 3095&quot;,
-        ///&quot;2019 1 BistritaNasaud 4097 4060 3855 3450&quot;,
-        ///&quot;2019 1 Botosani 4402 4331 4166 3813&quot;,
-        ///&quot;2019 1 Brasov 5948 5967 5764 5471&quot;,
-        ///&quot;2019 1 Braila 5151 5359 5167 4754&quot;,
-        ///&quot;2019 1 Buzau 12414 12298 11895 11615&quot;,
-        ///&quot;2019 1 CarasSeverin 3540 3523 3512 3200&quot;,
-        ///&quot;2019 1 Calarasi 3894 3889 3707 3455&quot;,
-        ///&quot;2019 1 Cluj 4855 4751 4715 4556&quot;,
-        ///&quot;2 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2019 1 Alba 5486 5673 5294 4877 4721&quot;,
+        ///&quot;2019 1 Arad 3022 2937 2797 2563 2288&quot;,
+        ///&quot;2019 1 Arges 8509 8391 7992 7357 7362&quot;,
+        ///&quot;2019 1 Bacau 12506 12574 12133 11434 10830&quot;,
+        ///&quot;2019 1 Bihor 3589 3227 3077 3095 3316&quot;,
+        ///&quot;2019 1 BistritaNasaud 4097 4060 3855 3450 3339&quot;,
+        ///&quot;2019 1 Botosani 4402 4331 4166 3813 3616&quot;,
+        ///&quot;2019 1 Brasov 5948 5967 5764 5471 5401&quot;,
+        ///&quot;2019 1 Braila 5151 5359 5167 4754 4506&quot;,
+        ///&quot;2019 1 Buzau 12414 12298 11895 11615 11303&quot;,
+        ///&quot;2019 1 CarasSeverin 3540 3523 3512 3200 3080&quot;,
+        ///&quot;2019 1 Calarasi 3894 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2019UnemployedSeeder {
             get {
