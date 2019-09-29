@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using StatisticsRomania.BusinessObjects;
 
+// TODO: add automated tests to test that every group (year, month) contains exactly 42 items
+
 namespace StatisticsRomania.Repository.Seeders
 {
     internal abstract class BaseSeeder
