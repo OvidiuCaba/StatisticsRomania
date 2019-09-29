@@ -15,10 +15,17 @@ namespace SeederGenerator
         private static void Main(string[] args)
         {
             var year = 2019;    // year - 1 for international commerce
-            var month = 6;
+            var month = 12;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
-            var dir = $@"d:\INS\Publicatie BSL Judete_ Excel_luna {months[month - 1]}. {year}\";    // add {year + 1} for international commerce
+            Func<int, int, string> getDir = (m, y) => $@"d:\INS\Publicatie BSL Judete_ Excel_luna {months[m - 1]}. {y}\";    // add {year + 1} for international commerce;
+
+            var dir = getDir(month, year);
+            while(!Directory.Exists(dir))
+            {
+                month--;
+                dir = dir = getDir(month, year);
+            }
 
             var fileMapping = new Dictionary<string, string>
                                   {
