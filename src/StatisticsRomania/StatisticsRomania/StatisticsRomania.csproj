@@ -10,8 +10,8 @@
     <PackageReference Include="akavache.sqlite3" Version="6.0.20" />
     <PackageReference Include="DevExpress.Mobile.Grid" Version="18.2.3" />
     <PackageReference Include="Fody" Version="3.2.4" />
-    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.1.1" />
-    <PackageReference Include="Microsoft.NETCore.Targets" Version="2.1.0" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="3.0.0" />
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="3.0.0" />
     <PackageReference Include="NETStandard.Library" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="OxyPlot.Core" Version="1.0.0" />
