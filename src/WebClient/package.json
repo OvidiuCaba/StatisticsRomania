@@ -17,7 +17,7 @@
     "@angular/platform-browser-dynamic": "^4.4.5",
     "@angular/platform-server": "^4.4.5",
     "@angular/router": "^4.4.5",
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.23",
+    "@ng-bootstrap/ng-bootstrap": "1.0.0-beta.1",
     "@ngtools/webpack": "^1.7.4",
     "@nguniversal/express-engine": "^1.0.0-beta.3",
     "@types/node": "^8.0.34",
