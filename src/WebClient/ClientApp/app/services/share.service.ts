@@ -16,7 +16,7 @@ export class ShareService {
         let initParams: InitParams = {
             appId: '447972592264310',
             xfbml: true,
-            version: 'v2.10'
+            version: 'v2.11'
         };
 
         this.facebookService.init(initParams);
