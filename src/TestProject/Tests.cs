@@ -46,7 +46,8 @@ namespace TestProject
             {
                 var numberOfCounties = (await IndicatorPerformersProvider.GetData(year, month, indicators[indicatorIndex])).Count;
 
-                TestContext.WriteLine($"Year: {year}, month: {month}, indicator: {indicators[indicatorIndex].Name}, counties: {numberOfCounties}");
+                if (numberOfCounties != 42)
+                    TestContext.WriteLine($"Year: {year}, month: {month}, indicator: {indicators[indicatorIndex].Name}, counties: {numberOfCounties}");
 
                 if (numberOfCounties != 0)
                 {
@@ -56,7 +57,9 @@ namespace TestProject
                         Assert.AreEqual(42, numberOfCounties);
                 }
                 else
+                {
                     numberOfTimesWithZeroCounties++;
+                }
 
                 if (numberOfTimesWithZeroCounties == indicators.Count)
                     break;
