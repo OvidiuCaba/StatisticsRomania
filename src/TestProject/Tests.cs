@@ -14,17 +14,20 @@ namespace TestProject
         {
         }
 
-        // TODO: International commerce should be refined because they are late with 3 months
         [Test]
-        public async Task AllIndicatorsHave42CountiesForAllPeriod()
+        public async Task AllIndicatorsShouldHave42CountiesForAllPeriod()
         {
-            var year = 2015;    // start from 2015 because this is the first year we have data for
-            var month = 1;
-            var indicators = new List<Type>()
+            var internationalCommerceIndicators = new List<Type>()
             {
                 typeof(ExportFob),
                 typeof(ImportCif),
                 typeof(SoldFobCif),
+            };
+
+            await CheckIndicators(internationalCommerceIndicators);
+
+            var indicatorsExceptInternationalCommerce = new List<Type>()
+            {
                 typeof(NumberOfEmployees),
                 typeof(AverageGrossSalary),
                 typeof(AverageNetSalary),
@@ -39,6 +42,14 @@ namespace TestProject
                 typeof(DeceasedUnderOneYearOld),
                 typeof(BuildingPermits),
             };
+
+            await CheckIndicators(indicatorsExceptInternationalCommerce);
+        }
+
+        private static async Task CheckIndicators(List<Type> indicators)
+        {
+            var year = 2015;    // start from 2015 because this is the first year we have data for
+            var month = 1;
             var numberOfTimesWithZeroCounties = 0;
             var indicatorIndex = 0;
 
