@@ -1,12 +1,13 @@
-﻿using System;
+﻿using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
-using NPOI.HSSF.UserModel;
-using NPOI.SS.UserModel;
-using System.Globalization;
-using System.Diagnostics;
-using NPOI.XSSF.UserModel;
+using System.Reflection;
 
 namespace SeederGenerator
 {
@@ -18,7 +19,10 @@ namespace SeederGenerator
             var month = 12;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
-            Func<int, int, string> getDir = (m, y) => $@"d:\INS\Publicatie BSL Judete_ Excel_luna {months[m - 1]}. {y}\";    // add {year + 1} for international commerce;
+            var assemblyLocation = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
+            var driveLetter = assemblyLocation.Substring(0, 1);
+
+            Func<int, int, string> getDir = (m, y) => $@"{driveLetter}:\INS\Publicatie BSL Judete_ Excel_luna {months[m - 1]}. {y}\";    // add {year + 1} for international commerce;
 
             var dir = getDir(month, year);
             while(!Directory.Exists(dir))
