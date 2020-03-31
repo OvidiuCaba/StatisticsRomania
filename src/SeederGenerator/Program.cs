@@ -15,7 +15,7 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var year = 2019;    // year - 1 for international commerce
+            var year = DateTime.Now.Year;    // year - 1 for international commerce
             var month = 12;
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
