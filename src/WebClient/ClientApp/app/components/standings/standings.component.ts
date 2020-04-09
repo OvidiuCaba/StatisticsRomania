@@ -52,7 +52,7 @@ export class StandingsComponent {
         }
         else {
             this.indicator = 'Forta de munca - salariu mediu net';
-            this.year = 2019;
+            this.year = 2020;
             var selectedYearFraction = -1;
             this.month = selectedYearFraction;
             this.monthText = (<any>this.months)[selectedYearFraction];
