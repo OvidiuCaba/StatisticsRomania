@@ -406,6 +406,12 @@
   <data name="_2020DivorcesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2020DivorcesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="_2020ExportFobSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2020ExportFobSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2020ImportCifSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2020ImportCifSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="_2020MarriagesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2020MarriagesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -420,6 +426,9 @@
   </data>
   <data name="_2020NumberOfTouristsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2020NumberOfTouristsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2020SoldFobCifSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2020SoldFobCifSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="_2020UnemployedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2020UnemployedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
