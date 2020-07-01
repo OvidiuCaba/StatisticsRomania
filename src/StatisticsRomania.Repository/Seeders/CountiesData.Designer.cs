@@ -1433,22 +1433,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 4733 4740 4744&quot;,
-        ///&quot;2020 1 Arad 4507 4536 4570&quot;,
-        ///&quot;2020 1 Arges 4777 4711 4710&quot;,
-        ///&quot;2020 1 Bacau 4584 4542 4683&quot;,
-        ///&quot;2020 1 Bihor 4115 4182 4173&quot;,
-        ///&quot;2020 1 BistritaNasaud 4083 4137 4180&quot;,
-        ///&quot;2020 1 Botosani 4493 4522 4464&quot;,
-        ///&quot;2020 1 Brasov 4764 4774 4850&quot;,
-        ///&quot;2020 1 Braila 4413 4401 4368&quot;,
-        ///&quot;2020 1 Buzau 4166 4192 4240&quot;,
-        ///&quot;2020 1 CarasSeverin 4666 4725 4388&quot;,
-        ///&quot;2020 1 Calarasi 4395 4405 4454&quot;,
-        ///&quot;2020 1 Cluj 5855 5926 6296&quot;,
-        ///&quot;2020 1 Constanta 4819 4794 4854&quot;,
-        ///&quot;2020 1 Covasna 4081 4080 4007&quot;,
-        ///&quot;2020 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 4733 4740 4744 4447&quot;,
+        ///&quot;2020 1 Arad 4507 4536 4570 4081&quot;,
+        ///&quot;2020 1 Arges 4777 4711 4710 4659&quot;,
+        ///&quot;2020 1 Bacau 4584 4542 4683 4427&quot;,
+        ///&quot;2020 1 Bihor 4115 4182 4173 4063&quot;,
+        ///&quot;2020 1 BistritaNasaud 4083 4137 4180 3828&quot;,
+        ///&quot;2020 1 Botosani 4493 4522 4464 4369&quot;,
+        ///&quot;2020 1 Brasov 4764 4774 4850 4610&quot;,
+        ///&quot;2020 1 Braila 4413 4401 4368 4413&quot;,
+        ///&quot;2020 1 Buzau 4166 4192 4240 4049&quot;,
+        ///&quot;2020 1 CarasSeverin 4666 4725 4388 4193&quot;,
+        ///&quot;2020 1 Calarasi 4395 4405 4454 4333&quot;,
+        ///&quot;2020 1 Cluj 5855 5926 6296 5802&quot;,
+        ///&quot;2020 1 Co [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020AverageGrossSalarySeeder {
             get {
@@ -1457,22 +1455,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 2879 2887 2897&quot;,
-        ///&quot;2020 1 Arad 2771 2793 2810&quot;,
-        ///&quot;2020 1 Arges 2926 2892 2896&quot;,
-        ///&quot;2020 1 Bacau 2826 2805 2900&quot;,
-        ///&quot;2020 1 Bihor 2514 2554 2556&quot;,
-        ///&quot;2020 1 BistritaNasaud 2527 2565 2610&quot;,
-        ///&quot;2020 1 Botosani 2737 2754 2725&quot;,
-        ///&quot;2020 1 Brasov 2905 2909 2959&quot;,
-        ///&quot;2020 1 Braila 2669 2665 2643&quot;,
-        ///&quot;2020 1 Buzau 2552 2566 2598&quot;,
-        ///&quot;2020 1 CarasSeverin 2830 2865 2667&quot;,
-        ///&quot;2020 1 Calarasi 2671 2682 2708&quot;,
-        ///&quot;2020 1 Cluj 3616 3662 3898&quot;,
-        ///&quot;2020 1 Constanta 2945 2934 2987&quot;,
-        ///&quot;2020 1 Covasna 2473 2475 2432&quot;,
-        ///&quot;2020 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 2879 2887 2897 2720&quot;,
+        ///&quot;2020 1 Arad 2771 2793 2810 2504&quot;,
+        ///&quot;2020 1 Arges 2926 2892 2896 2850&quot;,
+        ///&quot;2020 1 Bacau 2826 2805 2900 2748&quot;,
+        ///&quot;2020 1 Bihor 2514 2554 2556 2493&quot;,
+        ///&quot;2020 1 BistritaNasaud 2527 2565 2610 2385&quot;,
+        ///&quot;2020 1 Botosani 2737 2754 2725 2659&quot;,
+        ///&quot;2020 1 Brasov 2905 2909 2959 2819&quot;,
+        ///&quot;2020 1 Braila 2669 2665 2643 2661&quot;,
+        ///&quot;2020 1 Buzau 2552 2566 2598 2479&quot;,
+        ///&quot;2020 1 CarasSeverin 2830 2865 2667 2529&quot;,
+        ///&quot;2020 1 Calarasi 2671 2682 2708 2633&quot;,
+        ///&quot;2020 1 Cluj 3616 3662 3898 3590&quot;,
+        ///&quot;2020 1 Co [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020AverageNetSalarySeeder {
             get {
@@ -1481,23 +1477,21 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 234 201 215&quot;,
-        ///&quot;2020 1 Arad 323 273 275&quot;,
-        ///&quot;2020 1 Arges 419 390 336&quot;,
-        ///&quot;2020 1 Bacau 505 350 362&quot;,
-        ///&quot;2020 1 Bihor 446 374 393&quot;,
-        ///&quot;2020 1 BistritaNasaud 262 198 225&quot;,
-        ///&quot;2020 1 Botosani 305 218 195&quot;,
-        ///&quot;2020 1 Brasov 513 402 396&quot;,
-        ///&quot;2020 1 Braila 207 148 149&quot;,
-        ///&quot;2020 1 Buzau 341 220 206&quot;,
-        ///&quot;2020 1 CarasSeverin 174 136 140&quot;,
-        ///&quot;2020 1 Calarasi 229 160 156&quot;,
-        ///&quot;2020 1 Cluj 591 472 461&quot;,
-        ///&quot;2020 1 Constanta 592 431 409&quot;,
-        ///&quot;2020 1 Covasna 201 139 128&quot;,
-        ///&quot;2020 1 Dambovita 338 249 264&quot;,
-        ///&quot;2020 1 Dolj 479  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 234 201 215 191&quot;,
+        ///&quot;2020 1 Arad 323 273 275 231&quot;,
+        ///&quot;2020 1 Arges 419 390 336 373&quot;,
+        ///&quot;2020 1 Bacau 505 350 362 373&quot;,
+        ///&quot;2020 1 Bihor 446 374 393 350&quot;,
+        ///&quot;2020 1 BistritaNasaud 262 198 225 239&quot;,
+        ///&quot;2020 1 Botosani 305 218 195 244&quot;,
+        ///&quot;2020 1 Brasov 513 402 396 405&quot;,
+        ///&quot;2020 1 Braila 207 148 149 136&quot;,
+        ///&quot;2020 1 Buzau 341 220 206 239&quot;,
+        ///&quot;2020 1 CarasSeverin 174 136 140 127&quot;,
+        ///&quot;2020 1 Calarasi 229 160 156 149&quot;,
+        ///&quot;2020 1 Cluj 591 472 461 571&quot;,
+        ///&quot;2020 1 Constanta 592 431 409 408&quot;,
+        ///&quot;2020 1 Covasna 201 139 1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020BornAliveSeeder {
             get {
@@ -1506,25 +1500,23 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 38 28 65&quot;,
-        ///&quot;2020 1 Arad 36 38 44&quot;,
-        ///&quot;2020 1 Arges 71 128 122&quot;,
-        ///&quot;2020 1 Bacau 64 88 78&quot;,
-        ///&quot;2020 1 Bihor 73 96 141&quot;,
-        ///&quot;2020 1 BistritaNasaud 46 48 52&quot;,
-        ///&quot;2020 1 Botosani 22 47 51&quot;,
-        ///&quot;2020 1 Brasov 48 70 119&quot;,
-        ///&quot;2020 1 Braila 13 32 37&quot;,
-        ///&quot;2020 1 Buzau 48 47 40&quot;,
-        ///&quot;2020 1 CarasSeverin 13 12 12&quot;,
-        ///&quot;2020 1 Calarasi 17 32 42&quot;,
-        ///&quot;2020 1 Cluj 129 173 162&quot;,
-        ///&quot;2020 1 Constanta 98 135 146&quot;,
-        ///&quot;2020 1 Covasna 5 23 16&quot;,
-        ///&quot;2020 1 Dambovita 72 106 116&quot;,
-        ///&quot;2020 1 Dolj 78 134 107&quot;,
-        ///&quot;2020 1 Galati 53 92 91&quot;,
-        ///&quot; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 38 28 65 43&quot;,
+        ///&quot;2020 1 Arad 36 38 44 67&quot;,
+        ///&quot;2020 1 Arges 71 128 122 92&quot;,
+        ///&quot;2020 1 Bacau 64 88 78 47&quot;,
+        ///&quot;2020 1 Bihor 73 96 141 85&quot;,
+        ///&quot;2020 1 BistritaNasaud 46 48 52 40&quot;,
+        ///&quot;2020 1 Botosani 22 47 51 23&quot;,
+        ///&quot;2020 1 Brasov 48 70 119 49&quot;,
+        ///&quot;2020 1 Braila 13 32 37 26&quot;,
+        ///&quot;2020 1 Buzau 48 47 40 20&quot;,
+        ///&quot;2020 1 CarasSeverin 13 12 12 10&quot;,
+        ///&quot;2020 1 Calarasi 17 32 42 25&quot;,
+        ///&quot;2020 1 Cluj 129 173 162 129&quot;,
+        ///&quot;2020 1 Constanta 98 135 146 102&quot;,
+        ///&quot;2020 1 Covasna 5 23 16 16&quot;,
+        ///&quot;2020 1 Dambovita 72 106 116 43&quot;,
+        ///&quot;2020 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020BuildingPermitsSeeder {
             get {
@@ -1533,23 +1525,21 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 372 374 375&quot;,
-        ///&quot;2020 1 Arad 513 466 533&quot;,
-        ///&quot;2020 1 Arges 718 649 731&quot;,
-        ///&quot;2020 1 Bacau 858 718 714&quot;,
-        ///&quot;2020 1 Bihor 656 575 632&quot;,
-        ///&quot;2020 1 BistritaNasaud 292 265 309&quot;,
-        ///&quot;2020 1 Botosani 527 487 498&quot;,
-        ///&quot;2020 1 Brasov 606 553 536&quot;,
-        ///&quot;2020 1 Braila 445 398 428&quot;,
-        ///&quot;2020 1 Buzau 630 581 565&quot;,
-        ///&quot;2020 1 CarasSeverin 326 348 366&quot;,
-        ///&quot;2020 1 Calarasi 360 368 358&quot;,
-        ///&quot;2020 1 Cluj 733 666 712&quot;,
-        ///&quot;2020 1 Constanta 790 661 763&quot;,
-        ///&quot;2020 1 Covasna 247 229 184&quot;,
-        ///&quot;2020 1 Dambovita 550 552 568&quot;,
-        ///&quot;2020 1 Dolj 891  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 372 374 375 343&quot;,
+        ///&quot;2020 1 Arad 513 466 533 606&quot;,
+        ///&quot;2020 1 Arges 718 649 731 617&quot;,
+        ///&quot;2020 1 Bacau 858 718 714 698&quot;,
+        ///&quot;2020 1 Bihor 656 575 632 609&quot;,
+        ///&quot;2020 1 BistritaNasaud 292 265 309 294&quot;,
+        ///&quot;2020 1 Botosani 527 487 498 558&quot;,
+        ///&quot;2020 1 Brasov 606 553 536 536&quot;,
+        ///&quot;2020 1 Braila 445 398 428 381&quot;,
+        ///&quot;2020 1 Buzau 630 581 565 516&quot;,
+        ///&quot;2020 1 CarasSeverin 326 348 366 341&quot;,
+        ///&quot;2020 1 Calarasi 360 368 358 360&quot;,
+        ///&quot;2020 1 Cluj 733 666 712 673&quot;,
+        ///&quot;2020 1 Constanta 790 661 763 679&quot;,
+        ///&quot;2020 1 Covasna 247 229 1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020DeceasedSeeder {
             get {
@@ -1558,27 +1548,26 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 0 4 0&quot;,
-        ///&quot;2020 1 Arad 2 2 1&quot;,
-        ///&quot;2020 1 Arges 1 0 2&quot;,
-        ///&quot;2020 1 Bacau 4 3 0&quot;,
-        ///&quot;2020 1 Bihor 2 2 0&quot;,
-        ///&quot;2020 1 BistritaNasaud 2 4 1&quot;,
-        ///&quot;2020 1 Botosani 1 1 2&quot;,
-        ///&quot;2020 1 Brasov 4 6 1&quot;,
-        ///&quot;2020 1 Braila 0 0 1&quot;,
-        ///&quot;2020 1 Buzau 1 2 2&quot;,
-        ///&quot;2020 1 CarasSeverin 1 0 1&quot;,
-        ///&quot;2020 1 Calarasi 2 2 1&quot;,
-        ///&quot;2020 1 Cluj 2 3 1&quot;,
-        ///&quot;2020 1 Constanta 9 4 4&quot;,
-        ///&quot;2020 1 Covasna 1 2 2&quot;,
-        ///&quot;2020 1 Dambovita 2 1 3&quot;,
-        ///&quot;2020 1 Dolj 3 2 4&quot;,
-        ///&quot;2020 1 Galati 0 6 5&quot;,
-        ///&quot;2020 1 Giurgiu 0 1 2&quot;,
-        ///&quot;2020 1 Gorj 2 2 1&quot;,
-        ///&quot;2020 1 Harghita 0 1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 0 4 0 0&quot;,
+        ///&quot;2020 1 Arad 2 2 1 2&quot;,
+        ///&quot;2020 1 Arges 1 0 2 3&quot;,
+        ///&quot;2020 1 Bacau 4 3 0 3&quot;,
+        ///&quot;2020 1 Bihor 2 2 0 4&quot;,
+        ///&quot;2020 1 BistritaNasaud 2 4 1 3&quot;,
+        ///&quot;2020 1 Botosani 1 1 2 5&quot;,
+        ///&quot;2020 1 Brasov 4 6 1 4&quot;,
+        ///&quot;2020 1 Braila 0 0 1 0&quot;,
+        ///&quot;2020 1 Buzau 1 2 2 0&quot;,
+        ///&quot;2020 1 CarasSeverin 1 0 1 1&quot;,
+        ///&quot;2020 1 Calarasi 2 2 1 3&quot;,
+        ///&quot;2020 1 Cluj 2 3 1 4&quot;,
+        ///&quot;2020 1 Constanta 9 4 4 5&quot;,
+        ///&quot;2020 1 Covasna 1 2 2 1&quot;,
+        ///&quot;2020 1 Dambovita 2 1 3 1&quot;,
+        ///&quot;2020 1 Dolj 3 2 4 1&quot;,
+        ///&quot;2020 1 Galati 0 6 5 3&quot;,
+        ///&quot;2020 1 Giurgiu 0 1 2 0&quot;,
+        ///&quot;202 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020DeceasedUnderOneYearOldSeeder {
             get {
@@ -1587,25 +1576,24 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 6 24 43&quot;,
-        ///&quot;2020 1 Arad 3 26 20&quot;,
-        ///&quot;2020 1 Arges 7 150 91&quot;,
-        ///&quot;2020 1 Bacau 61 67 63&quot;,
-        ///&quot;2020 1 Bihor 25 38 102&quot;,
-        ///&quot;2020 1 BistritaNasaud 5 0 36&quot;,
-        ///&quot;2020 1 Botosani 4 47 27&quot;,
-        ///&quot;2020 1 Brasov 38 92 85&quot;,
-        ///&quot;2020 1 Braila 11 52 43&quot;,
-        ///&quot;2020 1 Buzau 5 39 36&quot;,
-        ///&quot;2020 1 CarasSeverin 1 41 43&quot;,
-        ///&quot;2020 1 Calarasi 6 28 38&quot;,
-        ///&quot;2020 1 Cluj 37 67 34&quot;,
-        ///&quot;2020 1 Constanta 35 106 91&quot;,
-        ///&quot;2020 1 Covasna 6 26 9&quot;,
-        ///&quot;2020 1 Dambovita 21 82 46&quot;,
-        ///&quot;2020 1 Dolj 24 58 11&quot;,
-        ///&quot;2020 1 Galati 3 40 30&quot;,
-        ///&quot;2020 1 Giurgiu 9 23 1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 6 24 43 14&quot;,
+        ///&quot;2020 1 Arad 3 26 20 12&quot;,
+        ///&quot;2020 1 Arges 7 150 91 50&quot;,
+        ///&quot;2020 1 Bacau 61 67 63 19&quot;,
+        ///&quot;2020 1 Bihor 25 38 102 45&quot;,
+        ///&quot;2020 1 BistritaNasaud 5 0 36 3&quot;,
+        ///&quot;2020 1 Botosani 4 47 27 37&quot;,
+        ///&quot;2020 1 Brasov 38 92 85 53&quot;,
+        ///&quot;2020 1 Braila 11 52 43 16&quot;,
+        ///&quot;2020 1 Buzau 5 39 36 23&quot;,
+        ///&quot;2020 1 CarasSeverin 1 41 43 9&quot;,
+        ///&quot;2020 1 Calarasi 6 28 38 9&quot;,
+        ///&quot;2020 1 Cluj 37 67 34 31&quot;,
+        ///&quot;2020 1 Constanta 35 106 91 79&quot;,
+        ///&quot;2020 1 Covasna 6 26 9 4&quot;,
+        ///&quot;2020 1 Dambovita 21 82 46 38&quot;,
+        ///&quot;2020 1 Dolj 24 58 11 40&quot;,
+        ///&quot; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020DivorcesSeeder {
             get {
@@ -1614,27 +1602,23 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 190154&quot;,
-        ///&quot;2020 1 Arad 259761&quot;,
-        ///&quot;2020 1 Arges 448251&quot;,
-        ///&quot;2020 1 Bacau 59997&quot;,
-        ///&quot;2020 1 Bihor 183445&quot;,
-        ///&quot;2020 1 BistritaNasaud 53938&quot;,
-        ///&quot;2020 1 Botosani 24183&quot;,
-        ///&quot;2020 1 Brasov 296432&quot;,
-        ///&quot;2020 1 Braila 10489&quot;,
-        ///&quot;2020 1 Buzau 56342&quot;,
-        ///&quot;2020 1 CarasSeverin 30394&quot;,
-        ///&quot;2020 1 Calarasi 23487&quot;,
-        ///&quot;2020 1 Cluj 143669&quot;,
-        ///&quot;2020 1 Constanta 133990&quot;,
-        ///&quot;2020 1 Covasna 25038&quot;,
-        ///&quot;2020 1 Dambovita 48645&quot;,
-        ///&quot;2020 1 Dolj 340002&quot;,
-        ///&quot;2020 1 Galati 77920&quot;,
-        ///&quot;2020 1 Giurgiu 5226&quot;,
-        ///&quot;2020 1 Gorj 2855&quot;,
-        ///&quot;2020 1 Harghi [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 190132 204826&quot;,
+        ///&quot;2020 1 Arad 259855 266457&quot;,
+        ///&quot;2020 1 Arges 449076 497266&quot;,
+        ///&quot;2020 1 Bacau 59935 66214&quot;,
+        ///&quot;2020 1 Bihor 180005 185261&quot;,
+        ///&quot;2020 1 BistritaNasaud 53935 53084&quot;,
+        ///&quot;2020 1 Botosani 24092 27103&quot;,
+        ///&quot;2020 1 Brasov 296547 313161&quot;,
+        ///&quot;2020 1 Braila 10496 14252&quot;,
+        ///&quot;2020 1 Buzau 56558 60338&quot;,
+        ///&quot;2020 1 CarasSeverin 30409 32070&quot;,
+        ///&quot;2020 1 Calarasi 23488 23637&quot;,
+        ///&quot;2020 1 Cluj 147371 147541&quot;,
+        ///&quot;2020 1 Constanta 133141 124784&quot;,
+        ///&quot;2020 1 Covasna 25478 26130&quot;,
+        ///&quot;2020 1 Dambovita 48650 52613&quot;,
+        ///&quot;20 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020ExportFobSeeder {
             get {
@@ -1643,27 +1627,23 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 173924&quot;,
-        ///&quot;2020 1 Arad 233781&quot;,
-        ///&quot;2020 1 Arges 365071&quot;,
-        ///&quot;2020 1 Bacau 74059&quot;,
-        ///&quot;2020 1 Bihor 180916&quot;,
-        ///&quot;2020 1 BistritaNasaud 46605&quot;,
-        ///&quot;2020 1 Botosani 20926&quot;,
-        ///&quot;2020 1 Brasov 254385&quot;,
-        ///&quot;2020 1 Braila 10678&quot;,
-        ///&quot;2020 1 Buzau 34504&quot;,
-        ///&quot;2020 1 CarasSeverin 23545&quot;,
-        ///&quot;2020 1 Calarasi 19002&quot;,
-        ///&quot;2020 1 Cluj 220246&quot;,
-        ///&quot;2020 1 Constanta 312998&quot;,
-        ///&quot;2020 1 Covasna 21861&quot;,
-        ///&quot;2020 1 Dambovita 43888&quot;,
-        ///&quot;2020 1 Dolj 219576&quot;,
-        ///&quot;2020 1 Galati 90572&quot;,
-        ///&quot;2020 1 Giurgiu 18287&quot;,
-        ///&quot;2020 1 Gorj 4413&quot;,
-        ///&quot;2020 1 Hargh [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 175102 184983&quot;,
+        ///&quot;2020 1 Arad 233732 241384&quot;,
+        ///&quot;2020 1 Arges 365263 367680&quot;,
+        ///&quot;2020 1 Bacau 74272 85056&quot;,
+        ///&quot;2020 1 Bihor 179784 179616&quot;,
+        ///&quot;2020 1 BistritaNasaud 51279 52030&quot;,
+        ///&quot;2020 1 Botosani 21121 23406&quot;,
+        ///&quot;2020 1 Brasov 249668 277807&quot;,
+        ///&quot;2020 1 Braila 10697 12098&quot;,
+        ///&quot;2020 1 Buzau 34509 37869&quot;,
+        ///&quot;2020 1 CarasSeverin 23640 21998&quot;,
+        ///&quot;2020 1 Calarasi 19002 15593&quot;,
+        ///&quot;2020 1 Cluj 220167 243432&quot;,
+        ///&quot;2020 1 Constanta 312700 166910&quot;,
+        ///&quot;2020 1 Covasna 21875 26814&quot;,
+        ///&quot;2020 1 Dambovita 44109 46278&quot;,
+        ///&quot;20 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020ImportCifSeeder {
             get {
@@ -1672,24 +1652,22 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 52 104 36&quot;,
-        ///&quot;2020 1 Arad 117 179 143&quot;,
-        ///&quot;2020 1 Arges 108 142 86&quot;,
-        ///&quot;2020 1 Bacau 171 181 133&quot;,
-        ///&quot;2020 1 Bihor 94 182 141&quot;,
-        ///&quot;2020 1 BistritaNasaud 58 83 47&quot;,
-        ///&quot;2020 1 Botosani 112 84 63&quot;,
-        ///&quot;2020 1 Brasov 126 220 139&quot;,
-        ///&quot;2020 1 Braila 67 81 50&quot;,
-        ///&quot;2020 1 Buzau 86 105 59&quot;,
-        ///&quot;2020 1 CarasSeverin 67 92 71&quot;,
-        ///&quot;2020 1 Calarasi 60 81 37&quot;,
-        ///&quot;2020 1 Cluj 128 205 159&quot;,
-        ///&quot;2020 1 Constanta 179 208 153&quot;,
-        ///&quot;2020 1 Covasna 49 73 56&quot;,
-        ///&quot;2020 1 Dambovita 75 147 48&quot;,
-        ///&quot;2020 1 Dolj 104 126 91&quot;,
-        ///&quot;2020 1 Galati  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 52 104 36 15&quot;,
+        ///&quot;2020 1 Arad 117 179 143 53&quot;,
+        ///&quot;2020 1 Arges 108 142 86 49&quot;,
+        ///&quot;2020 1 Bacau 171 181 133 62&quot;,
+        ///&quot;2020 1 Bihor 94 182 141 46&quot;,
+        ///&quot;2020 1 BistritaNasaud 58 83 47 13&quot;,
+        ///&quot;2020 1 Botosani 112 84 63 19&quot;,
+        ///&quot;2020 1 Brasov 126 220 139 34&quot;,
+        ///&quot;2020 1 Braila 67 81 50 18&quot;,
+        ///&quot;2020 1 Buzau 86 105 59 12&quot;,
+        ///&quot;2020 1 CarasSeverin 67 92 71 17&quot;,
+        ///&quot;2020 1 Calarasi 60 81 37 16&quot;,
+        ///&quot;2020 1 Cluj 128 205 159 53&quot;,
+        ///&quot;2020 1 Constanta 179 208 153 53&quot;,
+        ///&quot;2020 1 Covasna 49 73 56 10&quot;,
+        ///&quot;2020 1 Dambovita 75 147 48  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020MarriagesSeeder {
             get {
@@ -1698,22 +1676,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba -138 -173 -160&quot;,
-        ///&quot;2020 1 Arad -190 -193 -258&quot;,
-        ///&quot;2020 1 Arges -299 -259 -395&quot;,
-        ///&quot;2020 1 Bacau -353 -368 -352&quot;,
-        ///&quot;2020 1 Bihor -210 -201 -239&quot;,
-        ///&quot;2020 1 BistritaNasaud -30 -67 -84&quot;,
-        ///&quot;2020 1 Botosani -222 -269 -303&quot;,
-        ///&quot;2020 1 Brasov -93 -151 -140&quot;,
-        ///&quot;2020 1 Braila -238 -250 -279&quot;,
-        ///&quot;2020 1 Buzau -289 -361 -359&quot;,
-        ///&quot;2020 1 CarasSeverin -152 -212 -226&quot;,
-        ///&quot;2020 1 Calarasi -131 -208 -202&quot;,
-        ///&quot;2020 1 Cluj -142 -194 -251&quot;,
-        ///&quot;2020 1 Constanta -198 -230 -354&quot;,
-        ///&quot;2020 1 Covasna -46 -90 -56&quot;,
-        ///&quot;2020 1 Damb [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba -138 -173 -160 -152&quot;,
+        ///&quot;2020 1 Arad -190 -193 -258 -375&quot;,
+        ///&quot;2020 1 Arges -299 -259 -395 -244&quot;,
+        ///&quot;2020 1 Bacau -353 -368 -352 -325&quot;,
+        ///&quot;2020 1 Bihor -210 -201 -239 -259&quot;,
+        ///&quot;2020 1 BistritaNasaud -30 -67 -84 -55&quot;,
+        ///&quot;2020 1 Botosani -222 -269 -303 -314&quot;,
+        ///&quot;2020 1 Brasov -93 -151 -140 -131&quot;,
+        ///&quot;2020 1 Braila -238 -250 -279 -245&quot;,
+        ///&quot;2020 1 Buzau -289 -361 -359 -277&quot;,
+        ///&quot;2020 1 CarasSeverin -152 -212 -226 -214&quot;,
+        ///&quot;2020 1 Calarasi -131 -208 -202 -211&quot;,
+        ///&quot;2020 1 Cluj -142 -194 -251 -102&quot;,
+        ///&quot;2020 1 Constan [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020NaturalGrowthSeeder {
             get {
@@ -1722,20 +1698,18 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 96456 96539 96168&quot;,
-        ///&quot;2020 1 Arad 138553 138672 138136&quot;,
-        ///&quot;2020 1 Arges 163227 163366 162743&quot;,
-        ///&quot;2020 1 Bacau 115324 115423 114980&quot;,
-        ///&quot;2020 1 Bihor 178566 178717 178042&quot;,
-        ///&quot;2020 1 BistritaNasaud 71002 71062 70791&quot;,
-        ///&quot;2020 1 Botosani 56890 56939 56718&quot;,
-        ///&quot;2020 1 Brasov 194215 194381 193637&quot;,
-        ///&quot;2020 1 Braila 71832 71894 71614&quot;,
-        ///&quot;2020 1 Buzau 86058 86131 85802&quot;,
-        ///&quot;2020 1 CarasSeverin 55298 55346 55134&quot;,
-        ///&quot;2020 1 Calarasi 45205 45244 45071&quot;,
-        ///&quot;2020 1 Cluj 259764 259981 259007&quot;,
-        ///&quot;2020 1 Constanta  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 96456 96539 96168 94960&quot;,
+        ///&quot;2020 1 Arad 138553 138672 138136 136394&quot;,
+        ///&quot;2020 1 Arges 163227 163366 162743 160713&quot;,
+        ///&quot;2020 1 Bacau 115324 115423 114980 113541&quot;,
+        ///&quot;2020 1 Bihor 178566 178717 178042 175848&quot;,
+        ///&quot;2020 1 BistritaNasaud 71002 71062 70791 69910&quot;,
+        ///&quot;2020 1 Botosani 56890 56939 56718 55996&quot;,
+        ///&quot;2020 1 Brasov 194215 194381 193637 191219&quot;,
+        ///&quot;2020 1 Braila 71832 71894 71614 70705&quot;,
+        ///&quot;2020 1 Buzau 86058 86131 85802 84731&quot;,
+        ///&quot;2020 1 CarasSeverin 55298 55346 55134 54448&quot;,
+        ///&quot;2020 1 Calarasi 45205 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020NumberOfEmployeesSeeder {
             get {
@@ -1744,21 +1718,19 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 21270 17210 6126&quot;,
-        ///&quot;2020 1 Arad 23204 21826 11256&quot;,
-        ///&quot;2020 1 Arges 22191 17945 5736&quot;,
-        ///&quot;2020 1 Bacau 23072 17852 8093&quot;,
-        ///&quot;2020 1 Bihor 78242 58541 24647&quot;,
-        ///&quot;2020 1 BistritaNasaud 9631 9112 3960&quot;,
-        ///&quot;2020 1 Botosani 5379 3706 1762&quot;,
-        ///&quot;2020 1 Brasov 253700 206664 49455&quot;,
-        ///&quot;2020 1 Braila 7788 9638 8201&quot;,
-        ///&quot;2020 1 Buzau 10411 8804 4760&quot;,
-        ///&quot;2020 1 CarasSeverin 36901 31277 16733&quot;,
-        ///&quot;2020 1 Calarasi 2445 4261 1235&quot;,
-        ///&quot;2020 1 Cluj 64937 71488 23420&quot;,
-        ///&quot;2020 1 Constanta 39977 42604 22467&quot;,
-        ///&quot;2020 1 Cova [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 21270 17210 6126 1899&quot;,
+        ///&quot;2020 1 Arad 23204 21826 11256 1689&quot;,
+        ///&quot;2020 1 Arges 22191 17945 5736 1620&quot;,
+        ///&quot;2020 1 Bacau 23072 17852 8093 51&quot;,
+        ///&quot;2020 1 Bihor 78242 58541 24647 3132&quot;,
+        ///&quot;2020 1 BistritaNasaud 9631 9112 3960 0&quot;,
+        ///&quot;2020 1 Botosani 5379 3706 1762 0&quot;,
+        ///&quot;2020 1 Brasov 253700 206664 49455 131&quot;,
+        ///&quot;2020 1 Braila 7788 9638 8201 1463&quot;,
+        ///&quot;2020 1 Buzau 10411 8804 4760 490&quot;,
+        ///&quot;2020 1 CarasSeverin 36901 31277 16733 2155&quot;,
+        ///&quot;2020 1 Calarasi 2445 4261 1235 0&quot;,
+        ///&quot;2020 1 Cluj 64937 71488 23420 1079&quot;,        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020NumberOfNightsSeeder {
             get {
@@ -1767,21 +1739,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 11000 10260 3162&quot;,
-        ///&quot;2020 1 Arad 16564 13114 6457&quot;,
-        ///&quot;2020 1 Arges 13578 12618 4441&quot;,
-        ///&quot;2020 1 Bacau 10940 9775 4295&quot;,
-        ///&quot;2020 1 Bihor 36530 28515 9787&quot;,
-        ///&quot;2020 1 BistritaNasaud 5849 5056 1839&quot;,
-        ///&quot;2020 1 Botosani 3205 2613 1134&quot;,
-        ///&quot;2020 1 Brasov 121673 100657 25579&quot;,
-        ///&quot;2020 1 Braila 4880 5483 3135&quot;,
-        ///&quot;2020 1 Buzau 5686 4971 2487&quot;,
-        ///&quot;2020 1 CarasSeverin 14123 11949 5299&quot;,
-        ///&quot;2020 1 Calarasi 1142 1385 465&quot;,
-        ///&quot;2020 1 Cluj 35671 38656 12106&quot;,
-        ///&quot;2020 1 Constanta 18199 19020 9278&quot;,
-        ///&quot;2020 1 Covasna 967 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 11000 10260 3162 755&quot;,
+        ///&quot;2020 1 Arad 16564 13114 6457 614&quot;,
+        ///&quot;2020 1 Arges 13578 12618 4441 1193&quot;,
+        ///&quot;2020 1 Bacau 10940 9775 4295 8&quot;,
+        ///&quot;2020 1 Bihor 36530 28515 9787 2201&quot;,
+        ///&quot;2020 1 BistritaNasaud 5849 5056 1839 0&quot;,
+        ///&quot;2020 1 Botosani 3205 2613 1134 0&quot;,
+        ///&quot;2020 1 Brasov 121673 100657 25579 61&quot;,
+        ///&quot;2020 1 Braila 4880 5483 3135 486&quot;,
+        ///&quot;2020 1 Buzau 5686 4971 2487 250&quot;,
+        ///&quot;2020 1 CarasSeverin 14123 11949 5299 307&quot;,
+        ///&quot;2020 1 Calarasi 1142 1385 465 0&quot;,
+        ///&quot;2020 1 Cluj 35671 38656 12106 635&quot;,
+        ///&quot;2020 1 Cons [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020NumberOfTouristsSeeder {
             get {
@@ -1790,27 +1761,23 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 16230&quot;,
-        ///&quot;2020 1 Arad 25980&quot;,
-        ///&quot;2020 1 Arges 83180&quot;,
-        ///&quot;2020 1 Bacau -14062&quot;,
-        ///&quot;2020 1 Bihor 2529&quot;,
-        ///&quot;2020 1 BistritaNasaud 7333&quot;,
-        ///&quot;2020 1 Botosani 3257&quot;,
-        ///&quot;2020 1 Brasov 42047&quot;,
-        ///&quot;2020 1 Braila -189&quot;,
-        ///&quot;2020 1 Buzau 21838&quot;,
-        ///&quot;2020 1 CarasSeverin 6849&quot;,
-        ///&quot;2020 1 Calarasi 4485&quot;,
-        ///&quot;2020 1 Cluj -76577&quot;,
-        ///&quot;2020 1 Constanta -179008&quot;,
-        ///&quot;2020 1 Covasna 3177&quot;,
-        ///&quot;2020 1 Dambovita 4757&quot;,
-        ///&quot;2020 1 Dolj 120426&quot;,
-        ///&quot;2020 1 Galati -12652&quot;,
-        ///&quot;2020 1 Giurgiu -13061&quot;,
-        ///&quot;2020 1 Gorj -1558&quot;,
-        ///&quot;2020 1 Harghita -134 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 15030 19843&quot;,
+        ///&quot;2020 1 Arad 26123 25073&quot;,
+        ///&quot;2020 1 Arges 83813 129586&quot;,
+        ///&quot;2020 1 Bacau -14337 -18842&quot;,
+        ///&quot;2020 1 Bihor 221 5645&quot;,
+        ///&quot;2020 1 BistritaNasaud 2656 1054&quot;,
+        ///&quot;2020 1 Botosani 2971 3697&quot;,
+        ///&quot;2020 1 Brasov 46879 35354&quot;,
+        ///&quot;2020 1 Braila -201 2154&quot;,
+        ///&quot;2020 1 Buzau 22049 22469&quot;,
+        ///&quot;2020 1 CarasSeverin 6769 10072&quot;,
+        ///&quot;2020 1 Calarasi 4486 8044&quot;,
+        ///&quot;2020 1 Cluj -72796 -95891&quot;,
+        ///&quot;2020 1 Constanta -179559 -42126&quot;,
+        ///&quot;2020 1 Covasna 3603 -684&quot;,
+        ///&quot;2020 1 Dambovita 4541 6335&quot;,
+        ///&quot;2020 1 Dolj 120472 88464 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020SoldFobCifSeeder {
             get {
@@ -1819,21 +1786,20 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2020 1 Alba 5356 5482 5190&quot;,
-        ///&quot;2020 1 Arad 2367 2201 2234&quot;,
-        ///&quot;2020 1 Arges 8094 8136 8096&quot;,
-        ///&quot;2020 1 Bacau 11107 11332 10983&quot;,
-        ///&quot;2020 1 Bihor 3972 3839 4155&quot;,
-        ///&quot;2020 1 BistritaNasaud 3482 3517 3216&quot;,
-        ///&quot;2020 1 Botosani 3578 3371 3132&quot;,
-        ///&quot;2020 1 Brasov 5148 5029 5113&quot;,
-        ///&quot;2020 1 Braila 4412 4355 4301&quot;,
-        ///&quot;2020 1 Buzau 11171 11099 10990&quot;,
-        ///&quot;2020 1 CarasSeverin 3351 3324 3236&quot;,
-        ///&quot;2020 1 Calarasi 3200 3136 3012&quot;,
-        ///&quot;2020 1 Cluj 4465 4357 4479&quot;,
-        ///&quot;2020 1 Constanta 7213 7048 6763&quot;,
-        ///&quot;2020 1 Covasna 2701 2656 2680&quot;,        /// [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2020 1 Alba 5356 5482 5190 4968&quot;,
+        ///&quot;2020 1 Arad 2367 2201 2234 2478&quot;,
+        ///&quot;2020 1 Arges 8094 8136 8096 8079&quot;,
+        ///&quot;2020 1 Bacau 11107 11332 10983 10857&quot;,
+        ///&quot;2020 1 Bihor 3972 3839 4155 4316&quot;,
+        ///&quot;2020 1 BistritaNasaud 3482 3517 3216 3295&quot;,
+        ///&quot;2020 1 Botosani 3578 3371 3132 3156&quot;,
+        ///&quot;2020 1 Brasov 5148 5029 5113 5477&quot;,
+        ///&quot;2020 1 Braila 4412 4355 4301 4475&quot;,
+        ///&quot;2020 1 Buzau 11171 11099 10990 11242&quot;,
+        ///&quot;2020 1 CarasSeverin 3351 3324 3236 2984&quot;,
+        ///&quot;2020 1 Calarasi 3200 3136 3012 2829&quot;,
+        ///&quot;2020 1 Cluj 4465 4357 4479 4786&quot;,
+        ///&quot;2 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2020UnemployedSeeder {
             get {
