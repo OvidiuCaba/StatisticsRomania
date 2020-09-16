@@ -1755,5 +1755,15 @@ namespace StatisticsRomania.Repository.Seeders {
                 return ResourceManager.GetString("_2020UnemployedSeeder", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] covid19 {
+            get {
+                object obj = ResourceManager.GetObject("covid19", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

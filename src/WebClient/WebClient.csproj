@@ -22,9 +22,13 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0">
+      <Aliases>DrawingCommon</Aliases>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <!-- Files not to show in IDE -->
+    <None Remove="ClientApp\app\components\covid19\covid19.component.ts" />
     <None Remove="ClientApp\app\components\shared\months.component.ts" />
     <None Remove="ClientApp\app\services\share.service.ts" />
     <None Remove="yarn.lock" />
@@ -38,6 +42,7 @@
     <ProjectReference Include="..\StatisticsRomania\StatisticsRomania\StatisticsRomania.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\covid19\covid19.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\shared\months.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\share.service.ts" />
   </ItemGroup>

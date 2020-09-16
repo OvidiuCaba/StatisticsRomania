@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.Lib;
+using StatisticsRomania.Repository.Seeders;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,6 +13,14 @@ namespace TestProject
         [SetUp]
         public void Setup()
         {
+        }
+
+        [Test]
+        public void MakeSureCovid19SeederWorks()
+        {
+            var covidData = Covid19Seeder.GetData();
+
+            Assert.Greater(covidData.Count, 0);
         }
 
         [Test]

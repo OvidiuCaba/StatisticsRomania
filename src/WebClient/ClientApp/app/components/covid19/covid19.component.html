@@ -1,0 +1,76 @@
+﻿<h1>Covid 19</h1>
+<br />
+<!--TODO: years: use ngFor-->
+<!--<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>An:</label>
+        </div>
+        <div [(ngModel)]="year" ngbRadioGroup name="radioBasic" class="btn-group col-md-11">
+            <label ngbButtonLabel class="btn-primary">
+                <input ngbButton type="radio" [value]="2020" (click)="LoadData(2020)"> 2020
+            </label>
+        </div>
+    </div>
+</div>-->
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-1">
+            <label>Luna:</label>
+        </div>
+        <div class="col-md-11">
+            <div *ngIf="largeScreen" class="btn-group" [(ngModel)]="month" ngbRadioGroup name="radioBasic2">
+                <label *ngFor="let monthKey of monthsKeys" ngbButtonLabel class="btn-primary"><input ngbButton type="radio" (click)="ChangeMonth(monthKey)" [value]="monthKey">{{months[monthKey]}}</label>
+            </div>
+            <div *ngIf="!largeScreen" ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownMenu1" ngbDropdownToggle>{{monthText}}</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownMenu1">
+                    <button *ngFor="let monthKey of monthsKeys" class="dropdown-item {{month == monthKey ? 'active' : ''}}" (click)="ChangeMonth(monthKey)">{{months[monthKey]}}</button>
+                </div>
+            </div>
+            <!--<months [month]="month" (onChangeMonth)="ChangeMonth($event)"></months>-->
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <a *ngFor="let county of counties">
+        <div class="card m-1" style="width: 13rem; cursor: pointer;" [style.background-color]="county.color" (click)="ChangeCounty(county)" onmouseover="this.style.color = '#00F'" onmouseout="this.style.color = '#000'">
+            <div class="card-body">
+                <h5 class="card-title">{{county.name}}</h5>
+                <p class="card-text">Cazuri: {{county.cases}}</p>
+            </div>
+        </div>
+    </a>
+</div>
+
+<p>Ultima luna pentru care exista date este: {{maxMonthForLastYear}}</p>
+
+<p *ngIf="!covidDetails"><em>Loading...</em></p>
+
+<div class="row">
+    <div *ngIf="lineChartData" style="display: block;" class="col-md-8 mx-auto">
+        <canvas baseChart width="400" height="400"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"></canvas>
+    </div>
+</div>
+
+<table class='table table-sm' *ngIf="covidDetails">
+    <thead>
+        <tr>
+            <th>An</th>
+            <th>Decedati</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of covidDetails">
+            <td>{{ item.year }}</td>
+            <td>{{ item.totalDeaths | number:'1.0-0' }}</td>
+        </tr>
+    </tbody>
+</table>

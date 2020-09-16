@@ -10,6 +10,7 @@ import { AboutComponent } from './components/about/about.component';
 import { CountyDetailsComponent } from './components/county-details/county-details.component';
 import { PerformersComponent } from './components/performers/performers.component';
 import { StandingsComponent } from './components/standings/standings.component';
+import { Covid19Component } from './components/covid19/covid19.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { ChartsModule } from 'ng2-charts';
 import { CookieService } from 'ngx-cookie-service';
@@ -25,6 +26,7 @@ import { MonthsComponent } from './components/shared/months.component';
         CounterComponent,
         CountyDetailsComponent,
         PerformersComponent,
+        Covid19Component,
         StandingsComponent,
         AboutComponent,
         MonthsComponent
@@ -40,6 +42,7 @@ import { MonthsComponent } from './components/shared/months.component';
             { path: 'counter', component: CounterComponent },
             { path: 'statistici-judetene', component: CountyDetailsComponent },
             { path: 'clasamente', component: StandingsComponent },
+            { path: 'covid19', component: Covid19Component },
             { path: 'performerii-lunii', component: PerformersComponent },
             { path: '**', redirectTo: 'statistici-judetene' }
         ]),
