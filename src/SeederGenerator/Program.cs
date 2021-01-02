@@ -28,7 +28,12 @@ namespace SeederGenerator
             while(!Directory.Exists(dir))
             {
                 month--;
-                dir = dir = getDir(month, year);
+                if (month == 0)
+                {
+                    year--;
+                    month = 12;
+                }
+                dir = getDir(month, year);
             }
 
             var fileMapping = new Dictionary<string, string>
