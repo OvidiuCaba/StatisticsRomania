@@ -1,6 +1,10 @@
-﻿using NPOI.HSSF.UserModel;
+﻿using Microsoft.WindowsAPICodePack.Shell;
+using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using SharpCompress.Archives;
+using SharpCompress.Archives.Rar;
+using SharpCompress.Common;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,6 +12,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace SeederGenerator
 {
@@ -15,26 +20,66 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
-            var year = DateTime.Now.Year;    // year - 1 for international commerce
-            var month = 12;
-            var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
-
             var assemblyLocation = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
             var driveLetter = assemblyLocation.Substring(0, 1);
 
-            Func<int, int, string> getDir = (m, y) => $@"{driveLetter}:\INS\Publicatie BSL Judete_ Excel_luna {months[m - 1]}. {y}\";    // add {year + 1} for international commerce;
+            var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
 
-            var dir = getDir(month, year);
-            while(!Directory.Exists(dir))
+            var downloadsFolder = KnownFolders.Downloads.Path;
+            var downloadsFiles = Directory.GetFiles(downloadsFolder);
+            var pattern = $@"[\w| ]*({string.Join("|", months)})[\w| |.]*(20[2-9][0-9])";
+            var downloadedFile = string.Empty;
+            downloadsFiles.ToList().ForEach(x =>
             {
-                month--;
-                if (month == 0)
+                var downloadedFileMatch = Regex.Match(x, pattern, RegexOptions.IgnoreCase);
+
+                if (downloadedFileMatch.Success)
                 {
-                    year--;
-                    month = 12;
+                    if (string.IsNullOrEmpty(downloadedFile))
+                        downloadedFile = x;
+                    else
+                        throw new InvalidOperationException("More than one INS file was found in the Downloads directory.");
                 }
-                dir = getDir(month, year);
+            });
+
+            var tempDir = $@"{driveLetter}:\INS\Temp";
+
+            if (Directory.Exists(tempDir))
+                Directory.Delete(tempDir, true);
+
+            using (var archive = RarArchive.Open(Path.Combine(downloadsFolder, downloadedFile)))
+            {
+                foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
+                {
+                    entry.WriteToDirectory(tempDir, new ExtractionOptions()
+                    {
+                        ExtractFullPath = true,
+                        Overwrite = true
+                    });
+                }
             }
+
+            var yearString = Regex.Match(downloadedFile, @"\d+").Value;
+            var year = int.Parse(yearString);                                                           // year - 1 for international commerce
+            var monthString = Regex.Match(downloadedFile, $@"({string.Join("|", months)})").Value;
+            var dir = $@"{driveLetter}:\INS\Publicatie BSL Judete_ Excel_luna {monthString}. {year}\";  // add {year + 1} for international commerce;
+
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            var tempDirSubFolder = downloadedFile.Substring(downloadedFile.LastIndexOf('\\') + 1).Replace(".rar", string.Empty);
+
+            var sourcePath = Path.Combine(tempDir, tempDirSubFolder);
+            var targetPath = dir;
+            var sourceFiles = Directory.GetFiles(sourcePath);
+            sourceFiles.ToList().ForEach(x =>
+            {
+                var fileName = x.Substring(x.LastIndexOf('\\') + 1);
+                var sourceFile = Path.Combine(sourcePath, fileName);
+                var destFile = Path.Combine(targetPath, fileName);
+
+                File.Copy(sourceFile, destFile, true);
+            });
 
             var fileMapping = new Dictionary<string, string>
                                   {
