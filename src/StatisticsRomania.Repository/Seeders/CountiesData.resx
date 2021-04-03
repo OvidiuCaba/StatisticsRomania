@@ -436,4 +436,52 @@
   <data name="_2020UnemployedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2020UnemployedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="_2021AverageGrossSalarySeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021AverageGrossSalarySeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021AverageNetSalarySeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021AverageNetSalarySeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021BornAliveSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021BornAliveSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021BuildingPermitsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021BuildingPermitsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021DeceasedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021DeceasedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021DeceasedUnderOneYearOldSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021DeceasedUnderOneYearOldSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021DivorcesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021DivorcesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021ExportFobSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021ExportFobSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021ImportCifSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021ImportCifSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021MarriagesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021MarriagesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021NaturalGrowthSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021NaturalGrowthSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021NumberOfEmployeesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021NumberOfEmployeesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021NumberOfNightsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021NumberOfNightsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021NumberOfTouristsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021NumberOfTouristsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021SoldFobCifSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021SoldFobCifSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2021UnemployedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2021UnemployedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>
