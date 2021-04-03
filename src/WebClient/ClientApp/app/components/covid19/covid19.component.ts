@@ -48,7 +48,7 @@ export class Covid19Component {
         this.monthsKeys = new Array<number>(-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
         this.comparisonType = 2;
-        this.year = 2020;
+        this.year = 2021;
         var selectedYearFraction = -1;
         this.month = selectedYearFraction;
         this.monthText = (<any>this.months)[selectedYearFraction];
@@ -128,7 +128,7 @@ export class Covid19Component {
             //this.LoadChart();
         });
 
-        this.http.get('/api/Covid19/GetNaxMonthForLastYear').subscribe(result => {
+        this.http.get('/api/Covid19/GetMaxMonthForLastYear').subscribe(result => {
             this.maxMonthForLastYear = this.months[result.json()];
             //this.valueColumnCaption = result.json().valueColumnCaption;
             //this.value2ColumnCaption = result.json().value2ColumnCaption;
