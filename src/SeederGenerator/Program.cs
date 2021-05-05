@@ -20,6 +20,8 @@ namespace SeederGenerator
     {
         private static void Main(string[] args)
         {
+            var isUnpackingNeeded = true;
+
             var assemblyLocation = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location);
             var driveLetter = assemblyLocation.Substring(0, 1);
 
@@ -74,6 +76,9 @@ namespace SeederGenerator
             var sourceFiles = Directory.GetFiles(sourcePath);
             sourceFiles.ToList().ForEach(x =>
             {
+                if (!isUnpackingNeeded)
+                    return;
+
                 var fileName = x.Substring(x.LastIndexOf('\\') + 1);
                 var sourceFile = Path.Combine(sourcePath, fileName);
                 var destFile = Path.Combine(targetPath, fileName);
