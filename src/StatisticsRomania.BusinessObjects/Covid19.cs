@@ -6,7 +6,7 @@ namespace StatisticsRomania.BusinessObjects
     //{
     //}
 
-    // Copy/paste into covid19.json the value of https://www.graphs.ro/json.php [perhaps need to use "View source" abnd copy from there]
+    // Copy/paste into covid19.json the value of https://www.graphs.ro/json.php [perhaps need to use "View source" and copy from there]
 
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class CountyData
