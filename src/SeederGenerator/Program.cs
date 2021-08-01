@@ -83,6 +83,9 @@ namespace SeederGenerator
                 var sourceFile = Path.Combine(sourcePath, fileName);
                 var destFile = Path.Combine(targetPath, fileName);
 
+                if (File.Exists(destFile))
+                    return;
+
                 File.Copy(sourceFile, destFile, true);
             });
 
