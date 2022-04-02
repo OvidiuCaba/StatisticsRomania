@@ -484,4 +484,43 @@
   <data name="_2021UnemployedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2021UnemployedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="_2022AverageGrossSalarySeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022AverageGrossSalarySeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022AverageNetSalarySeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022AverageNetSalarySeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022BornAliveSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022BornAliveSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022BuildingPermitsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022BuildingPermitsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022DeceasedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022DeceasedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022DeceasedUnderOneYearOldSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022DeceasedUnderOneYearOldSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022DivorcesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022DivorcesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022MarriagesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022MarriagesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022NaturalGrowthSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022NaturalGrowthSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022NumberOfEmployeesSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022NumberOfEmployeesSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022NumberOfNightsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022NumberOfNightsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022NumberOfTouristsSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022NumberOfTouristsSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_2022UnemployedSeeder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2022UnemployedSeeder.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

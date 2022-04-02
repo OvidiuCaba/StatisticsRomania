@@ -1800,13 +1800,12 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2021 1 Alba 185525 226340 266805 244761 215315 208793 206244 153688 186290 229959&quot;,
-        ///&quot;2021 1 Arad 235257 246234 297958 271966 248413 260756 249973 195049 254366 268571&quot;,
-        ///&quot;2021 1 Arges 438188 471751 490474 432497 544575 521856 442174 335262 350169 432087&quot;,
-        ///&quot;2021 1 Bacau 71199 68389 81644 86148 86590 89494 87104 74246 84005 78218&quot;,
-        ///&quot;2021 1 Bihor 191911 212291 211481 197411 191942 195125 198401 181591 213810 190939&quot;,
-        ///&quot;2021 1 BistritaNasaud 54877 58344 62294 55280 45658 54568 51193 42386 58755 63083&quot;,
-        ///&quot;20 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2021 1 Alba 185546 226398 266799 244780 215317 208781 206208 153689 186323 230183 259367&quot;,
+        ///&quot;2021 1 Arad 235225 246301 297918 271964 248444 260743 249972 195128 254623 269155 285239&quot;,
+        ///&quot;2021 1 Arges 438203 471815 490442 432387 544516 521815 442111 335261 351192 432094 527284&quot;,
+        ///&quot;2021 1 Bacau 71206 68405 81641 86065 86597 89489 87108 74143 84010 78790 88834&quot;,
+        ///&quot;2021 1 Bihor 193467 212479 211461 197375 191845 195081 198422 182232 214139 191526 210658&quot;,
+        ///&quot;2021 1 BistritaNasaud 54887 58383 62289 55289 45659 54 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2021ExportFobSeeder {
             get {
@@ -1815,12 +1814,12 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2021 1 Alba 199663 241809 278401 235184 231147 224210 223536 137482 169093 215686&quot;,
-        ///&quot;2021 1 Arad 208265 229975 262739 250969 221606 230587 219617 193258 241652 230841&quot;,
-        ///&quot;2021 1 Arges 338000 352705 399633 337335 385378 368521 401234 235693 362205 333799&quot;,
-        ///&quot;2021 1 Bacau 74659 101975 120655 115811 124357 116510 129343 99854 95988 140442&quot;,
-        ///&quot;2021 1 Bihor 197465 205708 231092 204595 199316 214303 212191 195830 236140 220052&quot;,
-        ///&quot;2021 1 BistritaNasaud 50519 56684 70002 55159 50863 59189 60508 49069 63506 62444 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2021 1 Alba 199678 241957 278365 235149 231151 224208 223526 137477 169014 215653 186463&quot;,
+        ///&quot;2021 1 Arad 208201 229987 262672 250886 221552 230616 219610 193219 241699 230978 249079&quot;,
+        ///&quot;2021 1 Arges 337973 352739 399580 337271 385378 368506 401209 235675 362199 333617 366025&quot;,
+        ///&quot;2021 1 Bacau 74648 101989 120613 115770 124380 116474 129234 99849 96109 140638 120801&quot;,
+        ///&quot;2021 1 Bihor 197369 205711 231020 204596 199302 214282 212254 195802 235049 219613 231837&quot;,
+        ///&quot;2021 1 BistritaNasaud 50512 56696 69979 55129  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2021ImportCifSeeder {
             get {
@@ -1903,13 +1902,12 @@ namespace StatisticsRomania.Repository.Seeders {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;2021 1 Alba -14138 -15469 -11596 9577 -15832 -15417 -17292 16206 17197 14273&quot;,
-        ///&quot;2021 1 Arad 26992 16259 35219 20997 26807 30169 30356 1791 12714 37730&quot;,
-        ///&quot;2021 1 Arges 100188 119046 90841 95162 159197 153335 40940 99569 -12036 98288&quot;,
-        ///&quot;2021 1 Bacau -3460 -33586 -39011 -29663 -37767 -27016 -42239 -25608 -11983 -62224&quot;,
-        ///&quot;2021 1 Bihor -5554 6583 -19611 -7184 -7374 -19178 -13790 -14239 -22330 -29113&quot;,
-        ///&quot;2021 1 BistritaNasaud 4358 1660 -7708 121 -5205 -4621 -9315 -6683 -4751 639&quot;,
-        ///&quot;2021 1 Botosani 3363 5004 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;2021 1 Alba -14132 -15559 -11566 9631 -15834 -15427 -17318 16212 17309 14530 72904&quot;,
+        ///&quot;2021 1 Arad 27024 16314 35246 21078 26892 30127 30362 1909 12924 38177 36160&quot;,
+        ///&quot;2021 1 Arges 100230 119076 90862 95116 159138 153309 40902 99586 -11007 98477 161259&quot;,
+        ///&quot;2021 1 Bacau -3442 -33584 -38972 -29705 -37783 -26985 -42126 -25706 -12099 -61848 -31967&quot;,
+        ///&quot;2021 1 Bihor -3902 6768 -19559 -7221 -7457 -19201 -13832 -13570 -20910 -28087 -21179&quot;,
+        ///&quot;2021 1 BistritaNasaud 4375 1687 -7690 160 -5204 -4624 -9301 -6664 -4747  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _2021SoldFobCifSeeder {
             get {
@@ -1929,6 +1927,406 @@ namespace StatisticsRomania.Repository.Seeders {
         internal static string _2021UnemployedSeeder {
             get {
                 return ResourceManager.GetString("_2021UnemployedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 5125&quot;,
+        ///&quot;2022 1 Arad 5155&quot;,
+        ///&quot;2022 1 Arges 5438&quot;,
+        ///&quot;2022 1 Bacau 5280&quot;,
+        ///&quot;2022 1 Bihor 4894&quot;,
+        ///&quot;2022 1 BistritaNasaud 4624&quot;,
+        ///&quot;2022 1 Botosani 4978&quot;,
+        ///&quot;2022 1 Brasov 5622&quot;,
+        ///&quot;2022 1 Braila 5082&quot;,
+        ///&quot;2022 1 Buzau 4870&quot;,
+        ///&quot;2022 1 CarasSeverin 4851&quot;,
+        ///&quot;2022 1 Calarasi 5138&quot;,
+        ///&quot;2022 1 Cluj 7175&quot;,
+        ///&quot;2022 1 Constanta 5202&quot;,
+        ///&quot;2022 1 Covasna 5290&quot;,
+        ///&quot;2022 1 Dambovita 4784&quot;,
+        ///&quot;2022 1 Dolj 5330&quot;,
+        ///&quot;2022 1 Galati 5401&quot;,
+        ///&quot;2022 1 Giurgiu 5082&quot;,
+        ///&quot;2022 1 Gorj 5373&quot;,
+        ///&quot;2022 1 Harghita 4539&quot;,
+        ///&quot;2022 1 Hunedoa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022AverageGrossSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2022AverageGrossSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 3183&quot;,
+        ///&quot;2022 1 Arad 3129&quot;,
+        ///&quot;2022 1 Arges 3342&quot;,
+        ///&quot;2022 1 Bacau 3265&quot;,
+        ///&quot;2022 1 Bihor 3030&quot;,
+        ///&quot;2022 1 BistritaNasaud 2876&quot;,
+        ///&quot;2022 1 Botosani 3031&quot;,
+        ///&quot;2022 1 Brasov 3431&quot;,
+        ///&quot;2022 1 Braila 3102&quot;,
+        ///&quot;2022 1 Buzau 2978&quot;,
+        ///&quot;2022 1 CarasSeverin 2949&quot;,
+        ///&quot;2022 1 Calarasi 3128&quot;,
+        ///&quot;2022 1 Cluj 4424&quot;,
+        ///&quot;2022 1 Constanta 3187&quot;,
+        ///&quot;2022 1 Covasna 3206&quot;,
+        ///&quot;2022 1 Dambovita 2934&quot;,
+        ///&quot;2022 1 Dolj 3251&quot;,
+        ///&quot;2022 1 Galati 3325&quot;,
+        ///&quot;2022 1 Giurgiu 3179&quot;,
+        ///&quot;2022 1 Gorj 3296&quot;,
+        ///&quot;2022 1 Harghita 2824&quot;,
+        ///&quot;2022 1 Hunedoa [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022AverageNetSalarySeeder {
+            get {
+                return ResourceManager.GetString("_2022AverageNetSalarySeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 257&quot;,
+        ///&quot;2022 1 Arad 270&quot;,
+        ///&quot;2022 1 Arges 394&quot;,
+        ///&quot;2022 1 Bacau 500&quot;,
+        ///&quot;2022 1 Bihor 416&quot;,
+        ///&quot;2022 1 BistritaNasaud 237&quot;,
+        ///&quot;2022 1 Botosani 303&quot;,
+        ///&quot;2022 1 Brasov 441&quot;,
+        ///&quot;2022 1 Braila 170&quot;,
+        ///&quot;2022 1 Buzau 253&quot;,
+        ///&quot;2022 1 CarasSeverin 150&quot;,
+        ///&quot;2022 1 Calarasi 186&quot;,
+        ///&quot;2022 1 Cluj 521&quot;,
+        ///&quot;2022 1 Constanta 488&quot;,
+        ///&quot;2022 1 Covasna 182&quot;,
+        ///&quot;2022 1 Dambovita 347&quot;,
+        ///&quot;2022 1 Dolj 487&quot;,
+        ///&quot;2022 1 Galati 353&quot;,
+        ///&quot;2022 1 Giurgiu 186&quot;,
+        ///&quot;2022 1 Gorj 189&quot;,
+        ///&quot;2022 1 Harghita 234&quot;,
+        ///&quot;2022 1 Hunedoara 229&quot;,
+        ///&quot;2022 1 Ial [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022BornAliveSeeder {
+            get {
+                return ResourceManager.GetString("_2022BornAliveSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 38&quot;,
+        ///&quot;2022 1 Arad 48&quot;,
+        ///&quot;2022 1 Arges 69&quot;,
+        ///&quot;2022 1 Bacau 83&quot;,
+        ///&quot;2022 1 Bihor 125&quot;,
+        ///&quot;2022 1 BistritaNasaud 33&quot;,
+        ///&quot;2022 1 Botosani 46&quot;,
+        ///&quot;2022 1 Brasov 77&quot;,
+        ///&quot;2022 1 Braila 29&quot;,
+        ///&quot;2022 1 Buzau 39&quot;,
+        ///&quot;2022 1 CarasSeverin 11&quot;,
+        ///&quot;2022 1 Calarasi 13&quot;,
+        ///&quot;2022 1 Cluj 208&quot;,
+        ///&quot;2022 1 Constanta 102&quot;,
+        ///&quot;2022 1 Covasna 22&quot;,
+        ///&quot;2022 1 Dambovita 100&quot;,
+        ///&quot;2022 1 Dolj 64&quot;,
+        ///&quot;2022 1 Galati 61&quot;,
+        ///&quot;2022 1 Giurgiu 41&quot;,
+        ///&quot;2022 1 Gorj 34&quot;,
+        ///&quot;2022 1 Harghita 12&quot;,
+        ///&quot;2022 1 Hunedoara 18&quot;,
+        ///&quot;2022 1 Ialomita 21&quot;,
+        ///&quot;2022  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022BuildingPermitsSeeder {
+            get {
+                return ResourceManager.GetString("_2022BuildingPermitsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 435&quot;,
+        ///&quot;2022 1 Arad 607&quot;,
+        ///&quot;2022 1 Arges 787&quot;,
+        ///&quot;2022 1 Bacau 895&quot;,
+        ///&quot;2022 1 Bihor 828&quot;,
+        ///&quot;2022 1 BistritaNasaud 354&quot;,
+        ///&quot;2022 1 Botosani 579&quot;,
+        ///&quot;2022 1 Brasov 628&quot;,
+        ///&quot;2022 1 Braila 510&quot;,
+        ///&quot;2022 1 Buzau 696&quot;,
+        ///&quot;2022 1 CarasSeverin 392&quot;,
+        ///&quot;2022 1 Calarasi 452&quot;,
+        ///&quot;2022 1 Cluj 854&quot;,
+        ///&quot;2022 1 Constanta 870&quot;,
+        ///&quot;2022 1 Covasna 256&quot;,
+        ///&quot;2022 1 Dambovita 643&quot;,
+        ///&quot;2022 1 Dolj 935&quot;,
+        ///&quot;2022 1 Galati 706&quot;,
+        ///&quot;2022 1 Giurgiu 388&quot;,
+        ///&quot;2022 1 Gorj 422&quot;,
+        ///&quot;2022 1 Harghita 396&quot;,
+        ///&quot;2022 1 Hunedoara 603&quot;,
+        ///&quot;2022 1 Ial [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022DeceasedSeeder {
+            get {
+                return ResourceManager.GetString("_2022DeceasedSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 1&quot;,
+        ///&quot;2022 1 Arad 0&quot;,
+        ///&quot;2022 1 Arges 0&quot;,
+        ///&quot;2022 1 Bacau 5&quot;,
+        ///&quot;2022 1 Bihor 2&quot;,
+        ///&quot;2022 1 BistritaNasaud 2&quot;,
+        ///&quot;2022 1 Botosani 2&quot;,
+        ///&quot;2022 1 Brasov 1&quot;,
+        ///&quot;2022 1 Braila 2&quot;,
+        ///&quot;2022 1 Buzau 3&quot;,
+        ///&quot;2022 1 CarasSeverin 0&quot;,
+        ///&quot;2022 1 Calarasi 2&quot;,
+        ///&quot;2022 1 Cluj 3&quot;,
+        ///&quot;2022 1 Constanta 6&quot;,
+        ///&quot;2022 1 Covasna 1&quot;,
+        ///&quot;2022 1 Dambovita 1&quot;,
+        ///&quot;2022 1 Dolj 2&quot;,
+        ///&quot;2022 1 Galati 6&quot;,
+        ///&quot;2022 1 Giurgiu 3&quot;,
+        ///&quot;2022 1 Gorj 1&quot;,
+        ///&quot;2022 1 Harghita 1&quot;,
+        ///&quot;2022 1 Hunedoara 0&quot;,
+        ///&quot;2022 1 Ialomita 0&quot;,
+        ///&quot;2022 1 Iasi 10&quot;,
+        ///&quot;2022 1 Ilfov  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022DeceasedUnderOneYearOldSeeder {
+            get {
+                return ResourceManager.GetString("_2022DeceasedUnderOneYearOldSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 9&quot;,
+        ///&quot;2022 1 Arad 1&quot;,
+        ///&quot;2022 1 Arges 25&quot;,
+        ///&quot;2022 1 Bacau 39&quot;,
+        ///&quot;2022 1 Bihor 15&quot;,
+        ///&quot;2022 1 BistritaNasaud 6&quot;,
+        ///&quot;2022 1 Botosani 0&quot;,
+        ///&quot;2022 1 Brasov 30&quot;,
+        ///&quot;2022 1 Braila 13&quot;,
+        ///&quot;2022 1 Buzau 1&quot;,
+        ///&quot;2022 1 CarasSeverin 6&quot;,
+        ///&quot;2022 1 Calarasi 6&quot;,
+        ///&quot;2022 1 Cluj 18&quot;,
+        ///&quot;2022 1 Constanta 28&quot;,
+        ///&quot;2022 1 Covasna 7&quot;,
+        ///&quot;2022 1 Dambovita 11&quot;,
+        ///&quot;2022 1 Dolj 26&quot;,
+        ///&quot;2022 1 Galati 7&quot;,
+        ///&quot;2022 1 Giurgiu 5&quot;,
+        ///&quot;2022 1 Gorj 19&quot;,
+        ///&quot;2022 1 Harghita 13&quot;,
+        ///&quot;2022 1 Hunedoara 28&quot;,
+        ///&quot;2022 1 Ialomita 5&quot;,
+        ///&quot;2022 1 Iasi 34&quot;,
+        ///&quot;2 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022DivorcesSeeder {
+            get {
+                return ResourceManager.GetString("_2022DivorcesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 46&quot;,
+        ///&quot;2022 1 Arad 124&quot;,
+        ///&quot;2022 1 Arges 109&quot;,
+        ///&quot;2022 1 Bacau 180&quot;,
+        ///&quot;2022 1 Bihor 95&quot;,
+        ///&quot;2022 1 BistritaNasaud 71&quot;,
+        ///&quot;2022 1 Botosani 129&quot;,
+        ///&quot;2022 1 Brasov 117&quot;,
+        ///&quot;2022 1 Braila 47&quot;,
+        ///&quot;2022 1 Buzau 108&quot;,
+        ///&quot;2022 1 CarasSeverin 44&quot;,
+        ///&quot;2022 1 Calarasi 59&quot;,
+        ///&quot;2022 1 Cluj 122&quot;,
+        ///&quot;2022 1 Constanta 140&quot;,
+        ///&quot;2022 1 Covasna 58&quot;,
+        ///&quot;2022 1 Dambovita 93&quot;,
+        ///&quot;2022 1 Dolj 135&quot;,
+        ///&quot;2022 1 Galati 153&quot;,
+        ///&quot;2022 1 Giurgiu 28&quot;,
+        ///&quot;2022 1 Gorj 74&quot;,
+        ///&quot;2022 1 Harghita 58&quot;,
+        ///&quot;2022 1 Hunedoara 103&quot;,
+        ///&quot;2022 1 Ialomita 56&quot;,        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022MarriagesSeeder {
+            get {
+                return ResourceManager.GetString("_2022MarriagesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba -178&quot;,
+        ///&quot;2022 1 Arad -337&quot;,
+        ///&quot;2022 1 Arges -393&quot;,
+        ///&quot;2022 1 Bacau -395&quot;,
+        ///&quot;2022 1 Bihor -412&quot;,
+        ///&quot;2022 1 BistritaNasaud -117&quot;,
+        ///&quot;2022 1 Botosani -276&quot;,
+        ///&quot;2022 1 Brasov -187&quot;,
+        ///&quot;2022 1 Braila -340&quot;,
+        ///&quot;2022 1 Buzau -443&quot;,
+        ///&quot;2022 1 CarasSeverin -242&quot;,
+        ///&quot;2022 1 Calarasi -266&quot;,
+        ///&quot;2022 1 Cluj -333&quot;,
+        ///&quot;2022 1 Constanta -382&quot;,
+        ///&quot;2022 1 Covasna -74&quot;,
+        ///&quot;2022 1 Dambovita -296&quot;,
+        ///&quot;2022 1 Dolj -448&quot;,
+        ///&quot;2022 1 Galati -353&quot;,
+        ///&quot;2022 1 Giurgiu -202&quot;,
+        ///&quot;2022 1 Gorj -233&quot;,
+        ///&quot;2022 1 Harghita -162&quot;,
+        ///&quot;2022 1 Hunedoar [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022NaturalGrowthSeeder {
+            get {
+                return ResourceManager.GetString("_2022NaturalGrowthSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 96722&quot;,
+        ///&quot;2022 1 Arad 134153&quot;,
+        ///&quot;2022 1 Arges 159860&quot;,
+        ///&quot;2022 1 Bacau 120217&quot;,
+        ///&quot;2022 1 Bihor 180106&quot;,
+        ///&quot;2022 1 BistritaNasaud 71008&quot;,
+        ///&quot;2022 1 Botosani 58869&quot;,
+        ///&quot;2022 1 Brasov 193659&quot;,
+        ///&quot;2022 1 Braila 71450&quot;,
+        ///&quot;2022 1 Buzau 87363&quot;,
+        ///&quot;2022 1 CarasSeverin 54031&quot;,
+        ///&quot;2022 1 Calarasi 46378&quot;,
+        ///&quot;2022 1 Cluj 268807&quot;,
+        ///&quot;2022 1 Constanta 192327&quot;,
+        ///&quot;2022 1 Covasna 50977&quot;,
+        ///&quot;2022 1 Dambovita 89342&quot;,
+        ///&quot;2022 1 Dolj 144925&quot;,
+        ///&quot;2022 1 Galati 120874&quot;,
+        ///&quot;2022 1 Giurgiu 38250&quot;,
+        ///&quot;2022 1 Gorj 78326&quot;,
+        ///&quot;2022 1 Har [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022NumberOfEmployeesSeeder {
+            get {
+                return ResourceManager.GetString("_2022NumberOfEmployeesSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 16668&quot;,
+        ///&quot;2022 1 Arad 19362&quot;,
+        ///&quot;2022 1 Arges 13779&quot;,
+        ///&quot;2022 1 Bacau 20004&quot;,
+        ///&quot;2022 1 Bihor 60113&quot;,
+        ///&quot;2022 1 BistritaNasaud 9157&quot;,
+        ///&quot;2022 1 Botosani 3867&quot;,
+        ///&quot;2022 1 Brasov 187453&quot;,
+        ///&quot;2022 1 Braila 5988&quot;,
+        ///&quot;2022 1 Buzau 8253&quot;,
+        ///&quot;2022 1 CarasSeverin 26920&quot;,
+        ///&quot;2022 1 Calarasi 1757&quot;,
+        ///&quot;2022 1 Cluj 40596&quot;,
+        ///&quot;2022 1 Constanta 34957&quot;,
+        ///&quot;2022 1 Covasna 23277&quot;,
+        ///&quot;2022 1 Dambovita 10978&quot;,
+        ///&quot;2022 1 Dolj 9192&quot;,
+        ///&quot;2022 1 Galati 7858&quot;,
+        ///&quot;2022 1 Giurgiu 1861&quot;,
+        ///&quot;2022 1 Gorj 16534&quot;,
+        ///&quot;2022 1 Harghita 25147&quot;,
+        ///&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022NumberOfNightsSeeder {
+            get {
+                return ResourceManager.GetString("_2022NumberOfNightsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 8979&quot;,
+        ///&quot;2022 1 Arad 13100&quot;,
+        ///&quot;2022 1 Arges 9703&quot;,
+        ///&quot;2022 1 Bacau 10889&quot;,
+        ///&quot;2022 1 Bihor 26846&quot;,
+        ///&quot;2022 1 BistritaNasaud 4186&quot;,
+        ///&quot;2022 1 Botosani 2365&quot;,
+        ///&quot;2022 1 Brasov 93252&quot;,
+        ///&quot;2022 1 Braila 3341&quot;,
+        ///&quot;2022 1 Buzau 4125&quot;,
+        ///&quot;2022 1 CarasSeverin 11217&quot;,
+        ///&quot;2022 1 Calarasi 835&quot;,
+        ///&quot;2022 1 Cluj 23483&quot;,
+        ///&quot;2022 1 Constanta 14490&quot;,
+        ///&quot;2022 1 Covasna 10537&quot;,
+        ///&quot;2022 1 Dambovita 5938&quot;,
+        ///&quot;2022 1 Dolj 5871&quot;,
+        ///&quot;2022 1 Galati 5078&quot;,
+        ///&quot;2022 1 Giurgiu 1106&quot;,
+        ///&quot;2022 1 Gorj 9322&quot;,
+        ///&quot;2022 1 Harghita 12080&quot;,
+        ///&quot;2022 1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022NumberOfTouristsSeeder {
+            get {
+                return ResourceManager.GetString("_2022NumberOfTouristsSeeder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;2022 1 Alba 5429&quot;,
+        ///&quot;2022 1 Arad 1666&quot;,
+        ///&quot;2022 1 Arges 8254&quot;,
+        ///&quot;2022 1 Bacau 6850&quot;,
+        ///&quot;2022 1 Bihor 3348&quot;,
+        ///&quot;2022 1 BistritaNasaud 4093&quot;,
+        ///&quot;2022 1 Botosani 2896&quot;,
+        ///&quot;2022 1 Brasov 4902&quot;,
+        ///&quot;2022 1 Braila 3613&quot;,
+        ///&quot;2022 1 Buzau 8195&quot;,
+        ///&quot;2022 1 CarasSeverin 2414&quot;,
+        ///&quot;2022 1 Calarasi 2866&quot;,
+        ///&quot;2022 1 Cluj 4473&quot;,
+        ///&quot;2022 1 Constanta 6117&quot;,
+        ///&quot;2022 1 Covasna 3359&quot;,
+        ///&quot;2022 1 Dambovita 4601&quot;,
+        ///&quot;2022 1 Dolj 15649&quot;,
+        ///&quot;2022 1 Galati 10710&quot;,
+        ///&quot;2022 1 Giurgiu 1906&quot;,
+        ///&quot;2022 1 Gorj 4256&quot;,
+        ///&quot;2022 1 Harghita 4842&quot;,
+        ///&quot;2022 1 Huned [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _2022UnemployedSeeder {
+            get {
+                return ResourceManager.GetString("_2022UnemployedSeeder", resourceCulture);
             }
         }
         
