@@ -21,6 +21,7 @@ namespace WebClient.Controllers
             var covidData = Covid19Seeder.GetData();
             var counties = CountiesSeeder.GetData().Select(x => new CountyCovid19 { Id = x.Id, Name = x.Name }).ToList();
             var repository = RepositoryFactory.GetRepository<Deceased>();
+            // TODO: we need to change this year if we generalize this feature
             var deceased = await repository.GetAll(x => x.Year == 2021 && (month == -1 ? true : x.YearFraction == month));
 
             var res = new List<CountyCovid19>();
@@ -65,6 +66,7 @@ namespace WebClient.Controllers
         public async Task<List<CovidDto>> GetCovidDetails(int countyId, int month)
         {
             var repository = RepositoryFactory.GetRepository<Deceased>();
+            // TODO: we need to change this year if we generalize this feature
             var maxMonthForLastYear = (await repository.GetAll(x => x.Year == 2021)).Max(x => x.YearFraction);
             var deceased = await repository.GetAll(x => (month == -1 ? x.YearFraction <= maxMonthForLastYear : x.YearFraction == month) && (countyId == -1 ? true : x.CountyId == countyId));
 
@@ -79,6 +81,7 @@ namespace WebClient.Controllers
         public async Task<int> GetMaxMonthForLastYear()
         {
             var repository = RepositoryFactory.GetRepository<Deceased>();
+            // TODO: we need to change this year if we generalize this feature
             return (await repository.GetAll(x => x.Year == 2021)).Max(x => x.YearFraction);
         }
 

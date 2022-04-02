@@ -48,6 +48,7 @@ export class Covid19Component {
         this.monthsKeys = new Array<number>(-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
         this.comparisonType = 2;
+        // TODO: we need to change this year if we generalize this feature
         this.year = 2021;
         var selectedYearFraction = -1;
         this.month = selectedYearFraction;
