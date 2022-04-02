@@ -216,7 +216,11 @@ namespace SeederGenerator
             if (!File.Exists(file))
                 file = file.Replace(".xlsx", ".xls");
 
-            using (var fileStream = new FileStream(file, FileMode.Open, FileAccess.Read))
+            // Sometimes a space is added in the name of the file ("Valcea.xls" becomes "Valcea .xls")
+            if (!File.Exists(file))
+                file = file.Replace(".xls", " .xls");
+
+            using (var fileStream = new FileStream(file.TrimEnd(), FileMode.Open, FileAccess.Read))
             {
                 excelFile = file.EndsWith(".xls") ? (IWorkbook)new HSSFWorkbook(fileStream) : (IWorkbook)new XSSFWorkbook(fileStream);
             }
@@ -239,7 +243,7 @@ namespace SeederGenerator
                 if (cell.CellType != CellType.String)
                     continue;   // we're looking for chapter, so we don't care about the cell if it's not string
 
-                if (!cell.StringCellValue.ToLower().Contains(chapter.ToLower()))
+                if (!cell.StringCellValue.ToLower().Contains(chapter.ToLower()) && !cell.StringCellValue.ToLower().Replace('ș', 'ş').Contains(chapter.ToLower()))
                     continue;
 
                 chapterRowIndex = rowIndex;
