@@ -212,6 +212,9 @@ namespace SeederGenerator
             if (!File.Exists(file) && county == "Bucuresti")
                 file = file.Replace("Bucuresti", "București");
 
+            if (!File.Exists(file) && county == "Salaj")
+                file = file.Replace("Salaj", "Sălaj");
+
             // If București.xlsx is not found, let's look for București.xls
             if (!File.Exists(file))
                 file = file.Replace(".xlsx", ".xls");
