@@ -1,5 +1,5 @@
-﻿using DevExpress.Mobile.DataGrid;
-using DevExpress.Utils;
+﻿using DevExpress.Utils;
+using DevExpress.XamarinForms.DataGrid;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -28,7 +28,7 @@ namespace StatisticsRomania.Views
         private PickerWithNoSpellCheck _pickerCounties2;
 
         private StackLayout _firstRowOfHeader;
-        private GridControl _degChapterData;
+        private DataGridView _degChapterData;
         private PlotView _plotView;
 
         private AdMobView _adMobView;
@@ -82,10 +82,10 @@ namespace StatisticsRomania.Views
                 _pickerChapters.Items.Add(chapter.Key);
             }
 
-            _degChapterData = new GridControl();
-            _degChapterData.SetBinding(GridControl.IsVisibleProperty, new Binding("HasData", source: _viewModel));
+            _degChapterData = new DataGridView();
+            _degChapterData.SetBinding(DataGridView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _degChapterData.IsReadOnly = true;
-            _degChapterData.AllowResizeColumns = false;
+            //_degChapterData.AllowResizeColumns = false;
             _degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False });
@@ -108,7 +108,7 @@ namespace StatisticsRomania.Views
             valueColumn2.SetBinding(TextColumn.IsVisibleProperty, new Binding("Value2ColumnVisibility", source: _viewModel));
             _degChapterData.Columns.Add(valueColumn2);
             _degChapterData.ItemsSource = _viewModel.ChapterData;
-            _degChapterData.RowTap += degChapterData_RowTap;
+            _degChapterData.Tap += _degChapterData_Tap;
 
             _plotView = new PlotView();
             _plotView.SetBinding(PlotView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
@@ -163,10 +163,10 @@ namespace StatisticsRomania.Views
             await LoadData();
         }
 
-        private void degChapterData_RowTap(object sender, RowTapEventArgs e)
+        private void _degChapterData_Tap(object sender, DataGridGestureEventArgs e)
         {
             // Disable row selection on row tapping
-            var grid = sender as GridControl;
+            var grid = sender as DataGridView;
             if (grid.SelectedRowHandle > -1)
             {
                 grid.SelectedRowHandle = -1;

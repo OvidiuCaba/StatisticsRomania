@@ -1,5 +1,5 @@
-﻿using DevExpress.Mobile.DataGrid;
-using DevExpress.Utils;
+﻿using DevExpress.Utils;
+using DevExpress.XamarinForms.DataGrid;
 using StatisticsRomania.Controls;
 using StatisticsRomania.Helpers;
 using StatisticsRomania.ViewModels;
@@ -18,7 +18,7 @@ namespace StatisticsRomania.Views
         private PickerWithNoSpellCheck _pickerChapters;
         private PickerWithNoSpellCheck _pickerYears;
         private PickerWithNoSpellCheck _pickerYearFractions;
-        private GridControl _degStandings;
+        private DataGridView _degStandings;
 
         public CountyStandingsView()
         {
@@ -79,11 +79,11 @@ namespace StatisticsRomania.Views
                 _pickerYearFractions.Items.Add(yearFraction);
             }
 
-            _degStandings = new GridControl();
+            _degStandings = new DataGridView();
             _degStandings.IsReadOnly = true;
-            _degStandings.AllowResizeColumns = false;
+            //_degStandings.AllowResizeColumns = false;
             _degStandings.HorizontalOptions = LayoutOptions.FillAndExpand;
-            _degStandings.TotalSummaryVisibility = DevExpress.Mobile.Core.VisibilityState.Always;
+            _degStandings.TotalSummaryVisibility = DevExpress.XamarinForms.Core.VisibilityState.Always;
             _degStandings.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             _degStandings.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
@@ -96,10 +96,10 @@ namespace StatisticsRomania.Views
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             _degStandings.Columns.Add(valueColumn);
             _degStandings.ItemsSource = _viewModel.Standings;
-            _degStandings.RowTap += degAverageGrosSalary_RowTap;
+            _degStandings.Tap += _degStandings_Tap;
             _degStandings.TotalSummaries.Add(new GridColumnSummary { FieldName = "County", Type = SummaryType.Count, DisplayFormat = "TOTAL" });
             _degStandings.TotalSummaries.Add(new GridColumnSummary { FieldName = "Value", Type = SummaryType.None, DisplayFormat = "{0:0}" });
-            _degStandings.SetBinding(GridControl.IsVisibleProperty, "HasData");
+            _degStandings.SetBinding(DataGridView.IsVisibleProperty, "HasData");
 
             var lblNoData = new Label()
                                   {
@@ -191,10 +191,10 @@ namespace StatisticsRomania.Views
             await LoadData();
         }
 
-        private void degAverageGrosSalary_RowTap(object sender, RowTapEventArgs e)
+        private void _degStandings_Tap(object sender, DataGridGestureEventArgs e)
         {
             // Disable row selection on row tapping
-            var grid = sender as GridControl;
+            var grid = sender as DataGridView;
             if (grid.SelectedRowHandle > -1)
             {
                 grid.SelectedRowHandle = -1;

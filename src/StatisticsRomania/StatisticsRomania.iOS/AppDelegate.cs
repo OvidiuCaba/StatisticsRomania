@@ -6,6 +6,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using StatisticsRomania.Repository;
+using DevExpress.XamarinForms.DataGrid;
 
 // TODO: Add AdMob: https://xamarininsider.com/2019/04/10/monetising-your-xamarin-forms-app-with-admob/?utm_campaign=Weekly%2BXamarin&utm_medium=email&utm_source=Weekly_Xamarin_202
 
@@ -28,7 +29,7 @@ namespace StatisticsRomania.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            DevExpress.Mobile.Forms.Init();
+            DataGrid.iOS.Initializer.Init();
             OxyPlot.Xamarin.Forms.Platform.iOS.PlotViewRenderer.Init();
 
             LoadApplication(new App());
