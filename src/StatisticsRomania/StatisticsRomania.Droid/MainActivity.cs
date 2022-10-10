@@ -15,7 +15,6 @@ namespace StatisticsRomania.Droid
 {
     [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     //                          global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
-    public class X : global::Xamarin.Forms.PlatformConfiguration.Android
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
