@@ -23,7 +23,7 @@ namespace StatisticsRomania.Droid
 
             AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
 
-            Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-4024802291999001~8046647573");
+            //Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-4024802291999001~8046647573");
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
