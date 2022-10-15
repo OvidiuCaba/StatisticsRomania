@@ -208,6 +208,9 @@ namespace StatisticsRomania.Views
 
         private async Task LoadData()
         {
+            if (_pickerChapters.SelectedItem == null || _pickerYears.SelectedItem == null || _pickerYearFractions.SelectedItem == null)
+                return;
+
             Settings.StandingsChapter = _pickerChapters.SelectedIndex;
             Settings.Year = int.Parse((string)_pickerYears.SelectedItem);
             Settings.Month = _pickerYearFractions.SelectedIndex == 0 ? -1 : int.Parse((string)_pickerYearFractions.SelectedItem);
