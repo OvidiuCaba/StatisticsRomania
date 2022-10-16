@@ -40,7 +40,7 @@ namespace StatisticsRomania.Lib
 
             return await BlobCache.LocalMachine.GetOrFetchObject(
                 key,
-                async () => await GetCountyDetailsFromInternet(countyId, countyId2, chapter),
+                async () => await GetCountyDetailsFromInternetWithRetry(countyId, countyId2, chapter),
                 DateTimeOffset.Now.AddMonths(6)
                 );
         }
@@ -93,6 +93,23 @@ namespace StatisticsRomania.Lib
             }
 
             return internetData;
+        }
+
+        private static async Task<CountyDetailsDto> GetCountyDetailsFromInternetWithRetry(int countyId, int countyId2, string chapter)
+        {
+            try
+            {
+                return await GetCountyDetailsFromInternet(countyId, countyId2, chapter);
+            }
+            catch
+            {
+                // TODO:
+                //  get rid of this workaround
+                //  sometimes this call throws an exception and I have no idea why
+                //  so just try again after a while in case we have issues here
+                await Task.Delay(1000);
+                return await GetCountyDetailsFromInternet(countyId, countyId2, chapter);
+            }
         }
 
         private static async Task<CountyDetailsDto> GetCountyDetailsFromInternet(int countyId, int countyId2, string chapter)
