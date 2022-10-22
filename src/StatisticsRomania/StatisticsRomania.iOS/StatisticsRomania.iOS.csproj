@@ -146,38 +146,38 @@
     <Reference Include="Akavache.Sqlite3, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\akavache.sqlite3.6.0.20\lib\netstandard2.0\Akavache.Sqlite3.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xamarin.iOS.CollectionView, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.CollectionView.22.1.5\lib\Xamarin.iOS10\DevExpress.Xamarin.iOS.CollectionView.dll</HintPath>
+    <Reference Include="DevExpress.Xamarin.iOS.CollectionView, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.CollectionView.22.1.6\lib\Xamarin.iOS10\DevExpress.Xamarin.iOS.CollectionView.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xamarin.iOS.Editors, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Editors.22.1.5\lib\Xamarin.iOS10\DevExpress.Xamarin.iOS.Editors.dll</HintPath>
+    <Reference Include="DevExpress.Xamarin.iOS.Editors, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Editors.22.1.6\lib\Xamarin.iOS10\DevExpress.Xamarin.iOS.Editors.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Xamarin.iOS.Grid, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Grid.22.1.5\lib\Xamarin.iOS10\DevExpress.Xamarin.iOS.Grid.dll</HintPath>
+    <Reference Include="DevExpress.Xamarin.iOS.Grid, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Grid.22.1.6\lib\Xamarin.iOS10\DevExpress.Xamarin.iOS.Grid.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.CollectionView, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.CollectionView.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.CollectionView.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.CollectionView, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.CollectionView.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.CollectionView.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.CollectionView.iOS, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.CollectionView.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.CollectionView.iOS.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.CollectionView.iOS, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.CollectionView.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.CollectionView.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.Core, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Core.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.Core.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Core, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Core.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.Core.iOS, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Core.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.Core.iOS.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Core.iOS, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Core.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.Core.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.Editors, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Editors.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.Editors.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Editors, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Editors.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.Editors.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.Editors.iOS, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Editors.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.Editors.iOS.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Editors.iOS, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Editors.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.Editors.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.Grid, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Grid.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.Grid.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Grid, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Grid.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.Grid.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XamarinForms.Grid.iOS, Version=22.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\DevExpress.XamarinForms.Grid.22.1.5\lib\Xamarin.iOS10\DevExpress.XamarinForms.Grid.iOS.dll</HintPath>
+    <Reference Include="DevExpress.XamarinForms.Grid.iOS, Version=22.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DevExpress.XamarinForms.Grid.22.1.6\lib\Xamarin.iOS10\DevExpress.XamarinForms.Grid.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>

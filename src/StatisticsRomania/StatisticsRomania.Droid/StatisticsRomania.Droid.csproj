@@ -127,7 +127,7 @@
       <Version>6.0.20</Version>
     </PackageReference>
     <PackageReference Include="DevExpress.XamarinForms.Grid">
-      <Version>22.1.5</Version>
+      <Version>22.1.6</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Win32.Primitives">
       <Version>4.3.0</Version>
