@@ -38,6 +38,8 @@ namespace StatisticsRomania
     {
         public App()
         {
+            DevExpress.XamarinForms.DataGrid.Initializer.Init();
+
             // The root page of your application
             MainPage = new RootPage();
         }

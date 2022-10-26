@@ -27,7 +27,7 @@ namespace StatisticsRomania.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            DevExpress.XamarinForms.DataGrid.Initializer.Init();
+            //DevExpress.XamarinForms.DataGrid.Initializer.Init();
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
 
             LoadApplication(new App());

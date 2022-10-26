@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{9692
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject", "TestProject\TestProject.csproj", "{D53C1DB5-30B4-4D8D-8758-D0FEDEF1B080}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDashboard", "WebDashboard\WebDashboard.csproj", "{42F18147-3CAD-4E4F-99C3-31D5C3597E04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDashboard", "WebDashboard\WebDashboard.csproj", "{42F18147-3CAD-4E4F-99C3-31D5C3597E04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
