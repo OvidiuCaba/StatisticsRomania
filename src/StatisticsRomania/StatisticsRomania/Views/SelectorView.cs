@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
 
 namespace StatisticsRomania.Views
 {
@@ -26,8 +27,8 @@ namespace StatisticsRomania.Views
                                {
                                    HorizontalOptions = LayoutOptions.CenterAndExpand,
                                    Text = _title,
-                                   BackgroundColor = Color.Black,
-                                   TextColor = Color.White
+                                   BackgroundColor = Colors.Black,
+                                   TextColor = Colors.White
                                };
 
             var template = new DataTemplate(typeof(TextCell));
@@ -47,7 +48,7 @@ namespace StatisticsRomania.Views
                                       new StackLayout()
                                           {
                                               HorizontalOptions = LayoutOptions.FillAndExpand,
-                                              BackgroundColor = Color.Black,
+                                              BackgroundColor = Colors.Black,
                                               Children = {titleLbl},
                                               Spacing = 10,
                                               Padding = 10

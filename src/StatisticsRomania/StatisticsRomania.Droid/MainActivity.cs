@@ -13,9 +13,9 @@ using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.Droid
 {
-    [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/MainTheme")]
     //                          global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    public class MainActivity : MauiAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -25,12 +25,9 @@ namespace StatisticsRomania.Droid
 
             //Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-4024802291999001~8046647573");
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            //global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            //DevExpress.XamarinForms.DataGrid.Initializer.Init();
-            OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
-
-            LoadApplication(new App());
+            //LoadApplication(new App());
         }
 
         protected void HandleUnhandledException(object sender, UnhandledExceptionEventArgs args)

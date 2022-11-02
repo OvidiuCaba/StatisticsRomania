@@ -1,14 +1,15 @@
 ﻿using DevExpress.Utils;
-using DevExpress.XamarinForms.DataGrid;
 using StatisticsRomania.Controls;
 using StatisticsRomania.Helpers;
 using StatisticsRomania.ViewModels;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using DevExpress.Maui.DataGrid;
+using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 
 namespace StatisticsRomania.Views
 {
@@ -83,7 +84,7 @@ namespace StatisticsRomania.Views
             _degStandings.IsReadOnly = true;
             //_degStandings.AllowResizeColumns = false;
             _degStandings.HorizontalOptions = LayoutOptions.FillAndExpand;
-            _degStandings.TotalSummaryVisibility = DevExpress.XamarinForms.Core.VisibilityState.Always;
+            _degStandings.TotalSummaryVisibility = DevExpress.Maui.Core.VisibilityState.Always;
             _degStandings.Columns.Add(new TextColumn() { Caption = "Pozitie", FieldName = "Position", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             _degStandings.Columns.Add(new TextColumn() { Caption = "Judet", FieldName = "County", IsReadOnly = true, AllowSort = DefaultBoolean.False });
             var valueColumn = new TextColumn()
@@ -128,6 +129,8 @@ namespace StatisticsRomania.Views
             };
             stackNoData.SetBinding(Label.IsVisibleProperty, "DoesNotHaveData");
 
+            var gridTop = Device.RuntimePlatform == Device.Android ? 5 : 0;
+
             var grid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -135,14 +138,14 @@ namespace StatisticsRomania.Views
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        top: Device.OnPlatform(iOS: 0, Android: 5, WinPhone: 0)),
+                        top: gridTop),
             };
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
             grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             grid.ColumnDefinitions.Add(new ColumnDefinition());
-            grid.Children.Add(_pickerChapters, 0, 0);
+            grid.Add(_pickerChapters, 0, 0);
             var header = new StackLayout()
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
@@ -153,16 +156,16 @@ namespace StatisticsRomania.Views
                     lblYear, _pickerYears, lblYearFraction, _pickerYearFractions
                 }
             };
-            grid.Children.Add(header, 0, 1);
-            grid.Children.Add(_degStandings, 0, 2);
-            grid.Children.Add(stackNoData, 0, 2);
+            grid.Add(header, 0, 1);
+            grid.Add(_degStandings, 0, 2);
+            grid.Add(stackNoData, 0, 2);
 
-            var adMobView = new AdMobView
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-            };
-            grid.Children.Add(adMobView, 0, 3);
+            //var adMobView = new AdMobView
+            //{
+            //    HorizontalOptions = LayoutOptions.FillAndExpand,
+            //    VerticalOptions = LayoutOptions.FillAndExpand,
+            //};
+            //grid.Add(adMobView, 0, 3);
 
             this.Content = grid;
 

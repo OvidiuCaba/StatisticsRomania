@@ -1,35 +1,37 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+// TODO: fix later
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Text;
-using Android.Views;
-using Android.Widget;
-using Java.Util;
-using StatisticsRomania.Droid.Renderers;
-using Xamarin.Forms.Platform.Android;
-using Xamarin.Forms;
-using StatisticsRomania.Controls;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
 
-[assembly: ExportRenderer(typeof(PickerWithNoSpellCheck), typeof(MyPickerRenderer))]
-namespace StatisticsRomania.Droid.Renderers
-{
-    public class MyPickerRenderer : PickerRenderer
-    {
-        public MyPickerRenderer(Context context) : base(context)
-        {
-        }
+//using Android.App;
+//using Android.Content;
+//using Android.OS;
+//using Android.Runtime;
+//using Android.Text;
+//using Android.Views;
+//using Android.Widget;
+//using Java.Util;
+//using StatisticsRomania.Droid.Renderers;
+//using StatisticsRomania.Controls;
+//using Microsoft.Maui;
+//using Microsoft.Maui.Controls;
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
-        {
-            base.OnElementChanged(e);
-            if (e.OldElement == null)
-                Control.InputType = InputTypes.TextFlagNoSuggestions;
-        }
-    }
-}
+//[assembly: ExportRenderer(typeof(PickerWithNoSpellCheck), typeof(MyPickerRenderer))]
+//namespace StatisticsRomania.Droid.Renderers
+//{
+//    public class MyPickerRenderer : PickerRenderer
+//    {
+//        public MyPickerRenderer(Context context) : base(context)
+//        {
+//        }
+
+//        protected override void OnElementChanged(ElementChangedEventArgs<Picker> e)
+//        {
+//            base.OnElementChanged(e);
+//            if (e.OldElement == null)
+//                Control.InputType = InputTypes.TextFlagNoSuggestions;
+//        }
+//    }
+//}

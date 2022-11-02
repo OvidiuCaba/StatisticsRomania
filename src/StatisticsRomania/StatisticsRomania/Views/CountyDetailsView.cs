@@ -1,9 +1,4 @@
 ﻿using DevExpress.Utils;
-using DevExpress.XamarinForms.DataGrid;
-using OxyPlot;
-using OxyPlot.Axes;
-using OxyPlot.Series;
-using OxyPlot.Xamarin.Forms;
 using StatisticsRomania.Controls;
 using StatisticsRomania.Helpers;
 using StatisticsRomania.ViewModels;
@@ -11,9 +6,13 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.PlatformConfiguration;
+using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
+using DevExpress.Maui.DataGrid;
+using DevExpress.Maui.Charts;
+using ValueType = DevExpress.Maui.Charts.ValueType;
 
 namespace StatisticsRomania.Views
 {
@@ -29,7 +28,8 @@ namespace StatisticsRomania.Views
 
         private StackLayout _firstRowOfHeader;
         private DataGridView _degChapterData;
-        private PlotView _plotView;
+        // TODO rename field name
+        private ChartView _plotView;
 
         private AdMobView _adMobView;
 
@@ -88,13 +88,13 @@ namespace StatisticsRomania.Views
             //_degChapterData.AllowResizeColumns = false;
             _degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
-            _degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DefaultBoolean.False });
-            _degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DefaultBoolean.False });
+            _degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DevExpress.Utils.DefaultBoolean.False });
+            _degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DevExpress.Utils.DefaultBoolean.False });
             var valueColumn = new TextColumn()
             {
                 FieldName = "Value",
                 IsReadOnly = true,
-                AllowSort = DefaultBoolean.False
+                AllowSort = DevExpress.Utils.DefaultBoolean.False
             };
             valueColumn.SetBinding(TextColumn.CaptionProperty, new Binding("ValueColumnCaption", source: _viewModel));
             _degChapterData.Columns.Add(valueColumn);
@@ -102,7 +102,7 @@ namespace StatisticsRomania.Views
             {
                 FieldName = "Value2",
                 IsReadOnly = true,
-                AllowSort = DefaultBoolean.False
+                AllowSort = DevExpress.Utils.DefaultBoolean.False
             };
             valueColumn2.SetBinding(TextColumn.CaptionProperty, new Binding("Value2ColumnCaption", source: _viewModel));
             valueColumn2.SetBinding(TextColumn.IsVisibleProperty, new Binding("Value2ColumnVisibility", source: _viewModel));
@@ -110,26 +110,28 @@ namespace StatisticsRomania.Views
             _degChapterData.ItemsSource = _viewModel.ChapterData;
             _degChapterData.Tap += _degChapterData_Tap;
 
-            _plotView = new PlotView();
-            _plotView.SetBinding(PlotView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
+            _plotView = new ChartView();
+            _plotView.SetBinding(IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
             _plotView.VerticalOptions = LayoutOptions.FillAndExpand;
-            _plotView.Model = new ViewResolvingPlotModel();
             var series = new LineSeries();
-            series.ItemsSource = _viewModel.ChapterData;
-            _plotView.Model.Series.Add(series);
-            _plotView.Model.Title = "Evolutie indicator";
+            series.Data = new SeriesDataAdapter() { DataSource = _viewModel.ChapterData};
+            _plotView.Series.Add(series);
+            // TODO: fix this
+            //_plotView.Model.Title = "Evolutie indicator";
             if (Device.RuntimePlatform == Device.Android)
                 _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
+            var gridTop = Device.RuntimePlatform == Device.Android ? 5 : 0;
+
             _grid = new Grid
             {
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                //VerticalOptions = LayoutOptions.FillAndExpand,
                 Padding = new Thickness(
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    top: Device.OnPlatform(iOS: 0, Android: 5, WinPhone: 0)),
+                    top: gridTop),
             };
 
             _firstRowOfHeader = new StackLayout()
@@ -207,18 +209,25 @@ namespace StatisticsRomania.Views
             if (isPortrait)
             {
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                //_grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                //_grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
+                //_grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                _grid.Children.Add(_firstRowOfHeader, 0, 0);
-                _grid.Children.Add(_pickerChapters, 0, 1);
-                _grid.Children.Add(_degChapterData, 0, 2);
-                _grid.Children.Add(_plotView, 0, 3);
-                _grid.Children.Add(_adMobView, 0, 4);
+                _grid.Add(_firstRowOfHeader, 0, 0);
+                _grid.Add(_pickerChapters, 0, 1);
+                try
+                {
+                    //_grid.Add(_degChapterData, 0, 2);
+                    //_grid.Add(_plotView, 0, 3);
+                    //_grid.Add(_adMobView, 0, 4);
+                }
+                catch { }
+                // TODO: rmeove this
+                //_grid.Add(_plotView, 0, 3);
+                //_grid.Add(_adMobView, 0, 4);
             }
             else
             {
@@ -230,31 +239,40 @@ namespace StatisticsRomania.Views
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
-                _grid.Children.Add(_firstRowOfHeader, 0, 2, 0, 1);
-                _grid.Children.Add(_pickerChapters, 0, 2, 1, 2);
-                _grid.Children.Add(_degChapterData, 0, 2);
-                _grid.Children.Add(_plotView, 1, 2);
-                _grid.Children.Add(_adMobView, 0, 2, 3, 4);
+                // TODO: test rotation
+                //_grid.Add(_firstRowOfHeader, 0, 2, 0, 1);
+                Grid.SetRow(_firstRowOfHeader, 0);
+                Grid.SetColumnSpan(_firstRowOfHeader, 2);
+                //_grid.Add(_pickerChapters, 0, 2, 1, 2);
+                Grid.SetRow(_pickerChapters, 1);
+                Grid.SetColumnSpan(_pickerChapters, 2);
+                _grid.Add(_degChapterData, 0, 2);
+                _grid.Add(_plotView, 1, 2);
+                //_grid.Add(_adMobView, 0, 2, 3, 4);
+                Grid.SetRow(_adMobView, 3);
+                Grid.SetColumnSpan(_adMobView, 2);
             }
 
             // TODO: duplicate code, try to clean it
-            _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;
+            // TODO: null ref exc
+            //_plotView.Legend.Visible = _plotView.Series.Count > 1;
 
-            if (_plotView.Model.IsLegendVisible)
-            {
-                if (isPortrait)
-                {
-                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    _plotView.Model.LegendPosition = LegendPosition.RightTop;
-                    _plotView.Model.LegendOrientation = LegendOrientation.Vertical;
-                }
-                else
-                {
-                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    _plotView.Model.LegendPosition = LegendPosition.TopRight;
-                    _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
-                }
-            }
+            // TODO: fix Legend placement if possible
+            //if (_plotView.Legend.Visible)
+            //{
+            //    if (isPortrait)
+            //    {
+            //        _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+            //        _plotView.Model.LegendPosition = LegendPosition.RightTop;
+            //        _plotView.Model.LegendOrientation = LegendOrientation.Vertical;
+            //    }
+            //    else
+            //    {
+            //        _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+            //        _plotView.Model.LegendPosition = LegendPosition.TopRight;
+            //        _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
+            //    }
+            //}
 
             _wasPortrait = isPortrait;
         }
@@ -274,101 +292,83 @@ namespace StatisticsRomania.Views
             if (_plotView == null)
                 return;
 
-            _plotView.Model = _plotView.Model ?? new ViewResolvingPlotModel();
-            _plotView.Model.Title = "Evolutie indicator";
+            // TODO: fix title
+            //_plotView.Model.Title = "Evolutie indicator";
 
-            if (Device.RuntimePlatform == Device.Android)
-                _plotView.Model.TextColor = OxyColors.LightGray;
+            // TODO: fix colors
+            //if (Device.RuntimePlatform == Device.Android)
+            //    _plotView.Model.TextColor = OxyColors.LightGray;
 
-            var dtAxis = new DateTimeAxis();
-            dtAxis.Position = AxisPosition.Bottom;
-            dtAxis.IntervalType = DateTimeIntervalType.Months;
-            dtAxis.StringFormat = "yyyy-MM";
-            dtAxis.IsPanEnabled = false;
-            dtAxis.IsZoomEnabled = false;
+            var dtAxis = new DateTimeAxisX();
+            // TODO: fix this
+            //dtAxis.Position = AxisPosition.Bottom;
+            //dtAxis.IntervalType = DateTimeIntervalType.Months;
+            //dtAxis.StringFormat = "yyyy-MM";
+            //dtAxis.IsPanEnabled = false;
+            //dtAxis.IsZoomEnabled = false;
 
-            var verticalAxis = new LinearAxis();
-            verticalAxis.Position = AxisPosition.Left;
-            verticalAxis.IsPanEnabled = false;
-            verticalAxis.IsZoomEnabled = false;
+            var verticalAxis = new NumericAxisY();
+            // TODO: fix this
+            //verticalAxis.Position = AxisPosition.Left;
+            //verticalAxis.IsPanEnabled = false;
+            //verticalAxis.IsZoomEnabled = false;
 
-            _plotView.Model.Axes.Clear();
+            _plotView.AxisX = dtAxis;
+            _plotView.AxisY = verticalAxis;
 
-            _plotView.Model.Axes.Add(dtAxis);
-            _plotView.Model.Axes.Add(verticalAxis);
-
-            _plotView.Model.Series.Clear();
+            _plotView.Series.Clear();
 
             var series = new LineSeries();
-            series.ItemsSource = _viewModel.ChapterData;
-            series.DataFieldX = "TimeStamp";
-            series.DataFieldY = "Value";
-            series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
-            _plotView.Model.Series.Add(series);
+            series.Data = new SeriesDataAdapter() 
+            { 
+                DataSource = _viewModel.ChapterData,
+                ArgumentDataMember = "TimeStamp",
+            };
+            ((SeriesDataAdapter)series.Data).ValueDataMembers.Add(new ValueDataMember { Type = ValueType.Value, Member = "Value" });
+            // TODO:
+            //series.Title = _pickerCounties.Items[_pickerCounties.SelectedIndex];
+            _plotView.Series.Add(series);
 
             if (_viewModel.Value2ColumnVisibility)
             {
                 var series2 = new LineSeries();
-                series2.ItemsSource = _viewModel.ChapterData;
-                series2.DataFieldX = "TimeStamp";
-                series2.DataFieldY = "Value2";
-                series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
-                _plotView.Model.Series.Add(series2);
+                series2.Data = new SeriesDataAdapter() 
+                { 
+                    DataSource = _viewModel.ChapterData,
+                    ArgumentDataMember = "TimeStamp",
+                };
+                ((SeriesDataAdapter)series2.Data).ValueDataMembers.Add(new ValueDataMember { Type = ValueType.Value, Member = "Value2" });
+                // TODO:
+                //series2.Title = _pickerCounties2.Items[_pickerCounties2.SelectedIndex];
+                _plotView.Series.Add(series2);
             }
 
-            _plotView.Model.IsLegendVisible = _plotView.Model.Series.Count > 1;
+            _plotView.Legend.Visible = _plotView.Series.Count > 1;
 
-            if (_plotView.Model.IsLegendVisible)
-            {
-                if (_wasPortrait)
-                {
-                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    _plotView.Model.LegendPosition = LegendPosition.RightTop;
-                    _plotView.Model.LegendOrientation = LegendOrientation.Vertical;
-                }
-                else
-                {
-                    _plotView.Model.LegendPlacement = LegendPlacement.Outside;
-                    _plotView.Model.LegendPosition = LegendPosition.TopRight;
-                    _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
-                }
-            }
+            // TODO: fix Legend placement if possible
+            //if (_plotView.Model.IsLegendVisible)
+            //{
+            //    if (_wasPortrait)
+            //    {
+            //        _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+            //        _plotView.Model.LegendPosition = LegendPosition.RightTop;
+            //        _plotView.Model.LegendOrientation = LegendOrientation.Vertical;
+            //    }
+            //    else
+            //    {
+            //        _plotView.Model.LegendPlacement = LegendPlacement.Outside;
+            //        _plotView.Model.LegendPosition = LegendPosition.TopRight;
+            //        _plotView.Model.LegendOrientation = LegendOrientation.Horizontal;
+            //    }
+            //}
 
-            _plotView.Model.InvalidatePlot(true);
+            // TODO: is this still needed?
+            //_plotView.Model.InvalidatePlot(true);
         }
 
         private async void picker_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadData();
-        }
-    }
-
-    /// <summary>
-    /// The app crashes on iOS when removing, then adding the OxyPlot view to the content's children collection
-    /// So use this hack to avoid it
-    /// </summary>
-    public class ViewResolvingPlotModel : PlotModel, IPlotModel
-    {
-        private static readonly Type BaseType = typeof(ViewResolvingPlotModel).BaseType;
-        private static readonly MethodInfo BaseAttachMethod = BaseType
-            .GetMethods(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly)
-            .Where(methodInfo => methodInfo.IsFinal && methodInfo.IsPrivate)
-            .FirstOrDefault(methodInfo => methodInfo.Name.EndsWith(nameof(IPlotModel.AttachPlotView)));
-
-        void IPlotModel.AttachPlotView(IPlotView plotView)
-        {
-            //because of issue https://github.com/oxyplot/oxyplot/issues/497 
-            //only one view can ever be attached to one plotmodel
-            //we have to force detach previous view and then attach new one
-            if (plotView != null && PlotView != null && !Equals(plotView, PlotView))
-            {
-                BaseAttachMethod.Invoke(this, new object[] { null });
-                BaseAttachMethod.Invoke(this, new object[] { plotView });
-            }
-            else
-            {
-                BaseAttachMethod.Invoke(this, new object[] { plotView });
-            }
         }
     }
 }

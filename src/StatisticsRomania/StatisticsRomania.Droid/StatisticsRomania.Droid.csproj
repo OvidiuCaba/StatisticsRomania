@@ -1,65 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{491B8346-E33F-4E86-BA53-97DF1095D582}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StatisticsRomania.Droid</RootNamespace>
-    <AssemblyName>StatisticsRomania.Droid</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <AndroidApplication>true</AndroidApplication>
-    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
-    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
+    <OutputType>Exe</OutputType>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <JavaMaximumHeapSize />
     <JavaOptions />
-    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseMaui>true</UseMaui>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
-    <AndroidLinkMode>None</AndroidLinkMode>
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
-    <AndroidSupportedAbis>
-    </AndroidSupportedAbis>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <MandroidI18n />
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidLinkSkip>
     </AndroidLinkSkip>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
-    <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
     <Debugger>Xamarin</Debugger>
@@ -67,68 +29,26 @@
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
     <EnableProguard>False</EnableProguard>
-    <DebugSymbols>False</DebugSymbols>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
-    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0-android</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Java.Interop" />
-    <Reference Include="Mono.Android" />
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderers\AdMobViewRenderer.cs" />
-    <Compile Include="Renderers\MyPickerRenderer.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SplashActivity.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\AndroidManifest.xml" />
-    <AndroidResource Include="Resources\drawable\splash.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\splash.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\splash.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\splash.png" />
-    <AndroidResource Include="Resources\values\Styles.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\StatisticsRomania.Repository\StatisticsRomania.Repository.csproj">
-      <Project>{a359f71d-b536-4f9b-8a47-5e4c3ec02796}</Project>
-      <Name>StatisticsRomania.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StatisticsRomania\StatisticsRomania.csproj">
-      <Name>StatisticsRomania</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\StatisticsRomania.Repository\StatisticsRomania.Repository.csproj" />
+    <ProjectReference Include="..\StatisticsRomania\StatisticsRomania.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="akavache">
       <Version>6.0.20</Version>
     </PackageReference>
-    <PackageReference Include="DevExpress.XamarinForms.Grid">
-      <Version>22.1.6</Version>
-    </PackageReference>
+    <PackageReference Include="DevExpress.Maui.Charts" Version="22.1.6" />
+    <PackageReference Include="DevExpress.Maui.DataGrid" Version="22.1.6" />
     <PackageReference Include="Microsoft.Win32.Primitives">
       <Version>4.3.0</Version>
     </PackageReference>
@@ -137,12 +57,6 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="OxyPlot.Core">
-      <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="OxyPlot.Xamarin.Forms">
-      <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="Splat">
       <Version>5.0.2</Version>
@@ -226,7 +140,7 @@
       <Version>4.3.0</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
-      <Version>4.5.1</Version>
+      <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="System.Runtime.Extensions">
       <Version>4.3.0</Version>
@@ -288,31 +202,8 @@
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.MediaRouter">
-      <Version>1.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.AndroidX.Palette">
-      <Version>1.0.0.5</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Firebase.Ads">
-      <Version>120.3.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Forms">
-      <Version>5.0.0.2515</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.GooglePlayServices.Ads">
-      <Version>120.3.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.GooglePlayServices.Ads.Base">
-      <Version>120.3.0.3</Version>
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.346202">
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-     Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -1,52 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿// TODO: add back later
 
-using Android.App;
-using Android.Content;
-using Android.Gms.Ads;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using StatisticsRomania.Controls;
-using StatisticsRomania.Droid.Renderers;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
 
-[assembly: ExportRenderer(typeof(AdMobView), typeof(AdMobViewRenderer))]
-namespace StatisticsRomania.Droid.Renderers
-{
-    public class AdMobViewRenderer : ViewRenderer<AdMobView, AdView>
-    {
-        public AdMobViewRenderer(Context context) : base(context) { }
+//using Android.App;
+//using Android.Content;
+//using Android.Gms.Ads;
+//using Android.OS;
+//using Android.Runtime;
+//using Android.Views;
+//using Android.Widget;
+//using StatisticsRomania.Controls;
+//using StatisticsRomania.Droid.Renderers;
+//using Microsoft.Maui;
+//using Microsoft.Maui.Controls;
 
-        private AdView CreateAdView()
-        {
-            var adView = new AdView(Context)
-            {
-                AdSize = AdSize.SmartBanner,
-                AdUnitId = "ca-app-pub-4024802291999001/1426356760",
-                LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent)
-            };
+//[assembly: ExportRenderer(typeof(AdMobView), typeof(AdMobViewRenderer))]
+//namespace StatisticsRomania.Droid.Renderers
+//{
+//    public class AdMobViewRenderer : ViewRenderer<AdMobView, AdView>
+//    {
+//        public AdMobViewRenderer(Context context) : base(context) { }
 
-            int heightPixels = AdSize.SmartBanner.GetHeightInPixels(this.Context);
-            adView.SetMinimumHeight(heightPixels);
+//        private AdView CreateAdView()
+//        {
+//            var adView = new AdView(Context)
+//            {
+//                AdSize = AdSize.SmartBanner,
+//                AdUnitId = "ca-app-pub-4024802291999001/1426356760",
+//                LayoutParameters = new LinearLayout.LayoutParams(LayoutParams.MatchParent, LayoutParams.MatchParent)
+//            };
 
-            adView.LoadAd(new AdRequest.Builder().Build());
+//            int heightPixels = AdSize.SmartBanner.GetHeightInPixels(this.Context);
+//            adView.SetMinimumHeight(heightPixels);
 
-            return adView;
-        }
+//            adView.LoadAd(new AdRequest.Builder().Build());
 
-        protected override void OnElementChanged(ElementChangedEventArgs<AdMobView> e)
-        {
-            base.OnElementChanged(e);
+//            return adView;
+//        }
 
-            if (e.NewElement != null && Control == null)
-            {
-                SetNativeControl(CreateAdView());
-            }
-        }
-    }
-}
+//        protected override void OnElementChanged(ElementChangedEventArgs<AdMobView> e)
+//        {
+//            base.OnElementChanged(e);
+
+//            if (e.NewElement != null && Control == null)
+//            {
+//                SetNativeControl(CreateAdView());
+//            }
+//        }
+//    }
+//}

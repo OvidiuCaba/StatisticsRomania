@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticsRomania", "StatisticsRomania\StatisticsRomania\StatisticsRomania.csproj", "{9D3B5481-D606-4B9B-B31B-103DA4372B29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticsRomania.Droid", "StatisticsRomania\StatisticsRomania.Droid\StatisticsRomania.Droid.csproj", "{491B8346-E33F-4E86-BA53-97DF1095D582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticsRomania.Droid", "StatisticsRomania\StatisticsRomania.Droid\StatisticsRomania.Droid.csproj", "{491B8346-E33F-4E86-BA53-97DF1095D582}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticsRomania.BusinessObjects", "StatisticsRomania.BusinessObjects\StatisticsRomania.BusinessObjects.csproj", "{ACC5063F-F485-4595-933C-AE12139553CC}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeederGenerator", "SeederGe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebClient", "WebClient\WebClient.csproj", "{F1825549-6428-4DC1-9EC8-79E79DC9D3B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatisticsRomania.iOS", "StatisticsRomania\StatisticsRomania.iOS\StatisticsRomania.iOS.csproj", "{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StatisticsRomania.iOS", "StatisticsRomania\StatisticsRomania.iOS\StatisticsRomania.iOS.csproj", "{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{969235E6-22BD-4DAF-9D72-82E6148838FE}"
 EndProject
@@ -227,14 +227,14 @@ Global
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.AppStore|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.AppStore|Mixed Platforms.ActiveCfg = AppStore|iPhone
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.AppStore|Mixed Platforms.Build.0 = AppStore|iPhone
-		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|iPhone.Build.0 = Debug|iPhone
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|Mixed Platforms.ActiveCfg = Debug|iPhone
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Debug|Mixed Platforms.Build.0 = Debug|iPhone
-		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Release|iPhone.ActiveCfg = Release|iPhone
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Release|iPhone.Build.0 = Release|iPhone
 		{E21CFCA8-EC23-4AA5-A3EA-E19C12A8DFC4}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator

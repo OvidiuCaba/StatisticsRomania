@@ -1,7 +1,8 @@
 ﻿using Akavache;
 using SQLite;
 using StatisticsRomania.Views;
-using Xamarin.Forms;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls;
 
 namespace StatisticsRomania
 {
@@ -38,8 +39,6 @@ namespace StatisticsRomania
     {
         public App()
         {
-            DevExpress.XamarinForms.DataGrid.Initializer.Init();
-
             // The root page of your application
             MainPage = new RootPage();
         }
