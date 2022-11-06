@@ -13,6 +13,7 @@ using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using DevExpress.Maui.DataGrid;
 using DevExpress.Maui.Charts;
 using ValueType = DevExpress.Maui.Charts.ValueType;
+using Microsoft.Maui.Graphics;
 
 namespace StatisticsRomania.Views
 {
@@ -42,7 +43,7 @@ namespace StatisticsRomania.Views
             Init();
         }
 
-        private async Task Init()
+        private void Init()
         {
             _viewModel = new CountyDetailsViewModel();
             _viewModel.GetCounties();
@@ -83,13 +84,13 @@ namespace StatisticsRomania.Views
             }
 
             _degChapterData = new DataGridView();
-            _degChapterData.SetBinding(DataGridView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
+            //_degChapterData.SetBinding(DataGridView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _degChapterData.IsReadOnly = true;
             //_degChapterData.AllowResizeColumns = false;
-            _degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
-            _degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
+            //_degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
+            //_degChapterData.VerticalOptions = LayoutOptions.FillAndExpand;
             _degChapterData.Columns.Add(new TextColumn() { Caption = "An", FieldName = "Year", IsReadOnly = true, AllowSort = DevExpress.Utils.DefaultBoolean.False });
-            _degChapterData.Columns.Add(new TextColumn() { Caption = "Luna", FieldName = "YearFraction", IsReadOnly = true, AllowSort = DevExpress.Utils.DefaultBoolean.False });
+            _degChapterData.Columns.Add(new TextColumn() { Caption = "Luna" , FieldName = "YearFraction", IsReadOnly = true, AllowSort = DevExpress.Utils.DefaultBoolean.False });
             var valueColumn = new TextColumn()
             {
                 FieldName = "Value",
@@ -111,16 +112,16 @@ namespace StatisticsRomania.Views
             _degChapterData.Tap += _degChapterData_Tap;
 
             _plotView = new ChartView();
-            _plotView.SetBinding(IsVisibleProperty, new Binding("HasData", source: _viewModel));
-            _plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
-            _plotView.VerticalOptions = LayoutOptions.FillAndExpand;
+            //_plotView.SetBinding(IsVisibleProperty, new Binding("HasData", source: _viewModel));
+            //_plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
+            //_plotView.VerticalOptions = LayoutOptions.FillAndExpand;
             var series = new LineSeries();
-            series.Data = new SeriesDataAdapter() { DataSource = _viewModel.ChapterData};
+            series.Data = new SeriesDataAdapter() { DataSource = _viewModel.ChapterData };
             _plotView.Series.Add(series);
-            // TODO: fix this
-            //_plotView.Model.Title = "Evolutie indicator";
-            if (Device.RuntimePlatform == Device.Android)
-                _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
+            //// TODO: fix this
+            ////_plotView.Model.Title = "Evolutie indicator";
+            //if (Device.RuntimePlatform == Device.Android)
+            //    _plotView.BackgroundColor = Color.FromRgb(51, 51, 51);
 
             var gridTop = Device.RuntimePlatform == Device.Android ? 5 : 0;
 
@@ -162,7 +163,24 @@ namespace StatisticsRomania.Views
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
 
-            await LoadData();
+            _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
+            // TODO: Height / 3
+            _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(300, GridUnitType.Absolute) });
+            _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+
+            _grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+            _grid.Add(_firstRowOfHeader, 0, 0);
+            _grid.Add(_pickerChapters, 0, 1);
+            _grid.Add(_degChapterData, 0, 2);
+            _grid.Add(_plotView, 0, 3);
+            // TODO:
+            //_grid.Add(_adMobView, 0, 4);
+
+            // TODO:
+            LoadData();
         }
 
         private void _degChapterData_Tap(object sender, DataGridGestureEventArgs e)
@@ -197,62 +215,11 @@ namespace StatisticsRomania.Views
                 return;
             }
 
-            _width = width;
-            _height = height;
+            return;
 
-            var isPortrait = height > width;
+            // TODO: On tablet, on landscape, grid on the left, chart on the right
 
-            _grid.RowDefinitions.Clear();
-            _grid.ColumnDefinitions.Clear();
-            _grid.Children.Clear();
-
-            if (isPortrait)
-            {
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                //_grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
-                //_grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
-                //_grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-
-                _grid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                _grid.Add(_firstRowOfHeader, 0, 0);
-                _grid.Add(_pickerChapters, 0, 1);
-                try
-                {
-                    //_grid.Add(_degChapterData, 0, 2);
-                    //_grid.Add(_plotView, 0, 3);
-                    //_grid.Add(_adMobView, 0, 4);
-                }
-                catch { }
-                // TODO: rmeove this
-                //_grid.Add(_plotView, 0, 3);
-                //_grid.Add(_adMobView, 0, 4);
-            }
-            else
-            {
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
-                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-
-                _grid.ColumnDefinitions.Add(new ColumnDefinition());
-                _grid.ColumnDefinitions.Add(new ColumnDefinition());
-
-                // TODO: test rotation
-                //_grid.Add(_firstRowOfHeader, 0, 2, 0, 1);
-                Grid.SetRow(_firstRowOfHeader, 0);
-                Grid.SetColumnSpan(_firstRowOfHeader, 2);
-                //_grid.Add(_pickerChapters, 0, 2, 1, 2);
-                Grid.SetRow(_pickerChapters, 1);
-                Grid.SetColumnSpan(_pickerChapters, 2);
-                _grid.Add(_degChapterData, 0, 2);
-                _grid.Add(_plotView, 1, 2);
-                //_grid.Add(_adMobView, 0, 2, 3, 4);
-                Grid.SetRow(_adMobView, 3);
-                Grid.SetColumnSpan(_adMobView, 2);
-            }
-
+            // TODO: On portrait and on landscape the legend placement may need to differ
             // TODO: duplicate code, try to clean it
             // TODO: null ref exc
             //_plotView.Legend.Visible = _plotView.Series.Count > 1;
@@ -274,7 +241,7 @@ namespace StatisticsRomania.Views
             //    }
             //}
 
-            _wasPortrait = isPortrait;
+            //_wasPortrait = isPortrait;
         }
 
         private async Task LoadData()
@@ -319,8 +286,8 @@ namespace StatisticsRomania.Views
             _plotView.Series.Clear();
 
             var series = new LineSeries();
-            series.Data = new SeriesDataAdapter() 
-            { 
+            series.Data = new SeriesDataAdapter()
+            {
                 DataSource = _viewModel.ChapterData,
                 ArgumentDataMember = "TimeStamp",
             };
@@ -332,8 +299,8 @@ namespace StatisticsRomania.Views
             if (_viewModel.Value2ColumnVisibility)
             {
                 var series2 = new LineSeries();
-                series2.Data = new SeriesDataAdapter() 
-                { 
+                series2.Data = new SeriesDataAdapter()
+                {
                     DataSource = _viewModel.ChapterData,
                     ArgumentDataMember = "TimeStamp",
                 };
@@ -343,6 +310,11 @@ namespace StatisticsRomania.Views
                 _plotView.Series.Add(series2);
             }
 
+            // TODO: legend is not correct, as it does not display the counties
+            if (_plotView.Legend == null)
+            {
+                _plotView.Legend = new Legend();
+            }
             _plotView.Legend.Visible = _plotView.Series.Count > 1;
 
             // TODO: fix Legend placement if possible
