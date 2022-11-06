@@ -32,6 +32,7 @@ namespace StatisticsRomania.ViewModels
 
         public bool Value2ColumnVisibility { get; set; }
 
+        // TODO: remove or fix
         public bool HasData { get; set; }
 
         public CountyDetailsViewModel()
