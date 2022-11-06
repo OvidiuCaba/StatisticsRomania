@@ -33,6 +33,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>net6.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Java.Interop" />
