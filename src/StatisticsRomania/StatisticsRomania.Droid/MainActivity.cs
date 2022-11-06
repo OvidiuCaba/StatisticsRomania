@@ -13,7 +13,7 @@ using StatisticsRomania.Repository;
 
 namespace StatisticsRomania.Droid
 {
-    [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, Theme = "@style/MainTheme")]
+    [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density, Theme = "@style/MainTheme")]
     //                          global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     public class MainActivity : MauiAppCompatActivity
     {
