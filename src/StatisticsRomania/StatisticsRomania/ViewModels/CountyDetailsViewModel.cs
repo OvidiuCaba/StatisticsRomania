@@ -32,9 +32,6 @@ namespace StatisticsRomania.ViewModels
 
         public bool Value2ColumnVisibility { get; set; }
 
-        // TODO: remove or fix
-        public bool HasData { get; set; }
-
         public CountyDetailsViewModel()
         {
             _chapterData = new ObservableCollection<Data>();
@@ -107,8 +104,6 @@ namespace StatisticsRomania.ViewModels
 
             if (!dataIsOrdered)
                 data = data.OrderByDescending(x => x.Year).ThenByDescending(x => x.YearFraction).ToList();
-
-            HasData = data.Count > 0;
 
             if (countyId2 >= 1 && countyId != countyId2)
             {

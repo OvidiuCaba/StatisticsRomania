@@ -84,7 +84,6 @@ namespace StatisticsRomania.Views
             }
 
             _degChapterData = new DataGridView();
-            //_degChapterData.SetBinding(DataGridView.IsVisibleProperty, new Binding("HasData", source: _viewModel));
             _degChapterData.IsReadOnly = true;
             //_degChapterData.AllowResizeColumns = false;
             //_degChapterData.HorizontalOptions = LayoutOptions.FillAndExpand;
@@ -112,7 +111,6 @@ namespace StatisticsRomania.Views
             _degChapterData.Tap += _degChapterData_Tap;
 
             _plotView = new ChartView();
-            //_plotView.SetBinding(IsVisibleProperty, new Binding("HasData", source: _viewModel));
             //_plotView.HorizontalOptions = LayoutOptions.FillAndExpand;
             //_plotView.VerticalOptions = LayoutOptions.FillAndExpand;
             var series = new LineSeries();
