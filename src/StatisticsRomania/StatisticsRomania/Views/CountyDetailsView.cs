@@ -14,6 +14,7 @@ using DevExpress.Maui.DataGrid;
 using DevExpress.Maui.Charts;
 using ValueType = DevExpress.Maui.Charts.ValueType;
 using Microsoft.Maui.Graphics;
+using StatisticsRomania.BusinessObjects;
 
 namespace StatisticsRomania.Views
 {
@@ -165,7 +166,7 @@ namespace StatisticsRomania.Views
             _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
             // TODO: Height / 3
-            _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(300, GridUnitType.Absolute) });
+            _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density / 3, GridUnitType.Absolute) });
             _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
             _grid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -213,6 +214,10 @@ namespace StatisticsRomania.Views
                 return;
             }
 
+            _grid.RowDefinitions[3].Height = new GridLength((DeviceDisplay.MainDisplayInfo.Orientation == DisplayOrientation.Portrait ? DeviceDisplay.MainDisplayInfo.Height : 0) / DeviceDisplay.MainDisplayInfo.Density / 3, GridUnitType.Absolute);
+
+            RefreshLayout();
+
             return;
 
             // TODO: On tablet, on landscape, grid on the left, chart on the right
@@ -240,6 +245,17 @@ namespace StatisticsRomania.Views
             //}
 
             //_wasPortrait = isPortrait;
+        }
+
+        // Ugly hack to refresh layout; no matter what I tried, the layout is not refreshed; the below stuff does the trick
+        private void RefreshLayout()
+        {
+            if (_viewModel.ChapterData.Any())
+            {
+                var xxx = _viewModel.ChapterData.Last();
+                _viewModel.ChapterData.Remove(xxx);
+                _viewModel.ChapterData.Add(xxx);
+            }
         }
 
         private async Task LoadData()
