@@ -16,7 +16,7 @@ namespace StatisticsRomania.Lib
         {
             var key = $"CountyDetails_{chapter}_{countyId}_{countyId2}";
 
-            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.None)
             {
                 try
                 {
@@ -48,7 +48,7 @@ namespace StatisticsRomania.Lib
         {
             var key = $"Standings_{chapter}_{year}_{yearFraction}";
 
-            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.None)
             {
                 try
                 {
