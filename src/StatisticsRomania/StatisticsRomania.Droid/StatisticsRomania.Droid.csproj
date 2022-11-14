@@ -207,4 +207,5 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionStatisticsRomaniaDroidHideInfoBar="True" XamarinHotReloadGenericExceptionInfoBarStatisticsRomaniaDroidHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 </Project>

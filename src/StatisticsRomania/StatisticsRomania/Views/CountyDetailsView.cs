@@ -16,6 +16,8 @@ using ValueType = DevExpress.Maui.Charts.ValueType;
 using Microsoft.Maui.Graphics;
 using StatisticsRomania.BusinessObjects;
 
+// TODO: cleanup
+
 namespace StatisticsRomania.Views
 {
     public class CountyDetailsView : ContentPage
@@ -214,11 +216,65 @@ namespace StatisticsRomania.Views
                 return;
             }
 
-            _grid.RowDefinitions[3].Height = new GridLength((DeviceDisplay.MainDisplayInfo.Orientation == DisplayOrientation.Portrait ? DeviceDisplay.MainDisplayInfo.Height : 0) / DeviceDisplay.MainDisplayInfo.Density / 3, GridUnitType.Absolute);
+            //_grid.RowDefinitions[3].Height = new GridLength((DeviceDisplay.MainDisplayInfo.Orientation == DisplayOrientation.Portrait ? DeviceDisplay.MainDisplayInfo.Height : 0) / DeviceDisplay.MainDisplayInfo.Density / 3, GridUnitType.Absolute);
+
+            _width = width;
+            _height = height;
+
+            var isPortrait = height > width;
+
+            _grid.RowDefinitions.Clear();
+            _grid.ColumnDefinitions.Clear();
+            _grid.Children.Clear();
+
+            if (isPortrait)
+            {
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
+                //_grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+
+                _grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                _grid.Add(_firstRowOfHeader, 0, 0);
+                _grid.Add(_pickerChapters, 0, 1);
+                //try
+                //{
+                    _grid.Add(_degChapterData, 0, 2);
+                    _grid.Add(_plotView, 0, 3);
+                    //_grid.Add(_adMobView, 0, 4);
+                //}
+                //catch { }
+                // TODO: rmeove this
+                //_grid.Add(_plotView, 0, 3);
+                //_grid.Add(_adMobView, 0, 4);
+            }
+            else
+            {
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+
+                _grid.ColumnDefinitions.Add(new ColumnDefinition());
+                _grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+                // TODO: test rotation
+                _grid.Add(_firstRowOfHeader, 0, 0);
+                //Grid.SetRow(_firstRowOfHeader, 0);
+                Grid.SetColumnSpan(_firstRowOfHeader, 2);
+                _grid.Add(_pickerChapters, 0, 1);
+                //Grid.SetRow(_pickerChapters, 1);
+                Grid.SetColumnSpan(_pickerChapters, 2);
+                _grid.Add(_degChapterData, 0, 2);
+                _grid.Add(_plotView, 1, 2);
+                //_grid.Add(_adMobView, 0, 2, 3, 4);
+                //Grid.SetRow(_adMobView, 3);
+                //Grid.SetColumnSpan(_adMobView, 2);
+            }
 
             RefreshLayout();
-
-            return;
 
             // TODO: On tablet, on landscape, grid on the left, chart on the right
 
