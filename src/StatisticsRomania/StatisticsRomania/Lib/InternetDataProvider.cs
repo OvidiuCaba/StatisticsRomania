@@ -1,6 +1,5 @@
 ﻿using Akavache;
 using Newtonsoft.Json;
-using Plugin.Connectivity;
 using StatisticsRomania.BusinessObjects;
 using StatisticsRomania.ViewModels;
 using System;
@@ -17,7 +16,7 @@ namespace StatisticsRomania.Lib
         {
             var key = $"CountyDetails_{chapter}_{countyId}_{countyId2}";
 
-            if (CrossConnectivity.Current.IsConnected == false)
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
             {
                 try
                 {
@@ -49,7 +48,7 @@ namespace StatisticsRomania.Lib
         {
             var key = $"Standings_{chapter}_{year}_{yearFraction}";
 
-            if (CrossConnectivity.Current.IsConnected == false)
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
             {
                 try
                 {
