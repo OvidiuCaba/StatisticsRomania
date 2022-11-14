@@ -14,7 +14,6 @@ using StatisticsRomania.Repository;
 namespace StatisticsRomania.Droid
 {
     [Activity(Label = "Statistici Romania", Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize | ConfigChanges.Density, Theme = "@style/MainTheme")]
-    //                          global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     public class MainActivity : MauiAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -24,8 +23,6 @@ namespace StatisticsRomania.Droid
             AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
 
             //Android.Gms.Ads.MobileAds.Initialize(ApplicationContext, "ca-app-pub-4024802291999001~8046647573");
-
-            //global::Xamarin.Forms.Forms.Init(this, bundle);
 
             //LoadApplication(new App());
         }
