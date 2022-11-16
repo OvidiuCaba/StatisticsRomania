@@ -100,7 +100,8 @@ namespace StatisticsRomania.Views
             _degStandings.Tap += _degStandings_Tap;
             _degStandings.TotalSummaries.Add(new GridColumnSummary { FieldName = "County", Type = SummaryType.Count, DisplayFormat = "TOTAL" });
             _degStandings.TotalSummaries.Add(new GridColumnSummary { FieldName = "Value", Type = SummaryType.None, DisplayFormat = "{0:0}" });
-            _degStandings.SetBinding(DataGridView.IsVisibleProperty, "HasData");
+            // TODO: this doesn't work - perhaps wrap it into a grid [wrapped, works, but not nice, to be fixed later]
+            //_degStandings.SetBinding(DataGridView.IsVisibleProperty, new Binding("HasData", BindingMode.OneWayToSource, source: _viewModel));
 
             var lblNoData = new Label()
                                   {
@@ -157,7 +158,14 @@ namespace StatisticsRomania.Views
                 }
             };
             grid.Add(header, 0, 1);
-            grid.Add(_degStandings, 0, 2);
+            // TODO: ugly workaround, to be cleaned up later
+            var grid2 = new Grid
+            {
+                _degStandings
+            };
+            grid2.SetBinding(DataGridView.IsVisibleProperty, new Binding("HasData", BindingMode.Default, source: _viewModel));
+            //grid.Add(_degStandings, 0, 2);
+            grid.Add(grid2, 0, 2);
             grid.Add(stackNoData, 0, 2);
 
             //var adMobView = new AdMobView
