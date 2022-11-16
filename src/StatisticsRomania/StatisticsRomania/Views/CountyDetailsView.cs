@@ -356,6 +356,7 @@ namespace StatisticsRomania.Views
             _plotView.Series.Clear();
 
             var series = new LineSeries();
+            series.DisplayName = _viewModel.CountyList.FirstOrDefault(x => x.Value == selectedCounty).Key;
             series.Data = new SeriesDataAdapter()
             {
                 DataSource = _viewModel.ChapterData,
@@ -369,6 +370,7 @@ namespace StatisticsRomania.Views
             if (_viewModel.Value2ColumnVisibility)
             {
                 var series2 = new LineSeries();
+                series2.DisplayName = _viewModel.CountyList.FirstOrDefault(x => x.Value == selectedCounty2).Key;
                 series2.Data = new SeriesDataAdapter()
                 {
                     DataSource = _viewModel.ChapterData,
