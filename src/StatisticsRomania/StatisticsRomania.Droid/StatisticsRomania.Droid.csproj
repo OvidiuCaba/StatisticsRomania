@@ -35,11 +35,6 @@
     <TargetFramework>net6.0-android</TargetFramework>
     <SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
   </PropertyGroup>
-  <!--<ItemGroup>
-    <Reference Include="Java.Interop" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Runtime.Serialization" />
-  </ItemGroup>-->
   <ItemGroup>
     <ProjectReference Include="..\..\StatisticsRomania.Repository\StatisticsRomania.Repository.csproj" />
     <ProjectReference Include="..\StatisticsRomania\StatisticsRomania.csproj" />
