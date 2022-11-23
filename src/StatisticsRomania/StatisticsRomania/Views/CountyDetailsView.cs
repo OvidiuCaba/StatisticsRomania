@@ -15,6 +15,7 @@ using DevExpress.Maui.Charts;
 using ValueType = DevExpress.Maui.Charts.ValueType;
 using Microsoft.Maui.Graphics;
 using StatisticsRomania.BusinessObjects;
+using Plugin.MauiMTAdmob.Controls;
 
 // TODO: cleanup
 
@@ -35,7 +36,7 @@ namespace StatisticsRomania.Views
         // TODO rename field name
         private ChartView _plotView;
 
-        private AdMobView _adMobView;
+        private MTAdView _adMobView;
 
         public CountyDetailsView()
         {
@@ -158,11 +159,14 @@ namespace StatisticsRomania.Views
             _pickerCounties2.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
 
-            _adMobView = new AdMobView
+            _adMobView = new MTAdView
             {
+                AdSize = Plugin.MauiMTAdmob.Extra.BannerSize.Smart,
+                AdsId = "ca-app-pub-4024802291999001/1426356760",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
             };
+            _adMobView.LoadAd();
 
             _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
@@ -177,8 +181,7 @@ namespace StatisticsRomania.Views
             _grid.Add(_pickerChapters, 0, 1);
             _grid.Add(_degChapterData, 0, 2);
             _grid.Add(_plotView, 0, 3);
-            // TODO:
-            //_grid.Add(_adMobView, 0, 4);
+            _grid.Add(_adMobView, 0, 4);
 
             // TODO:
             LoadData();
@@ -233,7 +236,7 @@ namespace StatisticsRomania.Views
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
                 _grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(_height / 3, GridUnitType.Absolute) });
-                //_grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+                _grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
                 _grid.ColumnDefinitions.Add(new ColumnDefinition());
 
@@ -243,7 +246,7 @@ namespace StatisticsRomania.Views
                 //{
                     _grid.Add(_degChapterData, 0, 2);
                     _grid.Add(_plotView, 0, 3);
-                    //_grid.Add(_adMobView, 0, 4);
+                    _grid.Add(_adMobView, 0, 4);
                 //}
                 //catch { }
                 // TODO: rmeove this
@@ -269,9 +272,9 @@ namespace StatisticsRomania.Views
                 Grid.SetColumnSpan(_pickerChapters, 2);
                 _grid.Add(_degChapterData, 0, 2);
                 _grid.Add(_plotView, 1, 2);
-                //_grid.Add(_adMobView, 0, 2, 3, 4);
+                _grid.Add(_adMobView, 0, 3);
                 //Grid.SetRow(_adMobView, 3);
-                //Grid.SetColumnSpan(_adMobView, 2);
+                Grid.SetColumnSpan(_adMobView, 2);
             }
 
             RefreshLayout();

@@ -10,6 +10,7 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using DevExpress.Maui.DataGrid;
 using Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
+using Plugin.MauiMTAdmob.Controls;
 
 namespace StatisticsRomania.Views
 {
@@ -168,12 +169,15 @@ namespace StatisticsRomania.Views
             grid.Add(grid2, 0, 2);
             grid.Add(stackNoData, 0, 2);
 
-            //var adMobView = new AdMobView
-            //{
-            //    HorizontalOptions = LayoutOptions.FillAndExpand,
-            //    VerticalOptions = LayoutOptions.FillAndExpand,
-            //};
-            //grid.Add(adMobView, 0, 3);
+            var adMobView = new MTAdView
+            {
+                AdSize = Plugin.MauiMTAdmob.Extra.BannerSize.Smart,
+                AdsId = "ca-app-pub-4024802291999001/1426356760",
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+            };
+            adMobView.LoadAd();
+            grid.Add(adMobView, 0, 3);
 
             this.Content = grid;
 

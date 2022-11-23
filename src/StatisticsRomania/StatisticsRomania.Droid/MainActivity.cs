@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using StatisticsRomania.Repository;
+using Android.Gms.Ads;
 
 // ca-app-pub-4024802291999001~8046647573 - app ID
 // ca-app-pub-4024802291999001/1426356760 - ad unit ID
@@ -19,6 +20,8 @@ namespace StatisticsRomania.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            MobileAds.Initialize(this);
 
             AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
 

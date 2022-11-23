@@ -1,5 +1,5 @@
-﻿
-using DevExpress.Maui;
+﻿using DevExpress.Maui;
+using Plugin.MauiMTAdmob;
 
 namespace StatisticsRomania;
 
@@ -10,7 +10,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseDevExpress()
-			.UseMauiApp<App>();
+			.UseMauiApp<App>()
+            .UseMauiMTAdmob();
 
 		return builder.Build();
 	}
