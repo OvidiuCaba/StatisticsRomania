@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.statisticiromania.app" android:installLocation="auto" android:versionCode="113" android:versionName="1.47">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.statisticiromania.app" android:installLocation="auto" android:versionCode="115" android:versionName="2.00">
 	<uses-sdk android:targetSdkVersion="31" android:minSdkVersion="21" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
