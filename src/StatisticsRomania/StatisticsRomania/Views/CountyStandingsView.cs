@@ -185,6 +185,9 @@ namespace StatisticsRomania.Views
             _pickerYears.SelectedIndex = _pickerYears.Items.IndexOf(Settings.Year.ToString());
             _pickerYearFractions.SelectedIndex = _pickerYearFractions.Items.IndexOf(Settings.Month.ToString());
 
+            if (_pickerYearFractions.SelectedIndex == -1)
+                _pickerYearFractions.SelectedIndex = 0;
+
             _pickerChapters.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerYears.SelectedIndexChanged += picker_SelectedIndexChanged;
             _pickerYearFractions.SelectedIndexChanged += picker_SelectedIndexChanged;
