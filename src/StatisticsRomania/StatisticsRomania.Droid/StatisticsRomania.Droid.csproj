@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="akavache">
-      <Version>6.0.20</Version>
+      <Version>9.0.1</Version>
     </PackageReference>
     <PackageReference Include="DevExpress.Maui.Charts" Version="22.1.6" />
     <PackageReference Include="DevExpress.Maui.DataGrid" Version="22.1.6" />
@@ -51,14 +51,14 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
+      <Version>13.0.2</Version>
     </PackageReference>
     <PackageReference Include="Plugin.MauiMTAdmob" Version="1.0.0" />
     <PackageReference Include="Splat">
-      <Version>5.0.2</Version>
+      <Version>14.5.1</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
-      <Version>1.5.231</Version>
+      <Version>1.8.116</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.346202">
       <PrivateAssets>all</PrivateAssets>
