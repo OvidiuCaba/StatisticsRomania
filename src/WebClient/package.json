@@ -34,7 +34,7 @@
     "es6-shim": "^0.35.1",
     "event-source-polyfill": "0.0.9",
     "expose-loader": "^0.7.1",
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "extract-text-webpack-plugin": "^2.0.0-rc",
     "file-loader": "^1.1.5",
     "html-loader": "^0.5.1",
