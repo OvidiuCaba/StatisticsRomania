@@ -73,7 +73,7 @@ namespace SeederGenerator
 
             var sourcePath = Path.Combine(tempDir, tempDirSubFolder);
             var targetPath = dir;
-            //sourcePath = @"F:\INS\Temp\BSL Judete_iunie 2022";
+            //sourcePath = @"F:\INS\Temp\BSL Judete_noiembrie 2022";
             var sourceFiles = Directory.GetFiles(sourcePath);
             sourceFiles.ToList().ForEach(x =>
             {
