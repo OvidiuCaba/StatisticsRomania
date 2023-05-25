@@ -4,6 +4,7 @@ using StatisticsRomania.Lib;
 using StatisticsRomania.Repository.Seeders;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace TestProject
@@ -14,6 +15,44 @@ namespace TestProject
         public void Setup()
         {
         }
+
+        [Test]
+        public async Task AAA()
+        {
+            var months = new List<string> { "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie", "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie" };
+            var header = "Judete";
+            var counties = new Dictionary<string, List<(int, int, float)>>();
+            for (var year = 2015; year <= 2023; year++)
+            {
+                for (var month = 1; month <= 12; month++)
+                {
+                    try
+                    {
+                        header += $";{year} {months[month - 1]}";
+                        //var data = await IndicatorPerformersProvider.GetLast12MonthsData(year, month, typeof(ExportFob));
+                        var data = await IndicatorPerformersProvider.GetLast12MonthsData(year, month, typeof(NumberOfTourists));
+                        data.ForEach(d =>
+                        {
+                            if (!counties.ContainsKey(d.County.Name))
+                                counties.Add(d.County.Name, new List<(int, int, float)> { (year, month, d.Value) });
+                            else
+                                counties[d.County.Name].Add((year, month, d.Value));
+                        });
+                    }
+                    catch { }
+                }
+            }
+
+            var countiesRows = counties.Select(x => $"{x.Key};{string.Join(';', x.Value.Select(v => $"{v.Item3}"))}");
+            var text = header + Environment.NewLine + string.Join(Environment.NewLine, countiesRows);
+        }
+
+//        Super graficul, felicitari!
+//Oare se poate face unul la fel, dar sa fie in functie de un raport al numarului de turisti fa?? de populatia judetului vizitat?
+
+//Nu cred ca e acelasi lucru sa ai la o populatie de 300.000 sa zicem 500.000 turisti, sau la 2 milioane locuitori sa ai 500.000 turisti.
+
+//            Sursa: https://www.skyscrapercity.com/threads/oradea-caff%C3%A8.1724378/page-372#post-183030126
 
         [Test]
         public void MakeSureCovid19SeederWorks()
