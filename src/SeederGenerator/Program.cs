@@ -230,34 +230,17 @@ namespace SeederGenerator
             }
 
             var sheet = excelFile.GetSheetAt(0);
-            var columnYearStartIndex = -1;
 
-            for (var rowIndex = 0; rowIndex <= sheet.LastRowNum; rowIndex++)
+            chapterRowIndex = GetChapterRowIndex(chapter, chapterRowIndex, sheet, 0);
+
+            if (chapterRowIndex == -1)
             {
-                var row = sheet.GetRow(rowIndex);
-
-                if (row == null) // null is when the row only contains empty cells 
-                    continue;
-
-                var cell = row.GetCell(0);
-
-                if (cell == null)
-                    continue;
-
-                if (cell.CellType != CellType.String)
-                    continue;   // we're looking for chapter, so we don't care about the cell if it's not string
-
-                if (!cell.StringCellValue.ToLower().Contains(chapter.ToLower()) && !cell.StringCellValue.ToLower().Replace('ș', 'ş').Contains(chapter.ToLower()))
-                    continue;
-
-                chapterRowIndex = rowIndex;
-
-                break;
+                chapterRowIndex = GetChapterRowIndex(chapter, chapterRowIndex, sheet, 1);
             }
 
             var rowYear = sheet.GetRow(chapterRowIndex);
 
-            columnYearStartIndex =
+            var columnYearStartIndex =
                 rowYear.Cells.FirstOrDefault(x => (x.CellType == CellType.Numeric && x.NumericCellValue == year) || ((x.CellType == CellType.String && x.StringCellValue.Contains(year.ToString(CultureInfo.InvariantCulture)))))?.ColumnIndex ?? 0;
 
             if (columnYearStartIndex == 0)
@@ -284,6 +267,34 @@ namespace SeederGenerator
                 .Aggregate((c, n) => c + " " + n);
 
             return "\"" + year.ToString(CultureInfo.InvariantCulture) + " 1 " + county + " " + text + "\",";
+        }
+
+        private static int GetChapterRowIndex(string chapter, int chapterRowIndex, ISheet sheet, int chapterColumnIndex)
+        {
+            for (var rowIndex = 0; rowIndex <= sheet.LastRowNum; rowIndex++)
+            {
+                var row = sheet.GetRow(rowIndex);
+
+                if (row == null) // null is when the row only contains empty cells 
+                    continue;
+
+                var cell = row.GetCell(chapterColumnIndex);
+
+                if (cell == null)
+                    continue;
+
+                if (cell.CellType != CellType.String)
+                    continue;   // we're looking for chapter, so we don't care about the cell if it's not string
+
+                if (!cell.StringCellValue.ToLower().Contains(chapter.ToLower()) && !cell.StringCellValue.ToLower().Replace('ș', 'ş').Contains(chapter.ToLower()))
+                    continue;
+
+                chapterRowIndex = rowIndex;
+
+                break;
+            }
+
+            return chapterRowIndex;
         }
     }
 }
