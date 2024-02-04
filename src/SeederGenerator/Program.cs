@@ -26,23 +26,12 @@ namespace SeederGenerator
             var driveLetter = assemblyLocation.Substring(0, 1);
 
             var months = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "nov", "dec" };
+            var months2 = new[] { "ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "noi", "dec" };
 
             var downloadsFolder = KnownFolders.Downloads.Path;
-            var downloadsFiles = Directory.GetFiles(downloadsFolder);
-            var pattern = $@"[\w| ]*({string.Join("|", months)})[\w| |.]*(20[2-9][0-9])";
-            var downloadedFile = string.Empty;
-            downloadsFiles.ToList().ForEach(x =>
-            {
-                var downloadedFileMatch = Regex.Match(x, pattern, RegexOptions.IgnoreCase);
-
-                if (downloadedFileMatch.Success)
-                {
-                    if (string.IsNullOrEmpty(downloadedFile))
-                        downloadedFile = x;
-                    else
-                        throw new InvalidOperationException("More than one INS file was found in the Downloads directory.");
-                }
-            });
+            var downloadedFile = GetDownloadedFileName(months, downloadsFolder);
+            if (string.IsNullOrEmpty(downloadedFile))
+                downloadedFile = GetDownloadedFileName(months2, downloadsFolder);
 
             var tempDir = $@"{driveLetter}:\INS\Temp";
 
@@ -64,6 +53,8 @@ namespace SeederGenerator
             var yearString = Regex.Match(downloadedFile, @"\d+").Value;
             var year = int.Parse(yearString);                                                           // year - 1 for international commerce
             var monthString = Regex.Match(downloadedFile, $@"({string.Join("|", months)})").Value;
+            if (string.IsNullOrEmpty(monthString))
+                monthString = Regex.Match(downloadedFile, $@"({string.Join("|", months2)})").Value;
             var dir = $@"{driveLetter}:\INS\Publicatie BSL Judete_ Excel_luna {monthString}. {year}\";  // add {year + 1} for international commerce;
 
             if (!Directory.Exists(dir))
@@ -194,6 +185,26 @@ namespace SeederGenerator
             {
                 File.WriteAllText(targetDirectory + year + chapter + ".txt", res[chapter]);
             }
+        }
+
+        private static string GetDownloadedFileName(string[] months, string downloadsFolder)
+        {
+            var downloadsFiles = Directory.GetFiles(downloadsFolder);
+            var pattern = $@"[\w| ]*({string.Join("|", months)})[\w| |.]*(20[2-9][0-9])";
+            var downloadedFile = string.Empty;
+            downloadsFiles.ToList().ForEach(x =>
+            {
+                var downloadedFileMatch = Regex.Match(x, pattern, RegexOptions.IgnoreCase);
+
+                if (downloadedFileMatch.Success)
+                {
+                    if (string.IsNullOrEmpty(downloadedFile))
+                        downloadedFile = x;
+                    else
+                        throw new InvalidOperationException("More than one INS file was found in the Downloads directory.");
+                }
+            });
+            return downloadedFile;
         }
 
         private static string GetSeedingText(string county, string file, string chapter, int rowNumber, int year, string[] months)
