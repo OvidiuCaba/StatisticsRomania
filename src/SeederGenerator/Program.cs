@@ -65,6 +65,7 @@ namespace SeederGenerator
             var sourcePath = Path.Combine(tempDir, tempDirSubFolder);
             var targetPath = dir;
             //sourcePath = @"F:\INS\Temp\BSL Judete_noiembrie 2022";
+            sourcePath = tempDir;
             var sourceFiles = Directory.GetFiles(sourcePath);
             sourceFiles.ToList().ForEach(x =>
             {
@@ -223,6 +224,9 @@ namespace SeederGenerator
             // Sometimes INS provides Bucuresti, sometimes it provides București; so let's check for București, too
             if (!File.Exists(file) && county == "Bucuresti")
                 file = file.Replace("Bucuresti", "București");
+
+            if (!File.Exists(file) && county == "Bucuresti")
+                file = file.Replace("București", "Mun.Bucuresti");
 
             if (!File.Exists(file) && county == "Salaj")
                 file = file.Replace("Salaj", "Sălaj");
